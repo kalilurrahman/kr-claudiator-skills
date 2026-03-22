@@ -1,0 +1,9 @@
+{
+  "name": "Claudiator — The Claude Skills Generator",
+  "short_name": "Claudiator",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+}
