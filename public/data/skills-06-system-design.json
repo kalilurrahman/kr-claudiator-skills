@@ -3,34 +3,44 @@
   "categoryLabel": "System Design",
   "skills": [
     {
-      "id": "sk-050",
-      "name": "Architecture Decision Record Writer",
-      "description": "Create structured ADRs documenting context, decision, alternatives, and consequences.",
+      "id": "sk-060",
+      "name": "Architecture Decision",
+      "description": "Create Architecture Decision Records (ADRs) for documenting technical choices, alternatives, and trade-offs with team context.",
       "tags": ["adr", "architecture", "documentation"],
       "difficulty": "beginner",
-      "useCase": "Document architecture decisions clearly",
-      "promptPreview": "Write an ADR for choosing [technology/pattern] over [alternatives]. Include context, decision, consequences, and status.",
-      "githubPath": "skills/06-system-design/adr-writer.md"
+      "useCase": "Document architectural decisions",
+      "promptPreview": "Create Architecture Decision Records documenting technical choices, alternatives considered, trade-offs, and team context.",
+      "githubPath": "06-system-design/architecture-decision/SKILL.md"
     },
     {
-      "id": "sk-051",
-      "name": "Microservices Decomposer",
-      "description": "Decompose a monolith into microservices with bounded contexts, APIs, and data ownership.",
-      "tags": ["microservices", "ddd", "architecture"],
+      "id": "sk-061",
+      "name": "High Availability",
+      "description": "Design high-availability systems with redundancy, failover, and disaster recovery. Outputs HA architecture, SLA calculations, and failure scenarios.",
+      "tags": ["ha", "redundancy", "failover"],
       "difficulty": "advanced",
-      "useCase": "Plan monolith-to-microservices migration",
-      "promptPreview": "Decompose [application] into microservices. Define bounded contexts, service APIs, data ownership, and communication patterns.",
-      "githubPath": "skills/06-system-design/microservices-decomposer.md"
+      "useCase": "Design systems that never go down",
+      "promptPreview": "Design high-availability systems with redundancy, failover, disaster recovery, SLA calculations, and failure scenario analysis.",
+      "githubPath": "06-system-design/high-availability/SKILL.md"
     },
     {
-      "id": "sk-052",
-      "name": "API Schema Designer",
-      "description": "Design RESTful or GraphQL API schemas with endpoints, types, auth, and error handling.",
-      "tags": ["api", "rest", "graphql"],
+      "id": "sk-062",
+      "name": "Scalability Plan",
+      "description": "Design scalability strategies with horizontal/vertical scaling, caching, sharding, and capacity planning for growing systems.",
+      "tags": ["scalability", "scaling", "capacity"],
+      "difficulty": "advanced",
+      "useCase": "Plan for growth and scale",
+      "promptPreview": "Design scalability strategies with horizontal/vertical scaling, caching, sharding, and capacity planning for high-growth systems.",
+      "githubPath": "06-system-design/scalability-plan/SKILL.md"
+    },
+    {
+      "id": "sk-063",
+      "name": "System Design Doc",
+      "description": "Create comprehensive system design documents with architecture diagrams, component specs, data flows, and scaling strategies.",
+      "tags": ["system-design", "documentation", "architecture"],
       "difficulty": "intermediate",
-      "useCase": "Design clean, consistent API contracts",
-      "promptPreview": "Design a REST API schema for [domain]. Include endpoints, request/response types, auth strategy, pagination, and error codes.",
-      "githubPath": "skills/06-system-design/api-schema-designer.md"
+      "useCase": "Document system architecture clearly",
+      "promptPreview": "Create production-grade system design docs with concrete components, data flows, API contracts, and scaling strategies.",
+      "githubPath": "06-system-design/system-design-doc/SKILL.md"
     }
   ]
 }
