@@ -3,24 +3,44 @@
   "categoryLabel": "Security",
   "skills": [
     {
-      "id": "sk-040",
-      "name": "Threat Model Generator",
-      "description": "Generate STRIDE-based threat models for applications with mitigations and risk ratings.",
-      "tags": ["threat-modeling", "stride", "appsec"],
-      "difficulty": "intermediate",
-      "useCase": "Identify security threats early in design",
-      "promptPreview": "Create a STRIDE threat model for [application description]. Include threat scenarios, risk ratings, and recommended mitigations.",
-      "githubPath": "skills/05-security/threat-model-generator.md"
+      "id": "sk-050",
+      "name": "Penetration Test Plan",
+      "description": "Design penetration testing plans with scope, methodology, tools, and reporting. Outputs test scenarios, OWASP Top 10 coverage, and remediation priorities.",
+      "tags": ["pentesting", "owasp", "appsec"],
+      "difficulty": "advanced",
+      "useCase": "Plan comprehensive security testing",
+      "promptPreview": "Design penetration testing plans with scope, methodology, tools, OWASP Top 10 coverage, and remediation priorities.",
+      "githubPath": "05-security/penetration-test-plan/SKILL.md"
     },
     {
-      "id": "sk-041",
-      "name": "Security Code Review Checklist",
-      "description": "Generate language-specific security review checklists covering OWASP Top 10 vulnerabilities.",
-      "tags": ["code-review", "owasp", "secure-coding"],
-      "difficulty": "beginner",
-      "useCase": "Catch security issues during code review",
-      "promptPreview": "Generate a security code review checklist for [language/framework]. Cover OWASP Top 10, input validation, auth, and data exposure.",
-      "githubPath": "skills/05-security/security-code-review.md"
+      "id": "sk-051",
+      "name": "Penetration Testing",
+      "description": "Design penetration testing plans with OWASP methodology, attack vectors, and remediation tracking. Outputs test scope, findings, and security improvements.",
+      "tags": ["pentesting", "security", "vulnerabilities"],
+      "difficulty": "advanced",
+      "useCase": "Execute security penetration tests",
+      "promptPreview": "Design penetration testing with OWASP methodology, attack vectors, remediation tracking, and security improvement findings.",
+      "githubPath": "05-security/penetration-testing/SKILL.md"
+    },
+    {
+      "id": "sk-052",
+      "name": "Security Audit",
+      "description": "Conduct security audits covering authentication, authorization, data protection, and compliance. Outputs findings, risk ratings, and remediation plans.",
+      "tags": ["audit", "compliance", "security"],
+      "difficulty": "intermediate",
+      "useCase": "Audit application security posture",
+      "promptPreview": "Conduct security audits covering authentication, authorization, data protection, compliance with findings and remediation plans.",
+      "githubPath": "05-security/security-audit/SKILL.md"
+    },
+    {
+      "id": "sk-053",
+      "name": "Threat Modeling",
+      "description": "Design threat models using STRIDE, attack trees, and data flow diagrams. Outputs threat analysis, risk ratings, and mitigation strategies.",
+      "tags": ["threat-modeling", "stride", "risk"],
+      "difficulty": "intermediate",
+      "useCase": "Identify security threats systematically",
+      "promptPreview": "Design systematic threat analysis with STRIDE methodology, attack trees, data flow diagrams, and prioritized mitigations.",
+      "githubPath": "05-security/threat-modeling/SKILL.md"
     }
   ]
 }
