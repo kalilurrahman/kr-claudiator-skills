@@ -1,0 +1,36 @@
+{
+  "categoryId": "04-ai-ml",
+  "categoryLabel": "AI & Machine Learning",
+  "skills": [
+    {
+      "id": "sk-030",
+      "name": "Prompt Engineering Template",
+      "description": "Create structured prompt templates with system instructions, few-shot examples, and output formatting.",
+      "tags": ["prompts", "llm", "ai"],
+      "difficulty": "beginner",
+      "useCase": "Write effective prompts for any LLM task",
+      "promptPreview": "Create a prompt template for [task]. Include system instruction, 2 few-shot examples, output format spec, and edge case handling.",
+      "githubPath": "skills/04-ai-ml/prompt-engineering-template.md"
+    },
+    {
+      "id": "sk-031",
+      "name": "ML Model Evaluation Framework",
+      "description": "Design evaluation frameworks for ML models with metrics, test sets, and bias detection.",
+      "tags": ["ml", "evaluation", "testing"],
+      "difficulty": "advanced",
+      "useCase": "Evaluate ML models systematically",
+      "promptPreview": "Design an evaluation framework for a [model type] model. Include metrics, test set strategy, bias detection, and reporting template.",
+      "githubPath": "skills/04-ai-ml/ml-model-evaluation.md"
+    },
+    {
+      "id": "sk-032",
+      "name": "RAG Pipeline Architect",
+      "description": "Design retrieval-augmented generation pipelines with chunking, embedding, and retrieval strategies.",
+      "tags": ["rag", "embeddings", "llm"],
+      "difficulty": "advanced",
+      "useCase": "Build knowledge-grounded AI systems",
+      "promptPreview": "Architect a RAG pipeline for [use case]. Specify chunking strategy, embedding model, vector store, retrieval method, and prompt template.",
+      "githubPath": "skills/04-ai-ml/rag-pipeline-architect.md"
+    }
+  ]
+}

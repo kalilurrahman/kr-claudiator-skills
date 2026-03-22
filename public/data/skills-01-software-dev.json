@@ -1,0 +1,36 @@
+{
+  "categoryId": "01-software-dev",
+  "categoryLabel": "Software Development",
+  "skills": [
+    {
+      "id": "sk-001",
+      "name": "React Component Builder",
+      "description": "Scaffold production-ready React components with TypeScript, props, and tests.",
+      "tags": ["react", "typescript", "frontend"],
+      "difficulty": "intermediate",
+      "useCase": "Build reusable UI components fast",
+      "promptPreview": "Generate a React component named [Name] with TypeScript props interface, default export, and a Jest test stub.",
+      "githubPath": "skills/01-software-dev/react-component-builder.md"
+    },
+    {
+      "id": "sk-002",
+      "name": "Git Workflow Automator",
+      "description": "Create branching strategies, PR templates, and commit message conventions for teams.",
+      "tags": ["git", "workflow", "collaboration"],
+      "difficulty": "beginner",
+      "useCase": "Standardise team Git workflows",
+      "promptPreview": "Design a Git branching strategy for a team of [N] developers working on [project type]. Include branch naming, PR template, and commit conventions.",
+      "githubPath": "skills/01-software-dev/git-workflow-automator.md"
+    },
+    {
+      "id": "sk-003",
+      "name": "TypeScript Type Generator",
+      "description": "Generate complex TypeScript types, generics, and utility types from plain-English descriptions.",
+      "tags": ["typescript", "types", "advanced"],
+      "difficulty": "advanced",
+      "useCase": "Create precise type definitions without manual typing",
+      "promptPreview": "Generate TypeScript types for [domain model]. Include generics, mapped types, and conditional types where appropriate.",
+      "githubPath": "skills/01-software-dev/typescript-type-generator.md"
+    }
+  ]
+}

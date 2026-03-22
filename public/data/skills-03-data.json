@@ -1,0 +1,36 @@
+{
+  "categoryId": "03-data-analytics",
+  "categoryLabel": "Data & Analytics",
+  "skills": [
+    {
+      "id": "sk-020",
+      "name": "SQL Query Optimiser",
+      "description": "Analyse and optimise SQL queries for performance, adding indexes and restructuring joins.",
+      "tags": ["sql", "performance", "database"],
+      "difficulty": "intermediate",
+      "useCase": "Speed up slow database queries",
+      "promptPreview": "Optimise this SQL query for performance: [paste query]. Suggest indexes, query restructuring, and explain the execution plan.",
+      "githubPath": "skills/03-data/sql-query-optimiser.md"
+    },
+    {
+      "id": "sk-021",
+      "name": "Data Pipeline Designer",
+      "description": "Design ETL/ELT pipelines with source extraction, transformation logic, and destination loading.",
+      "tags": ["etl", "data-engineering", "pipelines"],
+      "difficulty": "advanced",
+      "useCase": "Architect robust data pipelines",
+      "promptPreview": "Design a data pipeline that extracts from [source], transforms [logic], and loads into [destination]. Include error handling and monitoring.",
+      "githubPath": "skills/03-data/data-pipeline-designer.md"
+    },
+    {
+      "id": "sk-022",
+      "name": "Dashboard Metric Definer",
+      "description": "Define KPIs, metrics, and dimensions for analytics dashboards with clear business context.",
+      "tags": ["analytics", "kpi", "dashboards"],
+      "difficulty": "beginner",
+      "useCase": "Define meaningful metrics for dashboards",
+      "promptPreview": "Define KPIs and metrics for a [business domain] dashboard. Include metric name, formula, dimension breakdowns, and update frequency.",
+      "githubPath": "skills/03-data/dashboard-metric-definer.md"
+    }
+  ]
+}

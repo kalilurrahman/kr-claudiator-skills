@@ -1,0 +1,36 @@
+{
+  "categoryId": "02-devops-infra",
+  "categoryLabel": "DevOps & Infrastructure",
+  "skills": [
+    {
+      "id": "sk-010",
+      "name": "Docker Compose Generator",
+      "description": "Generate multi-service Docker Compose configurations with networking, volumes, and health checks.",
+      "tags": ["docker", "containers", "devops"],
+      "difficulty": "intermediate",
+      "useCase": "Spin up local dev environments quickly",
+      "promptPreview": "Create a Docker Compose file for [services list] with shared networking, persistent volumes, and health checks.",
+      "githubPath": "skills/02-devops/docker-compose-generator.md"
+    },
+    {
+      "id": "sk-011",
+      "name": "CI/CD Pipeline Builder",
+      "description": "Design GitHub Actions or GitLab CI pipelines with testing, linting, and deployment stages.",
+      "tags": ["ci-cd", "github-actions", "automation"],
+      "difficulty": "intermediate",
+      "useCase": "Automate build-test-deploy pipelines",
+      "promptPreview": "Create a GitHub Actions CI/CD pipeline for a [framework] project with lint, test, build, and deploy stages.",
+      "githubPath": "skills/02-devops/cicd-pipeline-builder.md"
+    },
+    {
+      "id": "sk-012",
+      "name": "Terraform Module Scaffolder",
+      "description": "Generate Terraform modules for common cloud infrastructure patterns on AWS, GCP, or Azure.",
+      "tags": ["terraform", "iac", "cloud"],
+      "difficulty": "advanced",
+      "useCase": "Bootstrap infrastructure-as-code modules",
+      "promptPreview": "Scaffold a Terraform module for [resource type] on [cloud provider] with variables, outputs, and a README.",
+      "githubPath": "skills/02-devops/terraform-module-scaffolder.md"
+    }
+  ]
+}

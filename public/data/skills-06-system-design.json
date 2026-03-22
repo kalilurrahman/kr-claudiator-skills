@@ -1,0 +1,36 @@
+{
+  "categoryId": "06-system-design",
+  "categoryLabel": "System Design",
+  "skills": [
+    {
+      "id": "sk-050",
+      "name": "Architecture Decision Record Writer",
+      "description": "Create structured ADRs documenting context, decision, alternatives, and consequences.",
+      "tags": ["adr", "architecture", "documentation"],
+      "difficulty": "beginner",
+      "useCase": "Document architecture decisions clearly",
+      "promptPreview": "Write an ADR for choosing [technology/pattern] over [alternatives]. Include context, decision, consequences, and status.",
+      "githubPath": "skills/06-system-design/adr-writer.md"
+    },
+    {
+      "id": "sk-051",
+      "name": "Microservices Decomposer",
+      "description": "Decompose a monolith into microservices with bounded contexts, APIs, and data ownership.",
+      "tags": ["microservices", "ddd", "architecture"],
+      "difficulty": "advanced",
+      "useCase": "Plan monolith-to-microservices migration",
+      "promptPreview": "Decompose [application] into microservices. Define bounded contexts, service APIs, data ownership, and communication patterns.",
+      "githubPath": "skills/06-system-design/microservices-decomposer.md"
+    },
+    {
+      "id": "sk-052",
+      "name": "API Schema Designer",
+      "description": "Design RESTful or GraphQL API schemas with endpoints, types, auth, and error handling.",
+      "tags": ["api", "rest", "graphql"],
+      "difficulty": "intermediate",
+      "useCase": "Design clean, consistent API contracts",
+      "promptPreview": "Design a REST API schema for [domain]. Include endpoints, request/response types, auth strategy, pagination, and error codes.",
+      "githubPath": "skills/06-system-design/api-schema-designer.md"
+    }
+  ]
+}

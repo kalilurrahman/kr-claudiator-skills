@@ -1,0 +1,26 @@
+{
+  "categoryId": "05-security",
+  "categoryLabel": "Security",
+  "skills": [
+    {
+      "id": "sk-040",
+      "name": "Threat Model Generator",
+      "description": "Generate STRIDE-based threat models for applications with mitigations and risk ratings.",
+      "tags": ["threat-modeling", "stride", "appsec"],
+      "difficulty": "intermediate",
+      "useCase": "Identify security threats early in design",
+      "promptPreview": "Create a STRIDE threat model for [application description]. Include threat scenarios, risk ratings, and recommended mitigations.",
+      "githubPath": "skills/05-security/threat-model-generator.md"
+    },
+    {
+      "id": "sk-041",
+      "name": "Security Code Review Checklist",
+      "description": "Generate language-specific security review checklists covering OWASP Top 10 vulnerabilities.",
+      "tags": ["code-review", "owasp", "secure-coding"],
+      "difficulty": "beginner",
+      "useCase": "Catch security issues during code review",
+      "promptPreview": "Generate a security code review checklist for [language/framework]. Cover OWASP Top 10, input validation, auth, and data exposure.",
+      "githubPath": "skills/05-security/security-code-review.md"
+    }
+  ]
+}
