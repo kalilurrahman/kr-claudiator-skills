@@ -3,34 +3,24 @@
   "categoryLabel": "API & Integration",
   "skills": [
     {
-      "id": "sk-070",
-      "name": "API Client Generator",
-      "description": "Generate type-safe API client code from OpenAPI specs or endpoint descriptions.",
-      "tags": ["api", "codegen", "typescript"],
+      "id": "sk-080",
+      "name": "GraphQL Schema",
+      "description": "Design GraphQL schemas with types, queries, mutations, subscriptions, and resolvers. Outputs schema definitions and implementation patterns.",
+      "tags": ["graphql", "schema", "api"],
       "difficulty": "intermediate",
-      "useCase": "Create type-safe API clients quickly",
-      "promptPreview": "Generate a TypeScript API client for [API/endpoints]. Include request/response types, error handling, and authentication headers.",
-      "githubPath": "skills/08-api/api-client-generator.md"
+      "useCase": "Design GraphQL APIs from scratch",
+      "promptPreview": "Design GraphQL schemas with types, queries, mutations, subscriptions, resolvers, and implementation patterns.",
+      "githubPath": "08-api-integration/graphql-schema/SKILL.md"
     },
     {
-      "id": "sk-071",
-      "name": "Webhook Handler Scaffolder",
-      "description": "Scaffold webhook receivers with signature verification, payload parsing, and retry logic.",
-      "tags": ["webhooks", "integration", "backend"],
-      "difficulty": "intermediate",
-      "useCase": "Handle incoming webhooks securely",
-      "promptPreview": "Scaffold a webhook handler for [service] webhooks. Include signature verification, payload parsing, idempotency, and error handling.",
-      "githubPath": "skills/08-api/webhook-handler-scaffolder.md"
-    },
-    {
-      "id": "sk-072",
-      "name": "Third-Party SDK Wrapper",
-      "description": "Create clean wrapper modules around third-party SDKs with error handling and logging.",
-      "tags": ["sdk", "wrapper", "integration"],
-      "difficulty": "beginner",
-      "useCase": "Isolate third-party dependencies cleanly",
-      "promptPreview": "Create a wrapper module for [SDK/library]. Include initialisation, error handling, logging, and a clean public API surface.",
-      "githubPath": "skills/08-api/sdk-wrapper.md"
+      "id": "sk-081",
+      "name": "WebSocket Design",
+      "description": "Design WebSocket architecture for real-time communication. Outputs connection management, message protocols, scaling, and fallback strategies.",
+      "tags": ["websocket", "real-time", "architecture"],
+      "difficulty": "advanced",
+      "useCase": "Build real-time communication systems",
+      "promptPreview": "Design production WebSocket systems with connection lifecycle, message protocols, horizontal scaling, reconnection, and HTTP fallback.",
+      "githubPath": "08-api-integration/websocket-design/SKILL.md"
     }
   ]
 }

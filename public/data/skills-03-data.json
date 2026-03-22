@@ -3,34 +3,64 @@
   "categoryLabel": "Data & Analytics",
   "skills": [
     {
-      "id": "sk-020",
-      "name": "SQL Query Optimiser",
-      "description": "Analyse and optimise SQL queries for performance, adding indexes and restructuring joins.",
+      "id": "sk-030",
+      "name": "Dashboard Design",
+      "description": "Design analytics dashboards with Tableau, PowerBI, Looker, Metabase. Outputs metric definitions, visualizations, filters, and user flows.",
+      "tags": ["dashboards", "analytics", "visualization"],
+      "difficulty": "beginner",
+      "useCase": "Design effective analytics dashboards",
+      "promptPreview": "Design analytics dashboards with metric definitions, visualizations, filters, drill-downs, and user flows for stakeholders.",
+      "githubPath": "03-data-analytics/dashboard-design/SKILL.md"
+    },
+    {
+      "id": "sk-031",
+      "name": "Data Quality Checks",
+      "description": "Design data quality validation with Great Expectations, custom checks, and automated monitoring. Outputs validation rules, anomaly detection, and data lineage.",
+      "tags": ["data-quality", "validation", "monitoring"],
+      "difficulty": "intermediate",
+      "useCase": "Ensure data quality in pipelines",
+      "promptPreview": "Design data quality validation with Great Expectations, custom checks, anomaly detection, and automated monitoring for data pipelines.",
+      "githubPath": "03-data-analytics/data-quality-checks/SKILL.md"
+    },
+    {
+      "id": "sk-032",
+      "name": "Data Warehouse Schema",
+      "description": "Design data warehouse schemas with star/snowflake patterns, dimensions, facts, and slowly changing dimensions. Outputs DDL and ETL integration.",
+      "tags": ["data-warehouse", "star-schema", "dimensional"],
+      "difficulty": "advanced",
+      "useCase": "Architect data warehouse schemas",
+      "promptPreview": "Design data warehouse schemas with star/snowflake patterns, dimensions, facts, SCDs, and ETL integration strategies.",
+      "githubPath": "03-data-analytics/data-warehouse-schema/SKILL.md"
+    },
+    {
+      "id": "sk-033",
+      "name": "ETL Pipeline",
+      "description": "Design extract-transform-load pipelines for data warehousing. Outputs data sources, transformations, quality checks, scheduling, and monitoring.",
+      "tags": ["etl", "data-engineering", "pipelines"],
+      "difficulty": "intermediate",
+      "useCase": "Build robust data pipelines",
+      "promptPreview": "Design ETL pipelines with data extraction, transformation logic, quality checks, scheduling, error handling, and monitoring.",
+      "githubPath": "03-data-analytics/etl-pipeline/SKILL.md"
+    },
+    {
+      "id": "sk-034",
+      "name": "SQL Optimization",
+      "description": "Optimize slow SQL queries with indexing, query rewriting, and execution plan analysis. Outputs before/after metrics and index strategies.",
       "tags": ["sql", "performance", "database"],
       "difficulty": "intermediate",
       "useCase": "Speed up slow database queries",
-      "promptPreview": "Optimise this SQL query for performance: [paste query]. Suggest indexes, query restructuring, and explain the execution plan.",
-      "githubPath": "skills/03-data/sql-query-optimiser.md"
+      "promptPreview": "Optimize SQL queries with indexing strategies, query rewriting, execution plan analysis, and before/after performance metrics.",
+      "githubPath": "03-data-analytics/sql-optimization/SKILL.md"
     },
     {
-      "id": "sk-021",
-      "name": "Data Pipeline Designer",
-      "description": "Design ETL/ELT pipelines with source extraction, transformation logic, and destination loading.",
-      "tags": ["etl", "data-engineering", "pipelines"],
+      "id": "sk-035",
+      "name": "Streaming Pipeline",
+      "description": "Design real-time streaming pipelines with Kafka, Flink, Spark Streaming. Outputs producer/consumer patterns, windowing, state management, and exactly-once semantics.",
+      "tags": ["kafka", "streaming", "real-time"],
       "difficulty": "advanced",
-      "useCase": "Architect robust data pipelines",
-      "promptPreview": "Design a data pipeline that extracts from [source], transforms [logic], and loads into [destination]. Include error handling and monitoring.",
-      "githubPath": "skills/03-data/data-pipeline-designer.md"
-    },
-    {
-      "id": "sk-022",
-      "name": "Dashboard Metric Definer",
-      "description": "Define KPIs, metrics, and dimensions for analytics dashboards with clear business context.",
-      "tags": ["analytics", "kpi", "dashboards"],
-      "difficulty": "beginner",
-      "useCase": "Define meaningful metrics for dashboards",
-      "promptPreview": "Define KPIs and metrics for a [business domain] dashboard. Include metric name, formula, dimension breakdowns, and update frequency.",
-      "githubPath": "skills/03-data/dashboard-metric-definer.md"
+      "useCase": "Build real-time data pipelines",
+      "promptPreview": "Design real-time streaming pipelines with Kafka, Flink including producer/consumer patterns, windowing, and exactly-once semantics.",
+      "githubPath": "03-data-analytics/streaming-pipeline/SKILL.md"
     }
   ]
 }

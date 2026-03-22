@@ -3,24 +3,44 @@
   "categoryLabel": "Testing & Quality",
   "skills": [
     {
-      "id": "sk-060",
-      "name": "Test Case Generator",
-      "description": "Generate comprehensive test cases from requirements, covering happy paths, edge cases, and error scenarios.",
-      "tags": ["testing", "test-cases", "qa"],
-      "difficulty": "beginner",
-      "useCase": "Write thorough test suites faster",
-      "promptPreview": "Generate test cases for [feature/requirement]. Include happy path, boundary conditions, error scenarios, and expected results.",
-      "githubPath": "skills/07-testing/test-case-generator.md"
+      "id": "sk-070",
+      "name": "Contract Testing",
+      "description": "Design contract tests for APIs and microservices with Pact. Outputs consumer-driven contracts, provider verification, and CI integration.",
+      "tags": ["pact", "contract-testing", "microservices"],
+      "difficulty": "intermediate",
+      "useCase": "Verify API contracts between services",
+      "promptPreview": "Design contract tests with Pact for consumer-driven contracts, provider verification, and CI integration across microservices.",
+      "githubPath": "07-testing-quality/contract-testing/SKILL.md"
     },
     {
-      "id": "sk-061",
-      "name": "E2E Test Script Writer",
-      "description": "Write Playwright or Cypress end-to-end test scripts from user journey descriptions.",
+      "id": "sk-071",
+      "name": "E2E Testing",
+      "description": "End-to-end testing with Playwright/Cypress for full user flows. Outputs test scenarios, page objects, CI integration, and flake reduction strategies.",
       "tags": ["e2e", "playwright", "cypress"],
       "difficulty": "intermediate",
       "useCase": "Automate critical user journeys",
-      "promptPreview": "Write a Playwright E2E test for [user journey]. Include page navigation, assertions, and test data setup/teardown.",
-      "githubPath": "skills/07-testing/e2e-test-writer.md"
+      "promptPreview": "Design E2E tests with modern Playwright/Cypress including auto-waiting, retry logic, stable selectors, and CI integration.",
+      "githubPath": "07-testing-quality/e2e-test/SKILL.md"
+    },
+    {
+      "id": "sk-072",
+      "name": "Integration Testing",
+      "description": "Design integration tests for APIs, databases, and external services. Outputs test strategies, fixtures, mocking, and CI integration.",
+      "tags": ["integration", "testing", "api"],
+      "difficulty": "intermediate",
+      "useCase": "Test service integrations reliably",
+      "promptPreview": "Design integration tests for APIs, databases, and external services with test strategies, fixtures, mocking, and CI pipelines.",
+      "githubPath": "07-testing-quality/integration-test/SKILL.md"
+    },
+    {
+      "id": "sk-073",
+      "name": "Performance Testing",
+      "description": "Design performance and load tests with JMeter, k6, Locust. Outputs test scenarios, metrics, bottleneck analysis, and capacity planning.",
+      "tags": ["performance", "load-testing", "k6"],
+      "difficulty": "advanced",
+      "useCase": "Find bottlenecks before production",
+      "promptPreview": "Design performance tests with k6, JMeter, Locust including test scenarios, metrics collection, bottleneck analysis, and capacity planning.",
+      "githubPath": "07-testing-quality/performance-test/SKILL.md"
     }
   ]
 }

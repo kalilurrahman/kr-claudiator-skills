@@ -3,34 +3,64 @@
   "categoryLabel": "DevOps & Infrastructure",
   "skills": [
     {
-      "id": "sk-010",
-      "name": "Docker Compose Generator",
-      "description": "Generate multi-service Docker Compose configurations with networking, volumes, and health checks.",
+      "id": "sk-020",
+      "name": "Alerting Rules",
+      "description": "Design alerting rules for production monitoring with Prometheus, Grafana, PagerDuty. Outputs alert definitions, severity levels, escalation policies, and runbooks.",
+      "tags": ["alerting", "prometheus", "pagerduty"],
+      "difficulty": "intermediate",
+      "useCase": "Build effective production alerting",
+      "promptPreview": "Design alerting rules with Prometheus, Grafana, PagerDuty including alert definitions, severity levels, escalation policies, and runbooks.",
+      "githubPath": "02-devops-infra/alerting-rules/SKILL.md"
+    },
+    {
+      "id": "sk-021",
+      "name": "Docker Compose",
+      "description": "Create production-ready Docker Compose configurations for multi-container applications. Outputs service definitions, networking, volumes, and environment management.",
       "tags": ["docker", "containers", "devops"],
       "difficulty": "intermediate",
-      "useCase": "Spin up local dev environments quickly",
-      "promptPreview": "Create a Docker Compose file for [services list] with shared networking, persistent volumes, and health checks.",
-      "githubPath": "skills/02-devops/docker-compose-generator.md"
+      "useCase": "Spin up multi-container environments",
+      "promptPreview": "Create a Docker Compose setup with proper networking, volume management, health checks, secrets, and environment-specific overrides.",
+      "githubPath": "02-devops-infra/docker-compose/SKILL.md"
     },
     {
-      "id": "sk-011",
-      "name": "CI/CD Pipeline Builder",
-      "description": "Design GitHub Actions or GitLab CI pipelines with testing, linting, and deployment stages.",
-      "tags": ["ci-cd", "github-actions", "automation"],
+      "id": "sk-022",
+      "name": "Kubernetes Manifest",
+      "description": "Create production Kubernetes manifests with deployments, services, ingress, configs, and autoscaling. Outputs complete YAML with best practices.",
+      "tags": ["kubernetes", "k8s", "containers"],
+      "difficulty": "advanced",
+      "useCase": "Deploy apps on Kubernetes",
+      "promptPreview": "Create production Kubernetes manifests with deployments, services, ingress, configs, autoscaling, and best practices.",
+      "githubPath": "02-devops-infra/kubernetes-manifest/SKILL.md"
+    },
+    {
+      "id": "sk-023",
+      "name": "Monitoring Setup",
+      "description": "Setup monitoring with Prometheus, Grafana, alerting. Outputs metrics collection, dashboards, alert rules, and SLO tracking.",
+      "tags": ["monitoring", "prometheus", "grafana"],
       "difficulty": "intermediate",
-      "useCase": "Automate build-test-deploy pipelines",
-      "promptPreview": "Create a GitHub Actions CI/CD pipeline for a [framework] project with lint, test, build, and deploy stages.",
-      "githubPath": "skills/02-devops/cicd-pipeline-builder.md"
+      "useCase": "Build production monitoring stacks",
+      "promptPreview": "Design production monitoring with Prometheus/Grafana stack including SLOs, RED metrics dashboards, alerting, and on-call runbooks.",
+      "githubPath": "02-devops-infra/monitoring-setup/SKILL.md"
     },
     {
-      "id": "sk-012",
-      "name": "Terraform Module Scaffolder",
-      "description": "Generate Terraform modules for common cloud infrastructure patterns on AWS, GCP, or Azure.",
+      "id": "sk-024",
+      "name": "Secrets Management",
+      "description": "Design secrets management with Vault, AWS Secrets Manager, encrypted storage. Outputs rotation policies, access controls, and audit logging.",
+      "tags": ["secrets", "vault", "security"],
+      "difficulty": "intermediate",
+      "useCase": "Manage secrets securely at scale",
+      "promptPreview": "Design secrets management with Vault, AWS Secrets Manager including rotation policies, access controls, and audit logging.",
+      "githubPath": "02-devops-infra/secrets-management/SKILL.md"
+    },
+    {
+      "id": "sk-025",
+      "name": "Terraform Module",
+      "description": "Production Terraform modules for infrastructure as code. Outputs reusable modules with variables, state management, and CI/CD integration.",
       "tags": ["terraform", "iac", "cloud"],
       "difficulty": "advanced",
       "useCase": "Bootstrap infrastructure-as-code modules",
-      "promptPreview": "Scaffold a Terraform module for [resource type] on [cloud provider] with variables, outputs, and a README.",
-      "githubPath": "skills/02-devops/terraform-module-scaffolder.md"
+      "promptPreview": "Scaffold a reusable Terraform module with variables, outputs, state management, and CI/CD integration for cloud infrastructure.",
+      "githubPath": "02-devops-infra/terraform-module/SKILL.md"
     }
   ]
 }

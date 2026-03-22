@@ -3,34 +3,74 @@
   "categoryLabel": "AI & Machine Learning",
   "skills": [
     {
-      "id": "sk-030",
-      "name": "Prompt Engineering Template",
-      "description": "Create structured prompt templates with system instructions, few-shot examples, and output formatting.",
-      "tags": ["prompts", "llm", "ai"],
-      "difficulty": "beginner",
-      "useCase": "Write effective prompts for any LLM task",
-      "promptPreview": "Create a prompt template for [task]. Include system instruction, 2 few-shot examples, output format spec, and edge case handling.",
-      "githubPath": "skills/04-ai-ml/prompt-engineering-template.md"
+      "id": "sk-040",
+      "name": "Feature Engineering",
+      "description": "Design ML features with encoding, scaling, selection, and extraction. Outputs feature pipelines, importance analysis, and validation strategies.",
+      "tags": ["features", "ml", "data-science"],
+      "difficulty": "intermediate",
+      "useCase": "Build effective ML feature pipelines",
+      "promptPreview": "Design ML features with encoding, scaling, selection, extraction, feature pipelines, importance analysis, and validation strategies.",
+      "githubPath": "04-ai-ml/feature-engineering/SKILL.md"
     },
     {
-      "id": "sk-031",
-      "name": "ML Model Evaluation Framework",
-      "description": "Design evaluation frameworks for ML models with metrics, test sets, and bias detection.",
-      "tags": ["ml", "evaluation", "testing"],
+      "id": "sk-041",
+      "name": "Hyperparameter Tuning",
+      "description": "Optimize ML model hyperparameters with grid search, random search, Bayesian optimization. Outputs tuning strategy, search spaces, and best parameters.",
+      "tags": ["hyperparameters", "optimization", "ml"],
+      "difficulty": "intermediate",
+      "useCase": "Optimize model performance systematically",
+      "promptPreview": "Optimize model hyperparameters with grid search, random search, Bayesian optimization to find best parameters within compute budget.",
+      "githubPath": "04-ai-ml/hyperparameter-tuning/SKILL.md"
+    },
+    {
+      "id": "sk-042",
+      "name": "ML Pipeline",
+      "description": "Design end-to-end ML pipelines from data ingestion to model serving. Outputs training workflows, experiment tracking, and model registry.",
+      "tags": ["mlops", "pipeline", "training"],
       "difficulty": "advanced",
-      "useCase": "Evaluate ML models systematically",
-      "promptPreview": "Design an evaluation framework for a [model type] model. Include metrics, test set strategy, bias detection, and reporting template.",
-      "githubPath": "skills/04-ai-ml/ml-model-evaluation.md"
+      "useCase": "Build production ML workflows",
+      "promptPreview": "Design end-to-end ML pipelines with data ingestion, preprocessing, training, experiment tracking, model registry, and serving.",
+      "githubPath": "04-ai-ml/ml-pipeline/SKILL.md"
     },
     {
-      "id": "sk-032",
-      "name": "RAG Pipeline Architect",
-      "description": "Design retrieval-augmented generation pipelines with chunking, embedding, and retrieval strategies.",
-      "tags": ["rag", "embeddings", "llm"],
+      "id": "sk-043",
+      "name": "Model Deployment",
+      "description": "Deploy ML models to production with FastAPI, TorchServe, or SageMaker. Outputs serving infrastructure, scaling, monitoring, and A/B testing.",
+      "tags": ["deployment", "serving", "mlops"],
+      "difficulty": "advanced",
+      "useCase": "Ship models to production reliably",
+      "promptPreview": "Deploy ML models with FastAPI, TorchServe, or SageMaker including serving infrastructure, scaling, monitoring, and A/B testing.",
+      "githubPath": "04-ai-ml/model-deployment/SKILL.md"
+    },
+    {
+      "id": "sk-044",
+      "name": "Model Monitoring",
+      "description": "Monitor ML models in production for drift, performance degradation, and data quality. Outputs metrics, alerts, and retraining triggers.",
+      "tags": ["monitoring", "drift", "mlops"],
+      "difficulty": "intermediate",
+      "useCase": "Detect model degradation early",
+      "promptPreview": "Monitor ML models for data drift, concept drift, performance degradation with metrics, alerts, and automated retraining triggers.",
+      "githubPath": "04-ai-ml/model-monitoring/SKILL.md"
+    },
+    {
+      "id": "sk-045",
+      "name": "Prompt Engineering",
+      "description": "Design effective prompts for LLMs (GPT, Claude, Llama). Outputs prompt templates, few-shot examples, chain-of-thought reasoning, and evaluation metrics.",
+      "tags": ["llm", "prompts", "ai"],
+      "difficulty": "beginner",
+      "useCase": "Craft effective LLM prompts",
+      "promptPreview": "Design effective prompts with templates, few-shot examples, chain-of-thought reasoning, and systematic evaluation metrics.",
+      "githubPath": "04-ai-ml/prompt-engineering/SKILL.md"
+    },
+    {
+      "id": "sk-046",
+      "name": "RAG Architecture",
+      "description": "Design Retrieval-Augmented Generation systems with vector databases, chunking strategies, and hybrid search. Outputs architecture, embedding pipelines, and retrieval optimizations.",
+      "tags": ["rag", "vector-db", "llm"],
       "difficulty": "advanced",
       "useCase": "Build knowledge-grounded AI systems",
-      "promptPreview": "Architect a RAG pipeline for [use case]. Specify chunking strategy, embedding model, vector store, retrieval method, and prompt template.",
-      "githubPath": "skills/04-ai-ml/rag-pipeline-architect.md"
+      "promptPreview": "Design RAG systems with vector databases, chunking strategies, hybrid search, embedding pipelines, and retrieval optimizations.",
+      "githubPath": "04-ai-ml/rag-architecture/SKILL.md"
     }
   ]
 }

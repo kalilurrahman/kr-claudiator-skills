@@ -4,33 +4,153 @@
   "skills": [
     {
       "id": "sk-001",
-      "name": "React Component Builder",
-      "description": "Scaffold production-ready React components with TypeScript, props, and tests.",
-      "tags": ["react", "typescript", "frontend"],
+      "name": "API Design",
+      "description": "Design a complete REST or GraphQL API from requirements. Outputs endpoints, request/response schemas, error handling, authentication, and versioning strategy.",
+      "tags": ["rest", "graphql", "openapi"],
       "difficulty": "intermediate",
-      "useCase": "Build reusable UI components fast",
-      "promptPreview": "Generate a React component named [Name] with TypeScript props interface, default export, and a Jest test stub.",
-      "githubPath": "skills/01-software-dev/react-component-builder.md"
+      "useCase": "Build production-ready API specifications",
+      "promptPreview": "Design a production-ready API specification from requirements. Every endpoint, field, and error code defined with enough detail for engineers to implement.",
+      "githubPath": "01-software-dev/api-design/SKILL.md"
     },
     {
       "id": "sk-002",
-      "name": "Git Workflow Automator",
-      "description": "Create branching strategies, PR templates, and commit message conventions for teams.",
-      "tags": ["git", "workflow", "collaboration"],
-      "difficulty": "beginner",
-      "useCase": "Standardise team Git workflows",
-      "promptPreview": "Design a Git branching strategy for a team of [N] developers working on [project type]. Include branch naming, PR template, and commit conventions.",
-      "githubPath": "skills/01-software-dev/git-workflow-automator.md"
+      "name": "Async Patterns",
+      "description": "Design asynchronous processing patterns for background jobs, event-driven systems, and non-blocking I/O. Outputs queues, workers, retry logic, and monitoring.",
+      "tags": ["async", "queues", "event-driven"],
+      "difficulty": "advanced",
+      "useCase": "Build robust async processing systems",
+      "promptPreview": "Design asynchronous processing patterns for background jobs, event-driven systems, and non-blocking I/O with retry logic and monitoring.",
+      "githubPath": "01-software-dev/async-patterns/SKILL.md"
     },
     {
       "id": "sk-003",
-      "name": "TypeScript Type Generator",
-      "description": "Generate complex TypeScript types, generics, and utility types from plain-English descriptions.",
-      "tags": ["typescript", "types", "advanced"],
+      "name": "Caching Strategy",
+      "description": "Design a multi-layer caching strategy for performance optimization. Outputs cache types, TTLs, invalidation, and cache-aside patterns.",
+      "tags": ["caching", "redis", "performance"],
+      "difficulty": "intermediate",
+      "useCase": "Optimize application performance with caching",
+      "promptPreview": "Design a multi-layer caching strategy with cache types, TTLs, invalidation policies, and cache-aside patterns for performance optimization.",
+      "githubPath": "01-software-dev/caching-strategy/SKILL.md"
+    },
+    {
+      "id": "sk-004",
+      "name": "Circuit Breaker",
+      "description": "Circuit breaker pattern for handling service failures gracefully. Outputs states (closed/open/half-open), thresholds, fallback strategies, and monitoring.",
+      "tags": ["resilience", "fault-tolerance", "patterns"],
       "difficulty": "advanced",
-      "useCase": "Create precise type definitions without manual typing",
-      "promptPreview": "Generate TypeScript types for [domain model]. Include generics, mapped types, and conditional types where appropriate.",
-      "githubPath": "skills/01-software-dev/typescript-type-generator.md"
+      "useCase": "Prevent cascading service failures",
+      "promptPreview": "Design circuit breakers with state management, failure thresholds, half-open testing, fallback responses, and monitoring dashboards.",
+      "githubPath": "01-software-dev/circuit-breaker/SKILL.md"
+    },
+    {
+      "id": "sk-005",
+      "name": "Code Review",
+      "description": "Generate a focused code review checklist based on language, framework, and change type. Outputs specific items to check, not generic advice.",
+      "tags": ["code-review", "quality", "checklist"],
+      "difficulty": "beginner",
+      "useCase": "Conduct thorough code reviews",
+      "promptPreview": "Generate a focused code review checklist based on language, framework, and change type with specific items to check.",
+      "githubPath": "01-software-dev/code-review/SKILL.md"
+    },
+    {
+      "id": "sk-006",
+      "name": "Database Schema",
+      "description": "Design a normalized database schema with tables, relationships, indexes, and constraints. Outputs SQL DDL and ER diagram description.",
+      "tags": ["database", "sql", "schema-design"],
+      "difficulty": "intermediate",
+      "useCase": "Design robust database schemas",
+      "promptPreview": "Design a normalized database schema with tables, relationships, indexes, constraints, and migration scripts.",
+      "githubPath": "01-software-dev/database-schema/SKILL.md"
+    },
+    {
+      "id": "sk-007",
+      "name": "Error Handling",
+      "description": "Design a comprehensive error handling strategy for an application. Outputs error types, response formats, logging patterns, and user-facing messages.",
+      "tags": ["error-handling", "logging", "resilience"],
+      "difficulty": "intermediate",
+      "useCase": "Build robust error handling systems",
+      "promptPreview": "Design a comprehensive error handling strategy with error types, response formats, logging patterns, and user-facing messages.",
+      "githubPath": "01-software-dev/error-handling/SKILL.md"
+    },
+    {
+      "id": "sk-008",
+      "name": "Feature Flags",
+      "description": "Feature flag system for gradual rollouts, A/B testing, and kill switches. Outputs flag types, targeting, evaluation, and lifecycle management.",
+      "tags": ["feature-flags", "rollout", "a-b-testing"],
+      "difficulty": "intermediate",
+      "useCase": "Control feature rollouts safely",
+      "promptPreview": "Design a feature flag system with flag types, targeting rules, evaluation logic, and lifecycle management for gradual rollouts.",
+      "githubPath": "01-software-dev/feature-flags/SKILL.md"
+    },
+    {
+      "id": "sk-009",
+      "name": "Git Workflow",
+      "description": "Design a Git branching strategy and workflow for a team. Outputs branch naming, merge strategy, CI/CD integration, and release process.",
+      "tags": ["git", "workflow", "collaboration"],
+      "difficulty": "beginner",
+      "useCase": "Standardise team Git workflows",
+      "promptPreview": "Design a Git branching strategy with branch naming, merge strategy, CI/CD integration, and release process for a development team.",
+      "githubPath": "01-software-dev/git-workflow/SKILL.md"
+    },
+    {
+      "id": "sk-010",
+      "name": "Idempotency Design",
+      "description": "Design idempotent APIs and operations. Outputs idempotency keys, deduplication strategies, and retry-safe implementations.",
+      "tags": ["idempotency", "api", "reliability"],
+      "difficulty": "advanced",
+      "useCase": "Build retry-safe API operations",
+      "promptPreview": "Design idempotent APIs with idempotency keys, deduplication strategies, and retry-safe implementations for reliable operations.",
+      "githubPath": "01-software-dev/idempotency-design/SKILL.md"
+    },
+    {
+      "id": "sk-011",
+      "name": "Logging Strategy",
+      "description": "Design a comprehensive logging strategy for production systems. Outputs log structure, levels, retention, aggregation, and query patterns.",
+      "tags": ["logging", "observability", "monitoring"],
+      "difficulty": "beginner",
+      "useCase": "Build effective production logging",
+      "promptPreview": "Design a comprehensive logging strategy with log structure, levels, retention policies, aggregation, and query patterns.",
+      "githubPath": "01-software-dev/logging-strategy/SKILL.md"
+    },
+    {
+      "id": "sk-012",
+      "name": "Microservices Design",
+      "description": "Design a microservices architecture from a monolith or new requirements. Outputs service boundaries, communication patterns, data ownership, and deployment strategy.",
+      "tags": ["microservices", "architecture", "distributed"],
+      "difficulty": "advanced",
+      "useCase": "Architect microservices systems",
+      "promptPreview": "Design a microservices architecture with service boundaries, communication patterns, data ownership, and deployment strategy.",
+      "githubPath": "01-software-dev/microservices-design/SKILL.md"
+    },
+    {
+      "id": "sk-013",
+      "name": "Pagination Design",
+      "description": "Design pagination for large datasets with cursor-based, offset-based, and keyset strategies. Outputs performance trade-offs and implementation patterns.",
+      "tags": ["pagination", "api", "performance"],
+      "difficulty": "intermediate",
+      "useCase": "Handle large dataset navigation",
+      "promptPreview": "Design pagination with cursor-based, offset-based, and keyset strategies including performance trade-offs and implementation patterns.",
+      "githubPath": "01-software-dev/pagination-design/SKILL.md"
+    },
+    {
+      "id": "sk-014",
+      "name": "Rate Limiting",
+      "description": "Design rate limiting to prevent abuse and ensure fair usage. Outputs algorithms (token bucket, sliding window), storage strategies, and bypass rules.",
+      "tags": ["rate-limiting", "security", "api"],
+      "difficulty": "intermediate",
+      "useCase": "Protect APIs from abuse",
+      "promptPreview": "Design rate limiting with token bucket, sliding window algorithms, storage strategies, and bypass rules for fair API usage.",
+      "githubPath": "01-software-dev/rate-limiting/SKILL.md"
+    },
+    {
+      "id": "sk-015",
+      "name": "Tech Debt Audit",
+      "description": "Analyze a codebase or component to identify technical debt, assess impact, and prioritize remediation. Outputs categorized debt items with ROI estimates.",
+      "tags": ["tech-debt", "audit", "refactoring"],
+      "difficulty": "intermediate",
+      "useCase": "Identify and prioritize tech debt",
+      "promptPreview": "Analyze a codebase to identify technical debt, assess impact, and prioritize remediation with categorized debt items and ROI estimates.",
+      "githubPath": "01-software-dev/tech-debt-audit/SKILL.md"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "version": "1.0",
-  "totalSkills": 53,
+  "totalSkills": 48,
   "targetSkills": 100,
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-03-22",
   "categories": [
     { "id": "01-software-dev",    "label": "Software Development",    "icon": "Code2",        "dataFile": "/data/skills-01-software-dev.json" },
     { "id": "02-devops-infra",    "label": "DevOps & Infrastructure", "icon": "Server",       "dataFile": "/data/skills-02-devops.json" },
