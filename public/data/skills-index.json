@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "totalSkills": 53,
+  "targetSkills": 100,
+  "lastUpdated": "2026-03-21",
+  "categories": [
+    { "id": "01-software-dev",    "label": "Software Development",    "icon": "Code2",        "dataFile": "/data/skills-01-software-dev.json" },
+    { "id": "02-devops-infra",    "label": "DevOps & Infrastructure", "icon": "Server",       "dataFile": "/data/skills-02-devops.json" },
+    { "id": "03-data-analytics",  "label": "Data & Analytics",        "icon": "BarChart2",    "dataFile": "/data/skills-03-data.json" },
+    { "id": "04-ai-ml",           "label": "AI & Machine Learning",   "icon": "Brain",        "dataFile": "/data/skills-04-ai-ml.json" },
+    { "id": "05-security",        "label": "Security",                "icon": "Shield",       "dataFile": "/data/skills-05-security.json" },
+    { "id": "06-system-design",   "label": "System Design",           "icon": "Layers",       "dataFile": "/data/skills-06-system-design.json" },
+    { "id": "07-testing-quality", "label": "Testing & Quality",       "icon": "CheckCircle2", "dataFile": "/data/skills-07-testing.json" },
+    { "id": "08-api-integration", "label": "API & Integration",       "icon": "Plug",         "dataFile": "/data/skills-08-api.json" }
+  ]
+}
