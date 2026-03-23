@@ -1,218 +1,334 @@
 ---
 name: database-schema
-description: Design a normalized database schema with tables, relationships, indexes, and constraints. Outputs SQL DDL and ER diagram description.
-argument-hint: [data requirements and relationships]
-allowed-tools: Read, Write, Bash
+description: Design a relational database schema from requirements. Produces entity-relationship model, table definitions, indexes, constraints, and migration SQL with normalization analysis.
+argument-hint: [domain entities, relationships, query patterns, database engine]
+allowed-tools: Read, Write
 ---
 
 # Database Schema Design
 
-Design a production-ready database schema from data requirements. Every table, column, constraint, and index must be specified with enough detail to create the database and support expected queries.
+A schema is one of the hardest things to change after launch — every bad decision compounds. Good schema design front-loads the thinking: normalise correctly, index for your actual query patterns, and enforce constraints at the database layer.
 
-## Process
+## Design Process
 
-1. **Identify entities.** Parse requirements to extract core business objects.
-2. **Define relationships.** One-to-many, many-to-many, one-to-one.
-3. **Normalize to 3NF.** Eliminate redundancy unless denormalization is justified.
-4. **Choose data types.** Match business requirements (VARCHAR vs TEXT, INT vs BIGINT, TIMESTAMP vs DATE).
-5. **Add constraints.** Primary keys, foreign keys, unique constraints, check constraints, NOT NULL.
-6. **Design indexes.** Based on expected query patterns (WHERE, JOIN, ORDER BY clauses).
-7. **Plan partitioning.** If scale requires it (time-based, hash-based).
-8. **Document migrations.** How to evolve schema without downtime.
-9. **Generate SQL DDL.** PostgreSQL syntax by default, flag if other RDBMS needed.
+1. **Identify entities** — the nouns in the domain: users, orders, products, invoices.
+2. **Identify relationships** — one-to-many, many-to-many, one-to-one.
+3. **Choose primary keys** — UUID vs. auto-increment (prefer UUID for distributed systems).
+4. **Normalise to 3NF** — eliminate redundancy; denormalise deliberately only for performance.
+5. **Define constraints** — NOT NULL, UNIQUE, CHECK, FOREIGN KEY — enforce at DB layer.
+6. **Design indexes** — index foreign keys, index columns used in WHERE/JOIN/ORDER BY.
+7. **Choose column types** — smallest type that fits; money as integer cents; timestamps as TIMESTAMPTZ.
+8. **Write migration SQL** — idempotent, reversible, tested against staging.
+9. **Validate with query patterns** — run EXPLAIN on your most critical queries.
+10. **Document** — every table and non-obvious column gets a comment.
+
+## Naming Conventions
+
+```sql
+-- Tables: snake_case, plural nouns
+users, orders, order_items, payment_methods
+
+-- Columns: snake_case
+user_id, created_at, is_active, total_amount_cents
+
+-- Primary keys: id (UUID)
+-- Foreign keys: {table_singular}_id
+-- Timestamps: created_at, updated_at, deleted_at
+-- Booleans: is_{state} or has_{thing}
+-- Amounts: {name}_amount_cents (never float)
+```
+
+## Column Type Reference
+
+| Data | Type | Notes |
+|------|------|-------|
+| Primary key | UUID | `gen_random_uuid()` in Postgres |
+| Foreign key | UUID | Matches PK type |
+| Short text | VARCHAR(255) | With length constraint |
+| Long text | TEXT | No length limit |
+| Integer | INTEGER / BIGINT | BIGINT for large counters |
+| Money | INTEGER | Store cents — never FLOAT or DECIMAL for money |
+| Decimal | NUMERIC(10,2) | For non-money decimals |
+| Boolean | BOOLEAN | NOT NULL DEFAULT false |
+| Timestamp | TIMESTAMPTZ | Always with timezone |
+| JSON | JSONB | Postgres — supports indexing |
+| Enum | VARCHAR + CHECK | Or native ENUM type |
+| IP address | INET | Postgres native |
 
 ## Output Format
 
-### Schema Overview
-- **Database:** PostgreSQL 15+
-- **Total Tables:** 8
-- **Normalization:** 3NF with denormalization for read-heavy tables
-- **Partitioning:** Time-based on events table
-
-### Entity Relationship Summary
-```
-User (1) ----< (N) Order
-Order (1) ----< (N) OrderItem
-Product (1) ----< (N) OrderItem
-User (1) ----< (N) Address
-```
-
-### Tables
-
-#### users
-**Purpose:** Core user accounts
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| id | UUID | PRIMARY KEY | User identifier |
-| email | VARCHAR(255) | UNIQUE, NOT NULL | User email (login) |
-| password_hash | VARCHAR(255) | NOT NULL | bcrypt hash |
-| name | VARCHAR(100) | NOT NULL | Display name |
-| status | VARCHAR(20) | NOT NULL, CHECK | active, suspended, deleted |
-| created_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | Account creation |
-| updated_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | Last modification |
-
-**Indexes:**
-- `idx_users_email` — UNIQUE (email) — Login lookups
-- `idx_users_status` — (status) — Active user queries
-- `idx_users_created` — (created_at DESC) — Recent signups
-
-**SQL DDL:**
 ```sql
+-- ============================================================
+-- Schema: [Domain Name]
+-- Database: PostgreSQL 15+
+-- Generated: [Date]
+-- ============================================================
+
+-- Extensions
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+CREATE EXTENSION IF NOT EXISTS "pg_trgm";
+
+-- ============================================================
+-- USERS
+-- ============================================================
 CREATE TABLE users (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    status VARCHAR(20) NOT NULL DEFAULT 'active' 
-        CHECK (status IN ('active', 'suspended', 'deleted')),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    id              UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+    email           VARCHAR(255) NOT NULL,
+    email_verified  BOOLEAN     NOT NULL DEFAULT false,
+    display_name    VARCHAR(100),
+    password_hash   VARCHAR(255),              -- NULL for SSO-only accounts
+    status          VARCHAR(20)  NOT NULL DEFAULT 'active'
+                    CHECK (status IN ('active', 'suspended', 'deleted')),
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    deleted_at      TIMESTAMPTZ             -- soft delete
 );
 
-CREATE INDEX idx_users_email ON users(email);
-CREATE INDEX idx_users_status ON users(status) WHERE status = 'active';
-CREATE INDEX idx_users_created ON users(created_at DESC);
-```
+COMMENT ON TABLE users IS 'Registered user accounts';
+COMMENT ON COLUMN users.password_hash IS 'bcrypt hash. NULL for SSO-only users.';
+COMMENT ON COLUMN users.status IS 'active: normal, suspended: blocked, deleted: soft-deleted';
 
-#### orders
-**Purpose:** Purchase orders
+-- Indexes
+CREATE UNIQUE INDEX users_email_unique
+    ON users (LOWER(email))
+    WHERE deleted_at IS NULL;               -- case-insensitive unique email for non-deleted users
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| id | BIGSERIAL | PRIMARY KEY | Order ID |
-| user_id | UUID | FOREIGN KEY, NOT NULL | References users(id) |
-| status | VARCHAR(20) | NOT NULL, CHECK | pending, paid, shipped, cancelled |
-| total_amount | DECIMAL(10,2) | NOT NULL, CHECK >= 0 | Total order value |
-| currency | CHAR(3) | NOT NULL, DEFAULT 'USD' | ISO 4217 code |
-| created_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | Order placed |
-| updated_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | Last status change |
+CREATE INDEX users_status_idx ON users (status) WHERE deleted_at IS NULL;
 
-**Indexes:**
-- `idx_orders_user_created` — (user_id, created_at DESC) — User order history
-- `idx_orders_status` — (status) WHERE status IN ('pending', 'paid') — Active orders
+-- ============================================================
+-- ORGANISATIONS
+-- ============================================================
+CREATE TABLE organisations (
+    id              UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+    name            VARCHAR(255) NOT NULL,
+    slug            VARCHAR(100) NOT NULL,
+    plan            VARCHAR(20)  NOT NULL DEFAULT 'free'
+                    CHECK (plan IN ('free', 'starter', 'pro', 'enterprise')),
+    owner_id        UUID        NOT NULL REFERENCES users(id),
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
-**SQL DDL:**
-```sql
+CREATE UNIQUE INDEX organisations_slug_unique ON organisations (slug);
+CREATE INDEX organisations_owner_idx ON organisations (owner_id);
+
+-- ============================================================
+-- ORGANISATION MEMBERS (many-to-many: users <-> organisations)
+-- ============================================================
+CREATE TABLE organisation_members (
+    organisation_id UUID        NOT NULL REFERENCES organisations(id) ON DELETE CASCADE,
+    user_id         UUID        NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    role            VARCHAR(20)  NOT NULL DEFAULT 'member'
+                    CHECK (role IN ('owner', 'admin', 'member', 'viewer')),
+    invited_by      UUID        REFERENCES users(id),
+    joined_at       TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (organisation_id, user_id)
+);
+
+CREATE INDEX org_members_user_idx ON organisation_members (user_id);
+
+-- ============================================================
+-- ORDERS
+-- ============================================================
 CREATE TABLE orders (
-    id BIGSERIAL PRIMARY KEY,
-    user_id UUID NOT NULL REFERENCES users(id) ON DELETE RESTRICT,
-    status VARCHAR(20) NOT NULL DEFAULT 'pending'
-        CHECK (status IN ('pending', 'paid', 'shipped', 'cancelled')),
-    total_amount DECIMAL(10,2) NOT NULL CHECK (total_amount >= 0),
-    currency CHAR(3) NOT NULL DEFAULT 'USD',
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    id              UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+    organisation_id UUID        NOT NULL REFERENCES organisations(id),
+    customer_id     UUID        NOT NULL REFERENCES users(id),
+    status          VARCHAR(20)  NOT NULL DEFAULT 'pending'
+                    CHECK (status IN ('pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded')),
+    -- Money stored as cents; currency stored alongside
+    subtotal_cents  INTEGER     NOT NULL CHECK (subtotal_cents >= 0),
+    tax_cents       INTEGER     NOT NULL DEFAULT 0 CHECK (tax_cents >= 0),
+    total_cents     INTEGER     NOT NULL CHECK (total_cents >= 0),
+    currency        CHAR(3)     NOT NULL DEFAULT 'USD',
+    shipping_address_id UUID   REFERENCES addresses(id),
+    notes           TEXT,
+    confirmed_at    TIMESTAMPTZ,
+    shipped_at      TIMESTAMPTZ,
+    delivered_at    TIMESTAMPTZ,
+    cancelled_at    TIMESTAMPTZ,
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_orders_user_created ON orders(user_id, created_at DESC);
-CREATE INDEX idx_orders_status ON orders(status) 
-    WHERE status IN ('pending', 'paid');
-```
+COMMENT ON COLUMN orders.subtotal_cents IS 'Pre-tax order total in smallest currency unit (cents for USD)';
 
-#### products
-**Purpose:** Product catalog
+CREATE INDEX orders_organisation_idx  ON orders (organisation_id);
+CREATE INDEX orders_customer_idx      ON orders (customer_id);
+CREATE INDEX orders_status_idx        ON orders (status);
+CREATE INDEX orders_created_at_idx    ON orders (created_at DESC);
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| id | BIGSERIAL | PRIMARY KEY | Product ID |
-| sku | VARCHAR(50) | UNIQUE, NOT NULL | Stock keeping unit |
-| name | VARCHAR(200) | NOT NULL | Product name |
-| description | TEXT | NULL | Product description |
-| price | DECIMAL(10,2) | NOT NULL, CHECK > 0 | Current price |
-| stock | INT | NOT NULL, DEFAULT 0, CHECK >= 0 | Available inventory |
-| is_active | BOOLEAN | NOT NULL, DEFAULT TRUE | In catalog |
-| created_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | Added to catalog |
-| updated_at | TIMESTAMPTZ | NOT NULL, DEFAULT NOW() | Last modified |
-
-**Indexes:**
-- `idx_products_sku` — UNIQUE (sku) — SKU lookups
-- `idx_products_active` — (is_active) WHERE is_active = TRUE — Active products only
-
-**SQL DDL:**
-```sql
-CREATE TABLE products (
-    id BIGSERIAL PRIMARY KEY,
-    sku VARCHAR(50) UNIQUE NOT NULL,
-    name VARCHAR(200) NOT NULL,
-    description TEXT,
-    price DECIMAL(10,2) NOT NULL CHECK (price > 0),
-    stock INT NOT NULL DEFAULT 0 CHECK (stock >= 0),
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE INDEX idx_products_sku ON products(sku);
-CREATE INDEX idx_products_active ON products(is_active) WHERE is_active = TRUE;
-```
-
-#### order_items
-**Purpose:** Line items in orders (many-to-many resolver)
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| id | BIGSERIAL | PRIMARY KEY | Line item ID |
-| order_id | BIGINT | FOREIGN KEY, NOT NULL | References orders(id) |
-| product_id | BIGINT | FOREIGN KEY, NOT NULL | References products(id) |
-| quantity | INT | NOT NULL, CHECK > 0 | Items ordered |
-| unit_price | DECIMAL(10,2) | NOT NULL, CHECK > 0 | Price at time of order |
-| subtotal | DECIMAL(10,2) | NOT NULL, CHECK >= 0 | quantity * unit_price |
-
-**Indexes:**
-- `idx_order_items_order` — (order_id) — Fetch order details
-- `idx_order_items_product` — (product_id) — Product sales analytics
-
-**SQL DDL:**
-```sql
+-- ============================================================
+-- ORDER ITEMS
+-- ============================================================
 CREATE TABLE order_items (
-    id BIGSERIAL PRIMARY KEY,
-    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE RESTRICT,
-    quantity INT NOT NULL CHECK (quantity > 0),
-    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price > 0),
-    subtotal DECIMAL(10,2) NOT NULL CHECK (subtotal >= 0)
+    id              UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+    order_id        UUID        NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    product_id      UUID        NOT NULL REFERENCES products(id),
+    quantity        INTEGER     NOT NULL CHECK (quantity > 0),
+    unit_price_cents INTEGER    NOT NULL CHECK (unit_price_cents >= 0),
+    total_cents     INTEGER     GENERATED ALWAYS AS (quantity * unit_price_cents) STORED,
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_order_items_order ON order_items(order_id);
-CREATE INDEX idx_order_items_product ON order_items(product_id);
+CREATE INDEX order_items_order_idx   ON order_items (order_id);
+CREATE INDEX order_items_product_idx ON order_items (product_id);
+
+-- ============================================================
+-- ADDRESSES
+-- ============================================================
+CREATE TABLE addresses (
+    id              UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id         UUID        REFERENCES users(id) ON DELETE SET NULL,
+    line1           VARCHAR(255) NOT NULL,
+    line2           VARCHAR(255),
+    city            VARCHAR(100) NOT NULL,
+    state           VARCHAR(100),
+    postal_code     VARCHAR(20),
+    country         CHAR(2)     NOT NULL,  -- ISO 3166-1 alpha-2
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX addresses_user_idx ON addresses (user_id);
+
+-- ============================================================
+-- AUTO-UPDATE updated_at TRIGGER
+-- ============================================================
+CREATE OR REPLACE FUNCTION update_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER users_updated_at
+    BEFORE UPDATE ON users
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
+CREATE TRIGGER orders_updated_at
+    BEFORE UPDATE ON orders
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 ```
 
-### Migration Strategy
+## Migration Template
 
-**Adding new column (backward compatible):**
 ```sql
-ALTER TABLE users ADD COLUMN phone VARCHAR(20);
+-- Migration: 0023_add_order_notes_column.sql
+-- Author: [Name]
+-- Date: [Date]
+-- Description: Add notes field to orders table for customer comments
+
+BEGIN;
+
+-- Forward migration
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS notes TEXT;
+
+COMMENT ON COLUMN orders.notes IS 'Optional customer-provided notes for the order';
+
+-- Verify
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'orders' AND column_name = 'notes'
+    ) THEN
+        RAISE EXCEPTION 'Migration failed: notes column not created';
+    END IF;
+END $$;
+
+COMMIT;
+
+-- Rollback (run separately if needed)
+-- ALTER TABLE orders DROP COLUMN IF EXISTS notes;
 ```
 
-**Changing column type (requires downtime or dual-write):**
-1. Add new column: `ALTER TABLE users ADD COLUMN email_new TEXT;`
-2. Backfill data: `UPDATE users SET email_new = email;`
-3. Switch application to use new column
-4. Drop old column: `ALTER TABLE users DROP COLUMN email;`
-5. Rename: `ALTER TABLE users RENAME COLUMN email_new TO email;`
+## Index Design Decisions
 
-**Adding foreign key to existing table:**
 ```sql
--- Add column first
-ALTER TABLE orders ADD COLUMN shipping_address_id BIGINT;
--- Backfill data
-UPDATE orders SET shipping_address_id = ...;
--- Add constraint
-ALTER TABLE orders ADD CONSTRAINT fk_shipping_address 
-    FOREIGN KEY (shipping_address_id) REFERENCES addresses(id);
+-- Index foreign keys — always
+CREATE INDEX orders_customer_idx ON orders (customer_id);
+
+-- Index columns in WHERE clauses
+CREATE INDEX orders_status_created_idx ON orders (status, created_at DESC);
+
+-- Partial index for common filtered queries
+CREATE INDEX active_users_idx ON users (email) WHERE status = 'active';
+
+-- Covering index to avoid table lookup (index-only scan)
+CREATE INDEX orders_summary_idx ON orders (organisation_id, status, total_cents)
+    INCLUDE (created_at, currency);
+
+-- GIN index for JSONB or full-text search
+CREATE INDEX products_metadata_idx ON products USING GIN (metadata);
+CREATE INDEX products_name_search ON products USING GIN (to_tsvector('english', name));
+
+-- Check index usage — drop unused indexes (write overhead, no read benefit)
+SELECT schemaname, tablename, indexname, idx_scan, idx_tup_read
+FROM pg_stat_user_indexes
+ORDER BY idx_scan ASC;
 ```
+
+## Normalization Quick Guide
+
+| Normal Form | Rule | Violation example |
+|-------------|------|------------------|
+| 1NF | Atomic values, no repeating groups | `tags: "red,blue,green"` in one column |
+| 2NF | No partial dependency on composite PK | Non-key column depends on part of composite PK |
+| 3NF | No transitive dependency | `city` stored on `orders` when it depends on `zip_code` |
+
+Deliberate denormalization examples (OK with documentation):
+- Store `total_cents` on orders even though it can be derived from order_items — avoids expensive aggregation
+- Store `user_email` on audit_log even though it can be joined — preserves historical state
+
+## Anti-Patterns to Avoid
+
+| Anti-pattern | Problem | Fix |
+|-------------|---------|-----|
+| FLOAT for money | Rounding errors: 0.1 + 0.2 ≠ 0.3 | Use INTEGER cents |
+| VARCHAR without length | Unconstrained input | Add appropriate length limits |
+| No foreign key constraints | Orphaned records accumulate | Define FK constraints; cascade appropriately |
+| Storing comma-separated lists | Cannot index, join, or query | Normalise to junction table |
+| Generic columns | `field1`, `field2`, `extra_data TEXT` | Use JSONB for flexible data; name columns clearly |
+| No indexes on FKs | Full table scans on joins | Index every foreign key column |
+| Single global sequence for IDs | Bottleneck in distributed systems | Use UUID or per-table sequences |
 
 ## Rules
 
-- Always use UUID for user-facing IDs (non-sequential, harder to enumerate).
-- Use BIGSERIAL for internal IDs when UUID overhead is too high.
-- Every table must have `created_at` and `updated_at` timestamps.
-- Foreign keys must specify ON DELETE behavior (CASCADE, RESTRICT, SET NULL).
-- Add CHECK constraints for enum-like columns (status, type, etc.).
-- Indexes are mandatory for foreign keys and WHERE clause columns.
-- Use DECIMAL for money, never FLOAT or DOUBLE.
-- Timestamps must include timezone (TIMESTAMPTZ in PostgreSQL).
-- If requirements mention "millions of rows", add partitioning strategy.
-- Document why denormalization is used if schema is not 3NF.
-- Generate full SQL DDL that can be executed to create schema.
+- **Money as integer cents always** — never FLOAT or DECIMAL for currency values.
+- **TIMESTAMPTZ not TIMESTAMP** — always store with timezone; convert at display layer.
+- **UUID primary keys for distributed systems** — auto-increment leaks record counts and is a sharding bottleneck.
+- **NOT NULL by default** — explicitly allow NULL only when absence is semantically meaningful.
+- **Constraints at the database layer** — application can be bypassed; the database cannot.
+- **Index every foreign key** — unindexed FKs cause full table scans on every join.
+- **Soft delete with deleted_at** — never hard delete audit-trail data; filter in queries.
+- **Comments on every table and non-obvious column** — schemas outlive their authors.
+- **Reversible migrations** — every migration needs a documented rollback procedure.
+- **Test EXPLAIN ANALYZE on critical queries** — index design is validated against actual query plans.
+
+
+## Worked Example and Anti-Patterns
+
+### Anti-Patterns to Avoid
+
+| Anti-pattern | Problem | Fix |
+|-------------|---------|-----|
+| No runbook | On-call engineer has no guidance during incident | Write runbook before going to production |
+| Single point of failure | One component down takes everything with it | Design for redundancy at every layer |
+| No monitoring | Problems discovered by users, not engineers | Instrument before launch |
+| Manual toil | Repeated manual steps slow down and introduce errors | Automate anything done more than twice |
+| Undocumented decisions | Next engineer repeats the same mistakes | Use Architecture Decision Records (ADRs) |
+
+### Rules
+
+- **Start with the simplest thing that works** -- complexity should be earned, not assumed.
+- **Make it observable before making it complex** -- logs, metrics, and traces first.
+- **Automate toil** -- anything done manually more than twice should be scripted.
+- **Document decisions** -- use ADRs; future engineers will thank you.
+- **Test failure modes** -- chaos engineering starts small; break one thing at a time.
+- **Prefer reversible decisions** -- irreversible architecture decisions need the most careful thought.
+- **Own your runbooks** -- every service needs a runbook before it goes to production.
+- **Measure before optimizing** -- do not optimize what you have not profiled.
+- **Design for the 99th percentile user** -- the average case is not the hard case.
+- **Keep it boring** -- stable, predictable, well-understood technology over cutting-edge.
+

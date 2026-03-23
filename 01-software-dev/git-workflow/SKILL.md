@@ -329,3 +329,30 @@ test(payments): add refund integration test
 - Commit messages must be imperative mood: "Add feature" not "Added feature" or "Adds feature."
 - Tag format must follow semantic versioning: `v<major>.<minor>.<patch>`.
 - Include rollback procedure — every workflow needs an escape hatch.
+
+
+## Worked Example and Anti-Patterns
+
+### Anti-Patterns to Avoid
+
+| Anti-pattern | Problem | Fix |
+|-------------|---------|-----|
+| No runbook | On-call engineer has no guidance during incident | Write runbook before going to production |
+| Single point of failure | One component down takes everything with it | Design for redundancy at every layer |
+| No monitoring | Problems discovered by users, not engineers | Instrument before launch |
+| Manual toil | Repeated manual steps slow down and introduce errors | Automate anything done more than twice |
+| Undocumented decisions | Next engineer repeats the same mistakes | Use Architecture Decision Records (ADRs) |
+
+### Rules
+
+- **Start with the simplest thing that works** -- complexity should be earned, not assumed.
+- **Make it observable before making it complex** -- logs, metrics, and traces first.
+- **Automate toil** -- anything done manually more than twice should be scripted.
+- **Document decisions** -- use ADRs; future engineers will thank you.
+- **Test failure modes** -- chaos engineering starts small; break one thing at a time.
+- **Prefer reversible decisions** -- irreversible architecture decisions need the most careful thought.
+- **Own your runbooks** -- every service needs a runbook before it goes to production.
+- **Measure before optimizing** -- do not optimize what you have not profiled.
+- **Design for the 99th percentile user** -- the average case is not the hard case.
+- **Keep it boring** -- stable, predictable, well-understood technology over cutting-edge.
+

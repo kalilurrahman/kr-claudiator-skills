@@ -1,154 +1,252 @@
 ---
 name: code-review
-description: Generate a focused code review checklist based on language, framework, and change type. Outputs specific items to check, not generic advice.
-argument-hint: [language/framework, change description, risk level]
-allowed-tools: Read, Write
+description: Conduct a thorough, structured code review covering correctness, security, performance, maintainability, and design. Produces inline comments organized by severity with actionable, constructive feedback.
+argument-hint: [PR description, tech stack, review focus area, team norms]
+allowed-tools: Read, Write, Bash
 ---
 
-# Code Review Checklist Generator
+# Code Review
 
-Generate a targeted code review checklist from the change context. No boilerplate — every item should be specific to the language, framework, and type of change being reviewed.
+Code review is the primary mechanism for sharing knowledge, catching defects early, and maintaining codebase quality. A good review is specific, constructive, and prioritized. The reviewer's goal is to make the code better, not to find fault. A great review improves the author's skills in addition to the code.
 
-## Process
+## Review Checklist
 
-1. **Parse change context.** Identify language, framework, change type (new feature, bug fix, refactor, performance).
-2. **Assess risk.** Database migration? Auth changes? Payment flow? Flag high-risk areas.
-3. **Generate language-specific checks.** Memory management (C/C++), null safety (Kotlin), async correctness (JavaScript/Python).
-4. **Add framework-specific checks.** React hooks dependencies, Django ORM N+1 queries, SQL injection in raw queries.
-5. **Include security checks.** Input validation, auth bypass, data exposure.
-6. **Check performance impact.** O(n²) loops, unindexed queries, missing pagination.
-7. **Verify tests.** Coverage for new code, edge cases, integration tests.
-8. **Structure as actionable checklist.** Group by category, priority order.
+### Correctness
+- [ ] Does the code do what the PR description says?
+- [ ] Are edge cases handled (empty collections, nulls, zero, negative numbers, max values)?
+- [ ] Are error cases handled and communicated clearly to callers?
+- [ ] Is concurrent access safe (race conditions, shared mutable state)?
+- [ ] Are external dependencies (APIs, DBs) assumed reliable? Should they be?
+- [ ] Are type conversions safe? Integer overflow? Float precision?
+
+### Security
+- [ ] Is user input validated and sanitized before use?
+- [ ] Are SQL queries parameterized (no string interpolation)?
+- [ ] Are secrets hardcoded anywhere?
+- [ ] Is authentication/authorization checked at the right layers?
+- [ ] Are file paths validated (path traversal)?
+- [ ] Is output escaped appropriately (XSS prevention)?
+
+### Performance
+- [ ] Are there N+1 query patterns (loop with DB call inside)?
+- [ ] Are large result sets paginated or streamed?
+- [ ] Are expensive computations cached where appropriate?
+- [ ] Are database indexes used for the new queries?
+
+### Maintainability
+- [ ] Is the code readable without needing comments to understand intent?
+- [ ] Are function and variable names descriptive?
+- [ ] Is the function length reasonable (< 40 lines is a guideline)?
+- [ ] Is the complexity manageable (cyclomatic complexity < 10)?
+- [ ] Are magic numbers replaced with named constants?
+
+### Tests
+- [ ] Are new code paths covered by tests?
+- [ ] Are edge cases tested?
+- [ ] Do test names describe the scenario and expected outcome?
+- [ ] Are tests independent (no shared mutable state)?
+
+### Design
+- [ ] Does this change fit naturally into the existing architecture?
+- [ ] Is the change reversible (no irreversible data migrations without rollback)?
+- [ ] Is there a simpler solution that achieves the same goal?
+
+## Comment Severity Labels
+
+Establish a team convention for comment priority:
+
+```
+[MUST]     Blocking -- must be addressed before merge
+           Bug, security issue, data loss risk, correctness problem
+
+[SHOULD]   Non-blocking but strongly recommended
+           Performance issue, maintainability concern, missing test
+
+[COULD]    Optional improvement -- at author's discretion
+           Style, naming, minor refactor
+
+[NIT]      Tiny stylistic point -- author may ignore
+
+[QUESTION] Seeking understanding, not requesting change
+
+[PRAISE]   Explicit positive feedback
+```
 
 ## Output Format
 
-### Code Review Checklist: [Change Title]
+### Inline Comment Examples
 
-**Language:** [Python/JavaScript/Java/Go/etc.]  
-**Framework:** [Django/React/Spring Boot/etc.]  
-**Change Type:** [New Feature/Bug Fix/Refactor/Performance]  
-**Risk Level:** [Low/Medium/High/Critical]
+```python
+# Original code
+def get_user_orders(user_id):
+    orders = db.query("SELECT * FROM orders WHERE user_id = " + user_id)
+    result = []
+    for order in orders:
+        items = db.query("SELECT * FROM order_items WHERE order_id = " + str(order['id']))
+        order['items'] = items
+        result.append(order)
+    return result
+```
 
----
+**[MUST] SQL Injection vulnerability -- Line 2**
+String interpolation in SQL queries allows SQL injection. Any user-controlled `user_id` can modify the query.
+```python
+# Fix: use parameterized query
+orders = db.query("SELECT * FROM orders WHERE user_id = %s", (user_id,))
+```
 
-## Critical Issues (Must Fix)
+**[MUST] N+1 query problem -- Lines 4-7**
+This executes one query per order. With 100 orders this is 101 DB round-trips.
+```python
+# Fix: fetch all items in one query
+order_ids = [o['id'] for o in orders]
+items = db.query(
+    "SELECT * FROM order_items WHERE order_id = ANY(%s)", (order_ids,)
+)
+items_by_order = defaultdict(list)
+for item in items:
+    items_by_order[item['order_id']].append(item)
+for order in orders:
+    order['items'] = items_by_order[order['id']]
+```
 
-### Security
-- [ ] **SQL Injection:** Raw SQL queries use parameterized statements, not string concatenation
-- [ ] **XSS:** User input is escaped before rendering in HTML
-- [ ] **Auth bypass:** New endpoints require authentication decorators/middleware
-- [ ] **Sensitive data:** Passwords/tokens not logged or exposed in error messages
-- [ ] **CSRF protection:** POST/PUT/DELETE requests include CSRF token
+**[SHOULD] Missing error handling -- Line 2**
+If the database query fails, the exception propagates uncaught. Should this return an empty list, raise a domain exception, or let it propagate? Make the intent explicit.
 
-### Data Integrity
-- [ ] **Database migration:** Migration is reversible (has down migration)
-- [ ] **Foreign keys:** ON DELETE behavior specified (CASCADE/RESTRICT/SET NULL)
-- [ ] **Null handling:** Required fields have NOT NULL constraints
-- [ ] **Data validation:** Input validation at API boundary, not just client side
-
-### Correctness
-- [ ] **Edge cases handled:** Empty arrays, null values, zero/negative numbers
-- [ ] **Error handling:** Exceptions caught and logged, user sees meaningful error
-- [ ] **Race conditions:** Concurrent access handled (locks, transactions, idempotency)
-
----
-
-## High Priority
-
-### Performance
-- [ ] **N+1 queries:** Django/ORM queries use select_related/prefetch_related
-- [ ] **Pagination:** List endpoints return max 100 items, support pagination
-- [ ] **Indexes:** New WHERE/JOIN columns have database indexes
-- [ ] **Caching:** Expensive operations cached (API calls, complex queries)
-
-### Code Quality
-- [ ] **No magic numbers:** Constants extracted to named variables
-- [ ] **Function length:** Functions under 50 lines (break up if longer)
-- [ ] **Naming:** Variable/function names are descriptive, not abbreviated
-- [ ] **DRY:** No copy-pasted code blocks (extract to shared function)
-
-### Testing
-- [ ] **Unit tests:** New functions have tests covering happy path + 2-3 edge cases
-- [ ] **Integration tests:** New API endpoints have integration tests
-- [ ] **Test coverage:** New code has ≥80% coverage (check with coverage tool)
-- [ ] **Test quality:** Tests assert behavior, not implementation details
+**[QUESTION] Why `SELECT *`?**
+Is the full order record needed here, or a subset? Selecting only needed columns reduces data transfer.
 
 ---
 
-## Medium Priority
+### PR-Level Summary Comment
 
-### Framework-Specific (React)
-- [ ] **Hook dependencies:** useEffect/useCallback dependency arrays are complete
-- [ ] **Key prop:** Lists use unique, stable keys (not array index)
-- [ ] **State updates:** setState uses functional form when depending on previous state
-- [ ] **Memoization:** Expensive computations wrapped in useMemo
+```markdown
+## Code Review Summary
 
-### Framework-Specific (Django)
-- [ ] **QuerySet evaluation:** Avoid query evaluation in loops (use values_list)
-- [ ] **Model validation:** clean() method validates business logic
-- [ ] **Signal receivers:** Signals are idempotent (handle duplicate calls)
-- [ ] **Migration dependencies:** Migration lists dependencies on other migrations
+**Overall:** Good approach to the problem. The core logic is sound. Two blocking issues to address before merge.
 
-### Observability
-- [ ] **Logging:** Errors logged with context (user ID, request ID, stack trace)
-- [ ] **Metrics:** New feature has success/failure metrics
-- [ ] **Monitoring:** Database queries logged if duration > 1s
+### Must Fix (blocking)
+1. **SQL injection** (line 12, 34) -- parameterize all queries
+2. **N+1 query** (lines 45-52) -- fetch order items in a single IN query; will cause timeouts at scale
 
----
+### Recommended
+3. **Missing test for empty order list** -- the edge case where user has no orders should be explicitly tested
+4. **Error handling on DB failure** -- what should callers receive when the DB is unavailable?
 
-## Low Priority
+### Optional
+5. Consider extracting the item-grouping logic into a helper function for readability
 
-### Style & Conventions
-- [ ] **Linting passes:** No linter warnings introduced
-- [ ] **Formatting:** Code formatted with project formatter (Black/Prettier/etc.)
-- [ ] **Imports:** Unused imports removed
-- [ ] **Comments:** Complex logic has explanatory comments (why, not what)
+### Positives
+- Clean separation between the query and grouping logic
+- Good use of type hints throughout
+- Test structure is clear and well-named
 
-### Documentation
-- [ ] **API docs:** New endpoints documented in OpenAPI/Swagger
-- [ ] **README:** Updated if setup process changes
-- [ ] **Changelog:** Entry added for user-facing changes
+Approving once the blocking items are resolved.
+```
 
----
+## Giving Feedback Well
 
-## Risk-Specific Checks
+### Be specific about the problem, not the person
 
-### If Database Migration:
-- [ ] Migration tested on staging data
-- [ ] Data backfill script tested for large tables
-- [ ] Index creation uses CONCURRENTLY (PostgreSQL)
-- [ ] Estimated migration duration documented
+```
+BAD:  "This is wrong."
+GOOD: "This will throw a KeyError if 'user' is not in the response dict.
+       Use .get('user') with a default, or check for the key first."
 
-### If Payment/Financial:
-- [ ] Idempotency key prevents duplicate charges
-- [ ] Currency handling uses DECIMAL, not FLOAT
-- [ ] Amount validation prevents negative/zero values
-- [ ] Refund logic tested
+BAD:  "I wouldn't do it this way."
+GOOD: "This approach works, but loading all 50K records into memory before
+       filtering will cause OOM errors for large datasets. Consider filtering
+       at the query level instead."
+```
 
-### If Authentication:
-- [ ] Password reset tokens expire
-- [ ] Session timeout configured
-- [ ] Failed login attempts rate-limited
-- [ ] Two-factor auth not bypassed
+### Explain the why
 
----
+```
+BAD:  "Use a list comprehension here."
+GOOD: "A list comprehension is more idiomatic Python and typically faster
+       for simple transformations: [x.strip() for x in items]"
+```
 
-## How to Use This Checklist
+### Distinguish opinions from requirements
 
-1. **Read the code.** Understand what it does before checking boxes.
-2. **Check Critical first.** Stop review if critical issues found.
-3. **High Priority next.** Request changes if multiple High items fail.
-4. **Medium/Low are suggestions.** Author can push back with rationale.
-4. **Not every item applies.** Skip irrelevant checks, but note why.
-5. **Add custom items.** If you spot issues not on list, add them.
+```
+[NIT] I'd name this `process_payment` rather than `do_payment` -- reads
+more naturally. Totally your call.
+
+[MUST] `do_payment` does not convey that it has a side effect (charging the
+card). Functions with side effects should be named to reflect the action:
+`charge_card`, `create_payment_intent`.
+```
+
+### Praise specifically
+
+```
+[PRAISE] The way you handled the idempotency key here is really clean --
+storing the key before processing and checking it first prevents double-
+charges without needing a distributed lock. Worth adding to the docstring.
+```
+
+## Review Size Guidelines
+
+| PR size | Expected review time | Max files |
+|---------|---------------------|-----------|
+| XS (< 50 lines) | 15 min | 3 |
+| S (50-200 lines) | 30 min | 10 |
+| M (200-500 lines) | 1 hour | 20 |
+| L (500+ lines) | 2+ hours; request split | -- |
+
+If a PR takes more than 2 hours to review properly, request it be split.
+
+## Worked Example: Security Review
+
+**PR:** "Add user profile endpoint"
+
+```python
+# Submitted code
+@app.route('/api/users/<user_id>/profile')
+def get_profile(user_id):
+    user = User.query.get(user_id)
+    return jsonify(user.to_dict())
+```
+
+**[MUST] Missing authorization check**
+Any authenticated user can retrieve any user's profile by changing the user_id in the URL (IDOR vulnerability). Add an ownership check:
+```python
+@app.route('/api/users/<user_id>/profile')
+@login_required
+def get_profile(user_id):
+    if str(current_user.id) != str(user_id) and not current_user.is_admin:
+        abort(403)
+    user = User.query.get_or_404(user_id)
+    return jsonify(user.to_public_dict())   # note: use a whitelist of public fields
+```
+
+**[MUST] `to_dict()` may expose sensitive fields**
+Does `to_dict()` include `password_hash`, `reset_token`, `api_secret`? Use a whitelist method `to_public_dict()` that only returns fields safe to expose.
+
+**[SHOULD] No 404 handling**
+`User.query.get(user_id)` returns None for unknown IDs; `to_dict()` then raises AttributeError. Use `get_or_404()`.
+
+## Anti-Patterns to Avoid
+
+| Anti-pattern | Problem | Fix |
+|-------------|---------|-----|
+| Rubber-stamping | Approving without reading | Block time; use the checklist |
+| Style-only reviews | Missing real bugs; author feels nitpicked | Use linters for style; focus on correctness |
+| Vague comments | "This could be better" gives nothing | Specific problem + specific fix |
+| Blocking on opinions | Personal preference is not a blocker | Use [COULD] or [NIT] |
+| No positive feedback | Author only hears problems | Explicitly [PRAISE] good choices |
+| Review avalanche | 50 comments overwhelming the author | Prioritize top 5; group related comments |
 
 ## Rules
 
-- Checklist must be specific to the language and framework (React checks for React PRs, Django checks for Django PRs).
-- Group by risk level: Critical > High > Medium > Low.
-- Critical items are blockers — PR should not merge if these fail.
-- Include realistic examples in brackets [like this] when useful.
-- If change involves high-risk areas (auth, payments, migrations), include dedicated risk sections.
-- Every checkbox must be actionable ("Check for X") not vague ("Code is good").
-- Maximum 40 checklist items — more than that is noise.
-- If change type is unclear, list questions to clarify before generating checklist.
+- **Distinguish blockers from suggestions** -- use a severity label on every comment.
+- **Be specific** -- every comment must identify a concrete problem and suggest a concrete fix.
+- **Explain the why** -- "do X because Y" teaches; "do X" does not.
+- **Separate opinions from requirements** -- personal preference is not a blocker.
+- **Review the PR description first** -- context changes what counts as correct.
+- **Focus on correctness and design** -- use linters for style; do not be a human linter.
+- **Respond within one business day** -- slow reviews block the team.
+- **Always include positive feedback** -- if you only say what is wrong, authors stop asking for reviews.
+- **Request splits on large PRs** -- a 1,000-line PR cannot be reviewed properly.
+- **Follow up after changes** -- if you left a [MUST], verify it was addressed before approving.

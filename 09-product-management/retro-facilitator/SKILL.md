@@ -1,138 +1,266 @@
 ---
 name: retro-facilitator
-description: Facilitate a team retrospective. Generate a retro board with prompts (4Ls, Start-Stop-Continue, Sailboat formats) or synthesize retro notes into grouped themes and prioritized action items.
-argument-hint: [retro format: 4Ls, start-stop-continue, sailboat, or paste notes to synthesize]
+description: Facilitate a structured sprint or project retrospective. Outputs a meeting agenda, facilitation guide, synthesis framework, and action item tracker that drives real improvement.
+argument-hint: [team size, sprint/project context, recurring issues, time available]
 allowed-tools: Read, Write
 ---
 
-# Retro Facilitator
+# Sprint Retrospective Facilitator
 
-Two modes: GENERATE a retro board with prompts, or SYNTHESIZE raw retro notes into themes and actions. Retros without actions are just venting sessions.
+A retrospective is only valuable if it produces real change. Most retros fail because they identify problems but not root causes, or they generate action items that nobody follows up on. This facilitates a retro that surfaces genuine issues, reaches shared understanding, and produces committed improvements.
 
 ## Process
 
-### Mode Detection
-- If the input is a format name (4Ls, start-stop-continue, sailboat) → GENERATE mode
-- If the input is pasted notes, bullet points, or raw feedback → SYNTHESIZE mode
-- If unclear, ask.
+1. **Set the stage** — create psychological safety before diving into problems.
+2. **Gather data** — surface what actually happened, not just what people feel.
+3. **Generate insights** — move from symptoms to root causes.
+4. **Decide what to do** — prioritize and commit to specific changes.
+5. **Close the loop** — check on last retro's actions before starting the next cycle.
 
-### GENERATE Mode
-1. **Select format.** Parse which retro format the user wants.
-2. **Create sections.** Build the board structure for that format with section descriptions.
-3. **Add seed prompts.** 2-3 starter questions per section to get the team thinking.
-4. **Add facilitation tips.** How to run each section effectively.
-5. **Suggest time allocation.** Based on a 60-minute retro by default.
+## Facilitation Guide
 
-### SYNTHESIZE Mode
-1. **Ingest notes.** Read all raw input — sticky notes, bullet points, free-form text.
-2. **Group into themes.** Cluster related items. Name each theme clearly.
-3. **Prioritize themes.** Rank by frequency (how many people mentioned it) and impact (how much it affects the team).
-4. **Generate action items.** Each action must have: what, who, and by when.
-5. **Identify patterns.** If context from previous retros is available, flag recurring themes.
+### Before the retro (15–30 min prep)
 
-## Output Format
+**Gather data from the sprint:**
+- Velocity vs. planned
+- Stories completed, carried over, and abandoned
+- Bug and incident count
+- Customer escalations
+- Team satisfaction pulse (anonymous survey if available)
 
-### GENERATE Mode
+**Review last retro's action items:**
+- Which were done?
+- Which were started?
+- Which were not started? Why?
+
+**Set up the board:**
+- Columns: "What went well?" / "What could be better?" / "What puzzles us?" / "Action items"
+- Timer for each section
+- Voting dots ready
+
+---
+
+## Meeting Structure
+
+```markdown
+# Retrospective: [Sprint/Project Name]
+
+**Date:** [Date]  
+**Facilitator:** [Name]  
+**Team:** [Names]  
+**Duration:** [60–90 minutes]  
+**Format:** [In-person / Remote — Miro / FigJam / Retro tool]
+
+---
+
+## Agenda
+
+| Time | Activity | Owner | Purpose |
+|------|----------|-------|---------|
+| 0:00 | Check-in + safety check | Facilitator | Build trust |
+| 0:05 | Review last retro actions | PM | Accountability |
+| 0:15 | Data review: sprint stats | PM | Shared context |
+| 0:20 | Individual writing (silent) | Everyone | Generate honest input |
+| 0:30 | Grouping and discussion | Everyone | Identify themes |
+| 0:50 | Prioritize themes | Everyone | Dot vote |
+| 0:55 | Root cause analysis | Team | Go deeper |
+| 1:10 | Action items | Team | Commit to change |
+| 1:25 | Close + appreciation | Facilitator | End positively |
+
+---
+
+## Check-In (5 min)
+
+*Purpose: build psychological safety before critical discussion*
+
+**Prompt (choose one):**
+- "In one word, how are you coming into this retro?"
+- "On a scale of 1–5, how was this sprint for you personally? Why?"
+- "What is one thing that happened this sprint you are proud of?"
+
+*The facilitator goes first to model openness.*
+
+---
+
+## Last Retro Review (10 min)
+
+*Review each action item from the last retro. Be honest about what happened.*
+
+| Action | Owner | Status | Notes |
+|--------|-------|--------|-------|
+| [Action from last retro] | [Name] | ✅ Done / 🔄 In progress / ❌ Not done | [What happened] |
+
+**Facilitator prompt:** "For anything not done — what got in the way? Is it still worth doing?"
+
+---
+
+## Sprint Data Review (5 min)
+
+*Review facts before opinions. Shared context prevents argument about basic facts later.*
+
+- Stories planned: [N]
+- Stories completed: [N] ([X%])
+- Stories carried over: [N] — [themes if any]
+- Incidents/bugs: [N]
+- Unplanned work: [estimate of %]
+
+**Facilitator prompt:** "Does anything in this data surprise you?"
+
+---
+
+## Reflection: Individual Writing (10 min, silent)
+
+*Everyone writes simultaneously — prevents groupthink and ensures all voices are heard.*
+
+**Prompt for each column:**
+
+**🟢 What went well?**  
+"What do you want to make sure we keep doing? What worked? What should we be proud of?"
+
+**🔴 What could be better?**  
+"What slowed us down? What frustrated you? What would you change if you could?"
+
+**❓ What puzzles us?**  
+"What do you not understand? What feels like a symptom of something deeper?"
+
+*Facilitator: set a timer for 8 minutes. Silence is productive — do not rush.*
+
+---
+
+## Discussion and Grouping (20 min)
+
+**Step 1:** Each person reads their items aloud (one at a time). Facilitator groups duplicates.  
+**Step 2:** Facilitator reads back the groups to confirm accuracy.  
+**Step 3:** Team discusses themes — *not solutions yet, only understanding.*
+
+**Facilitator prompts:**
+- "Can you say more about what happened there?"
+- "Did anyone else experience this?"
+- "Is this new, or does it recur?"
+- "What do you think caused this?"
+
+---
+
+## Prioritize (5 min)
+
+**Dot voting:** Each person gets 3 dots to place on the items they think are most important to address.
+
+**Facilitator:** "We will focus our action items on the top [2–3] themes."
+
+*Note: voting prevents the loudest voice from determining what gets addressed.*
+
+---
+
+## Root Cause Analysis (15 min)
+
+*For each prioritized theme, go deeper. Do not jump to solutions.*
+
+**For each top-voted item, ask:**
+
+**5 Whys technique:**
+1. "Why did [problem] happen?" → [Answer]
+2. "Why did [answer] happen?" → [Answer]
+3. "Why..." → Continue until you reach a systemic or process cause
+
+**Alternative: Fishbone / Ishikawa**
+- What contributed to this from: Process / People / Tools / Communication / Environment?
+
+**Example:**
+- Problem: "Stories were carried over every sprint"
+- Why? "Stories were too large"
+- Why? "We did not break them down in planning"
+- Why? "Planning meetings end before we finish grooming"
+- Why? "Planning is scheduled for 1 hour but always takes 2"
+- Root cause: **Planning time is insufficient; we need 2-hour planning slots**
+
+*The root cause is the one you can actually act on.*
+
+---
+
+## Action Items (15 min)
+
+*The most important part. Actions must be specific, owned, and time-bound.*
+
+**For each root cause identified, define:**
+
+| Action | Owner | By when | How we will know it is done |
+|--------|-------|---------|---------------------------|
+| [Specific action] | [Single name] | [Date or next sprint] | [Observable outcome] |
+
+**Facilitator rules:**
+- Every action gets a single owner — not "the team"
+- Actions must be completable in the next sprint or 2 weeks maximum
+- "Discuss" is not an action; it is a meeting. Schedule it with a date.
+- Start with the highest-voted themes
+
+**Good action:** "Engineering lead will extend sprint planning to 2 hours starting next sprint"  
+**Bad action:** "Team will communicate better"
+
+---
+
+## Closing + Appreciation (5 min)
+
+*End on a positive note. Retros that end on problems leave teams demoralized.*
+
+**Appreciation round:** Each person names one thing another team member did well this sprint.  
+
+**Facilitator:** "Thank you everyone. I will send the notes and action items within 24 hours."
+
+---
+
+## Post-Retro (within 24h)
+
+Send to the team:
 ```
-## Retro Board: [Format Name]
-**Duration:** 60 minutes | **Team size:** [adjust if specified]
+# Retro Summary — [Sprint/Date]
 
-### Format Overview
-[2-3 sentences explaining this retro format and when it works best.]
+## Top themes
+1. [Theme] — root cause: [cause]
+2. [Theme] — root cause: [cause]
 
-### Section 1: [Name]
-**What goes here:** [description]
-**Seed prompts:**
-- [Specific question to spark discussion]
-- [Specific question to spark discussion]
-- [Specific question to spark discussion]
-**Facilitation tip:** [How to run this section]
+## Action items
+| Action | Owner | By when |
+|--------|-------|---------|
+| [Action] | [Name] | [Date] |
 
-### Section 2: [Name]
-[same structure]
+## What we keep doing
+- [From "went well" section]
 
-### Section 3: [Name]
-[same structure]
-
-### Section 4: [Name] (if applicable)
-[same structure]
-
-### Time Allocation
-| Phase | Duration | Notes |
-|-------|----------|-------|
-| Check-in | 5 min | Quick round — one word for the sprint |
-| Individual writing | 10 min | Silent, everyone adds stickies |
-| Group & discuss | 25 min | Read, cluster, vote on top themes |
-| Action items | 15 min | Assign owners and deadlines |
-| Close | 5 min | One takeaway per person |
-
-### Facilitation Tips
-- [Tip about creating psychological safety]
-- [Tip about keeping discussion productive]
-- [Tip about ensuring actions get assigned]
+*See full retro board: [link]*
+```
 ```
 
-### SYNTHESIZE Mode
-```
-## Retro Synthesis: [Date/Sprint]
+## Retro Format Variations
 
-### Themes (ranked by frequency + impact)
+| Format | Good for | Duration |
+|--------|---------|----------|
+| Start / Stop / Continue | Quick, focused teams | 45 min |
+| What went well / What to improve | Standard, beginner teams | 60 min |
+| Mad / Sad / Glad | Teams needing emotional check-in | 60 min |
+| 4Ls (Liked, Learned, Lacked, Longed for) | Project retrospectives | 75 min |
+| Sailboat (wind, anchor, rocks) | Strategic retrospectives | 90 min |
+| Timeline retro | Complex sprints with many events | 90 min |
 
-#### Theme 1: [Name] (mentioned by [N] people)
-- [Grouped item]
-- [Grouped item]
-- [Grouped item]
-**Root cause:** [One sentence hypothesis]
+## Common Retro Failure Modes
 
-#### Theme 2: [Name] (mentioned by [N] people)
-- [Grouped item]
-- [Grouped item]
-**Root cause:** [One sentence hypothesis]
-
-#### Theme 3: [Name]
-[same structure]
-
-### Action Items
-| # | Action | Owner | Due | Theme |
-|---|--------|-------|-----|-------|
-| 1 | [Specific, actionable task] | [person] | [date] | Theme 1 |
-| 2 | [Specific, actionable task] | [person] | [date] | Theme 2 |
-| 3 | [Specific, actionable task] | [person] | [date] | Theme 1 |
-
-### Patterns (if prior retro context available)
-- **Recurring:** [Theme that keeps appearing] — previous actions may not have been effective
-- **New:** [Theme appearing for the first time] — investigate
-- **Resolved:** [Theme from last retro that did not appear] — actions worked
-
-### Team Health Signal
-[One sentence summary: is the team trending better, worse, or stable based on these notes?]
-```
-
-## Supported Formats
-
-### 4Ls
-- **Loved:** What went well that we want to keep doing
-- **Learned:** What we discovered or gained insight on
-- **Lacked:** What was missing or insufficient
-- **Longed For:** What we wish we had
-
-### Start-Stop-Continue
-- **Start:** What should we begin doing
-- **Stop:** What should we stop doing
-- **Continue:** What is working and should keep going
-
-### Sailboat
-- **Wind (propelling us):** What is pushing us forward
-- **Anchor (holding us back):** What is slowing us down
-- **Rocks (risks ahead):** What could hurt us
-- **Island (destination):** Where we are trying to get to
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| Same problems every sprint | Action items not followed up | Review last retro actions first, always |
+| Only negatives discussed | No structured "went well" section | Protect time for positives |
+| Loud voices dominate | No structured input collection | Silent writing before discussion |
+| Action items never done | No single owner, no deadline | One owner per action, specific date |
+| Nobody speaks honestly | Psychological safety absent | Check-in, emphasize no blame culture |
+| Retro runs over time | No timeboxing | Use a visible timer; cut if needed |
 
 ## Rules
 
-- In GENERATE mode, seed prompts must be specific to the team context if provided. Generic prompts like "what went well?" waste everyone's time.
-- In SYNTHESIZE mode, every theme must have at least one action item. Themes without actions are just observations.
-- Action items must be specific and assigned. "Improve communication" is not an action. "Schedule a 15-min daily sync for the next 2 weeks — owned by [person]" is.
-- Do not create more than 5 themes when synthesizing. If there are more, merge the smaller ones.
-- Maximum 5 action items. Teams that leave retros with 10 actions complete zero of them.
-- Always include a team health signal in SYNTHESIZE mode. The point of retros is continuous improvement — track the direction.
-- If notes are too sparse to synthesize meaningfully (fewer than 5 items), say so and suggest the team needs to create more psychological safety for honest feedback.
+- **Review last retro's actions first** — without accountability, action items are theater.
+- **Silent individual writing before discussion** — prevents groupthink and ensures introverts contribute.
+- **Dot voting prioritizes democratically** — the loudest person does not set the agenda.
+- **Root cause before solution** — jumping to solutions prevents teams from fixing the real problem.
+- **One owner per action item** — "team will do X" means nobody does X.
+- **Actions completable in one sprint** — long-term actions get deferred; short-term actions get done.
+- **Facilitator does not dominate** — if you are PM and facilitating, stay neutral; do not advocate for your own items.
+- **End positively** — appreciation rounds are not soft; they counterbalance the critical discussion.
+- **Send notes within 24 hours** — action items lose momentum after 48 hours.
+- **Measure improvement** — if a retro does not change anything, it is a waste of everyone's time.
