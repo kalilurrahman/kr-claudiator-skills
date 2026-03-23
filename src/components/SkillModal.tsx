@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import { X, Copy, Check, ExternalLink, Loader2, Code2, FileText, Wrench } from "lucide-react";
+import { X, Copy, Check, ExternalLink, Loader2, Code2, FileText } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import type { Skill } from "@/types/skills.types";
 import { getCategoryMeta } from "@/data/categoryMeta";
 
