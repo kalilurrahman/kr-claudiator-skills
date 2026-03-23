@@ -1,64 +1,26 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-<<<<<<< HEAD
-import { Menu, ExternalLink, Home, Search, Sun, Moon } from "lucide-react";
-=======
 import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart } from "lucide-react";
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { useTheme } from "@/hooks/useTheme";
 
 export function Header() {
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [dark, setDark] = useState(() => {
-    if (typeof window === "undefined") return true;
-    return document.documentElement.classList.contains("dark");
-  });
   const [favouriteCount, setFavouriteCount] = useState(0);
   const location = useLocation();
   const { isDark, toggle } = useTheme();
 
   useEffect(() => {
-    const stored = localStorage.getItem("claudiator_theme");
-    const isDark = stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    document.documentElement.classList.toggle("dark", isDark);
-    setDark(isDark);
-  }, []);
-
-  useEffect(() => {
-    const favs = JSON.parse(localStorage.getItem("claudiator_favourites") || "[]");
-    setFavouriteCount(favs.length);
-
-    const handler = () => {
-      const f = JSON.parse(localStorage.getItem("claudiator_favourites") || "[]");
-      setFavouriteCount(f.length);
+    const update = () => {
+      const favs = JSON.parse(localStorage.getItem("claudiator_favourites") || "[]");
+      setFavouriteCount(favs.length);
     };
-    window.addEventListener("favourites-updated", handler);
-    return () => window.removeEventListener("favourites-updated", handler);
+    update();
+    window.addEventListener("favourites-updated", update);
+    return () => window.removeEventListener("favourites-updated", update);
   }, []);
-
-  const toggleTheme = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("claudiator_theme", next ? "dark" : "light");
-  };
 
   const navLinks = [
-<<<<<<< HEAD
-    { label: "Home",          to: "/",       icon: Home   },
-    { label: "Browse Skills", to: "/skills", icon: Search },
-  ];
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between h-12">
-
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 no-underline">
-          <div className="w-7 h-7 gradient-hero flex items-center justify-center rounded">
-            <span className="font-serif text-xs text-primary-foreground font-semibold">KR</span>
-=======
     { label: "Home", to: "/", icon: Home },
     { label: "Skills Library", to: "/skills", icon: Search },
     { label: "Favourites", to: "/favourites", icon: Heart, badge: favouriteCount },
@@ -67,13 +29,12 @@ export function Header() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-primary/10">
-      <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between h-14 md:h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between h-12">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 no-underline">
-          <div className="w-8 h-8 gradient-hero flex items-center justify-center rounded-lg">
+        <Link to="/" className="flex items-center gap-2 no-underline">
+          <div className="w-7 h-7 gradient-hero flex items-center justify-center rounded">
             <span className="font-sans text-xs text-primary-foreground font-bold tracking-tight">KR</span>
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-bold text-gradient-brand hidden sm:block">KR Claudiator Skills</span>
@@ -119,10 +80,8 @@ export function Header() {
             <ExternalLink className="w-3 h-3" />
           </a>
 
-<<<<<<< HEAD
           <span className="w-px h-4 bg-border mx-1" />
 
-          {/* Dark mode toggle */}
           <button
             onClick={toggle}
             aria-label="Toggle dark mode"
@@ -132,7 +91,7 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile — theme toggle + hamburger */}
+        {/* Mobile */}
         <div className="flex items-center gap-1 md:hidden">
           <button
             onClick={toggle}
@@ -142,26 +101,6 @@ export function Header() {
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
 
-=======
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors focus-ring"
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
-        </div>
-
-        {/* Mobile */}
-        <div className="flex items-center gap-1 md:hidden">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
               <button className="p-2 text-foreground" aria-label="Open menu">
@@ -214,10 +153,6 @@ export function Header() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 py-2 px-2 rounded-lg text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-<<<<<<< HEAD
-                  <ExternalLink className="w-3.5 h-3.5" />
-=======
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                   GitHub
                   <ExternalLink className="w-3.5 h-3.5 ml-auto" />
                 </a>

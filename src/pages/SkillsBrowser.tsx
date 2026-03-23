@@ -9,71 +9,53 @@ import { SkillModal } from "@/components/SkillModal";
 import { SkillsProgressBar } from "@/components/SkillsProgressBar";
 import { GitHubBanner } from "@/components/GitHubBanner";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
-<<<<<<< HEAD
+import { SkeletonGrid } from "@/components/SkeletonCard";
 import type { Skill, Category, SkillsIndex, BundledData } from "@/types/skills.types";
 
 // ─── Data mode detection ─────────────────────────────────────────────────────
-// Try bundled first (skills-data.json with embedded content).
-// If that fails or isn't present, fall back to split-JSON index approach.
-const BUNDLED_URL  = "/data/skills-data.json";
-const INDEX_URL    = "/data/skills-index.json";
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+const BUNDLED_URL = "/data/skills-data.json";
+const INDEX_URL = "/data/skills-index.json";
 
 function buildCategoriesFromBundled(data: BundledData): Category[] {
-  return data.categories.map((cat, i) => ({
-    id:       cat.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-    label:    cat,
-    icon:     "Zap", // Not used in emoji mode
+  return data.categories.map((cat) => ({
+    id: cat.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+    label: cat,
+    icon: "Zap",
     dataFile: "",
-    count:    data.skills.filter((s) => s.category === cat).length,
+    count: data.skills.filter((s) => s.category === cat).length,
   }));
 }
 
 function buildIndexFromBundled(data: BundledData, cats: Category[]): SkillsIndex {
   return {
-    version:      data.version,
-    totalSkills:  data.totalSkills,
+    version: data.version,
+    totalSkills: data.totalSkills,
     targetSkills: 200,
-    lastUpdated:  new Date().toISOString().split("T")[0],
-    categories:   cats,
+    lastUpdated: new Date().toISOString().split("T")[0],
+    categories: cats,
   };
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-=======
-import { SkeletonGrid } from "@/components/SkeletonCard";
-import type { SkillsIndex, Skill, CategoryData } from "@/types/skills.types";
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
+// ──────────────────────────────────────────────────────────────────────────────
 
 export function SkillsBrowser() {
   const [searchParams] = useSearchParams();
 
-  // Unified state
-  const [index, setIndex]                   = useState<SkillsIndex | null>(null);
-  const [allSkills, setAllSkills]           = useState<Skill[]>([]);
-  const [categoryCache, setCategoryCache]   = useState<Record<string, Skill[]>>({});
+  const [index, setIndex] = useState<SkillsIndex | null>(null);
+  const [allSkills, setAllSkills] = useState<Skill[]>([]);
+  const [categoryCache, setCategoryCache] = useState<Record<string, Skill[]>>({});
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-<<<<<<< HEAD
-  const [searchQuery, setSearchQuery]       = useState("");
-  const [selectedSkill, setSelectedSkill]   = useState<Skill | null>(null);
-  const [dataMode, setDataMode]             = useState<"bundled" | "split" | null>(null);
-  const [filterOpen, setFilterOpen]         = useState(false);
-
-  // Tool filter (new — from POC)
-  const [toolFilter, setToolFilter] = useState<string[]>([]);
-
-=======
-  const [categoryCache, setCategoryCache] = useState<Record<string, CategoryData>>({});
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
-  const [loadingCategory, setLoadingCategory] = useState(false);
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
+  const [dataMode, setDataMode] = useState<"bundled" | "split" | null>(null);
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [toolFilter, setToolFilter] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+
   const searchRef = useRef<HTMLInputElement>(null);
 
-  // ── Load data ───────────────────────────────────────────────────────────────
+  // ── Load data ──────────────────────────────────────────────────────────────
   useEffect(() => {
-    // 1. Try bundled JSON
     fetch(BUNDLED_URL)
       .then((r) => {
         if (!r.ok) throw new Error("No bundled data");
@@ -81,34 +63,33 @@ export function SkillsBrowser() {
       })
       .then((data) => {
         const cats = buildCategoriesFromBundled(data);
-        const idx  = buildIndexFromBundled(data, cats);
+        const idx = buildIndexFromBundled(data, cats);
         setIndex(idx);
         setAllSkills(data.skills);
         setDataMode("bundled");
 
-        // Pre-populate category cache
         const cache: Record<string, Skill[]> = {};
         cats.forEach((cat) => {
           cache[cat.id] = data.skills.filter((s) => s.category === cat.label);
         });
         setCategoryCache(cache);
 
-        // Select initial category
         const catParam = searchParams.get("category");
-        const match    = cats.find((c) => c.id === catParam);
+        const match = cats.find((c) => c.id === catParam);
         setActiveCategory(match?.id ?? cats[0]?.id ?? null);
+        setLoading(false);
       })
       .catch(() => {
-        // 2. Fall back to legacy split-JSON
         fetch(INDEX_URL)
           .then((r) => r.json())
           .then((idx: SkillsIndex) => {
             setIndex(idx);
             setDataMode("split");
             const catParam = searchParams.get("category");
-            const match    = idx.categories.find((c) => c.id === catParam);
-            const init     = match?.id ?? idx.categories[0]?.id ?? null;
+            const match = idx.categories.find((c) => c.id === catParam);
+            const init = match?.id ?? idx.categories[0]?.id ?? null;
             if (init) fetchSplitCategory(init, idx);
+            setLoading(false);
           });
       });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -117,12 +98,12 @@ export function SkillsBrowser() {
   const fetchSplitCategory = useCallback(
     (id: string, idx?: SkillsIndex) => {
       setActiveCategory(id);
-<<<<<<< HEAD
       const source = idx ?? index;
       if (!source) return;
       if (categoryCache[id]) return;
       const cat = source.categories.find((c) => c.id === id);
       if (!cat?.dataFile) return;
+      setLoading(true);
       fetch(cat.dataFile)
         .then((r) => r.json())
         .then((d: { skills: Skill[] }) => {
@@ -131,24 +112,8 @@ export function SkillsBrowser() {
             const existing = new Set(prev.map((s) => s.id));
             return [...prev, ...d.skills.filter((s) => !existing.has(s.id))];
           });
-        });
-=======
-      const idx = indexData ?? index;
-      if (!idx) return;
-
-      if (categoryCache[id]) return;
-
-      const cat = idx.categories.find((c) => c.id === id);
-      if (!cat) return;
-
-      setLoadingCategory(true);
-      fetch(cat.dataFile)
-        .then((r) => r.json())
-        .then((data: CategoryData) => {
-          setCategoryCache((prev) => ({ ...prev, [id]: data }));
         })
-        .finally(() => setLoadingCategory(false));
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
+        .finally(() => setLoading(false));
     },
     [index, categoryCache]
   );
@@ -171,7 +136,18 @@ export function SkillsBrowser() {
     searchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
-<<<<<<< HEAD
+  // Keyboard: "/" focuses search
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "/" && !(e.target instanceof HTMLInputElement) && !(e.target instanceof HTMLTextAreaElement)) {
+        e.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
   // ── Filtering ─────────────────────────────────────────────────────────────
   const allTools = useMemo(() => {
     const tools = new Set<string>();
@@ -188,13 +164,6 @@ export function SkillsBrowser() {
     let base: Skill[];
     if (q) {
       base = allSkills.filter(
-=======
-  const allLoadedSkills = Object.values(categoryCache).flatMap((c) => c.skills);
-
-  const q = searchQuery.toLowerCase().trim();
-  const displaySkills = q
-    ? allLoadedSkills.filter(
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
         (s) =>
           s.name.toLowerCase().includes(q) ||
           s.description.toLowerCase().includes(q) ||
@@ -208,14 +177,10 @@ export function SkillsBrowser() {
       base = [];
     }
 
-<<<<<<< HEAD
-    // Tool filter
     if (toolFilter.length > 0) {
       base = base.filter((s) =>
         toolFilter.every(
-          (f) =>
-            s.allowedTools?.includes(f) ||
-            s.tags?.includes(f)
+          (f) => s.allowedTools?.includes(f) || s.tags?.includes(f)
         )
       );
     }
@@ -229,16 +194,7 @@ export function SkillsBrowser() {
       <Header />
 
       <main className="flex-1 pt-12 pb-16 md:pb-0">
-=======
-  const isLoading = loadingCategory && displaySkills.length === 0;
-
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1 pt-14 md:pt-16 pb-16 md:pb-0">
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
         <div className="container max-w-6xl mx-auto px-4 py-6 animate-fade-in">
-
           {/* Progress bar */}
           {index && (
             <div className="mb-5">
@@ -246,21 +202,17 @@ export function SkillsBrowser() {
             </div>
           )}
 
-          {/* ── Search + filter row ── */}
+          {/* Search + filter row */}
           <div className="mb-5 flex gap-2">
             <div className="relative flex-1">
               <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 ref={searchRef}
                 type="text"
-                placeholder="Search skills by name, description, category, or argument…"
+                placeholder='Search skills… Press "/" to focus'
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-<<<<<<< HEAD
                 className="w-full pl-10 pr-8 py-2.5 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-=======
-                className="w-full pl-10 pr-4 py-2.5 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
               />
               {searchQuery && (
                 <button
@@ -273,7 +225,6 @@ export function SkillsBrowser() {
               )}
             </div>
 
-            {/* Filter toggle (only meaningful when tools exist) */}
             {allTools.length > 0 && (
               <button
                 onClick={() => setFilterOpen((v) => !v)}
@@ -343,16 +294,11 @@ export function SkillsBrowser() {
           <div className="flex flex-col md:flex-row gap-5">
             {/* Desktop sidebar */}
             {index && (
-              <aside className="hidden md:block w-56 shrink-0">
-<<<<<<< HEAD
+              <aside className="hidden md:block w-64 shrink-0">
                 <div className="sticky top-16">
                   <span className="text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-bold block mb-2 px-3">
                     Categories
                   </span>
-=======
-                <div className="sticky top-20">
-                  <span className="text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-bold block mb-2 px-3">Categories</span>
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                   <CategoryNav
                     categories={index.categories}
                     activeId={activeCategory}
@@ -380,7 +326,7 @@ export function SkillsBrowser() {
                     >
                       {cat.label}
                       {cat.count != null && (
-                        <span className="ml-1 opacity-60">{cat.count}</span>
+                        <span className="ml-1 opacity-60 text-[9px]">{cat.count}</span>
                       )}
                     </button>
                   ))}
@@ -390,7 +336,6 @@ export function SkillsBrowser() {
 
             {/* Skill grid */}
             <div className="flex-1">
-<<<<<<< HEAD
               {/* Grid header */}
               {displaySkills.length > 0 && (
                 <div className="flex items-center justify-between mb-3">
@@ -405,12 +350,9 @@ export function SkillsBrowser() {
                 </div>
               )}
 
-              {displaySkills.length > 0 ? (
-=======
-              {isLoading ? (
+              {loading ? (
                 <SkeletonGrid />
               ) : displaySkills.length > 0 ? (
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {displaySkills.map((skill) => (
                     <SkillCard
@@ -421,7 +363,6 @@ export function SkillsBrowser() {
                   ))}
                 </div>
               ) : (
-<<<<<<< HEAD
                 <div className="text-center py-20">
                   <p className="text-2xl mb-3">
                     {searchQuery ? "🔍" : "📂"}
@@ -433,18 +374,11 @@ export function SkillsBrowser() {
                     {searchQuery
                       ? "Try different keywords or clear the search"
                       : "Choose a category from the sidebar to browse skills."}
-=======
-                <div className="text-center py-16">
-                  <p className="text-sm text-muted-foreground mb-3">
-                    {q
-                      ? "No skills match your search."
-                      : "Select a category to browse skills."}
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                   </p>
-                  {q && (
+                  {searchQuery && (
                     <button
                       onClick={() => setSearchQuery("")}
-                      className="text-xs text-primary hover:text-accent transition-colors"
+                      className="mt-3 text-xs text-primary hover:text-accent transition-colors"
                     >
                       Clear filters →
                     </button>

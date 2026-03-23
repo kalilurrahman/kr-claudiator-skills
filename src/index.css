@@ -220,25 +220,13 @@
   outline: 2px solid hsl(var(--primary));
   outline-offset: 2px;
 }
-<<<<<<< HEAD
-/* ─── Dark mode base: ensure html.dark uses dark token set ─────────────────── */
+
+/* Dark mode base */
 html.dark {
   color-scheme: dark;
 }
 
-/* ─── Skill card accent bar animation ──────────────────────────────────────── */
-@keyframes progressFill {
-  from { width: 0; }
-}
-
-/* ─── Category nav colored active state ─────────────────────────────────────── */
+/* Category nav colored active state */
 .category-active-glow {
   box-shadow: inset 0 0 0 1px currentColor;
 }
-
-/* ─── Monospace font for skill names / tool pills ───────────────────────────── */
-.font-mono {
-  font-family: 'Cascadia Code', 'Fira Code', 'Menlo', 'Consolas', monospace;
-}
-=======
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
