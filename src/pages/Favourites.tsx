@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SkillCard, SkillModal } from "@/components/SkillCard";
+import { SkillCard } from "@/components/SkillCard";
+import { SkillModal } from "@/components/SkillModal";
 import { getFavourites } from "@/lib/favourites";
 import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
