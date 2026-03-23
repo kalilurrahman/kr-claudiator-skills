@@ -1,42 +1,35 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-<<<<<<< HEAD
+import { SkillCard } from "@/components/SkillCard";
+import { SkillModal } from "@/components/SkillModal";
 import { getCategoryMeta } from "@/data/categoryMeta";
-import type { SkillsIndex, BundledData } from "@/types/skills.types";
-import { ArrowRight, Github, Zap, BookOpen, Layers } from "lucide-react";
-=======
-import { SkillCard, SkillModal } from "@/components/SkillCard";
-import type { SkillsIndex, Skill, CategoryData } from "@/types/skills.types";
-import {
-  Code2, Server, BarChart2, Brain, Shield, Layers, CheckCircle2, Plug,
-  ArrowRight, Github, Zap, Sparkles
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
+import type { SkillsIndex, Skill, BundledData } from "@/types/skills.types";
+import { ArrowRight, Github, Zap, BookOpen, Layers, Sparkles } from "lucide-react";
 
-// ─── Data loading (prefers bundled; falls back to index) ──────────────────────
+// ─── Data loading ─────────────────────────────────────────────────────────────
 
-async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean }> {
+async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean; allSkills?: Skill[] }> {
   try {
     const r = await fetch("/data/skills-data.json");
     if (!r.ok) throw new Error("No bundled");
     const data: BundledData = await r.json();
     const categories = data.categories.map((cat) => ({
-      id:       cat.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-      label:    cat,
-      icon:     "Zap",
+      id: cat.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      label: cat,
+      icon: "Zap",
       dataFile: "",
-      count:    data.skills.filter((s) => s.category === cat).length,
+      count: data.skills.filter((s) => s.category === cat).length,
     }));
     return {
-      version:      data.version,
-      totalSkills:  data.totalSkills,
+      version: data.version,
+      totalSkills: data.totalSkills,
       targetSkills: 200,
-      lastUpdated:  new Date().toISOString().split("T")[0],
+      lastUpdated: new Date().toISOString().split("T")[0],
       categories,
-      usedBundled:  true,
+      usedBundled: true,
+      allSkills: data.skills,
     };
   } catch {
     const r = await fetch("/data/skills-index.json");
@@ -44,77 +37,44 @@ async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean }>
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────────────────────────
 
 export function HomePage() {
-<<<<<<< HEAD
-  const [data, setData] = useState<(SkillsIndex & { usedBundled?: boolean }) | null>(null);
-
-  useEffect(() => {
-    loadIndexData().then(setData);
-=======
-  const [data, setData] = useState<SkillsIndex | null>(null);
+  const [data, setData] = useState<(SkillsIndex & { usedBundled?: boolean; allSkills?: Skill[] }) | null>(null);
   const [skillOfDay, setSkillOfDay] = useState<Skill | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
   useEffect(() => {
-    fetch("/data/skills-index.json")
-      .then((r) => r.json())
-      .then(async (d: SkillsIndex) => {
-        setData(d);
-
-        // Load all skills to pick Skill of the Day
-        const allSkills: Skill[] = [];
-        for (const cat of d.categories) {
-          try {
-            const res = await fetch(cat.dataFile);
-            const catData: CategoryData = await res.json();
-            allSkills.push(...catData.skills);
-          } catch {
-            // skip failed category
-          }
-        }
-
-        if (allSkills.length > 0) {
-          const now = new Date();
-          const dayOfYear = Math.floor(
-            (now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86400000
-          );
-          const idx = dayOfYear % allSkills.length;
-          setSkillOfDay(allSkills[idx]);
-        }
-      });
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
+    loadIndexData().then((d) => {
+      setData(d);
+      const skills = d.allSkills ?? [];
+      if (skills.length > 0) {
+        const now = new Date();
+        const dayOfYear = Math.floor(
+          (now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86400000
+        );
+        setSkillOfDay(skills[dayOfYear % skills.length]);
+      }
+    });
   }, []);
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-<<<<<<< HEAD
 
       <main className="flex-1 pt-12">
-
-        {/* ── Hero ── */}
-=======
-      <main className="flex-1 pt-14 md:pt-16">
         {/* Hero */}
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
         <section className="relative gradient-hero py-20 md:py-28 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_50%)]" />
           </div>
           <div className="relative container max-w-6xl mx-auto px-6 text-center animate-fade-in">
             <div className="inline-flex items-center justify-center w-14 h-14 border border-primary-foreground/30 rounded-xl mb-5">
-<<<<<<< HEAD
               <span className="text-2xl">⚡</span>
-=======
-              <span className="text-lg text-primary-foreground">⚡</span>
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-4">
               KR Claudiator Skills
             </h1>
-<<<<<<< HEAD
             <p className="text-primary-foreground/70 text-sm mb-3">
               Claude Skills Generator by Kalilur Rahman
             </p>
@@ -127,20 +87,6 @@ export function HomePage() {
               <Link
                 to="/skills"
                 className="inline-flex items-center gap-2 rounded-full bg-primary-foreground px-8 py-3.5 text-base font-semibold tracking-wide text-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:translate-y-0"
-=======
-            <p className="text-primary-foreground/70 text-sm md:text-base max-w-lg mx-auto mb-2">
-              AI Prompt Engineering for Enterprise Teams
-            </p>
-            {data && (
-              <p className="text-primary-foreground/60 tracking-[0.15em] uppercase text-xs mb-8">
-                {data.totalSkills} Skills &amp; Counting · {data.categories.length} Domains · Built for Claude
-              </p>
-            )}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                to="/skills"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-foreground px-8 py-3.5 text-base font-semibold tracking-wide text-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:translate-y-0"
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
               >
                 Browse All Skills
                 <ArrowRight className="w-4 h-4" />
@@ -149,29 +95,17 @@ export function HomePage() {
                 href="https://github.com/kalilurrahman/kr-claudiator-skills"
                 target="_blank"
                 rel="noopener noreferrer"
-<<<<<<< HEAD
                 className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10 transition-all duration-300"
               >
                 <Github className="w-4 h-4" />
-                GitHub
-=======
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-primary-foreground/30 px-8 py-3.5 text-base font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10"
-              >
-                <Github className="w-4 h-4" />
                 Star on GitHub
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
               </a>
             </div>
           </div>
         </section>
 
-<<<<<<< HEAD
-        {/* ── Stats bar ── */}
-        {data && (
-=======
         {/* Skill of the Day */}
         {skillOfDay && (
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
           <section className="py-10">
             <div className="container max-w-6xl mx-auto px-6">
               <div className="glass-card p-6 gradient-border">
@@ -184,7 +118,7 @@ export function HomePage() {
                     <h3 className="text-base font-semibold text-foreground mb-1">{skillOfDay.name}</h3>
                     <p className="text-xs text-muted-foreground mb-3">{skillOfDay.description}</p>
                     <div className="flex flex-wrap gap-1.5">
-                      {skillOfDay.tags.slice(0, 4).map((tag) => (
+                      {skillOfDay.tags?.slice(0, 4).map((tag) => (
                         <span key={tag} className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
                           {tag}
                         </span>
@@ -209,7 +143,6 @@ export function HomePage() {
           <section className="py-8">
             <div className="container max-w-6xl mx-auto px-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-<<<<<<< HEAD
                 <StatCard
                   label="Skills Available"
                   value={data.totalSkills}
@@ -238,42 +171,15 @@ export function HomePage() {
                     </a>
                   }
                 />
-=======
-                <div className="glass-card p-5 card-hover text-center">
-                  <p className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase mb-1">Skills available</p>
-                  <p className="text-3xl font-bold text-gradient-brand">{data.totalSkills}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">→ {data.targetSkills} soon</p>
-                </div>
-                <div className="glass-card p-5 card-hover text-center">
-                  <p className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase mb-1">Categories</p>
-                  <p className="text-3xl font-bold text-gradient-brand">{data.categories.length}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Domain areas</p>
-                </div>
-                <div className="glass-card p-5 card-hover text-center">
-                  <p className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase mb-1">Open source</p>
-                  <p className="text-3xl font-bold text-gradient-brand">
-                    <Github className="w-7 h-7 inline" />
-                  </p>
-                  <a
-                    href="https://github.com/kalilurrahman/kr-claudiator-skills"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-primary hover:text-accent transition-colors"
-                  >
-                    Star on GitHub →
-                  </a>
-                </div>
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
               </div>
             </div>
           </section>
         )}
 
-        {/* ── Category grid ── */}
+        {/* Category grid */}
         {data && (
           <section className="pb-12">
             <div className="container max-w-6xl mx-auto px-6">
-<<<<<<< HEAD
               <h2 className="text-lg font-medium text-foreground text-center mb-2">
                 Browse by domain
               </h2>
@@ -281,21 +187,13 @@ export function HomePage() {
                 {data.categories.length} specialised domains · {data.totalSkills} ready-to-use skill prompts
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-=======
-              <h2 className="text-lg font-semibold text-foreground text-center mb-6">Browse by domain</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                 {data.categories.map((cat) => {
                   const meta = getCategoryMeta(cat.label);
                   return (
                     <Link
                       key={cat.id}
                       to={`/skills?category=${cat.id}`}
-<<<<<<< HEAD
                       className="group p-4 border border-border/50 bg-card rounded-xl card-hover text-center no-underline transition-all"
-=======
-                      className="group glass-card p-5 card-hover text-center no-underline"
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                     >
                       <span
                         className="flex h-10 w-10 mx-auto shrink-0 items-center justify-center rounded-xl text-xl mb-2 transition-transform group-hover:scale-110"
@@ -307,10 +205,7 @@ export function HomePage() {
                         {cat.label}
                       </span>
                       {cat.count != null && (
-                        <span
-                          className="block font-mono text-[9px] mt-1"
-                          style={{ color: meta.dot }}
-                        >
+                        <span className="block font-mono text-[9px] mt-1" style={{ color: meta.dot }}>
                           {cat.count} skills
                         </span>
                       )}
@@ -322,11 +217,10 @@ export function HomePage() {
           </section>
         )}
 
-        {/* ── Progress banner ── */}
+        {/* Progress banner */}
         {data && (
           <section className="pb-12">
             <div className="container max-w-6xl mx-auto px-6">
-<<<<<<< HEAD
               <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-medium text-foreground">
@@ -348,16 +242,12 @@ export function HomePage() {
                     />
                   </div>
                 </div>
-=======
-              <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-center text-sm text-muted-foreground">
-                🔄 Currently {data.totalSkills} of {data.targetSkills} planned skills available. New skills added from GitHub.
->>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
               </div>
             </div>
           </section>
         )}
 
-        {/* ── Feature highlights ── */}
+        {/* Feature highlights */}
         <section className="pb-16">
           <div className="container max-w-6xl mx-auto px-6">
             <h2 className="text-lg font-medium text-foreground text-center mb-6">
@@ -374,7 +264,6 @@ export function HomePage() {
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />
@@ -405,7 +294,7 @@ function StatCard({
       <p className="text-xs text-muted-foreground tracking-[0.15em] uppercase mb-1">{label}</p>
       {value != null ? (
         <>
-          <p className="text-2xl font-serif text-primary">{value}</p>
+          <p className="text-2xl font-bold text-gradient-brand">{value}</p>
           {sub && <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>}
         </>
       ) : (
@@ -419,16 +308,16 @@ const FEATURES = [
   {
     emoji: "📋",
     title: "One-click copy",
-    desc:  "Copy the full SKILL.md, a Claude tool XML snippet, or just the frontmatter — straight to clipboard.",
+    desc: "Copy the full SKILL.md, a Claude tool XML snippet, or just the frontmatter — straight to clipboard.",
   },
   {
     emoji: "🔍",
     title: "Full-text search",
-    desc:  "Search across skill names, descriptions, categories, and argument hints across all 129+ skills instantly.",
+    desc: "Search across skill names, descriptions, categories, and argument hints across all 129+ skills instantly.",
   },
   {
     emoji: "🎛️",
     title: "Tool filter",
-    desc:  "Filter skills by allowed Claude tools (Read, Write, Bash) to find exactly the right skill for your workflow.",
+    desc: "Filter skills by allowed Claude tools (Read, Write, Bash) to find exactly the right skill for your workflow.",
   },
 ];
