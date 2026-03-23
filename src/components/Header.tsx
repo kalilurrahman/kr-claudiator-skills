@@ -1,21 +1,24 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, ExternalLink, Home, Search, Zap } from "lucide-react";
+import { Menu, ExternalLink, Home, Search, Sun, Moon } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { useTheme } from "@/hooks/useTheme";
 
 export function Header() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const location = useLocation();
+  const { isDark, toggle } = useTheme();
 
   const navLinks = [
-    { label: "Home", to: "/", icon: Home },
+    { label: "Home",          to: "/",       icon: Home   },
     { label: "Browse Skills", to: "/skills", icon: Search },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between h-12">
-        {/* Logo — matching portfolio KR monogram style */}
+
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 no-underline">
           <div className="w-7 h-7 gradient-hero flex items-center justify-center rounded">
             <span className="font-serif text-xs text-primary-foreground font-semibold">KR</span>
@@ -58,10 +61,29 @@ export function Header() {
             GitHub
             <ExternalLink className="w-2.5 h-2.5" />
           </a>
+
+          <span className="w-px h-4 bg-border mx-1" />
+
+          {/* Dark mode toggle */}
+          <button
+            onClick={toggle}
+            aria-label="Toggle dark mode"
+            className="p-1.5 rounded text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors focus-ring"
+          >
+            {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+          </button>
         </div>
 
-        {/* Mobile */}
-        <div className="flex items-center gap-2 md:hidden">
+        {/* Mobile — theme toggle + hamburger */}
+        <div className="flex items-center gap-1 md:hidden">
+          <button
+            onClick={toggle}
+            aria-label="Toggle dark mode"
+            className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded focus-ring"
+          >
+            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
               <button className="p-1.5 text-foreground" aria-label="Open menu">
@@ -109,7 +131,7 @@ export function Header() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  <Zap className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5" />
                   GitHub
                   <ExternalLink className="w-3 h-3 ml-auto" />
                 </a>
