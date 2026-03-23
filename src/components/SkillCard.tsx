@@ -1,9 +1,12 @@
 import type { Skill } from "@/types/skills.types";
-import { X, Copy, Check, ExternalLink, Loader2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { X, Copy, Check, ExternalLink, Loader2, Download, FileText, FileDown, Heart } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { downloadMarkdown, downloadText, downloadPdf } from "@/lib/downloads";
+import { isFavourite, toggleFavourite } from "@/lib/favourites";
+import { toast } from "sonner";
 
 const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/kalilurrahman/kr-claudiator-skills/main";
 
@@ -19,12 +22,28 @@ interface SkillCardProps {
 }
 
 export function SkillCard({ skill, onClick }: SkillCardProps) {
+  const [fav, setFav] = useState(() => isFavourite(skill.id));
+
+  const handleFav = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const added = toggleFavourite(skill.id);
+    setFav(added);
+    toast(added ? "Added to favourites ♥" : "Removed from favourites");
+  };
+
   return (
     <button
       onClick={onClick}
-      className="w-full text-left p-4 border border-border/50 bg-card rounded-lg card-hover focus-ring"
+      className="w-full text-left p-4 border border-border/50 bg-card rounded-xl card-hover glow-on-hover focus-ring group relative"
     >
-      <div className="flex items-start justify-between gap-2 mb-1.5">
+      <button
+        onClick={handleFav}
+        className="absolute top-3 right-3 p-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive focus-ring"
+        aria-label={fav ? "Remove from favourites" : "Add to favourites"}
+      >
+        <Heart className={`w-3.5 h-3.5 ${fav ? "fill-destructive text-destructive" : ""}`} />
+      </button>
+      <div className="flex items-start justify-between gap-2 mb-1.5 pr-6">
         <h3 className="text-sm font-semibold text-card-foreground leading-snug">{skill.name}</h3>
         <span className={`shrink-0 px-2 py-0.5 text-[10px] font-medium rounded-full border ${difficultyStyles[skill.difficulty]}`}>
           {skill.difficulty}
@@ -55,6 +74,7 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
   const [markdown, setMarkdown] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [downloading, setDownloading] = useState<string | null>(null);
 
   useEffect(() => {
     setLoading(true);
@@ -68,13 +88,27 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
         return r.text();
       })
       .then((text) => {
-        // Strip YAML frontmatter (---...---)
         const stripped = text.replace(/^---[\s\S]*?---\n*/, "");
         setMarkdown(stripped);
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
   }, [skill.githubPath]);
+
+  // ESC to close
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  // Prevent body scroll
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
 
   const handleCopy = async () => {
     const textToCopy = markdown ?? skill.promptPreview;
@@ -83,13 +117,29 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleDownload = useCallback(async (format: "md" | "txt" | "pdf") => {
+    const content = markdown ?? skill.promptPreview;
+    setDownloading(format);
+    try {
+      let filename: string;
+      if (format === "md") filename = downloadMarkdown(skill.name, content);
+      else if (format === "txt") filename = downloadText(skill.name, content);
+      else filename = await downloadPdf(skill.name, content);
+      toast.success(`✓ ${filename} downloaded successfully`);
+    } catch {
+      toast.error("Download failed. Please try again.");
+    } finally {
+      setDownloading(null);
+    }
+  }, [markdown, skill.name, skill.promptPreview]);
+
   const githubUrl = `https://github.com/kalilurrahman/kr-claudiator-skills/blob/main/${skill.githubPath}`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
       <div className="absolute inset-0 bg-foreground/40 backdrop-blur-sm" onClick={onClose} />
       <div className="relative w-full max-w-2xl bg-card border border-border rounded-t-2xl md:rounded-2xl shadow-xl animate-slide-up md:animate-fade-in max-h-[90vh] flex flex-col">
-        {/* Header */}
+        {/* Sticky header */}
         <div className="sticky top-0 bg-card border-b border-border p-4 flex items-center justify-between rounded-t-2xl z-10">
           <div className="flex items-center gap-2 min-w-0">
             <h2 className="text-sm font-semibold text-card-foreground truncate">{skill.name}</h2>
@@ -97,13 +147,13 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
               {skill.difficulty}
             </span>
           </div>
-          <button onClick={onClose} className="p-1 text-muted-foreground hover:text-foreground transition-colors rounded focus-ring">
+          <button onClick={onClose} className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded-lg focus-ring">
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Scrollable content */}
-        <ScrollArea className="flex-1 min-h-0">
+        <ScrollArea className="flex-1 min-h-0 custom-scrollbar">
           <div className="p-5 space-y-4">
             {/* Use case */}
             <div>
@@ -125,7 +175,7 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
               <span className="text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-bold">
                 Full skill prompt
               </span>
-              <div className="mt-1.5 p-4 bg-muted rounded-lg border border-border/50">
+              <div className="mt-1.5 p-4 bg-muted/50 rounded-xl border border-border/50">
                 {loading && (
                   <div className="flex items-center justify-center py-8 gap-2 text-muted-foreground">
                     <Loader2 className="w-4 h-4 animate-spin" />
@@ -150,28 +200,54 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
                 )}
               </div>
             </div>
-
-            {/* Action buttons */}
-            <div className="flex gap-2">
-              <button
-                onClick={handleCopy}
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus-ring"
-              >
-                {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                {copied ? "Copied!" : "Copy Full Prompt"}
-              </button>
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded border border-primary/40 px-4 py-2.5 text-xs font-semibold text-primary transition-all hover:bg-primary/10 focus-ring"
-              >
-                View on GitHub
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
           </div>
         </ScrollArea>
+
+        {/* Sticky bottom action bar */}
+        <div className="sticky bottom-0 bg-card border-t border-border p-3 rounded-b-2xl z-10 download-buttons">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={handleCopy}
+              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-[11px] font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus-ring"
+            >
+              {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? "Copied!" : "Copy"}
+            </button>
+            <button
+              onClick={() => handleDownload("md")}
+              disabled={downloading === "md"}
+              className="inline-flex items-center justify-center gap-1 rounded-lg border border-primary/40 px-3 py-2 text-[11px] font-semibold text-primary transition-all hover:bg-primary/10 focus-ring disabled:opacity-50"
+            >
+              {downloading === "md" ? <Loader2 className="w-3 h-3 animate-spin" /> : <FileText className="w-3 h-3" />}
+              .MD
+            </button>
+            <button
+              onClick={() => handleDownload("pdf")}
+              disabled={downloading === "pdf"}
+              className="inline-flex items-center justify-center gap-1 rounded-lg border border-primary/40 px-3 py-2 text-[11px] font-semibold text-primary transition-all hover:bg-primary/10 focus-ring disabled:opacity-50"
+            >
+              {downloading === "pdf" ? <Loader2 className="w-3 h-3 animate-spin" /> : <FileDown className="w-3 h-3" />}
+              .PDF
+            </button>
+            <button
+              onClick={() => handleDownload("txt")}
+              disabled={downloading === "txt"}
+              className="inline-flex items-center justify-center gap-1 rounded-lg border border-primary/40 px-3 py-2 text-[11px] font-semibold text-primary transition-all hover:bg-primary/10 focus-ring disabled:opacity-50"
+            >
+              {downloading === "txt" ? <Loader2 className="w-3 h-3 animate-spin" /> : <Download className="w-3 h-3" />}
+              .TXT
+            </button>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1 rounded-lg border border-border px-3 py-2 text-[11px] font-semibold text-muted-foreground transition-all hover:text-primary hover:border-primary/40 focus-ring"
+            >
+              GitHub
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

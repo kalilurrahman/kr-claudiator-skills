@@ -8,6 +8,7 @@ import { SkillCard, SkillModal } from "@/components/SkillCard";
 import { SkillsProgressBar } from "@/components/SkillsProgressBar";
 import { GitHubBanner } from "@/components/GitHubBanner";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
+import { SkeletonGrid } from "@/components/SkeletonCard";
 import type { SkillsIndex, Skill, CategoryData } from "@/types/skills.types";
 
 export function SkillsBrowser() {
@@ -17,6 +18,7 @@ export function SkillsBrowser() {
   const [categoryCache, setCategoryCache] = useState<Record<string, CategoryData>>({});
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [loadingCategory, setLoadingCategory] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
   // Load index
@@ -39,17 +41,18 @@ export function SkillsBrowser() {
       const idx = indexData ?? index;
       if (!idx) return;
 
-      // Don't re-fetch if already cached
       if (categoryCache[id]) return;
 
       const cat = idx.categories.find((c) => c.id === id);
       if (!cat) return;
 
+      setLoadingCategory(true);
       fetch(cat.dataFile)
         .then((r) => r.json())
         .then((data: CategoryData) => {
           setCategoryCache((prev) => ({ ...prev, [id]: data }));
-        });
+        })
+        .finally(() => setLoadingCategory(false));
     },
     [index, categoryCache]
   );
@@ -59,10 +62,8 @@ export function SkillsBrowser() {
     searchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
-  // Gather all loaded skills for search
   const allLoadedSkills = Object.values(categoryCache).flatMap((c) => c.skills);
 
-  // Filter
   const q = searchQuery.toLowerCase().trim();
   const displaySkills = q
     ? allLoadedSkills.filter(
@@ -75,10 +76,12 @@ export function SkillsBrowser() {
     ? categoryCache[activeCategory].skills
     : [];
 
+  const isLoading = loadingCategory && displaySkills.length === 0;
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 pt-12 pb-16 md:pb-0">
+      <main className="flex-1 pt-14 md:pt-16 pb-16 md:pb-0">
         <div className="container max-w-6xl mx-auto px-4 py-6 animate-fade-in">
           {/* Progress bar */}
           {index && (
@@ -97,7 +100,7 @@ export function SkillsBrowser() {
                 placeholder="Search skills by name, description, or tag…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2.5 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
             <p className="mt-1.5 text-[10px] text-muted-foreground">
@@ -109,7 +112,7 @@ export function SkillsBrowser() {
             {/* Sidebar — desktop */}
             {index && (
               <aside className="hidden md:block w-56 shrink-0">
-                <div className="sticky top-16">
+                <div className="sticky top-20">
                   <span className="text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-bold block mb-2 px-3">Categories</span>
                   <CategoryNav
                     categories={index.categories}
@@ -144,7 +147,9 @@ export function SkillsBrowser() {
 
             {/* Skill grid */}
             <div className="flex-1">
-              {displaySkills.length > 0 ? (
+              {isLoading ? (
+                <SkeletonGrid />
+              ) : displaySkills.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {displaySkills.map((skill) => (
                     <SkillCard
@@ -156,11 +161,19 @@ export function SkillsBrowser() {
                 </div>
               ) : (
                 <div className="text-center py-16">
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mb-3">
                     {q
-                      ? "No skills match your search. Skills grow over time — check back soon!"
+                      ? "No skills match your search."
                       : "Select a category to browse skills."}
                   </p>
+                  {q && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="text-xs text-primary hover:text-accent transition-colors"
+                    >
+                      Clear filters →
+                    </button>
+                  )}
                 </div>
               )}
             </div>

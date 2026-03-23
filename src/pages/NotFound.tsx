@@ -1,24 +1,27 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
+export function NotFoundPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1 pt-16 md:pt-20 flex items-center justify-center">
+        <div className="text-center px-6 animate-fade-in">
+          <div className="text-7xl font-bold text-gradient-brand mb-4">404</div>
+          <h1 className="text-xl font-semibold text-foreground mb-2">Skill not found</h1>
+          <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+          <Link
+            to="/skills"
+            className="inline-flex items-center gap-2 rounded-full gradient-hero px-8 py-3 text-sm font-semibold text-primary-foreground shadow-lg glow-on-hover transition-all hover:-translate-y-0.5"
+          >
+            Browse Skills Library →
+          </Link>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
-};
-
-export default NotFound;
+}
