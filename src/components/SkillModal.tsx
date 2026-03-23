@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import { X, Copy, Check, ExternalLink, Loader2, Code2, FileText, Wrench } from "lucide-react";
+import { X, Copy, Check, ExternalLink, Loader2, Code2, FileText } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import type { Skill } from "@/types/skills.types";
 import { getCategoryMeta } from "@/data/categoryMeta";
 
@@ -154,104 +153,55 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
 
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
-        {/* Backdrop */}
-        <div
-          className="absolute inset-0 bg-foreground/40 backdrop-blur-sm"
-          onClick={onClose}
-        />
+      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
+        <div className="absolute inset-0 bg-foreground/40 backdrop-blur-sm" onClick={onClose} />
 
-        {/* Sheet */}
-        <div className="relative w-full max-w-2xl bg-card border border-border rounded-t-2xl md:rounded-2xl shadow-2xl animate-fade-in max-h-[92vh] flex flex-col">
+        <div className="relative w-full sm:max-w-2xl bg-card border border-border rounded-t-2xl sm:rounded-2xl shadow-2xl animate-fade-in flex flex-col h-[95vh] sm:h-auto sm:max-h-[90vh]">
 
-          {/* ── Modal header ── */}
-          <div className="sticky top-0 z-10 bg-card border-b border-border p-4 flex items-start gap-3 rounded-t-2xl">
+          {/* Header */}
+          <div className="shrink-0 bg-card border-b border-border p-3 sm:p-4 flex items-start gap-3 rounded-t-2xl">
             <span
-              className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center text-2xl"
+              className="w-9 h-9 sm:w-11 sm:h-11 shrink-0 rounded-xl flex items-center justify-center text-xl sm:text-2xl"
               style={{ background: meta.bg, border: `1px solid ${meta.border}` }}
             >
               {meta.emoji}
             </span>
-
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="text-sm font-mono font-semibold text-card-foreground">
-                  {skill.name}
-                </h2>
+                <h2 className="text-xs sm:text-sm font-mono font-semibold text-card-foreground">{skill.name}</h2>
                 {skill.difficulty && (
-                  <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border ${difficultyStyles[skill.difficulty]}`}>
-                    {skill.difficulty}
-                  </span>
+                  <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border ${difficultyStyles[skill.difficulty]}`}>{skill.difficulty}</span>
                 )}
               </div>
-              <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
-                {skill.description}
-              </p>
+              <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 line-clamp-2">{skill.description}</p>
             </div>
-
-            <button
-              onClick={onClose}
-              className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded-md focus-ring shrink-0"
-              aria-label="Close"
-            >
+            <button onClick={onClose} className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded-md shrink-0" aria-label="Close">
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          {/* ── Meta pills ── */}
-          <div className="px-4 py-2.5 border-b border-border flex flex-wrap gap-1.5">
-            {skill.category && (
-              <Pill label="category" value={skill.category} dot={meta.dot} />
-            )}
-            {skill.lines != null && (
-              <Pill label="lines" value={String(skill.lines)} green />
-            )}
-            {tools.map((t) => (
-              <Pill key={t} label="tool" value={t} />
-            ))}
+          {/* Meta pills */}
+          <div className="shrink-0 px-3 sm:px-4 py-2 border-b border-border flex flex-wrap gap-1.5">
+            {skill.category && <Pill label="category" value={skill.category} dot={meta.dot} />}
+            {skill.lines != null && <Pill label="lines" value={String(skill.lines)} green />}
+            {tools.map((t) => <Pill key={t} label="tool" value={t} />)}
             {hint && <Pill label="args" value={hint} />}
             {skill.useCase && <Pill label="use case" value={skill.useCase} />}
           </div>
 
-          {/* ── Action buttons ── */}
-          <div className="px-4 py-2.5 border-b border-border flex flex-wrap gap-2">
-            <CopyBtn
-              label="Copy Full Skill"
-              icon={<Copy className="w-3 h-3" />}
-              variant="primary"
-              onCopy={getFullContent}
-              onDone={showToast}
-            />
-            <CopyBtn
-              label="Copy as Claude Tool"
-              icon={<Code2 className="w-3 h-3" />}
-              variant="secondary"
-              onCopy={getClaudeToolSnippet}
-              onDone={showToast}
-            />
-            {skill.content && (
-              <CopyBtn
-                label="Copy Frontmatter"
-                icon={<FileText className="w-3 h-3" />}
-                variant="ghost"
-                onCopy={getFrontmatter}
-                onDone={showToast}
-              />
-            )}
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded text-xs font-semibold border border-border text-muted-foreground hover:text-foreground hover:border-border/80 transition-all"
-            >
-              <ExternalLink className="w-3 h-3" />
-              GitHub
+          {/* Action buttons */}
+          <div className="shrink-0 px-3 sm:px-4 py-2 border-b border-border flex flex-wrap gap-1.5">
+            <CopyBtn label="Copy Full Skill" icon={<Copy className="w-3 h-3" />} variant="primary" onCopy={getFullContent} onDone={showToast} />
+            <CopyBtn label="Claude Tool" icon={<Code2 className="w-3 h-3" />} variant="secondary" onCopy={getClaudeToolSnippet} onDone={showToast} />
+            {skill.content && <CopyBtn label="Frontmatter" icon={<FileText className="w-3 h-3" />} variant="ghost" onCopy={getFrontmatter} onDone={showToast} />}
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-2 rounded text-xs font-semibold border border-border text-muted-foreground hover:text-foreground transition-all">
+              <ExternalLink className="w-3 h-3" /> GitHub
             </a>
           </div>
 
-          {/* ── Skill content (markdown) ── */}
-          <ScrollArea className="flex-1 min-h-0">
-            <div className="p-5">
+          {/* Scrollable content */}
+          <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
+            <div className="p-4 sm:p-5 pb-8">
               {loading && (
                 <div className="flex items-center justify-center py-12 gap-2 text-muted-foreground">
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -262,9 +212,7 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
                 <div className="space-y-2">
                   <p className="text-xs text-destructive">Could not load from GitHub.</p>
                   {skill.promptPreview && (
-                    <pre className="text-xs text-foreground whitespace-pre-wrap font-mono leading-relaxed">
-                      {skill.promptPreview}
-                    </pre>
+                    <pre className="text-xs text-foreground whitespace-pre-wrap font-mono leading-relaxed">{skill.promptPreview}</pre>
                   )}
                 </div>
               )}
@@ -274,7 +222,7 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
                   prose-p:text-foreground/85 prose-p:leading-relaxed
                   prose-strong:text-foreground prose-strong:font-semibold
                   prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
-                  prose-pre:bg-card prose-pre:border prose-pre:border-border/50 prose-pre:text-xs prose-pre:rounded-lg
+                  prose-pre:bg-card prose-pre:border prose-pre:border-border/50 prose-pre:text-xs prose-pre:rounded-lg prose-pre:overflow-x-auto
                   prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                   prose-li:text-foreground/85
                   prose-table:text-xs prose-th:text-foreground/90 prose-th:font-semibold prose-td:text-foreground/75
@@ -282,13 +230,11 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
                   prose-blockquote:border-primary prose-blockquote:text-muted-foreground
                   prose-hr:border-border
                 ">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {markdown}
-                  </ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
                 </div>
               )}
             </div>
-          </ScrollArea>
+          </div>
         </div>
       </div>
 
