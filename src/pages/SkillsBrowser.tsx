@@ -9,6 +9,7 @@ import { SkillModal } from "@/components/SkillModal";
 import { SkillsProgressBar } from "@/components/SkillsProgressBar";
 import { GitHubBanner } from "@/components/GitHubBanner";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
+<<<<<<< HEAD
 import type { Skill, Category, SkillsIndex, BundledData } from "@/types/skills.types";
 
 // ─── Data mode detection ─────────────────────────────────────────────────────
@@ -40,6 +41,10 @@ function buildIndexFromBundled(data: BundledData, cats: Category[]): SkillsIndex
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+=======
+import { SkeletonGrid } from "@/components/SkeletonCard";
+import type { SkillsIndex, Skill, CategoryData } from "@/types/skills.types";
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
 
 export function SkillsBrowser() {
   const [searchParams] = useSearchParams();
@@ -49,6 +54,7 @@ export function SkillsBrowser() {
   const [allSkills, setAllSkills]           = useState<Skill[]>([]);
   const [categoryCache, setCategoryCache]   = useState<Record<string, Skill[]>>({});
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+<<<<<<< HEAD
   const [searchQuery, setSearchQuery]       = useState("");
   const [selectedSkill, setSelectedSkill]   = useState<Skill | null>(null);
   const [dataMode, setDataMode]             = useState<"bundled" | "split" | null>(null);
@@ -57,6 +63,12 @@ export function SkillsBrowser() {
   // Tool filter (new — from POC)
   const [toolFilter, setToolFilter] = useState<string[]>([]);
 
+=======
+  const [categoryCache, setCategoryCache] = useState<Record<string, CategoryData>>({});
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [loadingCategory, setLoadingCategory] = useState(false);
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
   const searchRef = useRef<HTMLInputElement>(null);
 
   // ── Load data ───────────────────────────────────────────────────────────────
@@ -105,6 +117,7 @@ export function SkillsBrowser() {
   const fetchSplitCategory = useCallback(
     (id: string, idx?: SkillsIndex) => {
       setActiveCategory(id);
+<<<<<<< HEAD
       const source = idx ?? index;
       if (!source) return;
       if (categoryCache[id]) return;
@@ -119,6 +132,23 @@ export function SkillsBrowser() {
             return [...prev, ...d.skills.filter((s) => !existing.has(s.id))];
           });
         });
+=======
+      const idx = indexData ?? index;
+      if (!idx) return;
+
+      if (categoryCache[id]) return;
+
+      const cat = idx.categories.find((c) => c.id === id);
+      if (!cat) return;
+
+      setLoadingCategory(true);
+      fetch(cat.dataFile)
+        .then((r) => r.json())
+        .then((data: CategoryData) => {
+          setCategoryCache((prev) => ({ ...prev, [id]: data }));
+        })
+        .finally(() => setLoadingCategory(false));
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
     },
     [index, categoryCache]
   );
@@ -141,6 +171,7 @@ export function SkillsBrowser() {
     searchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
+<<<<<<< HEAD
   // ── Filtering ─────────────────────────────────────────────────────────────
   const allTools = useMemo(() => {
     const tools = new Set<string>();
@@ -157,6 +188,13 @@ export function SkillsBrowser() {
     let base: Skill[];
     if (q) {
       base = allSkills.filter(
+=======
+  const allLoadedSkills = Object.values(categoryCache).flatMap((c) => c.skills);
+
+  const q = searchQuery.toLowerCase().trim();
+  const displaySkills = q
+    ? allLoadedSkills.filter(
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
         (s) =>
           s.name.toLowerCase().includes(q) ||
           s.description.toLowerCase().includes(q) ||
@@ -170,6 +208,7 @@ export function SkillsBrowser() {
       base = [];
     }
 
+<<<<<<< HEAD
     // Tool filter
     if (toolFilter.length > 0) {
       base = base.filter((s) =>
@@ -190,6 +229,14 @@ export function SkillsBrowser() {
       <Header />
 
       <main className="flex-1 pt-12 pb-16 md:pb-0">
+=======
+  const isLoading = loadingCategory && displaySkills.length === 0;
+
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1 pt-14 md:pt-16 pb-16 md:pb-0">
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
         <div className="container max-w-6xl mx-auto px-4 py-6 animate-fade-in">
 
           {/* Progress bar */}
@@ -209,7 +256,11 @@ export function SkillsBrowser() {
                 placeholder="Search skills by name, description, category, or argument…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+<<<<<<< HEAD
                 className="w-full pl-10 pr-8 py-2.5 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+=======
+                className="w-full pl-10 pr-4 py-2.5 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
               />
               {searchQuery && (
                 <button
@@ -293,10 +344,15 @@ export function SkillsBrowser() {
             {/* Desktop sidebar */}
             {index && (
               <aside className="hidden md:block w-56 shrink-0">
+<<<<<<< HEAD
                 <div className="sticky top-16">
                   <span className="text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-bold block mb-2 px-3">
                     Categories
                   </span>
+=======
+                <div className="sticky top-20">
+                  <span className="text-[9px] uppercase tracking-[0.12em] text-muted-foreground font-bold block mb-2 px-3">Categories</span>
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                   <CategoryNav
                     categories={index.categories}
                     activeId={activeCategory}
@@ -334,6 +390,7 @@ export function SkillsBrowser() {
 
             {/* Skill grid */}
             <div className="flex-1">
+<<<<<<< HEAD
               {/* Grid header */}
               {displaySkills.length > 0 && (
                 <div className="flex items-center justify-between mb-3">
@@ -349,6 +406,11 @@ export function SkillsBrowser() {
               )}
 
               {displaySkills.length > 0 ? (
+=======
+              {isLoading ? (
+                <SkeletonGrid />
+              ) : displaySkills.length > 0 ? (
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {displaySkills.map((skill) => (
                     <SkillCard
@@ -359,6 +421,7 @@ export function SkillsBrowser() {
                   ))}
                 </div>
               ) : (
+<<<<<<< HEAD
                 <div className="text-center py-20">
                   <p className="text-2xl mb-3">
                     {searchQuery ? "🔍" : "📂"}
@@ -370,7 +433,22 @@ export function SkillsBrowser() {
                     {searchQuery
                       ? "Try different keywords or clear the search"
                       : "Choose a category from the sidebar to browse skills."}
+=======
+                <div className="text-center py-16">
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {q
+                      ? "No skills match your search."
+                      : "Select a category to browse skills."}
+>>>>>>> 51f94142c86bbd269307705aa342faa8dbd2d8f8
                   </p>
+                  {q && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="text-xs text-primary hover:text-accent transition-colors"
+                    >
+                      Clear filters →
+                    </button>
+                  )}
                 </div>
               )}
             </div>
