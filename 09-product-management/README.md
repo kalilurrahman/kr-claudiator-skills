@@ -1,0 +1,39 @@
+# Product Management
+
+This folder contains a curated collection of AI skills (prompts) related to **Product Management**.
+
+## 📚 Available Skills
+
+| Skill | Name | Description |
+|-------|------|-------------|
+| [ab-test-design](./ab-test-design/SKILL.md) | ab-test-design | Design a statistically valid A/B test for a product feature or change. Produces a test plan with hypothesis, metrics, sample size calculation, risk assessment, and analysis plan. |
+| [competitor-scan](./competitor-scan/SKILL.md) | competitor-scan | Conduct a structured competitive analysis of a product or feature set. Produces a comparison matrix, positioning gaps, competitive strengths and weaknesses, and strategic recommendations. |
+| [customer-journey-map](./customer-journey-map/SKILL.md) | customer-journey-map | Create customer journey maps documenting touchpoints, emotions, pain points, and opportunities. Outputs visual journey maps, moment-of-truth analysis, and prioritised improvement backlog. |
+| [decision-doc](./decision-doc/SKILL.md) | decision-doc | Write a structured decision document (RFC, ADR, or decision memo) that captures context, options considered, tradeoffs, and rationale. Produces durable, searchable records of why key decisions were made. |
+| [feature-spec](./feature-spec/SKILL.md) | feature-spec | Write comprehensive feature specifications that align engineering, design, and stakeholders before a single line of code is written. Outputs problem statement, requirements, edge cases, success metrics, and open questions. |
+| [feedback-analyzer](./feedback-analyzer/SKILL.md) | feedback-analyzer | Systematically analyze product feedback from multiple sources — support tickets, NPS responses, app reviews, user interviews, sales calls — into prioritized themes with evidence, signal strength ratings, and product action recommendations. |
+| [go-to-market](./go-to-market/SKILL.md) | go-to-market | Plan and execute a product go-to-market strategy covering ICP definition, channel selection, messaging, launch sequencing, and success metrics. Covers PLG, sales-led, and hybrid motions. |
+| [growth-framework](./growth-framework/SKILL.md) | growth-framework | Build a systematic growth framework covering acquisition, activation, retention, referral, and revenue. Outputs growth model, lever identification, experiment roadmap, and tracking dashboard. |
+| [jobs-to-be-done](./jobs-to-be-done/SKILL.md) | jobs-to-be-done | Apply Jobs-to-be-Done framework to understand customer motivations and design solutions that address real underlying needs. Outputs job statements, context interviews, opportunity mapping, and solution criteria. |
+| [launch-checklist](./launch-checklist/SKILL.md) | launch-checklist | Generate a comprehensive product launch checklist covering engineering, design, marketing, legal, support, and analytics readiness. Outputs a trackable launch plan with owners, dependencies, and go/no-go criteria. |
+| [market-sizing](./market-sizing/SKILL.md) | market-sizing | Estimate the size of a market using top-down and bottom-up methods. Produces a TAM/SAM/SOM analysis with assumptions documented, sensitivity analysis, and business implications for go-to-market strategy. |
+| [meeting-prep](./meeting-prep/SKILL.md) | meeting-prep | Prepare for a product management meeting, including stakeholder alignment meetings, roadmap reviews, planning sessions, or executive updates. Produces an agenda, pre-read materials, and a facilitation guide. |
+| [metrics-analyzer](./metrics-analyzer/SKILL.md) | metrics-analyzer | Analyze a product or business metric, diagnose root causes, and produce a structured investigation report with hypotheses, supporting data, and recommended actions. |
+| [north-star-metric](./north-star-metric/SKILL.md) | north-star-metric | Define and validate a North Star Metric that aligns the company on what success looks like. Outputs metric definition, decomposition tree, instrumentation spec, and governance process. |
+| [okr-writer](./okr-writer/SKILL.md) | okr-writer | Write clear, measurable OKRs for product teams — objectives that inspire, key results that measure outcomes, and initiative mapping that connects work to results. Outputs draft OKRs with grading rubrics, check-in templates, and failure pattern analysis. |
+| [persona](./persona/SKILL.md) | persona | Create evidence-based user personas grounded in research — not fictional archetypes. Outputs persona profiles with jobs-to-be-done, behavioral patterns, pain points, workflow context, and product decision implications. |
+| [prd](./prd/SKILL.md) | prd | Write a complete Product Requirements Document from a feature idea or problem statement. Produces a structured PRD with goals, user stories, acceptance criteria, edge cases, and success metrics. |
+| [pricing-strategy](./pricing-strategy/SKILL.md) | pricing-strategy | Design a product pricing strategy covering model selection, tier structure, value metric identification, packaging, and pricing research. Covers freemium, usage-based, per-seat, and enterprise packaging with worked examples. |
+| [prioritize](./prioritize/SKILL.md) | prioritize | Prioritize a product backlog using structured frameworks (RICE, ICE, MoSCoW, Kano, Weighted Scoring). Produces a ranked list with scores, rationale, and a defensible recommendation for what to build next. |
+| [product-analytics-plan](./product-analytics-plan/SKILL.md) | product-analytics-plan | Define an instrumentation and analytics plan for a product feature or launch. Outputs event taxonomy, tracking spec, dashboard design, and analysis playbook. |
+| [product-teardown](./product-teardown/SKILL.md) | product-teardown | Conduct a structured product teardown analyzing UX, positioning, business model, growth strategy, and technical decisions. Outputs a framework-grounded analysis with strategic observations and lessons applicable to your own product. |
+| [release-notes](./release-notes/SKILL.md) | release-notes | Write clear, user-focused release notes that explain what changed, why it matters, and how to use it. Outputs release notes for in-app changelogs, emails, blog posts, and developer documentation. |
+| [retro-facilitator](./retro-facilitator/SKILL.md) | retro-facilitator | Facilitate a structured sprint or project retrospective. Outputs a meeting agenda, facilitation guide, synthesis framework, and action item tracker that drives real improvement. |
+| [roadmap](./roadmap/SKILL.md) | roadmap | Build a strategic product roadmap from business goals and team capacity. Outputs a prioritized, time-horizoned plan with themes, milestones, dependencies, and stakeholder communication format. |
+| [stakeholder-update](./stakeholder-update/SKILL.md) | stakeholder-update | Write a stakeholder update, status report, or executive summary for a product, feature, or initiative. Produces a concise, decision-oriented update that surfaces the right information for the audience. |
+| [technical-translator](./technical-translator/SKILL.md) | technical-translator | Translate complex technical concepts, architecture decisions, and engineering trade-offs into clear language for non-technical stakeholders. Also translates business requirements back into precise technical specifications for engineers. |
+| [user-interview-prep](./user-interview-prep/SKILL.md) | user-interview-prep | Prepare a complete user interview guide including screener, discussion guide, objectives, warm-up questions, and synthesis framework. Outputs interview materials ready to run. |
+| [user-stories](./user-stories/SKILL.md) | user-stories | Write well-formed user stories with acceptance criteria, edge cases, and definition of done for a feature or epic. Produces sprint-ready stories that engineering can estimate and design can use. |
+
+---
+[⬅ Back to Main Repository](../README.md)
