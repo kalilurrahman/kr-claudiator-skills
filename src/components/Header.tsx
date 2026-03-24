@@ -162,6 +162,16 @@ export function Header() {
 
                 <div className="h-px bg-border" />
 
+                {canInstall && (
+                  <button
+                    onClick={() => { install(); setSheetOpen(false); }}
+                    className="flex items-center gap-3 py-2 px-2 rounded-lg text-sm text-primary bg-primary/10 hover:bg-primary/20 font-medium transition-colors w-full"
+                  >
+                    <Download className="w-4 h-4" />
+                    Install App
+                  </button>
+                )}
+
                 <a
                   href="https://github.com/kalilurrahman/kr-claudiator-skills"
                   target="_blank"
