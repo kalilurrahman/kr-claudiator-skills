@@ -10,6 +10,7 @@ export function Header() {
   const [favouriteCount, setFavouriteCount] = useState(0);
   const location = useLocation();
   const { isDark, toggle } = useTheme();
+  const { canInstall, install } = usePwaInstall();
 
   useEffect(() => {
     const update = () => {
