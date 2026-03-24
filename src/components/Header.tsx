@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart } from "lucide-react";
+import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart, Download } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { useTheme } from "@/hooks/useTheme";
+import { usePwaInstall } from "@/hooks/usePwaInstall";
 
 export function Header() {
   const [sheetOpen, setSheetOpen] = useState(false);
