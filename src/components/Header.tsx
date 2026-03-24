@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart } from "lucide-react";
+import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart, Download } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { useTheme } from "@/hooks/useTheme";
+import { usePwaInstall } from "@/hooks/usePwaInstall";
 
 export function Header() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [favouriteCount, setFavouriteCount] = useState(0);
   const location = useLocation();
   const { isDark, toggle } = useTheme();
+  const { canInstall, install } = usePwaInstall();
 
   useEffect(() => {
     const update = () => {
@@ -80,6 +82,19 @@ export function Header() {
             <ExternalLink className="w-3 h-3" />
           </a>
 
+          {canInstall && (
+            <>
+              <span className="w-px h-4 bg-border mx-1" />
+              <button
+                onClick={install}
+                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] tracking-wide text-primary bg-primary/10 hover:bg-primary/20 font-semibold transition-colors"
+              >
+                <Download className="w-3.5 h-3.5" />
+                Install App
+              </button>
+            </>
+          )}
+
           <span className="w-px h-4 bg-border mx-1" />
 
           <button
@@ -146,6 +161,16 @@ export function Header() {
                 </div>
 
                 <div className="h-px bg-border" />
+
+                {canInstall && (
+                  <button
+                    onClick={() => { install(); setSheetOpen(false); }}
+                    className="flex items-center gap-3 py-2 px-2 rounded-lg text-sm text-primary bg-primary/10 hover:bg-primary/20 font-medium transition-colors w-full"
+                  >
+                    <Download className="w-4 h-4" />
+                    Install App
+                  </button>
+                )}
 
                 <a
                   href="https://github.com/kalilurrahman/kr-claudiator-skills"
