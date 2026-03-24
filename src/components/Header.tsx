@@ -82,6 +82,19 @@ export function Header() {
             <ExternalLink className="w-3 h-3" />
           </a>
 
+          {canInstall && (
+            <>
+              <span className="w-px h-4 bg-border mx-1" />
+              <button
+                onClick={install}
+                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] tracking-wide text-primary bg-primary/10 hover:bg-primary/20 font-semibold transition-colors"
+              >
+                <Download className="w-3.5 h-3.5" />
+                Install App
+              </button>
+            </>
+          )}
+
           <span className="w-px h-4 bg-border mx-1" />
 
           <button
