@@ -30,7 +30,7 @@ function buildIndexFromBundled(data: BundledData, cats: Category[]): SkillsIndex
   return {
     version: data.version,
     totalSkills: data.totalSkills,
-    targetSkills: 200,
+    targetSkills: 400,
     lastUpdated: new Date().toISOString().split("T")[0],
     categories: cats,
   };
