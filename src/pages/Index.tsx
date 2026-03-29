@@ -25,7 +25,7 @@ async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean; a
     return {
       version: data.version,
       totalSkills: data.totalSkills,
-      targetSkills: 200,
+      targetSkills: 400,
       lastUpdated: new Date().toISOString().split("T")[0],
       categories,
       usedBundled: true,
