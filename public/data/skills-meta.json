@@ -1,0 +1,3467 @@
+{
+  "version": "7.0",
+  "totalSkills": 345,
+  "categories": [
+    "Software Development",
+    "DevOps & Infrastructure",
+    "Data & Analytics",
+    "AI / ML",
+    "Security",
+    "System Design",
+    "Testing & Quality",
+    "API & Integration",
+    "Product Management"
+  ],
+  "skills": [
+    {
+      "id": "01-software-dev/api-design",
+      "name": "api-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a complete REST or GraphQL API from requirements. Outputs endpoints, request/response schemas, error handling, authentication, versioning strategy, and OpenAPI-ready documentation.",
+      "argumentHint": "[resource names, operations needed, auth method, versioning strategy]",
+      "allowedTools": "Read, Write",
+      "lines": 443
+    },
+    {
+      "id": "01-software-dev/api-mocking",
+      "name": "api-mocking",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Mock external APIs for development and testing. Outputs mock server setup, request/response matching rules, contract-driven mocks, and CI integration.",
+      "argumentHint": "[external APIs to mock, test framework, languages used, contract format]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 191
+    },
+    {
+      "id": "01-software-dev/api-pagination-design",
+      "name": "api-pagination-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design pagination strategies for APIs handling large datasets. Outputs offset, cursor, keyset, and seek pagination implementations with performance analysis.",
+      "argumentHint": "[dataset size, sort requirements, real-time data, client type]",
+      "allowedTools": "Read, Write",
+      "lines": 138
+    },
+    {
+      "id": "01-software-dev/api-security-design",
+      "name": "api-security-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design secure APIs with authentication, authorisation, input validation, rate limiting, and audit logging. Outputs security controls checklist, auth flow diagrams, and implementation patterns.",
+      "argumentHint": "[API type, client types, sensitivity of data, regulatory requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 352
+    },
+    {
+      "id": "01-software-dev/async-patterns",
+      "name": "async-patterns",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design asynchronous processing patterns for background jobs, event-driven systems, and non-blocking I/O. Outputs queues, workers, retry logic, and monitoring.",
+      "argumentHint": "[task type, processing requirements, failure tolerance]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 508
+    },
+    {
+      "id": "01-software-dev/background-jobs",
+      "name": "background-jobs",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design background job systems for async task processing. Outputs job queue design, worker configuration, retry strategies, failure handling, and monitoring patterns.",
+      "argumentHint": "[job types, volume, latency requirements, failure tolerance, infrastructure]",
+      "allowedTools": "Read, Write",
+      "lines": 219
+    },
+    {
+      "id": "01-software-dev/caching-strategy",
+      "name": "caching-strategy",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a multi-layer caching strategy for performance optimization. Outputs cache types, TTLs, invalidation, and cache-aside patterns.",
+      "argumentHint": "[application type, read/write ratio, data freshness requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 498
+    },
+    {
+      "id": "01-software-dev/circuit-breaker",
+      "name": "circuit-breaker",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Circuit breaker pattern for handling service failures gracefully. Outputs states (closed/open/half-open), thresholds, fallback strategies, and monitoring.",
+      "argumentHint": "[service dependencies, failure tolerance, recovery time]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 499
+    },
+    {
+      "id": "01-software-dev/clean-architecture",
+      "name": "clean-architecture",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Structure codebases using Clean Architecture principles with clear layer separation, dependency inversion, and domain-centric design. Outputs folder structure, layer contracts, and dependency rules.",
+      "argumentHint": "[language, project size, existing codebase, team experience]",
+      "allowedTools": "Read, Write",
+      "lines": 302
+    },
+    {
+      "id": "01-software-dev/code-generation",
+      "name": "code-generation",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design and implement code generation pipelines from schemas, OpenAPI specs, or domain models. Outputs generator architecture, template design, validation strategy, and CI integration.",
+      "argumentHint": "[source format, target language, generation scope, customisation requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 218
+    },
+    {
+      "id": "01-software-dev/code-review",
+      "name": "code-review",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Conduct a thorough, structured code review covering correctness, security, performance, maintainability, and design. Produces inline comments organized by severity with actionable, constructive feedback.",
+      "argumentHint": "[PR description, tech stack, review focus area, team norms]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 252
+    },
+    {
+      "id": "01-software-dev/code-splitting",
+      "name": "code-splitting",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement code splitting to reduce initial bundle size and improve web application load time. Outputs splitting strategy, lazy loading patterns, preloading rules, and performance measurement approach.",
+      "argumentHint": "[framework, current bundle size, performance targets, route structure]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 151
+    },
+    {
+      "id": "01-software-dev/concurrency-patterns",
+      "name": "concurrency-patterns",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design safe concurrent systems using appropriate synchronization primitives, async patterns, and parallelism strategies. Covers thread pools, async/await, actors, rate limiting, and common race condition fixes.",
+      "argumentHint": "[language/runtime, problem type, CPU-bound vs IO-bound, throughput requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 357
+    },
+    {
+      "id": "01-software-dev/configuration-management",
+      "name": "configuration-management",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design robust configuration management for applications across environments. Outputs configuration schema, validation, secret handling, feature flag integration, and change management.",
+      "argumentHint": "[language, environments, secret types, feature flag needs, deployment platform]",
+      "allowedTools": "Read, Write",
+      "lines": 198
+    },
+    {
+      "id": "01-software-dev/data-serialization",
+      "name": "data-serialization",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Choose and implement data serialization formats for APIs, storage, and messaging. Outputs format comparison, schema design, versioning strategy, and performance benchmarks.",
+      "argumentHint": "[use case, language ecosystem, schema evolution needs, performance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 174
+    },
+    {
+      "id": "01-software-dev/database-migration",
+      "name": "database-migration",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Plan and execute database schema migrations safely \u2014 zero-downtime strategies, Alembic/Flyway configuration, backward-compatible changes, large table migrations, and rollback procedures.",
+      "argumentHint": "[database engine, table sizes, deployment strategy, downtime tolerance]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 325
+    },
+    {
+      "id": "01-software-dev/database-schema",
+      "name": "database-schema",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a relational database schema from requirements. Produces entity-relationship model, table definitions, indexes, constraints, and migration SQL with normalization analysis.",
+      "argumentHint": "[domain entities, relationships, query patterns, database engine]",
+      "allowedTools": "Read, Write",
+      "lines": 334
+    },
+    {
+      "id": "01-software-dev/dependency-injection",
+      "name": "dependency-injection",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement dependency injection patterns for testable, decoupled application architecture. Outputs DI container configuration, interface-based design, factory patterns, and testing strategies across Python, TypeScript, and Go.",
+      "argumentHint": "[language, framework, container preference, testing requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 361
+    },
+    {
+      "id": "01-software-dev/design-patterns",
+      "name": "design-patterns",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Apply the right design pattern to a software design problem. Covers creational, structural, and behavioral patterns with implementation examples, when-to-use guidance, and anti-pattern warnings.",
+      "argumentHint": "[problem description, language, pattern type needed]",
+      "allowedTools": "Read, Write",
+      "lines": 355
+    },
+    {
+      "id": "01-software-dev/documentation-as-code",
+      "name": "documentation-as-code",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Treat documentation with the same rigour as source code \u2014 versioned, reviewed, tested, and automatically published. Covers docs site setup, API reference generation, diagram-as-code, link checking, and docs-in-CI workflows.",
+      "argumentHint": "[tech stack, doc types needed, publishing target, team size]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 369
+    },
+    {
+      "id": "01-software-dev/domain-driven-design",
+      "name": "domain-driven-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Apply Domain-Driven Design to model complex business domains. Outputs bounded contexts, aggregates, domain events, ubiquitous language glossary, and context maps for production systems.",
+      "argumentHint": "[business domain, core subdomains, team structure, integration points]",
+      "allowedTools": "Read, Write",
+      "lines": 401
+    },
+    {
+      "id": "01-software-dev/error-handling",
+      "name": "error-handling",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a comprehensive error handling strategy for an application. Outputs error types, response formats, logging patterns, and user-facing messages.",
+      "argumentHint": "[application type, language/framework]",
+      "allowedTools": "Read, Write",
+      "lines": 501
+    },
+    {
+      "id": "01-software-dev/event-driven-architecture",
+      "name": "event-driven-architecture",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design event-driven systems with producers, consumers, event schemas, and delivery guarantees. Outputs event catalog, topology diagram, schema contracts, and consumer group strategy.",
+      "argumentHint": "[business domain, event volume, consistency requirements, broker choice]",
+      "allowedTools": "Read, Write",
+      "lines": 287
+    },
+    {
+      "id": "01-software-dev/event-storming",
+      "name": "event-storming",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Facilitate event storming workshops to discover domain events, commands, aggregates, and bounded contexts. Outputs event map, domain vocabulary, bounded contexts, and modelling insights.",
+      "argumentHint": "[domain complexity, team size, discovery vs design phase, available domain experts]",
+      "allowedTools": "Read, Write",
+      "lines": 158
+    },
+    {
+      "id": "01-software-dev/feature-flags",
+      "name": "feature-flags",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design and implement a feature flag system for safe, gradual feature rollouts. Covers flag types, targeting rules, lifecycle management, technical implementation, and cleanup processes.",
+      "argumentHint": "[tech stack, rollout strategy, user targeting needs, flag management tool]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 346
+    },
+    {
+      "id": "01-software-dev/functional-programming",
+      "name": "functional-programming",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Apply functional programming principles to write predictable, testable code. Outputs pure function patterns, immutability strategies, composition pipelines, and FP-style refactoring examples.",
+      "argumentHint": "[language, codebase style, team FP experience, areas to apply FP]",
+      "allowedTools": "Read, Write",
+      "lines": 306
+    },
+    {
+      "id": "01-software-dev/git-workflow",
+      "name": "git-workflow",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a Git branching strategy and workflow for a team. Outputs branch naming, merge strategy, CI/CD integration, and release process.",
+      "argumentHint": "[team size, release cadence, project type]",
+      "allowedTools": "Read, Write",
+      "lines": 358
+    },
+    {
+      "id": "01-software-dev/graceful-degradation",
+      "name": "graceful-degradation",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design systems that continue operating with reduced functionality when components fail. Outputs fallback strategies, partial failure handling, feature toggles, and user-facing degraded-mode experiences.",
+      "argumentHint": "[system name, critical vs non-critical features, acceptable degradation levels]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 459
+    },
+    {
+      "id": "01-software-dev/graphql-design",
+      "name": "graphql-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design GraphQL schemas, resolvers, and APIs for flexible data fetching. Outputs schema design, resolver architecture, N+1 prevention, pagination patterns, and security controls.",
+      "argumentHint": "[data model, client types, existing REST APIs, performance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 212
+    },
+    {
+      "id": "01-software-dev/hexagonal-architecture",
+      "name": "hexagonal-architecture",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design hexagonal (ports and adapters) architecture to isolate business logic from infrastructure. Outputs port definitions, adapter implementations, dependency flow diagram, and testing strategy.",
+      "argumentHint": "[application type, external dependencies, testing requirements, team size]",
+      "allowedTools": "Read, Write",
+      "lines": 234
+    },
+    {
+      "id": "01-software-dev/idempotency-design",
+      "name": "idempotency-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design idempotent APIs and operations. Outputs idempotency keys, deduplication strategies, and retry-safe implementations.",
+      "argumentHint": "[operation type, reliability requirements, distributed system]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 571
+    },
+    {
+      "id": "01-software-dev/logging-strategy",
+      "name": "logging-strategy",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a comprehensive logging strategy for production systems. Outputs log structure, levels, retention, aggregation, and query patterns.",
+      "argumentHint": "[application type, scale, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 483
+    },
+    {
+      "id": "01-software-dev/memory-management",
+      "name": "memory-management",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Diagnose and resolve memory issues in production systems. Outputs heap analysis, leak detection strategies, GC tuning recommendations, and memory-efficient design patterns.",
+      "argumentHint": "[language/runtime, symptoms, heap size, GC type]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 276
+    },
+    {
+      "id": "01-software-dev/microservices-communication",
+      "name": "microservices-communication",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design communication patterns between microservices. Outputs synchronous vs asynchronous decision framework, service discovery approach, circuit breaker configuration, and observability strategy.",
+      "argumentHint": "[service count, latency requirements, consistency requirements, team structure]",
+      "allowedTools": "Read, Write",
+      "lines": 166
+    },
+    {
+      "id": "01-software-dev/microservices-design",
+      "name": "microservices-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a microservices architecture from a monolith or new requirements. Outputs service boundaries, communication patterns, data ownership, and deployment strategy.",
+      "argumentHint": "[domain/business requirements, scale expectations]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 428
+    },
+    {
+      "id": "01-software-dev/monorepo-management",
+      "name": "monorepo-management",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Structure and manage monorepos with multiple packages or services. Outputs workspace configuration, build pipeline, dependency graph, code ownership rules, and CI optimisation strategy.",
+      "argumentHint": "[language ecosystem, number of packages, team size, CI system]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 302
+    },
+    {
+      "id": "01-software-dev/null-object-pattern",
+      "name": "null-object-pattern",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Eliminate null checks and NullPointerExceptions using the Null Object pattern. Outputs null object implementations, optional type usage, and refactoring strategies for null-heavy codebases.",
+      "argumentHint": "[language, null hotspots, codebase scale, nullable vs non-nullable types]",
+      "allowedTools": "Read, Write",
+      "lines": 168
+    },
+    {
+      "id": "01-software-dev/observer-pattern",
+      "name": "observer-pattern",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement the Observer pattern for event-driven decoupled communication. Outputs event bus implementations, typed event systems, and async observer patterns.",
+      "argumentHint": "[language, event types, synchronous vs async, existing pub/sub infrastructure]",
+      "allowedTools": "Read, Write",
+      "lines": 167
+    },
+    {
+      "id": "01-software-dev/outbox-pattern",
+      "name": "outbox-pattern",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement the Transactional Outbox pattern to reliably publish events alongside database writes. Outputs outbox table schema, message relay implementation, and at-least-once delivery guarantees.",
+      "argumentHint": "[database type, message broker, event volume, consistency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 266
+    },
+    {
+      "id": "01-software-dev/pagination-design",
+      "name": "pagination-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design pagination for large datasets with cursor-based, offset-based, and keyset strategies. Outputs performance trade-offs and implementation patterns.",
+      "argumentHint": "[dataset size, ordering requirements, client type]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 522
+    },
+    {
+      "id": "01-software-dev/performance-profiling",
+      "name": "performance-profiling",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Profile and optimise application performance using systematic measurement. Outputs hotspot analysis, flame graphs, optimisation recommendations, and before/after benchmarks.",
+      "argumentHint": "[language, performance symptoms, application type, profiling tools available]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 246
+    },
+    {
+      "id": "01-software-dev/plugin-architecture",
+      "name": "plugin-architecture",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design extensible plugin systems that let third parties extend your application without modifying core code. Outputs plugin interface design, registry patterns, sandboxing strategy, and versioning contracts.",
+      "argumentHint": "[extension points needed, language, security requirements, plugin author audience]",
+      "allowedTools": "Read, Write",
+      "lines": 282
+    },
+    {
+      "id": "01-software-dev/rate-limiting",
+      "name": "rate-limiting",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design rate limiting to prevent abuse and ensure fair usage. Outputs algorithms (token bucket, sliding window), storage strategies, and bypass rules.",
+      "argumentHint": "[API type, traffic patterns, abuse scenarios]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 541
+    },
+    {
+      "id": "01-software-dev/refactoring-guide",
+      "name": "refactoring-guide",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Safely refactor existing code to improve structure, readability, and maintainability without changing behavior. Covers detection of code smells, refactoring techniques, safe execution steps, and validation.",
+      "argumentHint": "[code smell type, language, test coverage level, risk tolerance]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 309
+    },
+    {
+      "id": "01-software-dev/repository-pattern",
+      "name": "repository-pattern",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement the Repository pattern to abstract data access from business logic. Outputs repository interfaces, implementations, unit-of-work pattern, and testing with fakes.",
+      "argumentHint": "[language, database type, ORM usage, testing strategy]",
+      "allowedTools": "Read, Write",
+      "lines": 205
+    },
+    {
+      "id": "01-software-dev/retry-patterns",
+      "name": "retry-patterns",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement retry patterns for resilient distributed systems. Outputs retry strategies, exponential backoff, circuit breaker integration, idempotency requirements, and failure budget design.",
+      "argumentHint": "[operation type, failure modes, latency budget, idempotency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 176
+    },
+    {
+      "id": "01-software-dev/serverless-patterns",
+      "name": "serverless-patterns",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design serverless architectures with functions, managed services, and event triggers. Outputs function decomposition, cold start mitigation, cost model, and IaC templates for AWS Lambda or similar.",
+      "argumentHint": "[cloud provider, workload type, latency requirements, expected invocation volume]",
+      "allowedTools": "Read, Write",
+      "lines": 268
+    },
+    {
+      "id": "01-software-dev/service-layer-design",
+      "name": "service-layer-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design the service layer that coordinates business logic, transactions, and cross-cutting concerns between controllers and domain models. Outputs service interfaces, transaction boundaries, and orchestration patterns.",
+      "argumentHint": "[application architecture, transaction requirements, cross-cutting concerns, team conventions]",
+      "allowedTools": "Read, Write",
+      "lines": 159
+    },
+    {
+      "id": "01-software-dev/solid-principles",
+      "name": "solid-principles",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Apply SOLID principles to write maintainable, extensible object-oriented code. Outputs principle-by-principle analysis, refactoring examples, and design decision guidelines.",
+      "argumentHint": "[codebase language, identified violations, team OOP experience level]",
+      "allowedTools": "Read, Write",
+      "lines": 220
+    },
+    {
+      "id": "01-software-dev/state-machine-design",
+      "name": "state-machine-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Model complex workflows as explicit state machines. Outputs state diagrams, transition tables, guard conditions, and production-ready implementations with audit trails.",
+      "argumentHint": "[entity being modelled, states, triggering events, side effects needed]",
+      "allowedTools": "Read, Write",
+      "lines": 320
+    },
+    {
+      "id": "01-software-dev/tech-debt-audit",
+      "name": "tech-debt-audit",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Audit a codebase for technical debt, categorize findings by impact and effort, and produce a prioritized remediation plan with effort estimates and business justification.",
+      "argumentHint": "[codebase or service name, team size, known pain points, business context]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 380
+    },
+    {
+      "id": "01-software-dev/trunk-based-development",
+      "name": "trunk-based-development",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement trunk-based development for fast, safe integration. Outputs branching rules, feature flag strategy, CI requirements, and team workflow guidelines.",
+      "argumentHint": "[team size, deployment frequency, current branching model, CI/CD maturity]",
+      "allowedTools": "Read, Write",
+      "lines": 136
+    },
+    {
+      "id": "01-software-dev/twelve-factor-app",
+      "name": "twelve-factor-app",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Apply the Twelve-Factor App methodology to build scalable, maintainable cloud-native applications. Outputs compliance checklist, configuration audit, and refactoring recommendations.",
+      "argumentHint": "[application type, deployment target, current violations, team maturity]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 182
+    },
+    {
+      "id": "01-software-dev/type-system-design",
+      "name": "type-system-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design expressive type systems that catch bugs at compile time. Outputs type hierarchy, branded/nominal types, discriminated unions, generic constraints, and type-safe API patterns.",
+      "argumentHint": "[language, codebase scale, team TypeScript experience, key domain concepts]",
+      "allowedTools": "Read, Write",
+      "lines": 153
+    },
+    {
+      "id": "01-software-dev/webhook-design",
+      "name": "webhook-design",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design reliable webhook systems with retries, idempotency, and signature verification. Outputs webhook endpoints, delivery guarantees, and security patterns.",
+      "argumentHint": "[event types, delivery SLA, security requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 621
+    },
+    {
+      "id": "02-devops/ci-cd-pipeline",
+      "name": "ci-cd-pipeline",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops",
+      "description": "Design continuous integration and deployment pipelines. Outputs stages, testing, artifact management, deployment strategies, and rollback procedures.",
+      "argumentHint": "[tech stack, deployment targets, testing requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 598
+    },
+    {
+      "id": "02-devops-infra/alerting-rules",
+      "name": "alerting-rules",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design alerting rules for production monitoring with Prometheus, Grafana, PagerDuty. Outputs alert definitions, severity levels, escalation policies, and runbooks.",
+      "argumentHint": "[service SLAs, team size, on-call rotation]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 583
+    },
+    {
+      "id": "02-devops-infra/ansible-playbook",
+      "name": "ansible-playbook",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Write Ansible playbooks for server provisioning, configuration management, and application deployment. Outputs idempotent plays with roles, handlers, vault-encrypted secrets, and inventory management.",
+      "argumentHint": "[target environment, OS type, services to configure, deployment target]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 483
+    },
+    {
+      "id": "02-devops-infra/argocd-deployment",
+      "name": "argocd-deployment",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Deploy and manage applications with Argo CD GitOps. Outputs Application manifests, sync strategies, health checks, RBAC configuration, and multi-environment promotion workflows.",
+      "argumentHint": "[number of clusters, environments, team size, existing CI system]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 216
+    },
+    {
+      "id": "02-devops-infra/backup-strategy",
+      "name": "backup-strategy",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design backup and disaster recovery strategies with 3-2-1 rule, automated testing, and recovery procedures. Outputs backup schedules, retention policies, and RTO/RPO targets.",
+      "argumentHint": "[data criticality, recovery time objectives, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 545
+    },
+    {
+      "id": "02-devops-infra/blue-green-deploy",
+      "name": "blue-green-deploy",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement blue-green deployment strategy for zero-downtime releases with instant rollback capability. Outputs infrastructure configuration, traffic switching scripts, health check validation, and rollback procedures.",
+      "argumentHint": "[infrastructure platform, load balancer type, database migration strategy, rollback SLA]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 289
+    },
+    {
+      "id": "02-devops-infra/canary-release",
+      "name": "canary-release",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement canary release strategy for gradual traffic shifting with automated promotion and rollback. Outputs traffic weight configuration, metric-based promotion gates, and rollback triggers.",
+      "argumentHint": "[platform, traffic splitting method, metrics to monitor, rollback threshold]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 362
+    },
+    {
+      "id": "02-devops-infra/capacity-planning",
+      "name": "capacity-planning",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Plan infrastructure capacity for current and future load. Outputs resource projections, scaling thresholds, cost forecasts, and capacity headroom recommendations.",
+      "argumentHint": "[service type, current utilisation, growth rate, peak patterns]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 258
+    },
+    {
+      "id": "02-devops-infra/chaos-testing-infra",
+      "name": "chaos-testing-infra",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Run chaos engineering experiments on infrastructure to find weaknesses before incidents do. Outputs experiment catalogue, blast radius controls, steady-state hypotheses, and GameDay procedures.",
+      "argumentHint": "[target systems, blast radius tolerance, observability coverage, team maturity]",
+      "allowedTools": "Read, Write",
+      "lines": 87
+    },
+    {
+      "id": "02-devops-infra/ci-cd-advanced",
+      "name": "ci-cd-advanced",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design advanced CI/CD patterns with deployment strategies, progressive delivery, and rollback automation. Outputs pipeline configs, canary deployments, and blue-green setups.",
+      "argumentHint": "[deployment frequency, rollback requirements, team size]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 635
+    },
+    {
+      "id": "02-devops-infra/cloud-cost-allocation",
+      "name": "cloud-cost-allocation",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement cloud cost allocation, tagging policies, and showback/chargeback systems. Outputs tagging standards, cost allocation reports, anomaly detection, and team budget dashboards.",
+      "argumentHint": "[cloud provider, team structure, current monthly spend, cost visibility maturity]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 135
+    },
+    {
+      "id": "02-devops-infra/cloud-migration",
+      "name": "cloud-migration",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Plan and execute cloud migrations using the 6R strategies. Outputs assessment framework, migration waves, risk analysis, cutover plan, and success metrics.",
+      "argumentHint": "[source environment, target cloud, application count, timeline, compliance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 210
+    },
+    {
+      "id": "02-devops-infra/cloud-networking",
+      "name": "cloud-networking",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design and implement cloud network architecture with VPCs, subnets, security groups, and private connectivity. Outputs network topology, security group rules, PrivateLink configuration, and routing tables.",
+      "argumentHint": "[cloud provider, workload types, compliance requirements, multi-region needs]",
+      "allowedTools": "Read, Write",
+      "lines": 167
+    },
+    {
+      "id": "02-devops-infra/container-security",
+      "name": "container-security",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Harden container images and Kubernetes workloads against attacks. Outputs secure Dockerfile patterns, admission policies, runtime security rules, and vulnerability scanning pipeline.",
+      "argumentHint": "[container runtime, orchestrator, compliance requirements, image registry]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 357
+    },
+    {
+      "id": "02-devops-infra/cost-optimization",
+      "name": "cost-optimization",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Reduce cloud infrastructure costs through right-sizing, reserved capacity, spot instances, autoscaling, and waste elimination. Outputs cost analysis reports, rightsizing recommendations, and automated cleanup pipelines.",
+      "argumentHint": "[cloud provider, current monthly spend, main cost drivers, optimization targets]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 335
+    },
+    {
+      "id": "02-devops-infra/database-ops",
+      "name": "database-ops",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Operate databases in production with zero-downtime migrations, connection pooling, backup verification, and performance monitoring. Outputs migration workflow, pooler config, monitoring queries, and runbooks.",
+      "argumentHint": "[database type, workload pattern, team size, RTO/RPO requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 179
+    },
+    {
+      "id": "02-devops-infra/deployment-strategies",
+      "name": "deployment-strategies",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Select and implement the right deployment strategy for your release. Covers rolling, blue-green, canary, feature flags, and shadow deployments with rollback procedures.",
+      "argumentHint": "[service type, risk tolerance, traffic volume, rollback requirements, team size]",
+      "allowedTools": "Read, Write",
+      "lines": 212
+    },
+    {
+      "id": "02-devops-infra/developer-experience",
+      "name": "developer-experience",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Improve developer experience through faster feedback loops, better local dev environments, reduced cognitive load, and tooling that gets out of the way. Outputs dev environment setup, pre-commit hooks, inner loop optimization, and DX metrics.",
+      "argumentHint": "[team size, tech stack, main pain points, current build times]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 339
+    },
+    {
+      "id": "02-devops-infra/disaster-recovery",
+      "name": "disaster-recovery",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design and document a disaster recovery plan for a production system. Covers RTO/RPO definition, failover architecture, backup verification, runbooks, and regular DR testing procedures.",
+      "argumentHint": "[system name, cloud provider, RTO/RPO requirements, data criticality]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 290
+    },
+    {
+      "id": "02-devops-infra/docker-compose",
+      "name": "docker-compose",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Create production-ready Docker Compose configurations for multi-container applications. Outputs service definitions, networking, volumes, and environment management.",
+      "argumentHint": "[application architecture, services needed]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 679
+    },
+    {
+      "id": "02-devops-infra/dora-metrics",
+      "name": "dora-metrics",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement DORA metrics to measure software delivery performance. Outputs metric definitions, data collection pipeline, dashboards, and improvement strategies for each performance tier.",
+      "argumentHint": "[CI/CD tools, incident tracking system, deployment frequency, team size]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 234
+    },
+    {
+      "id": "02-devops-infra/ebpf-observability",
+      "name": "ebpf-observability",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement eBPF-based observability for deep kernel-level insights without application instrumentation. Outputs eBPF tool selection, network tracing, performance profiling, and security monitoring patterns.",
+      "argumentHint": "[Linux kernel version, observability gaps, performance issues, security requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 201
+    },
+    {
+      "id": "02-devops-infra/edge-computing",
+      "name": "edge-computing",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design and deploy edge computing architectures that process data close to the source. Outputs edge node topology, workload placement strategy, synchronisation patterns, and observability approach.",
+      "argumentHint": "[latency requirements, data volume, edge node constraints, cloud provider, connectivity]",
+      "allowedTools": "Read, Write",
+      "lines": 229
+    },
+    {
+      "id": "02-devops-infra/environment-management",
+      "name": "environment-management",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design and manage multiple deployment environments for development, staging, and production. Outputs environment topology, promotion workflow, configuration management, and parity strategy.",
+      "argumentHint": "[team size, deployment frequency, cloud provider, compliance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 177
+    },
+    {
+      "id": "02-devops-infra/finops-strategy",
+      "name": "finops-strategy",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement FinOps practices to optimise cloud spend without sacrificing performance. Outputs cost allocation strategy, savings recommendations, tagging taxonomy, and budgeting framework.",
+      "argumentHint": "[cloud provider, monthly spend, team structure, current waste areas, chargeback model]",
+      "allowedTools": "Read, Write",
+      "lines": 270
+    },
+    {
+      "id": "02-devops-infra/gitops-workflow",
+      "name": "gitops-workflow",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement GitOps deployment workflows where Git is the single source of truth for infrastructure and application state. Outputs ArgoCD/Flux configuration, repository structure, promotion workflows, and drift detection.",
+      "argumentHint": "[Kubernetes cluster, GitOps tool (ArgoCD/Flux), environment count, deployment frequency]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 402
+    },
+    {
+      "id": "02-devops-infra/helm-charts",
+      "name": "helm-charts",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Create and manage Helm charts for Kubernetes application deployment. Outputs Chart.yaml, values.yaml, templates with best practices, named templates, hooks, and chart testing configuration.",
+      "argumentHint": "[application name, deployment type, dependencies, environments]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 483
+    },
+    {
+      "id": "02-devops-infra/infrastructure-as-code-testing",
+      "name": "infrastructure-as-code-testing",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Test Terraform, Pulumi, and CloudFormation infrastructure code before deployment. Outputs unit tests, integration tests, compliance checks, and CI pipeline for IaC validation.",
+      "argumentHint": "[IaC tool, cloud provider, compliance framework, test framework]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 359
+    },
+    {
+      "id": "02-devops-infra/infrastructure-testing",
+      "name": "infrastructure-testing",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Test infrastructure-as-code using automated frameworks. Covers unit tests for Terraform modules, integration tests with Terratest, compliance checks with OPA/Checkov, and drift detection.",
+      "argumentHint": "[IaC tool, cloud provider, compliance requirements, test scope]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 329
+    },
+    {
+      "id": "02-devops-infra/kubernetes-manifest",
+      "name": "kubernetes-manifest",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Create production Kubernetes manifests with deployments, services, ingress, configs, and autoscaling. Outputs complete YAML with best practices.",
+      "argumentHint": "[application type, scale requirements, resources]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 606
+    },
+    {
+      "id": "02-devops-infra/kubernetes-security",
+      "name": "kubernetes-security",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Harden Kubernetes clusters with RBAC, pod security, network policies, and supply chain controls. Outputs security baseline, admission policies, audit configuration, and hardening checklist.",
+      "argumentHint": "[cluster type, workload sensitivity, compliance requirements, multi-tenancy needs]",
+      "allowedTools": "Read, Write",
+      "lines": 234
+    },
+    {
+      "id": "02-devops-infra/log-aggregation",
+      "name": "log-aggregation",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design and implement centralized log aggregation pipelines using ELK Stack, CloudWatch Logs, or Loki. Outputs shipper configuration, parsing rules, retention policies, and search/alerting setup.",
+      "argumentHint": "[infrastructure type, log sources, volume estimate, alerting requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 523
+    },
+    {
+      "id": "02-devops-infra/monitoring-setup",
+      "name": "monitoring-setup",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Setup monitoring with Prometheus, Grafana, alerting. Outputs metrics collection, dashboards, alert rules, and SLO tracking.",
+      "argumentHint": "[infrastructure type, SLA requirements, team size]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 646
+    },
+    {
+      "id": "02-devops-infra/multi-cloud-strategy",
+      "name": "multi-cloud-strategy",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design multi-cloud architectures for resilience, cost optimisation, or vendor independence. Outputs cloud placement decisions, abstraction layer strategy, data sovereignty approach, and operational model.",
+      "argumentHint": "[primary cloud, secondary cloud, business drivers, workload types, team cloud expertise]",
+      "allowedTools": "Read, Write",
+      "lines": 294
+    },
+    {
+      "id": "02-devops-infra/network-policy",
+      "name": "network-policy",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design and implement Kubernetes NetworkPolicies and cloud security groups for zero-trust network segmentation. Outputs policy definitions, traffic flow diagrams, and validation tests.",
+      "argumentHint": "[cluster CNI plugin, services to isolate, ingress sources, egress destinations]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 358
+    },
+    {
+      "id": "02-devops-infra/observability-platform",
+      "name": "observability-platform",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Build a unified observability platform integrating metrics, logs, and traces (the three pillars). Outputs OpenTelemetry instrumentation, Prometheus + Grafana stack, centralized logging, and alerting runbooks.",
+      "argumentHint": "[tech stack, current tooling, team size, SLO requirements, cloud provider]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 327
+    },
+    {
+      "id": "02-devops-infra/on-call-management",
+      "name": "on-call-management",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design and operate an effective on-call rotation. Outputs rotation schedule, escalation policies, alert routing rules, on-call handbook, and well-being guidelines.",
+      "argumentHint": "[team size, service criticality, time zones, current pain points, alerting tool]",
+      "allowedTools": "Read, Write",
+      "lines": 206
+    },
+    {
+      "id": "02-devops-infra/platform-engineering",
+      "name": "platform-engineering",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Build an internal developer platform (IDP) that abstracts infrastructure complexity \u2014 self-service environments, golden paths, service catalogs, and paved road toolchains for engineering teams.",
+      "argumentHint": "[team size, cloud provider, existing tooling, developer pain points]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 296
+    },
+    {
+      "id": "02-devops-infra/platform-idp",
+      "name": "platform-idp",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design an Internal Developer Platform (IDP) that reduces cognitive load for engineers. Outputs platform capabilities, golden paths, self-service workflows, and adoption strategy.",
+      "argumentHint": "[team size, current pain points, golden path services, tooling maturity]",
+      "allowedTools": "Read, Write",
+      "lines": 193
+    },
+    {
+      "id": "02-devops-infra/progressive-delivery",
+      "name": "progressive-delivery",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement progressive delivery strategies including canary releases, feature flags, and traffic splitting. Outputs deployment pipeline, rollout configuration, automated rollback triggers, and observability requirements.",
+      "argumentHint": "[deployment platform, traffic volume, rollback SLA, feature flag tooling]",
+      "allowedTools": "Read, Write",
+      "lines": 175
+    },
+    {
+      "id": "02-devops-infra/release-management",
+      "name": "release-management",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design a release management process for coordinated, low-risk software releases. Outputs release workflow, change approval process, rollback procedures, and communication templates.",
+      "argumentHint": "[deployment frequency, team count, regulatory requirements, current pain points]",
+      "allowedTools": "Read, Write",
+      "lines": 173
+    },
+    {
+      "id": "02-devops-infra/secrets-management",
+      "name": "secrets-management",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Design secrets management with Vault, AWS Secrets Manager, encrypted storage. Outputs rotation policies, access controls, and audit logging.",
+      "argumentHint": "[infrastructure type, compliance requirements, rotation frequency]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 638
+    },
+    {
+      "id": "02-devops-infra/service-catalog",
+      "name": "service-catalog",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Build and maintain a service catalog documenting all services, their owners, dependencies, and operational properties. Outputs catalog schema, ownership model, dependency map, and discovery tooling.",
+      "argumentHint": "[number of services, team structure, existing docs, tooling preferences]",
+      "allowedTools": "Read, Write",
+      "lines": 67
+    },
+    {
+      "id": "02-devops-infra/service-discovery",
+      "name": "service-discovery",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Implement service discovery for dynamic microservice environments. Outputs discovery patterns, DNS vs registry approaches, health check design, and client-side load balancing.",
+      "argumentHint": "[orchestration platform, service count, dynamic scaling needs, client language]",
+      "allowedTools": "Read, Write",
+      "lines": 174
+    },
+    {
+      "id": "02-devops-infra/slos-and-error-budgets",
+      "name": "slos-and-error-budgets",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Define Service Level Objectives and manage error budgets for reliability engineering. Outputs SLI/SLO definitions, error budget calculations, burn rate alerts, and reliability review process.",
+      "argumentHint": "[service criticality, current availability, user impact, monitoring stack]",
+      "allowedTools": "Read, Write",
+      "lines": 170
+    },
+    {
+      "id": "02-devops-infra/sre-runbook",
+      "name": "sre-runbook",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Write SRE runbooks for incident response, on-call procedures, and service recovery. Outputs structured runbooks with SLOs, alert response playbooks, escalation paths, and post-incident templates.",
+      "argumentHint": "[service name, SLO targets, on-call rotation, alert types]",
+      "allowedTools": "Read, Write",
+      "lines": 292
+    },
+    {
+      "id": "02-devops-infra/supply-chain-security-pipeline",
+      "name": "supply-chain-security-pipeline",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Secure the software supply chain from source code to production deployment. Outputs SLSA compliance controls, artifact signing, dependency vetting, and provenance attestation pipeline.",
+      "argumentHint": "[SLSA level target, build system, registry, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 212
+    },
+    {
+      "id": "02-devops-infra/terraform-module",
+      "name": "terraform-module",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Production Terraform modules for infrastructure as code. Outputs reusable modules with variables, state management, and CI/CD integration.",
+      "argumentHint": "[infrastructure type, cloud provider, module scope]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 628
+    },
+    {
+      "id": "02-devops-infra/wasm-deployment",
+      "name": "wasm-deployment",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops-infra",
+      "description": "Deploy WebAssembly workloads for edge computing, plugin systems, and portable compute. Outputs WASM runtime selection, compilation pipeline, deployment patterns, and security sandboxing.",
+      "argumentHint": "[use case, languages, edge vs server, existing infrastructure, performance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 206
+    },
+    {
+      "id": "03-data-analytics/ab-test-analysis",
+      "name": "ab-test-analysis",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design and analyze A/B tests with statistical significance, sample size calculation, and metric selection. Outputs test design, power analysis, and results interpretation.",
+      "argumentHint": "[baseline metric, minimum detectable effect, significance level]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 448
+    },
+    {
+      "id": "03-data-analytics/analytics-engineering",
+      "name": "analytics-engineering",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Apply analytics engineering practices to build reliable, tested, and documented data models. Outputs dbt project structure, model layering, testing strategy, and documentation standards.",
+      "argumentHint": "[data warehouse, BI tools, team structure, current data quality]",
+      "allowedTools": "Read, Write",
+      "lines": 79
+    },
+    {
+      "id": "03-data-analytics/cohort-analysis",
+      "name": "cohort-analysis",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build cohort analyses to understand user retention, behaviour over time, and revenue patterns. Outputs cohort SQL queries, retention visualisations, revenue cohorts, and actionable insights.",
+      "argumentHint": "[product type, cohort definition, time period, metrics to analyse]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 196
+    },
+    {
+      "id": "03-data-analytics/customer-segmentation",
+      "name": "customer-segmentation",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build customer segmentation models for personalisation, targeting, and lifecycle management. Outputs RFM analysis, behavioural clustering, segment SQL, and activation playbooks.",
+      "argumentHint": "[business model, data available, use case for segments, update frequency needed]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 139
+    },
+    {
+      "id": "03-data-analytics/dashboard-design",
+      "name": "dashboard-design",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design analytics dashboards with Tableau, PowerBI, Looker, Metabase. Outputs metric definitions, visualizations, filters, and user flows.",
+      "argumentHint": "[metrics, audience, update frequency]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 536
+    },
+    {
+      "id": "03-data-analytics/data-anonymization",
+      "name": "data-anonymization",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Implement data anonymization and pseudonymization techniques for GDPR compliance, safe analytics, and test data generation. Outputs anonymization pipelines, k-anonymity validation, differential privacy, and de-identification strategies.",
+      "argumentHint": "[data types, compliance requirements, analytics needs, re-identification risk tolerance]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 345
+    },
+    {
+      "id": "03-data-analytics/data-catalog",
+      "name": "data-catalog",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build or configure a data catalog to make data assets discoverable, documented, and governed. Covers metadata management, search, classification, ownership, freshness tracking, and integration with dbt and DataHub.",
+      "argumentHint": "[catalog tool, data sources, team size, governance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 217
+    },
+    {
+      "id": "03-data-analytics/data-contracts",
+      "name": "data-contracts",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Define and enforce data contracts between data producers and consumers to prevent breaking changes. Outputs contract schema, versioning strategy, and validation pipeline.",
+      "argumentHint": "[data exchange type, team structure, existing schema format, tooling stack]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "03-data-analytics/data-enrichment",
+      "name": "data-enrichment",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design data enrichment pipelines that augment first-party data with external sources. Outputs enrichment strategy, provider evaluation, pipeline design, match rate optimisation, and quality controls.",
+      "argumentHint": "[data types to enrich, use cases, budget, privacy requirements, existing data assets]",
+      "allowedTools": "Read, Write",
+      "lines": 157
+    },
+    {
+      "id": "03-data-analytics/data-governance",
+      "name": "data-governance",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Establish data governance frameworks covering ownership, quality standards, access control, and compliance. Outputs governance policy, data stewardship model, classification scheme, and audit procedures.",
+      "argumentHint": "[regulatory requirements, data sensitivity, team size, existing data catalog]",
+      "allowedTools": "Read, Write",
+      "lines": 255
+    },
+    {
+      "id": "03-data-analytics/data-lineage",
+      "name": "data-lineage",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design and implement data lineage tracking across a data pipeline. Covers lineage capture strategies, metadata graphs, column-level lineage, impact analysis, and integration with dbt, Airflow, and OpenLineage.",
+      "argumentHint": "[pipeline tool, data warehouse, lineage granularity needed, compliance requirement]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 233
+    },
+    {
+      "id": "03-data-analytics/data-mesh-design",
+      "name": "data-mesh-design",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design a data mesh architecture with domain ownership, data products, and federated governance. Outputs domain decomposition, data product contracts, self-serve platform requirements, and migration plan.",
+      "argumentHint": "[number of domains, current data platform, team structure, regulatory requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 214
+    },
+    {
+      "id": "03-data-analytics/data-migration",
+      "name": "data-migration",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design and execute safe database migrations with zero downtime, rollback plans, and data validation. Outputs migration scripts, expand-contract patterns, backfill strategies, and cutover runbooks.",
+      "argumentHint": "[database type, data volume, downtime tolerance, rollback requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 361
+    },
+    {
+      "id": "03-data-analytics/data-modeling",
+      "name": "data-modeling",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design data models for relational and NoSQL databases. Outputs entity relationships, normalization, denormalization strategies, and schema evolution.",
+      "argumentHint": "[data domain, access patterns, consistency requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 507
+    },
+    {
+      "id": "03-data-analytics/data-observability",
+      "name": "data-observability",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Implement data observability to detect, alert on, and resolve data quality issues in pipelines and warehouses. Outputs freshness monitoring, anomaly detection, lineage tracking, and incident playbooks.",
+      "argumentHint": "[data stack, pipeline complexity, SLA requirements, team size]",
+      "allowedTools": "Read, Write",
+      "lines": 72
+    },
+    {
+      "id": "03-data-analytics/data-partitioning",
+      "name": "data-partitioning",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design database and data lake partitioning strategies for scale, performance, and cost optimization. Outputs partitioning schemes, partition pruning patterns, maintenance procedures, and query optimization.",
+      "argumentHint": "[database/storage system, data volume, access patterns, retention requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 307
+    },
+    {
+      "id": "03-data-analytics/data-pipeline-testing",
+      "name": "data-pipeline-testing",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Test data pipelines for correctness, reliability, and data quality. Outputs unit tests for transformations, integration tests for pipeline runs, data contract tests, and CI strategy.",
+      "argumentHint": "[pipeline tool, data volume, criticality, existing test coverage]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 353
+    },
+    {
+      "id": "03-data-analytics/data-quality-checks",
+      "name": "data-quality-checks",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design data quality validation with Great Expectations, custom checks, and automated monitoring. Outputs validation rules, anomaly detection, and data lineage.",
+      "argumentHint": "[data sources, quality requirements, validation frequency]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 583
+    },
+    {
+      "id": "03-data-analytics/data-retention",
+      "name": "data-retention",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design data retention policies covering deletion schedules, archival tiers, compliance requirements, and right-to-erasure workflows. Outputs retention schedules, automated deletion jobs, anonymization strategies, and audit trails.",
+      "argumentHint": "[data types, compliance requirements (GDPR/CCPA/HIPAA), storage costs, query requirements for old data]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 375
+    },
+    {
+      "id": "03-data-analytics/data-virtualization",
+      "name": "data-virtualization",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Implement data virtualisation to query distributed data sources without moving data. Outputs virtual layer design, query federation strategy, performance optimisation, and governance approach.",
+      "argumentHint": "[data sources, query latency requirements, data volume, existing data infrastructure]",
+      "allowedTools": "Read, Write",
+      "lines": 182
+    },
+    {
+      "id": "03-data-analytics/data-warehouse-schema",
+      "name": "data-warehouse-schema",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design data warehouse schemas with star/snowflake patterns, dimensions, facts, and slowly changing dimensions. Outputs DDL and ETL integration.",
+      "argumentHint": "[data sources, query patterns, granularity]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 513
+    },
+    {
+      "id": "03-data-analytics/dbt-best-practices",
+      "name": "dbt-best-practices",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Apply dbt best practices for scalable, maintainable analytics engineering. Outputs project structure, naming conventions, testing strategy, documentation standards, and CI/CD pipeline.",
+      "argumentHint": "[data warehouse, team size, existing SQL complexity, testing coverage]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 263
+    },
+    {
+      "id": "03-data-analytics/dbt-patterns",
+      "name": "dbt-patterns",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build production dbt projects with best practices for modelling, testing, documentation, and performance. Outputs project structure, model patterns, macro library, and CI configuration.",
+      "argumentHint": "[data warehouse, team size, model complexity, existing dbt maturity]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 262
+    },
+    {
+      "id": "03-data-analytics/distributed-tracing",
+      "name": "distributed-tracing",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Implement distributed tracing across microservices using OpenTelemetry. Outputs trace instrumentation, context propagation, sampling configuration, Jaeger/Tempo integration, and trace-based debugging workflows.",
+      "argumentHint": "[language/framework, tracing backend, existing observability stack, sampling rate]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 369
+    },
+    {
+      "id": "03-data-analytics/etl-pipeline",
+      "name": "etl-pipeline",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design and implement production-ready ETL/ELT pipelines for data warehousing and analytics. Covers extraction strategies, transformation logic, incremental loading, data quality, orchestration, schema evolution, and monitoring.",
+      "argumentHint": "[data sources, transformation requirements, destination system, schedule]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 468
+    },
+    {
+      "id": "03-data-analytics/event-tracking-plan",
+      "name": "event-tracking-plan",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design a comprehensive event tracking plan for product analytics. Outputs event taxonomy, tracking spec, implementation guide, and governance process.",
+      "argumentHint": "[product type, analytics platform, team structure, current tracking gaps]",
+      "allowedTools": "Read, Write",
+      "lines": 198
+    },
+    {
+      "id": "03-data-analytics/experiment-platform",
+      "name": "experiment-platform",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build an internal experimentation platform for running A/B tests at scale. Outputs experiment service architecture, assignment engine, metric pipeline, and statistical analysis framework.",
+      "argumentHint": "[traffic volume, number of concurrent experiments, team size, existing analytics stack]",
+      "allowedTools": "Read, Write",
+      "lines": 138
+    },
+    {
+      "id": "03-data-analytics/feature-flags-analytics",
+      "name": "feature-flags-analytics",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Analyse feature flag experiments to measure impact on key metrics. Outputs statistical test selection, sample size calculation, results interpretation, and ship/no-ship decision framework.",
+      "argumentHint": "[metric type, expected effect size, traffic volume, experiment duration, platform]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 175
+    },
+    {
+      "id": "03-data-analytics/forecasting-models",
+      "name": "forecasting-models",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build time-series forecasting models for business metrics. Outputs model selection framework, Prophet/ARIMA implementation, evaluation methodology, production serving pattern, and uncertainty quantification.",
+      "argumentHint": "[metric to forecast, data frequency, horizon, seasonality patterns, accuracy requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 205
+    },
+    {
+      "id": "03-data-analytics/funnel-analysis",
+      "name": "funnel-analysis",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build conversion funnel analyses to identify drop-off points and optimisation opportunities. Outputs funnel SQL queries, drop-off attribution, segment comparison, and experiment prioritisation.",
+      "argumentHint": "[funnel steps, event tracking system, time window, segment dimensions]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 193
+    },
+    {
+      "id": "03-data-analytics/graph-analytics",
+      "name": "graph-analytics",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design and implement graph analytics for network analysis, recommendation systems, and fraud detection. Outputs graph schema, traversal queries, and analytics algorithms.",
+      "argumentHint": "[graph type, scale, query patterns, existing infrastructure, latency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 58
+    },
+    {
+      "id": "03-data-analytics/lakehouse-architecture",
+      "name": "lakehouse-architecture",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design a lakehouse combining data lake flexibility with warehouse query performance. Outputs layer architecture, table format selection, partition strategy, and access control model.",
+      "argumentHint": "[data volume, query patterns, team skills, cloud provider, latency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 248
+    },
+    {
+      "id": "03-data-analytics/metrics-framework",
+      "name": "metrics-framework",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design a company-wide metrics framework with north star, input metrics, guardrails, and reporting hierarchy. Outputs metric taxonomy, definition docs, instrumentation spec, and anomaly detection rules.",
+      "argumentHint": "[business model, product stage, current reporting gaps, team size]",
+      "allowedTools": "Read, Write",
+      "lines": 235
+    },
+    {
+      "id": "03-data-analytics/product-analytics",
+      "name": "product-analytics",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build product analytics infrastructure to understand user behaviour, feature adoption, and business outcomes. Outputs event taxonomy, funnel analysis, retention queries, and reporting infrastructure.",
+      "argumentHint": "[product type, analytics stack, team size, key business questions]",
+      "allowedTools": "Read, Write",
+      "lines": 162
+    },
+    {
+      "id": "03-data-analytics/real-time-analytics",
+      "name": "real-time-analytics",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build real-time analytics pipelines with sub-second query latency. Outputs streaming architecture, OLAP store selection, aggregation strategy, and dashboard update patterns.",
+      "argumentHint": "[event volume, query latency target, aggregation complexity, dashboard tool]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 273
+    },
+    {
+      "id": "03-data-analytics/revenue-analytics",
+      "name": "revenue-analytics",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Build revenue analytics systems tracking MRR, ARR, churn, expansion, and cohort revenue. Outputs revenue recognition logic, MRR waterfall analysis, LTV calculation, and forecasting models.",
+      "argumentHint": "[business model, subscription vs usage, billing system, finance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 222
+    },
+    {
+      "id": "03-data-analytics/reverse-etl",
+      "name": "reverse-etl",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design reverse ETL pipelines to sync data warehouse insights back to operational tools. Outputs sync architecture, transformation logic, scheduling strategy, and monitoring setup.",
+      "argumentHint": "[source warehouse, destination tools, sync frequency, data volume]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "03-data-analytics/semantic-layer",
+      "name": "semantic-layer",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design a semantic layer that provides a consistent business metric definitions across all analytics tools. Outputs metric definitions, dbt metrics setup, and BI tool integration.",
+      "argumentHint": "[BI tools, metric complexity, team structure, existing data models]",
+      "allowedTools": "Read, Write",
+      "lines": 69
+    },
+    {
+      "id": "03-data-analytics/sql-optimization",
+      "name": "sql-optimization",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Optimize slow SQL queries with indexing, query rewriting, and execution plan analysis. Outputs before/after metrics and index strategies.",
+      "argumentHint": "[slow query, database type, table sizes]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 565
+    },
+    {
+      "id": "03-data-analytics/streaming-pipeline",
+      "name": "streaming-pipeline",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design real-time streaming pipelines with Kafka, Flink, Spark Streaming. Outputs producer/consumer patterns, windowing, state management, and exactly-once semantics.",
+      "argumentHint": "[data volume, latency requirements, processing needs]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 536
+    },
+    {
+      "id": "03-data-analytics/time-series-analysis",
+      "name": "time-series-analysis",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Analyse and model time series data for forecasting, anomaly detection, and trend analysis. Outputs decomposition approach, forecasting model selection, evaluation metrics, and production pipeline.",
+      "argumentHint": "[metric type, seasonality patterns, forecast horizon, accuracy requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 141
+    },
+    {
+      "id": "04-ai-ml/ab-test-ml",
+      "name": "ab-test-ml",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design and analyze A/B tests for ML models in production, including traffic splitting, metric selection, statistical significance testing, and safe rollout strategies.",
+      "argumentHint": "[model type, business metric, traffic volume, acceptable risk level]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 388
+    },
+    {
+      "id": "04-ai-ml/agentic-workflow",
+      "name": "agentic-workflow",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design and implement LLM-powered agentic workflows with tool use, planning, memory, and multi-agent coordination. Outputs agent architecture, tool definitions, evaluation framework, and safety controls.",
+      "argumentHint": "[task type, tools available, autonomy level, human-in-the-loop requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 413
+    },
+    {
+      "id": "04-ai-ml/ai-cost-optimisation",
+      "name": "ai-cost-optimisation",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Optimise LLM and AI infrastructure costs through model selection, caching, batching, and prompt engineering. Outputs cost analysis, model tiering strategy, and 30-day reduction plan.",
+      "argumentHint": "[current monthly spend, model usage, traffic patterns, latency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 99
+    },
+    {
+      "id": "04-ai-ml/ai-observability",
+      "name": "ai-observability",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Implement observability for LLM and ML systems in production. Outputs tracing setup, quality metrics, drift detection dashboards, and feedback collection pipeline.",
+      "argumentHint": "[model types, traffic volume, quality metrics, monitoring stack]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "04-ai-ml/ai-product-design",
+      "name": "ai-product-design",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design AI-powered products that are useful, trustworthy, and safe. Outputs capability-first design process, failure mode analysis, human-in-the-loop patterns, and evaluation framework.",
+      "argumentHint": "[product type, user sophistication, risk tolerance, regulatory context]",
+      "allowedTools": "Read, Write",
+      "lines": 165
+    },
+    {
+      "id": "04-ai-ml/ai-safety-evaluation",
+      "name": "ai-safety-evaluation",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Evaluate AI systems for safety, robustness, and alignment. Outputs red team test suites, safety benchmarks, harm classification rubrics, and monitoring dashboards for production AI deployments.",
+      "argumentHint": "[model type, deployment context, user population, regulatory requirements, risk tolerance]",
+      "allowedTools": "Read, Write",
+      "lines": 313
+    },
+    {
+      "id": "04-ai-ml/ai-testing-strategy",
+      "name": "ai-testing-strategy",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design comprehensive testing strategies for AI-powered features and LLM applications. Outputs test taxonomy, evaluation harness, regression suite, human evaluation protocol, and CI integration.",
+      "argumentHint": "[AI feature type, LLM provider, quality dimensions, production traffic volume]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 239
+    },
+    {
+      "id": "04-ai-ml/context-window-management",
+      "name": "context-window-management",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Optimise LLM context windows for long-document processing, multi-turn conversations, and token efficiency. Outputs chunking strategies, compression techniques, and memory management patterns.",
+      "argumentHint": "[model context limit, document types, conversation length, token budget]",
+      "allowedTools": "Read, Write",
+      "lines": 170
+    },
+    {
+      "id": "04-ai-ml/embedding-strategy",
+      "name": "embedding-strategy",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design embedding pipelines for semantic search, RAG, and recommendation systems. Outputs model selection, chunking strategy, index configuration, and retrieval evaluation framework.",
+      "argumentHint": "[content type, query patterns, latency target, scale in documents, update frequency]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 311
+    },
+    {
+      "id": "04-ai-ml/feature-engineering",
+      "name": "feature-engineering",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design ML features with encoding, scaling, selection, and extraction. Outputs feature pipelines, importance analysis, and validation strategies.",
+      "argumentHint": "[data type, model type, target variable]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 421
+    },
+    {
+      "id": "04-ai-ml/feature-store",
+      "name": "feature-store",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design and implement a feature store for ML \u2014 centralized feature computation, storage, serving, and reuse across models. Outputs online/offline store architecture, feature pipelines, point-in-time joins, and serving API.",
+      "argumentHint": "[ML use cases, data sources, latency requirements, team size, existing infrastructure]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 391
+    },
+    {
+      "id": "04-ai-ml/fine-tuning",
+      "name": "fine-tuning",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Fine-tune a pre-trained language model for a specific task. Covers dataset preparation, LoRA/QLoRA techniques, training configuration, evaluation, merging, and deployment of fine-tuned models.",
+      "argumentHint": "[base model, task type, dataset size, compute budget, evaluation metric]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 320
+    },
+    {
+      "id": "04-ai-ml/guardrails-implementation",
+      "name": "guardrails-implementation",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Implement input and output guardrails for LLM applications. Outputs validation pipeline, content filters, structured output enforcement, and safety monitoring.",
+      "argumentHint": "[application type, risk categories, user population, compliance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "04-ai-ml/hyperparameter-tuning",
+      "name": "hyperparameter-tuning",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Optimize ML model hyperparameters with grid search, random search, Bayesian optimization. Outputs tuning strategy, search spaces, and best parameters.",
+      "argumentHint": "[model type, compute budget, optimization metric]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 544
+    },
+    {
+      "id": "04-ai-ml/knowledge-graph-rag",
+      "name": "knowledge-graph-rag",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Build RAG systems enhanced with knowledge graphs for multi-hop reasoning and relationship queries. Outputs graph schema, hybrid retrieval pipeline, and query routing strategy.",
+      "argumentHint": "[domain complexity, relationship density, query patterns, graph database choice]",
+      "allowedTools": "Read, Write",
+      "lines": 159
+    },
+    {
+      "id": "04-ai-ml/llm-caching-strategy",
+      "name": "llm-caching-strategy",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Implement caching strategies for LLM applications to reduce costs and latency. Outputs exact cache, semantic cache, prompt cache, and KV cache configurations with measurement.",
+      "argumentHint": "[request volume, query similarity, latency targets, cost constraints, provider]",
+      "allowedTools": "Read, Write",
+      "lines": 208
+    },
+    {
+      "id": "04-ai-ml/llm-context-management",
+      "name": "llm-context-management",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Manage LLM context windows effectively for long conversations, document processing, and complex tasks. Outputs context budgeting, summarisation strategies, retrieval injection, and memory patterns.",
+      "argumentHint": "[model context limit, conversation length, document size, memory requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 202
+    },
+    {
+      "id": "04-ai-ml/llm-evaluation",
+      "name": "llm-evaluation",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Evaluate large language model outputs with automated metrics, human evaluation, and adversarial testing. Outputs eval harnesses, rubrics, and quality scores.",
+      "argumentHint": "[use case, quality requirements, evaluation budget]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 572
+    },
+    {
+      "id": "04-ai-ml/llm-fine-tuning-data",
+      "name": "llm-fine-tuning-data",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Prepare high-quality datasets for LLM fine-tuning. Outputs data collection strategy, formatting standards, quality filtering pipeline, deduplication, and evaluation split design.",
+      "argumentHint": "[fine-tuning objective, data sources, base model, target behaviour, volume available]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 209
+    },
+    {
+      "id": "04-ai-ml/llm-gateway",
+      "name": "llm-gateway",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design and implement an LLM gateway for routing, rate limiting, cost control, caching, and observability across multiple AI providers. Outputs gateway architecture, routing rules, and operational runbook.",
+      "argumentHint": "[providers needed, traffic volume, latency requirements, cost budget, compliance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 307
+    },
+    {
+      "id": "04-ai-ml/llm-ops",
+      "name": "llm-ops",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Operationalize LLM-powered applications in production \u2014 covering prompt versioning, evaluation pipelines, cost tracking, latency monitoring, hallucination detection, and safe rollout of model upgrades.",
+      "argumentHint": "[LLM provider, application type, traffic volume, cost budget, safety requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 495
+    },
+    {
+      "id": "04-ai-ml/llm-prompt-caching",
+      "name": "llm-prompt-caching",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Implement prompt caching to reduce LLM costs and latency by 40-80%. Outputs caching strategy, cache key design, TTL policies, and cost analysis.",
+      "argumentHint": "[provider, request volume, prompt patterns, cost target, latency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "04-ai-ml/llm-routing",
+      "name": "llm-routing",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Route LLM requests to the optimal model based on complexity, cost, and latency. Outputs routing logic, model selection criteria, cost-quality tradeoffs, and fallback chains.",
+      "argumentHint": "[models available, cost constraints, latency requirements, quality requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 218
+    },
+    {
+      "id": "04-ai-ml/llm-structured-output",
+      "name": "llm-structured-output",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Reliably extract structured data from LLM responses using function calling, JSON mode, and validation. Outputs schema definitions, extraction patterns, retry logic, and parsing pipelines.",
+      "argumentHint": "[output schema complexity, API provider, reliability requirements, failure handling]",
+      "allowedTools": "Read, Write",
+      "lines": 169
+    },
+    {
+      "id": "04-ai-ml/ml-data-validation",
+      "name": "ml-data-validation",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Validate training and inference data for ML pipelines. Outputs schema contracts, statistical validation rules, drift detection, and data quality gates before model training.",
+      "argumentHint": "[model type, data sources, training frequency, feature count, known data issues]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 355
+    },
+    {
+      "id": "04-ai-ml/ml-experiment-tracking",
+      "name": "ml-experiment-tracking",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Set up ML experiment tracking with MLflow or Weights & Biases. Outputs experiment logging code, model registry integration, hyperparameter tracking, artifact management, and reproducibility configuration.",
+      "argumentHint": "[ML framework, experiment type, team size, deployment target]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 384
+    },
+    {
+      "id": "04-ai-ml/ml-feature-selection",
+      "name": "ml-feature-selection",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Select the most predictive features for ML models to improve accuracy and reduce overfitting. Outputs filter, wrapper, and embedded selection methods with validation strategy.",
+      "argumentHint": "[feature count, model type, dataset size, interpretability requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 151
+    },
+    {
+      "id": "04-ai-ml/ml-monitoring",
+      "name": "ml-monitoring",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Monitor ML models in production for data drift, concept drift, and performance degradation. Outputs drift detection pipelines, alerting thresholds, retraining triggers, and monitoring dashboards.",
+      "argumentHint": "[model type, prediction latency requirements, retraining frequency, monitoring tools]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 485
+    },
+    {
+      "id": "04-ai-ml/ml-pipeline",
+      "name": "ml-pipeline",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design an end-to-end machine learning pipeline from data to deployment. Outputs data preparation, training, evaluation, deployment, and monitoring steps.",
+      "argumentHint": "[ML problem type, data sources, model requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 539
+    },
+    {
+      "id": "04-ai-ml/model-card",
+      "name": "model-card",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Write comprehensive model cards documenting ML model capabilities, limitations, biases, and intended use. Outputs structured model card following Google/Hugging Face standards with evaluation results.",
+      "argumentHint": "[model type, training data, intended use cases, known limitations, deployment context]",
+      "allowedTools": "Read, Write",
+      "lines": 226
+    },
+    {
+      "id": "04-ai-ml/model-compression",
+      "name": "model-compression",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Compress and optimise ML models for production deployment. Outputs quantisation, pruning, and distillation approaches with size-accuracy tradeoff analysis.",
+      "argumentHint": "[model type, target platform, latency budget, accuracy tolerance]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 183
+    },
+    {
+      "id": "04-ai-ml/model-deployment",
+      "name": "model-deployment",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Deploy ML models to production with FastAPI, TorchServe, or SageMaker. Outputs serving infrastructure, scaling, monitoring, and A/B testing.",
+      "argumentHint": "[model type, throughput requirements, latency SLA]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 562
+    },
+    {
+      "id": "04-ai-ml/model-evaluation",
+      "name": "model-evaluation",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Evaluate ML model performance with appropriate metrics, validation strategies, and statistical rigor. Outputs evaluation reports, confusion matrices, calibration curves, fairness analysis, and go/no-go recommendations.",
+      "argumentHint": "[task type, business metric, class imbalance, fairness requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 404
+    },
+    {
+      "id": "04-ai-ml/model-fine-tuning-strategy",
+      "name": "model-fine-tuning-strategy",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Plan and execute model fine-tuning to improve performance on domain-specific tasks. Outputs fine-tuning decision framework, dataset preparation guidelines, evaluation strategy, and deployment plan.",
+      "argumentHint": "[base model, target task, data availability, quality requirements, budget]",
+      "allowedTools": "Read, Write",
+      "lines": 105
+    },
+    {
+      "id": "04-ai-ml/model-monitoring",
+      "name": "model-monitoring",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Monitor ML models in production for drift, performance degradation, and data quality. Outputs metrics, alerts, and retraining triggers.",
+      "argumentHint": "[model type, deployment scale, accuracy requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 621
+    },
+    {
+      "id": "04-ai-ml/model-retraining",
+      "name": "model-retraining",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design automated ML model retraining pipelines triggered by drift, schedule, or performance degradation. Outputs retraining orchestration, data validation, automated promotion logic, and rollback mechanisms.",
+      "argumentHint": "[model type, retraining frequency, data volume, deployment target, approval process]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 409
+    },
+    {
+      "id": "04-ai-ml/model-serving-infrastructure",
+      "name": "model-serving-infrastructure",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design and deploy ML model serving infrastructure for low-latency production inference. Outputs serving architecture, batching strategy, scaling configuration, and SLO monitoring.",
+      "argumentHint": "[model size, latency SLA, throughput requirement, hardware constraints, cloud provider]",
+      "allowedTools": "Read, Write",
+      "lines": 213
+    },
+    {
+      "id": "04-ai-ml/model-versioning",
+      "name": "model-versioning",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Implement ML model versioning with registry management, lineage tracking, artifact storage, and deployment lifecycle. Outputs registry setup, versioning conventions, artifact management, and stage transition workflows.",
+      "argumentHint": "[model registry tool, deployment targets, team size, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 451
+    },
+    {
+      "id": "04-ai-ml/multi-agent-systems",
+      "name": "multi-agent-systems",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design and orchestrate multi-agent AI systems with specialist agents, coordination patterns, and shared memory. Outputs agent topology, communication protocol, error handling, and evaluation framework.",
+      "argumentHint": "[task complexity, required specialisations, parallelism opportunities, safety requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 222
+    },
+    {
+      "id": "04-ai-ml/multimodal-ai",
+      "name": "multimodal-ai",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Build applications that combine text, image, audio, and structured data with multimodal AI models. Outputs input processing pipelines, prompt strategies, and evaluation frameworks.",
+      "argumentHint": "[modalities needed, model capabilities, use case, latency requirements, cost constraints]",
+      "allowedTools": "Read, Write",
+      "lines": 81
+    },
+    {
+      "id": "04-ai-ml/prompt-engineering",
+      "name": "prompt-engineering",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design effective prompts for LLMs. Outputs prompt templates, few-shot examples, chain-of-thought reasoning, and structured output formats.",
+      "argumentHint": "[task type, model, quality requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 416
+    },
+    {
+      "id": "04-ai-ml/prompt-injection-defense",
+      "name": "prompt-injection-defense",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Defend LLM-powered applications against prompt injection attacks. Outputs threat model, input/output sanitisation, privilege separation, detection patterns, and monitoring strategy.",
+      "argumentHint": "[application type, user input sources, LLM provider, data sensitivity, trust levels]",
+      "allowedTools": "Read, Write",
+      "lines": 159
+    },
+    {
+      "id": "04-ai-ml/rag-architecture",
+      "name": "rag-architecture",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design Retrieval-Augmented Generation systems with vector databases, chunking strategies, and hybrid search. Outputs architecture, embedding pipelines, and retrieval optimizations.",
+      "argumentHint": "[document corpus, query patterns, latency requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 652
+    },
+    {
+      "id": "04-ai-ml/rag-evaluation",
+      "name": "rag-evaluation",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Evaluate and improve RAG (Retrieval Augmented Generation) pipeline quality. Outputs retrieval evaluation metrics, answer quality benchmarks, end-to-end evaluation framework, and improvement roadmap.",
+      "argumentHint": "[use case, document corpus, evaluation dataset size, latency requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 218
+    },
+    {
+      "id": "04-ai-ml/responsible-ai",
+      "name": "responsible-ai",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Implement responsible AI practices covering fairness, transparency, accountability, and safety in production AI systems. Outputs fairness assessment, model documentation, governance process, and monitoring plan.",
+      "argumentHint": "[model type, affected populations, regulatory environment, risk level]",
+      "allowedTools": "Read, Write",
+      "lines": 233
+    },
+    {
+      "id": "04-ai-ml/retrieval-optimization",
+      "name": "retrieval-optimization",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Optimise RAG retrieval quality through reranking, query expansion, hybrid search, and evaluation. Outputs retrieval pipeline improvements, evaluation metrics, and A/B testing framework.",
+      "argumentHint": "[document corpus size, query types, current retrieval quality, latency budget]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 165
+    },
+    {
+      "id": "04-ai-ml/synthetic-data",
+      "name": "synthetic-data",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Generate synthetic datasets for ML training, testing, and privacy-preserving data sharing. Outputs statistical generators, GAN-based synthesis, differential privacy techniques, and validation pipelines.",
+      "argumentHint": "[data type, privacy requirements, downstream ML task, quality requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 304
+    },
+    {
+      "id": "04-ai-ml/vector-database",
+      "name": "vector-database",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design and implement a vector database for semantic search, RAG, and similarity lookups. Covers embedding strategy, index selection, query patterns, metadata filtering, and performance tuning.",
+      "argumentHint": "[use case, embedding model, data volume, latency requirements, cloud preference]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 238
+    },
+    {
+      "id": "05-security/api-abuse-prevention",
+      "name": "api-abuse-prevention",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Detect and prevent API abuse including credential stuffing, scraping, account takeover, and business logic abuse. Outputs detection rules, rate limiting strategy, bot fingerprinting, and incident response playbook.",
+      "argumentHint": "[API type, abuse vectors, traffic volume, risk tolerance, existing tooling]",
+      "allowedTools": "Read, Write",
+      "lines": 266
+    },
+    {
+      "id": "05-security/api-security-audit",
+      "name": "api-security-audit",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Conduct a structured security audit of APIs. Outputs OWASP API Top 10 assessment, vulnerability findings with severity ratings, remediation recommendations, and executive summary.",
+      "argumentHint": "[API type, authentication method, data sensitivity, endpoints count, previous findings]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 311
+    },
+    {
+      "id": "05-security/auth-architecture",
+      "name": "auth-architecture",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design authentication and authorization architecture covering JWT, OAuth2, RBAC, session management, and MFA. Outputs auth flow diagrams, token strategy, permission models, and implementation patterns.",
+      "argumentHint": "[application type, user types, compliance requirements, existing identity provider]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 422
+    },
+    {
+      "id": "05-security/cloud-security-posture",
+      "name": "cloud-security-posture",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Assess and improve cloud security posture across AWS, GCP, or Azure. Outputs CSPM findings, misconfiguration remediation, IAM least-privilege analysis, and continuous monitoring setup.",
+      "argumentHint": "[cloud provider, account count, compliance framework, current tooling]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 334
+    },
+    {
+      "id": "05-security/compliance-framework",
+      "name": "compliance-framework",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Build and maintain compliance programmes for SOC 2, ISO 27001, GDPR, HIPAA, or PCI DSS. Outputs control mapping, evidence collection procedures, gap analysis, and audit readiness checklist.",
+      "argumentHint": "[target frameworks, current security maturity, audit timeline, industry/data types]",
+      "allowedTools": "Read, Write",
+      "lines": 281
+    },
+    {
+      "id": "05-security/container-image-hardening",
+      "name": "container-image-hardening",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Harden container images to reduce attack surface. Outputs Dockerfile best practices, distroless migration, SBOM generation, image signing, and scanning pipeline.",
+      "argumentHint": "[language runtime, base image, compliance requirements, registry]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 182
+    },
+    {
+      "id": "05-security/cryptographic-key-management",
+      "name": "cryptographic-key-management",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design and implement cryptographic key management for encryption, signing, and secrets. Outputs key hierarchy design, KMS integration, rotation procedures, and audit controls.",
+      "argumentHint": "[key types needed, compliance requirements, cloud provider, data sensitivity, team size]",
+      "allowedTools": "Read, Write",
+      "lines": 299
+    },
+    {
+      "id": "05-security/data-loss-prevention",
+      "name": "data-loss-prevention",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Implement data loss prevention controls to detect and prevent sensitive data exfiltration. Outputs DLP policy design, detection rules, response procedures, and monitoring dashboards.",
+      "argumentHint": "[data sensitivity, regulatory requirements, channels to monitor, existing tooling]",
+      "allowedTools": "Read, Write",
+      "lines": 212
+    },
+    {
+      "id": "05-security/devsecops-pipeline",
+      "name": "devsecops-pipeline",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Build security gates into CI/CD pipelines. Outputs SAST, DAST, dependency scanning, secret detection, and container scanning pipeline with triage workflow.",
+      "argumentHint": "[language stack, CI system, deployment target, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 348
+    },
+    {
+      "id": "05-security/encryption-strategy",
+      "name": "encryption-strategy",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design encryption strategy with data-at-rest, data-in-transit, and key management. Outputs encryption standards, key rotation, and compliance requirements.",
+      "argumentHint": "[data sensitivity, compliance requirements, key management]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 585
+    },
+    {
+      "id": "05-security/gdpr-implementation",
+      "name": "gdpr-implementation",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Implement GDPR compliance controls in software systems. Outputs data subject rights implementation, consent management, retention automation, breach notification procedures, and DPA templates.",
+      "argumentHint": "[data types processed, EU user base size, existing systems, DPA relationships]",
+      "allowedTools": "Read, Write",
+      "lines": 168
+    },
+    {
+      "id": "05-security/identity-governance",
+      "name": "identity-governance",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design identity governance with role lifecycle management, access reviews, and segregation of duties. Outputs access request workflow, review schedule, and PAM implementation.",
+      "argumentHint": "[org size, regulatory requirements, IdP system, risk tolerance, current IAM maturity]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "05-security/incident-response",
+      "name": "incident-response",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Execute a structured security incident response from detection through post-incident review. Covers the PICERL lifecycle, severity classification, containment playbooks, evidence preservation, communication templates, and blameless post-mortems.",
+      "argumentHint": "[incident type, severity level, affected systems, regulatory context]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 300
+    },
+    {
+      "id": "05-security/input-validation",
+      "name": "input-validation",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design comprehensive input validation and sanitization to prevent injection attacks, XSS, path traversal, and data corruption. Outputs validation schemas, sanitization functions, and security-focused middleware.",
+      "argumentHint": "[application type, input surfaces, languages/frameworks, threat model]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 393
+    },
+    {
+      "id": "05-security/mobile-security",
+      "name": "mobile-security",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Implement mobile application security for iOS and Android. Outputs secure storage, certificate pinning, code obfuscation, biometric auth, and API security patterns.",
+      "argumentHint": "[platform, data sensitivity, authentication method, compliance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 158
+    },
+    {
+      "id": "05-security/oauth-security",
+      "name": "oauth-security",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Secure OAuth 2.0 implementations against common attacks. Outputs threat model, security controls, token security hardening, and implementation review checklist.",
+      "argumentHint": "[OAuth flow, client type, token types, identified threats]",
+      "allowedTools": "Read, Write",
+      "lines": 194
+    },
+    {
+      "id": "05-security/penetration-test-plan",
+      "name": "penetration-test-plan",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Plan a penetration test engagement for a web application, API, or infrastructure target. Produces scope definition, test methodology, rules of engagement, finding classification, and remediation SLAs.",
+      "argumentHint": "[target system, test type, compliance requirement, timeline]",
+      "allowedTools": "Read, Write",
+      "lines": 316
+    },
+    {
+      "id": "05-security/penetration-testing",
+      "name": "penetration-testing",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design penetration testing plans with OWASP methodology, attack vectors, and remediation tracking. Outputs test scope, findings, and security improvements.",
+      "argumentHint": "[application type, attack surface, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 533
+    },
+    {
+      "id": "05-security/red-team-planning",
+      "name": "red-team-planning",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Plan and execute red team exercises to find security weaknesses before attackers do. Outputs exercise scope, attack scenarios, rules of engagement, findings framework, and remediation tracking.",
+      "argumentHint": "[target systems, team size, duration, rules of engagement, compliance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 178
+    },
+    {
+      "id": "05-security/secrets-rotation",
+      "name": "secrets-rotation",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design and implement automated secrets rotation for credentials, API keys, and certificates. Outputs rotation architecture, Lambda/script implementations, zero-downtime rotation procedures, and monitoring.",
+      "argumentHint": "[secret types, rotation frequency, cloud provider, application stack]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 361
+    },
+    {
+      "id": "05-security/security-audit",
+      "name": "security-audit",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Conduct a comprehensive security audit of an application or infrastructure. Outputs vulnerability assessment, threat modeling, and remediation roadmap.",
+      "argumentHint": "[system architecture, technology stack, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 524
+    },
+    {
+      "id": "05-security/security-champions",
+      "name": "security-champions",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Build a security champions programme to scale security across engineering teams. Outputs programme structure, champion responsibilities, training curriculum, and metrics.",
+      "argumentHint": "[company size, engineering team count, current security maturity, budget]",
+      "allowedTools": "Read, Write",
+      "lines": 147
+    },
+    {
+      "id": "05-security/security-headers",
+      "name": "security-headers",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Configure HTTP security headers to protect against XSS, clickjacking, MIME sniffing, and other browser-based attacks. Outputs CSP policies, HSTS, X-Frame-Options, and scanning/testing configuration.",
+      "argumentHint": "[application type, CDN/proxy, third-party resources, browser support requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 347
+    },
+    {
+      "id": "05-security/security-metrics",
+      "name": "security-metrics",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Define and track security programme metrics to measure effectiveness and communicate risk. Outputs KPI definitions, measurement methodology, dashboard design, and reporting cadence.",
+      "argumentHint": "[security programme maturity, audience, compliance requirements, available tooling]",
+      "allowedTools": "Read, Write",
+      "lines": 147
+    },
+    {
+      "id": "05-security/security-testing",
+      "name": "security-testing",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design and execute security testing programs covering OWASP Top 10, SAST, DAST, dependency scanning, and penetration testing. Outputs test plans, tool configurations, CI integration, and remediation tracking.",
+      "argumentHint": "[application type, compliance requirements, threat model, existing tooling]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 383
+    },
+    {
+      "id": "05-security/software-bill-of-materials",
+      "name": "software-bill-of-materials",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Generate, manage, and use Software Bill of Materials (SBOM) to track component inventory and vulnerability exposure. Outputs SBOM generation pipeline, vulnerability correlation, policy enforcement, and consumer guidance.",
+      "argumentHint": "[artifact types, SBOM format, consumer requirements, CI system, vulnerability database]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 184
+    },
+    {
+      "id": "05-security/supply-chain-security",
+      "name": "supply-chain-security",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Secure the software supply chain against dependency attacks, compromised pipelines, and malicious packages. Covers SBOM generation, dependency pinning, artifact signing, SLSA framework, secret scanning, and private registry configuration.",
+      "argumentHint": "[tech stack, build system, compliance requirement, SLSA target level]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 300
+    },
+    {
+      "id": "05-security/threat-modeling",
+      "name": "threat-modeling",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design threat models using STRIDE, attack trees, and data flow diagrams. Outputs threat analysis, risk ratings, and mitigation strategies.",
+      "argumentHint": "[system architecture, asset criticality, threat actors]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 422
+    },
+    {
+      "id": "05-security/vulnerability-scan",
+      "name": "vulnerability-scan",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Implement automated vulnerability scanning for containers, dependencies, and infrastructure. Outputs Trivy/Grype configuration, CVE triage workflows, remediation SLAs, and compliance reporting.",
+      "argumentHint": "[infrastructure type, compliance requirements, languages/runtimes, container registry]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 404
+    },
+    {
+      "id": "05-security/zero-trust",
+      "name": "zero-trust",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Design and implement zero-trust network architecture \u2014 never trust, always verify. Outputs identity-aware proxy config, mTLS policies, device trust enforcement, micro-segmentation rules, and continuous verification pipelines.",
+      "argumentHint": "[current perimeter model, identity provider, cloud provider, compliance requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 549
+    },
+    {
+      "id": "06-system-design/api-gateway",
+      "name": "api-gateway",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design and configure API gateway architecture covering routing, authentication, rate limiting, request transformation, and observability. Outputs gateway configuration for Kong, AWS API Gateway, or Nginx, with traffic management and security policies.",
+      "argumentHint": "[gateway technology, auth method, rate limiting requirements, upstream services]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 641
+    },
+    {
+      "id": "06-system-design/api-versioning",
+      "name": "api-versioning",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design an API versioning strategy for a REST or GraphQL API. Covers version negotiation, deprecation lifecycle, migration guides, and backward compatibility rules.",
+      "argumentHint": "[API type, client types, breaking change frequency, deprecation timeline]",
+      "allowedTools": "Read, Write",
+      "lines": 249
+    },
+    {
+      "id": "06-system-design/architecture-decision",
+      "name": "architecture-decision",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Document architecture decisions with ADRs (Architecture Decision Records). Outputs decision context, options, trade-offs, and rationale.",
+      "argumentHint": "[decision type, stakeholders, constraints]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 552
+    },
+    {
+      "id": "06-system-design/bulkhead-pattern",
+      "name": "bulkhead-pattern",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Implement bulkhead patterns to isolate failures and prevent cascade. Outputs thread pool isolation, semaphore limits, service partition designs, and circuit breaker integration.",
+      "argumentHint": "[service dependencies, failure modes, concurrency requirements, SLA targets]",
+      "allowedTools": "Read, Write",
+      "lines": 192
+    },
+    {
+      "id": "06-system-design/cache-invalidation",
+      "name": "cache-invalidation",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design cache invalidation strategies to keep cached data consistent with source of truth. Outputs invalidation patterns, TTL design, event-driven invalidation, and consistency tradeoff analysis.",
+      "argumentHint": "[cache type, consistency requirements, update frequency, invalidation triggers]",
+      "allowedTools": "Read, Write",
+      "lines": 171
+    },
+    {
+      "id": "06-system-design/cdc-patterns",
+      "name": "cdc-patterns",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design a Change Data Capture (CDC) pipeline to stream database changes to downstream consumers. Outputs connector config, schema design, consumer patterns, ordering guarantees, and failure handling.",
+      "argumentHint": "[source database, downstream systems, latency requirements, ordering needs]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 285
+    },
+    {
+      "id": "06-system-design/consensus-algorithms",
+      "name": "consensus-algorithms",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Understand and apply distributed consensus algorithms for leader election, distributed locks, and consistent state. Outputs algorithm selection guide, Raft/Paxos explanation, implementation patterns, and failure scenario analysis.",
+      "argumentHint": "[cluster size, consistency requirements, network characteristics, failure tolerance]",
+      "allowedTools": "Read, Write",
+      "lines": 226
+    },
+    {
+      "id": "06-system-design/content-moderation-system",
+      "name": "content-moderation-system",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design content moderation systems combining automated classification with human review. Outputs classifier pipeline, review queue architecture, appeals process, and policy enforcement design.",
+      "argumentHint": "[content types, volume per day, latency requirements, accuracy targets, regulatory requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 183
+    },
+    {
+      "id": "06-system-design/cqrs-pattern",
+      "name": "cqrs-pattern",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Implement Command Query Responsibility Segregation separating read and write models. Outputs command handlers, query handlers, read model synchronization, and eventual consistency patterns.",
+      "argumentHint": "[domain, read/write ratio, consistency requirements, persistence technology]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 428
+    },
+    {
+      "id": "06-system-design/data-replication",
+      "name": "data-replication",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design data replication strategies for high availability, read scaling, and disaster recovery. Outputs replication topology, consistency model, failover procedures, and lag monitoring setup.",
+      "argumentHint": "[database type, consistency requirements, read/write ratio, RTO/RPO targets, geographic distribution]",
+      "allowedTools": "Read, Write",
+      "lines": 234
+    },
+    {
+      "id": "06-system-design/database-sharding",
+      "name": "database-sharding",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design a horizontal database sharding strategy to scale beyond the limits of a single database node. Covers shard key selection, sharding strategies, cross-shard queries, rebalancing, and operational challenges.",
+      "argumentHint": "[database type, data model, query patterns, current scale, target scale]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 302
+    },
+    {
+      "id": "06-system-design/distributed-cache",
+      "name": "distributed-cache",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design distributed caching with Redis or Memcached. Outputs cache topology, eviction strategy, invalidation patterns, consistency model, and failure handling.",
+      "argumentHint": "[data types, read/write ratio, consistency requirements, cache size, hit rate target]",
+      "allowedTools": "Read, Write",
+      "lines": 253
+    },
+    {
+      "id": "06-system-design/distributed-systems",
+      "name": "distributed-systems",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design distributed systems with consensus algorithms, partitioning, and eventual consistency. Outputs system architecture, CAP trade-offs, and failure handling.",
+      "argumentHint": "[system scale, consistency requirements, partition tolerance]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 576
+    },
+    {
+      "id": "06-system-design/event-sourcing",
+      "name": "event-sourcing",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Implement event sourcing pattern where state is derived from an immutable sequence of events. Outputs event store design, aggregate patterns, projection builders, and command/event handlers.",
+      "argumentHint": "[domain, aggregate types, projection requirements, event store technology]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 457
+    },
+    {
+      "id": "06-system-design/file-storage-design",
+      "name": "file-storage-design",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design file storage systems for user uploads, media, and documents at scale. Outputs storage architecture, metadata schema, access control design, CDN strategy, and lifecycle management.",
+      "argumentHint": "[file types, expected volume, access patterns, geographic distribution, compliance requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 202
+    },
+    {
+      "id": "06-system-design/geo-distributed-systems",
+      "name": "geo-distributed-systems",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design systems that serve users globally with low latency. Outputs data placement strategy, consistency model, region routing, and conflict resolution approaches.",
+      "argumentHint": "[user distribution, data residency requirements, latency targets, consistency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 147
+    },
+    {
+      "id": "06-system-design/global-cdn-design",
+      "name": "global-cdn-design",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design global CDN architecture for static assets, API caching, and edge computing. Outputs CDN topology, cache rules, origin shield configuration, and performance optimisation strategy.",
+      "argumentHint": "[content types, global regions, cache hit rate target, dynamic vs static ratio, provider]",
+      "allowedTools": "Read, Write",
+      "lines": 334
+    },
+    {
+      "id": "06-system-design/high-availability",
+      "name": "high-availability",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design high-availability systems with redundancy, failover, and disaster recovery. Outputs architecture diagrams, SLA targets, and failure modes.",
+      "argumentHint": "[SLA requirements, budget, geographic distribution]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 409
+    },
+    {
+      "id": "06-system-design/load-balancing",
+      "name": "load-balancing",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design load balancing architecture \u2014 algorithms, health checking, session affinity, layer 4 vs layer 7, geographic distribution, and failover strategies for high-availability services.",
+      "argumentHint": "[traffic volume, session requirements, geographic distribution, cloud provider]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 320
+    },
+    {
+      "id": "06-system-design/message-queue",
+      "name": "message-queue",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design message queue architectures using Kafka, RabbitMQ, or SQS. Outputs topic/queue design, producer/consumer patterns, dead letter queues, ordering guarantees, and scaling configuration.",
+      "argumentHint": "[use case, message volume, ordering requirements, delivery guarantees, technology choice]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 575
+    },
+    {
+      "id": "06-system-design/multi-tenancy",
+      "name": "multi-tenancy",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design multi-tenant SaaS architecture with tenant isolation, data partitioning, resource quotas, and tenant-aware observability. Outputs isolation patterns, row-level security, schema provisioning, and quota enforcement.",
+      "argumentHint": "[isolation requirements, tenant count, compliance, pricing tiers]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 323
+    },
+    {
+      "id": "06-system-design/notification-system",
+      "name": "notification-system",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design a multi-channel notification system with delivery guarantees, user preferences, and rate limiting. Outputs channel architecture, delivery pipeline, and analytics.",
+      "argumentHint": "[channels needed, volume, delivery guarantees, user preferences model]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "06-system-design/payment-system-design",
+      "name": "payment-system-design",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design payment processing systems with strong consistency, idempotency, and fraud prevention. Outputs payment flow architecture, idempotency design, reconciliation process, and compliance requirements.",
+      "argumentHint": "[payment methods, volume, compliance requirements, geography, fraud risk]",
+      "allowedTools": "Read, Write",
+      "lines": 203
+    },
+    {
+      "id": "06-system-design/rate-limiting-design",
+      "name": "rate-limiting-design",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design rate limiting systems for APIs, services, and infrastructure. Outputs algorithm selection, storage design, distributed coordination, and client communication patterns.",
+      "argumentHint": "[traffic volume, rate limit tiers, distribution requirements, enforcement point]",
+      "allowedTools": "Read, Write",
+      "lines": 203
+    },
+    {
+      "id": "06-system-design/real-time-system-design",
+      "name": "real-time-system-design",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design systems that deliver updates to clients in real time. Outputs technology selection (WebSocket/SSE/long-poll), connection management, scaling patterns, and failure handling.",
+      "argumentHint": "[update frequency, client count, message direction, latency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 186
+    },
+    {
+      "id": "06-system-design/saga-pattern",
+      "name": "saga-pattern",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design distributed transactions using the Saga pattern to maintain data consistency across microservices without two-phase commit. Covers choreography vs orchestration, compensating transactions, failure handling, and implementation examples.",
+      "argumentHint": "[transaction scope, services involved, consistency requirements, preferred coordination style]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 292
+    },
+    {
+      "id": "06-system-design/scalability-plan",
+      "name": "scalability-plan",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design scalability strategies for horizontal and vertical scaling. Outputs capacity planning, bottleneck analysis, and scaling triggers.",
+      "argumentHint": "[current load, growth projections, budget constraints]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 592
+    },
+    {
+      "id": "06-system-design/search-architecture",
+      "name": "search-architecture",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design scalable search systems for full-text, faceted, and semantic search. Outputs index design, query pipeline, relevance tuning, and performance optimisation.",
+      "argumentHint": "[content type, query patterns, scale, latency targets, update frequency]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "06-system-design/service-mesh",
+      "name": "service-mesh",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design and implement service mesh architecture using Istio or Linkerd. Outputs traffic management config, mTLS setup, observability pipelines, circuit breakers, and canary deployment policies.",
+      "argumentHint": "[Kubernetes cluster setup, service count, observability requirements, security requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 408
+    },
+    {
+      "id": "06-system-design/strangler-fig-pattern",
+      "name": "strangler-fig-pattern",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Migrate legacy monoliths to modern architecture using the Strangler Fig pattern. Outputs migration strategy, routing layer design, feature extraction sequence, and rollback procedures.",
+      "argumentHint": "[legacy system type, target architecture, team size, migration timeline, risk tolerance]",
+      "allowedTools": "Read, Write",
+      "lines": 160
+    },
+    {
+      "id": "06-system-design/system-design-doc",
+      "name": "system-design-doc",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Create comprehensive system design documents with architecture diagrams, component specs, data flows, and scaling strategies.",
+      "argumentHint": "[system requirements, scale, constraints]",
+      "allowedTools": "Read, Write",
+      "lines": 368
+    },
+    {
+      "id": "06-system-design/time-series-database",
+      "name": "time-series-database",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design time-series database systems for metrics, events, and sensor data. Outputs storage architecture, retention policies, query patterns, aggregation strategies, and tool selection guide.",
+      "argumentHint": "[data volume, write rate, query patterns, retention requirements, cardinality]",
+      "allowedTools": "Read, Write",
+      "lines": 185
+    },
+    {
+      "id": "06-system-design/url-shortener-design",
+      "name": "url-shortener-design",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design a URL shortener system at scale. Outputs encoding strategy, database schema, caching layer, analytics pipeline, and abuse prevention controls.",
+      "argumentHint": "[scale requirements, analytics needs, custom domains, abuse vectors, read/write ratio]",
+      "allowedTools": "Read, Write",
+      "lines": 173
+    },
+    {
+      "id": "06-system-design/workflow-orchestration",
+      "name": "workflow-orchestration",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design workflow orchestration systems for complex, multi-step business processes. Outputs orchestration pattern selection, Temporal/Airflow implementation, error handling strategy, and observability.",
+      "argumentHint": "[workflow complexity, step count, failure requirements, team familiarity, language]",
+      "allowedTools": "Read, Write",
+      "lines": 199
+    },
+    {
+      "id": "07-testing-quality/accessibility-testing",
+      "name": "accessibility-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Test web applications for WCAG 2.1 AA accessibility compliance using automated scanning, screen reader testing, and keyboard navigation validation. Outputs axe-core integration, Playwright accessibility tests, and remediation guides.",
+      "argumentHint": "[compliance target (WCAG AA/AAA), application type, user base, existing test framework]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 415
+    },
+    {
+      "id": "07-testing-quality/api-testing",
+      "name": "api-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Build comprehensive API test suites covering functional, contract, security, and performance aspects. Outputs test collections, automation scripts, CI integration, and coverage reports.",
+      "argumentHint": "[API type, authentication method, test framework, existing coverage, CI system]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 353
+    },
+    {
+      "id": "07-testing-quality/bdd-testing",
+      "name": "bdd-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Implement Behaviour-Driven Development with Gherkin scenarios, step definitions, and living documentation. Outputs feature files, step definitions, scenario organisation, and CI integration.",
+      "argumentHint": "[language/framework, team structure, existing test coverage, stakeholder involvement]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 168
+    },
+    {
+      "id": "07-testing-quality/chaos-engineering",
+      "name": "chaos-engineering",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design chaos experiments to test system resilience. Outputs failure scenarios, blast radius controls, and automated chaos testing.",
+      "argumentHint": "[system criticality, failure tolerance, recovery requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 630
+    },
+    {
+      "id": "07-testing-quality/contract-testing",
+      "name": "contract-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design contract tests for APIs and microservices with Pact. Outputs consumer-driven contracts, provider verification, and CI integration.",
+      "argumentHint": "[service architecture, API contracts, teams]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 590
+    },
+    {
+      "id": "07-testing-quality/e2e-test",
+      "name": "e2e-test",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "End-to-end testing with Playwright/Cypress for full user flows. Outputs test scenarios, page objects, CI integration, and flake reduction strategies.",
+      "argumentHint": "[user flows, browser targets, test environment]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 490
+    },
+    {
+      "id": "07-testing-quality/flaky-test-management",
+      "name": "flaky-test-management",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Detect, quarantine, fix, and prevent flaky tests in your test suite. Outputs flakiness detection pipeline, quarantine workflow, root cause categories, and prevention guidelines.",
+      "argumentHint": "[test suite size, CI system, current flakiness rate, pain level]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 158
+    },
+    {
+      "id": "07-testing-quality/golden-path-testing",
+      "name": "golden-path-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design golden path tests that validate critical user journeys end-to-end. Outputs journey mapping, test scope decisions, data strategy, and reliability patterns.",
+      "argumentHint": "[critical user journeys, tech stack, test framework, environment access]",
+      "allowedTools": "Read, Write",
+      "lines": 198
+    },
+    {
+      "id": "07-testing-quality/integration-test",
+      "name": "integration-test",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design integration tests for APIs, databases, and external services. Outputs test strategies, fixtures, mocking, and CI integration.",
+      "argumentHint": "[system components, integration points, test environment]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 537
+    },
+    {
+      "id": "07-testing-quality/load-test",
+      "name": "load-test",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design and execute load tests to validate system performance under expected and peak traffic. Outputs k6/JMeter scripts, performance baselines, SLO validation, and capacity planning reports.",
+      "argumentHint": "[system under test, expected TPS, SLOs, test types needed]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 403
+    },
+    {
+      "id": "07-testing-quality/mobile-testing",
+      "name": "mobile-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Build comprehensive mobile testing strategies for iOS and Android apps. Outputs test pyramid, device coverage matrix, Appium/XCUITest patterns, performance testing, and CI integration.",
+      "argumentHint": "[platform, team size, app complexity, device coverage requirements, CI system]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 228
+    },
+    {
+      "id": "07-testing-quality/mutation-testing",
+      "name": "mutation-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Use mutation testing to measure and improve the quality of a test suite. Covers mutation operators, interpreting mutation scores, fixing weak tests, and integrating mutation testing into CI with Stryker, PIT, or mutmut.",
+      "argumentHint": "[language, test framework, current test coverage, mutation score target]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 279
+    },
+    {
+      "id": "07-testing-quality/observability-testing",
+      "name": "observability-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Test that observability signals \u2014 logs, metrics, and traces \u2014 are correctly emitted and contain the right data. Outputs observability test patterns, signal verification, and alert testing approaches.",
+      "argumentHint": "[observability stack, criticality of signals, testing framework, production monitoring tools]",
+      "allowedTools": "Read, Write",
+      "lines": 201
+    },
+    {
+      "id": "07-testing-quality/performance-test",
+      "name": "performance-test",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design performance and load tests with JMeter, k6, Locust. Outputs test scenarios, metrics, bottleneck analysis, and capacity planning.",
+      "argumentHint": "[expected load, SLA requirements, infrastructure]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 558
+    },
+    {
+      "id": "07-testing-quality/property-based-testing",
+      "name": "property-based-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Apply property-based testing to find edge cases that example-based tests miss. Outputs property definitions, custom generators, and CI integration using Hypothesis or fast-check.",
+      "argumentHint": "[language, functions to test, known edge cases, test framework]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "07-testing-quality/quality-metrics",
+      "name": "quality-metrics",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Define and track software quality metrics for code health, test effectiveness, and production reliability. Outputs metric definitions, dashboards, thresholds, and improvement plans.",
+      "argumentHint": "[team size, product type, current pain points, existing tooling]",
+      "allowedTools": "Read, Write",
+      "lines": 273
+    },
+    {
+      "id": "07-testing-quality/regression-test-strategy",
+      "name": "regression-test-strategy",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design a regression testing strategy that catches bugs without slowing down delivery. Outputs test selection heuristics, risk-based prioritisation, suite partitioning, and CI execution plan.",
+      "argumentHint": "[product type, team size, current test coverage, deployment frequency, pain points]",
+      "allowedTools": "Read, Write",
+      "lines": 314
+    },
+    {
+      "id": "07-testing-quality/security-testing",
+      "name": "security-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design and execute security testing programs covering OWASP Top 10, SAST, DAST, dependency scanning, and penetration testing. Outputs test plans, tool configurations, CI integration, and remediation tracking.",
+      "argumentHint": "[application type, compliance requirements, threat model, existing tooling]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 383
+    },
+    {
+      "id": "07-testing-quality/snapshot-testing",
+      "name": "snapshot-testing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Implement snapshot testing for UI components, API responses, and data structures. Outputs snapshot configuration, update workflow, review guidelines, and CI integration.",
+      "argumentHint": "[test framework, component type, snapshot storage, team workflow]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 166
+    },
+    {
+      "id": "07-testing-quality/synthetic-monitoring",
+      "name": "synthetic-monitoring",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Implement synthetic monitoring to proactively detect production issues. Outputs probe scripts, alert configurations, SLA dashboards, and incident escalation rules.",
+      "argumentHint": "[critical user journeys, SLA targets, global regions, alerting tools]",
+      "allowedTools": "Read, Write",
+      "lines": 298
+    },
+    {
+      "id": "07-testing-quality/test-automation-framework",
+      "name": "test-automation-framework",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Build a scalable test automation framework with shared utilities, reporting, and CI integration. Outputs framework architecture, base classes, fixtures, parallel execution setup, and reporting pipeline.",
+      "argumentHint": "[language, test types, team size, CI platform, reporting requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 332
+    },
+    {
+      "id": "07-testing-quality/test-coverage-strategy",
+      "name": "test-coverage-strategy",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Define a meaningful test coverage strategy beyond line counts. Outputs coverage goals by risk tier, measurement approach, gap analysis, and improvement roadmap.",
+      "argumentHint": "[codebase size, risk profile, current coverage, CI tooling, team maturity]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 179
+    },
+    {
+      "id": "07-testing-quality/test-data-management",
+      "name": "test-data-management",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design and implement a test data strategy that provides consistent, realistic, and isolated data for all test levels. Covers factories, fixtures, seeding, anonymisation, synthetic data, and database-per-test patterns.",
+      "argumentHint": "[test types, database technology, PII sensitivity, team size, CI setup]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 325
+    },
+    {
+      "id": "07-testing-quality/test-driven-development",
+      "name": "test-driven-development",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Apply Test-Driven Development (TDD) to design and build production code. Outputs test suites, refactored implementations, and coverage strategies using the Red-Green-Refactor cycle.",
+      "argumentHint": "[feature to implement, programming language, test framework, existing test coverage]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 387
+    },
+    {
+      "id": "07-testing-quality/test-environment-strategy",
+      "name": "test-environment-strategy",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design a test environment strategy providing reliable, representative, and cost-efficient environments at each SDLC stage. Outputs environment topology, data management, parity requirements, and provisioning automation.",
+      "argumentHint": "[team size, deployment frequency, cloud provider, compliance requirements, budget]",
+      "allowedTools": "Read, Write",
+      "lines": 163
+    },
+    {
+      "id": "07-testing-quality/test-strategy",
+      "name": "test-strategy",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Design a comprehensive testing pyramid strategy covering unit, integration, contract, E2E, and performance tests. Outputs test coverage targets, tooling selection, CI configuration, and quality gates.",
+      "argumentHint": "[application type, team size, tech stack, deployment frequency, current test coverage]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 415
+    },
+    {
+      "id": "07-testing-quality/visual-regression",
+      "name": "visual-regression",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Implement visual regression testing with screenshot comparison to catch unintended UI changes. Outputs Playwright/Percy test setup, baseline management, diff thresholds, and CI integration.",
+      "argumentHint": "[frontend framework, component library, browser targets, CI environment]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 382
+    },
+    {
+      "id": "08-api-integration/api-analytics",
+      "name": "api-analytics",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Implement API analytics to measure usage, performance, errors, and consumer behaviour. Outputs instrumentation design, metric taxonomy, dashboard specifications, and alerting strategy.",
+      "argumentHint": "[API type, traffic volume, consumer types, observability stack, business goals]",
+      "allowedTools": "Read, Write",
+      "lines": 203
+    },
+    {
+      "id": "08-api-integration/api-client-sdk",
+      "name": "api-client-sdk",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design and build API client SDKs that are idiomatic, reliable, and easy to use. Outputs SDK architecture, retry/backoff patterns, authentication handling, error types, and documentation strategy.",
+      "argumentHint": "[target languages, API complexity, authentication types, distribution method]",
+      "allowedTools": "Read, Write",
+      "lines": 245
+    },
+    {
+      "id": "08-api-integration/api-deprecation",
+      "name": "api-deprecation",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Plan and execute API deprecation without breaking consumers. Outputs deprecation timeline, sunset headers, migration guides, consumer tracking, and communication templates.",
+      "argumentHint": "[API version, consumer count, migration complexity, timeline, replacement API]",
+      "allowedTools": "Read, Write",
+      "lines": 311
+    },
+    {
+      "id": "08-api-integration/api-gateway-design",
+      "name": "api-gateway-design",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design and configure an API gateway for routing, authentication, rate limiting, and observability. Outputs gateway architecture, routing rules, plugin configuration, and operational runbook.",
+      "argumentHint": "[backend services, traffic volume, auth requirements, cloud provider, existing infrastructure]",
+      "allowedTools": "Read, Write",
+      "lines": 308
+    },
+    {
+      "id": "08-api-integration/api-mocking-strategy",
+      "name": "api-mocking-strategy",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design API mocking strategies for development, testing, and service isolation. Outputs mock server patterns, contract-based mocking, recording/playback, and team workflow guidelines.",
+      "argumentHint": "[API types to mock, team workflow, test framework, provider/consumer setup]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 208
+    },
+    {
+      "id": "08-api-integration/api-versioning-strategy",
+      "name": "api-versioning-strategy",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design an API versioning strategy that allows evolution without breaking existing clients. Outputs versioning scheme, compatibility rules, migration timeline, and consumer communication plan.",
+      "argumentHint": "[API type, consumer count, change frequency, breaking change risk]",
+      "allowedTools": "Read, Write",
+      "lines": 149
+    },
+    {
+      "id": "08-api-integration/async-api-design",
+      "name": "async-api-design",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design asynchronous API patterns for long-running operations, webhooks, and event-driven integrations. Outputs polling endpoints, webhook delivery, callback patterns, and async job management.",
+      "argumentHint": "[operation duration, client types, reliability requirements, event volume]",
+      "allowedTools": "Read, Write",
+      "lines": 239
+    },
+    {
+      "id": "08-api-integration/batch-processing-api",
+      "name": "batch-processing-api",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design APIs for batch data submission, processing, and result retrieval. Outputs async batch endpoint design, progress tracking, error handling, and retry strategy.",
+      "argumentHint": "[batch size, processing time, client type, failure handling requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 342
+    },
+    {
+      "id": "08-api-integration/event-driven-api",
+      "name": "event-driven-api",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design an event-driven API strategy choosing between webhooks, Server-Sent Events, WebSockets, and polling. Covers delivery guarantees, retry logic, security, fan-out patterns, and tool selection.",
+      "argumentHint": "[use case, latency requirements, client type, scale, delivery guarantee needed]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 316
+    },
+    {
+      "id": "08-api-integration/file-upload-api",
+      "name": "file-upload-api",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design and implement secure file upload APIs with direct-to-storage uploads, virus scanning, and lifecycle management. Outputs upload flow design, presigned URL implementation, validation pipeline, and storage policy.",
+      "argumentHint": "[file types, max file size, storage provider, security requirements, processing needed]",
+      "allowedTools": "Read, Write",
+      "lines": 307
+    },
+    {
+      "id": "08-api-integration/graphql-schema",
+      "name": "graphql-schema",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design GraphQL schema with types, queries, mutations, subscriptions. Outputs schema definition, resolvers, N+1 prevention, and error handling.",
+      "argumentHint": "[data model, query requirements, real-time needs]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 627
+    },
+    {
+      "id": "08-api-integration/grpc-service",
+      "name": "grpc-service",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design and implement gRPC services with Protocol Buffer schemas, streaming patterns, error handling, and client generation. Outputs .proto files, server implementation, client code, and load balancing configuration.",
+      "argumentHint": "[service name, operations, streaming requirements, language]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 576
+    },
+    {
+      "id": "08-api-integration/hypermedia-api",
+      "name": "hypermedia-api",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design hypermedia APIs (HATEOAS) that guide clients through available actions via links. Outputs link relation design, HAL/JSON:API format, state machine navigation, and client coupling reduction.",
+      "argumentHint": "[API complexity, client types, developer audience, versioning concerns]",
+      "allowedTools": "Read, Write",
+      "lines": 203
+    },
+    {
+      "id": "08-api-integration/idempotent-api",
+      "name": "idempotent-api",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design idempotent APIs that handle duplicate requests safely. Outputs idempotency key strategy, deduplication storage design, response caching patterns, and client retry guidance.",
+      "argumentHint": "[API type, expected retry rate, storage backend, consistency requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 231
+    },
+    {
+      "id": "08-api-integration/oauth-implementation",
+      "name": "oauth-implementation",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Implement OAuth 2.0 and OIDC flows for user authentication and API authorisation. Outputs flow diagrams, server-side implementation, token management, and security hardening.",
+      "argumentHint": "[flow type, provider, client type, scopes needed, token storage requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 355
+    },
+    {
+      "id": "08-api-integration/openapi-design",
+      "name": "openapi-design",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design and document REST APIs using the OpenAPI 3.1 specification \u2014 schemas, security definitions, response codes, examples, and SDK generation. Outputs complete OpenAPI specs, documentation, and validation tooling.",
+      "argumentHint": "[API domain, authentication method, consumer base, documentation requirements]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 522
+    },
+    {
+      "id": "08-api-integration/sdk-design",
+      "name": "sdk-design",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design and build client SDKs for APIs. Outputs idiomatic client libraries with auth handling, retry logic, pagination, error types, and developer experience best practices across Python, TypeScript, and Go.",
+      "argumentHint": "[API type, target languages, authentication method, distribution channel]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 576
+    },
+    {
+      "id": "08-api-integration/streaming-api",
+      "name": "streaming-api",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design and implement streaming APIs with SSE, WebSocket, and chunked transfer encoding. Outputs protocol selection guide, implementation patterns, backpressure handling, and client examples.",
+      "argumentHint": "[data type, update frequency, client type, latency requirements, scale]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "08-api-integration/third-party-integration",
+      "name": "third-party-integration",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Integrate third-party services via OAuth flows, webhook handling, and API clients. Outputs OAuth implementation, webhook verification, idempotent event handling, and graceful degradation patterns.",
+      "argumentHint": "[third-party service, integration type, auth method, data flow direction]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 422
+    },
+    {
+      "id": "08-api-integration/webhook-security",
+      "name": "webhook-security",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Secure webhook endpoints against spoofing, replay attacks, and denial of service. Outputs signature verification, replay prevention, IP allowlisting, and retry handling patterns.",
+      "argumentHint": "[webhook provider, payload size, latency requirements, security requirements]",
+      "allowedTools": "Read, Write",
+      "lines": 96
+    },
+    {
+      "id": "08-api-integration/websocket-design",
+      "name": "websocket-design",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design WebSocket architecture for real-time communication. Outputs connection management, message protocols, scaling, and fallback strategies.",
+      "argumentHint": "[use case, concurrency, message frequency]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 544
+    },
+    {
+      "id": "09-product-management/ab-test-design",
+      "name": "ab-test-design",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Design a statistically valid A/B test for a product feature or change. Produces a test plan with hypothesis, metrics, sample size calculation, risk assessment, and analysis plan.",
+      "argumentHint": "[feature or change to test, primary metric, current baseline, traffic volume]",
+      "allowedTools": "Read, Write",
+      "lines": 248
+    },
+    {
+      "id": "09-product-management/api-product-strategy",
+      "name": "api-product-strategy",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Develop an API as a product strategy with business model, developer experience, pricing, and ecosystem goals. Outputs API product vision, developer journey, monetization model, and success metrics.",
+      "argumentHint": "[API type, target developer audience, business model, existing product context]",
+      "allowedTools": "Read, Write",
+      "lines": 152
+    },
+    {
+      "id": "09-product-management/competitor-scan",
+      "name": "competitor-scan",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Conduct a structured competitive analysis of a product or feature set. Produces a comparison matrix, positioning gaps, competitive strengths and weaknesses, and strategic recommendations.",
+      "argumentHint": "[your product, competitors to analyze, feature area or market context]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 242
+    },
+    {
+      "id": "09-product-management/continuous-discovery",
+      "name": "continuous-discovery",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Build a continuous product discovery practice that generates a steady stream of customer insights. Outputs weekly interview cadence, opportunity identification, assumption testing, and discovery-to-delivery connection.",
+      "argumentHint": "[team size, product stage, existing discovery practices, customer access]",
+      "allowedTools": "Read, Write",
+      "lines": 190
+    },
+    {
+      "id": "09-product-management/customer-advisory-board",
+      "name": "customer-advisory-board",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Build and run a customer advisory board (CAB) that generates strategic product insights. Outputs member selection criteria, meeting structure, engagement model, and insight integration process.",
+      "argumentHint": "[product stage, customer segment, CAB goals, existing customer relationships]",
+      "allowedTools": "Read, Write",
+      "lines": 142
+    },
+    {
+      "id": "09-product-management/customer-journey-map",
+      "name": "customer-journey-map",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Create customer journey maps documenting touchpoints, emotions, pain points, and opportunities. Outputs visual journey maps, moment-of-truth analysis, and prioritised improvement backlog.",
+      "argumentHint": "[customer segment, journey scope, data available, format needed]",
+      "allowedTools": "Read, Write",
+      "lines": 233
+    },
+    {
+      "id": "09-product-management/decision-doc",
+      "name": "decision-doc",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Write a structured decision document (RFC, ADR, or decision memo) that captures context, options considered, tradeoffs, and rationale. Produces durable, searchable records of why key decisions were made.",
+      "argumentHint": "[decision to document, stakeholders involved, options considered, constraints]",
+      "allowedTools": "Read, Write",
+      "lines": 210
+    },
+    {
+      "id": "09-product-management/design-sprint",
+      "name": "design-sprint",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Facilitate a 5-day design sprint to solve critical product challenges and validate ideas. Outputs sprint plan, facilitation guide, prototype templates, and user testing protocol.",
+      "argumentHint": "[problem to solve, team size, remote or in-person, design maturity, timeline]",
+      "allowedTools": "Read, Write",
+      "lines": 183
+    },
+    {
+      "id": "09-product-management/enterprise-sales-enablement",
+      "name": "enterprise-sales-enablement",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Equip sales teams with the product knowledge, tools, and materials needed to win enterprise deals. Outputs battle cards, objection handling guides, demo scripts, and pricing approval workflows.",
+      "argumentHint": "[product complexity, deal size, sales cycle length, competitive landscape, team size]",
+      "allowedTools": "Read, Write",
+      "lines": 43
+    },
+    {
+      "id": "09-product-management/feature-spec",
+      "name": "feature-spec",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Write comprehensive feature specifications that align engineering, design, and stakeholders before a single line of code is written. Outputs problem statement, requirements, edge cases, success metrics, and open questions.",
+      "argumentHint": "[feature type, stage of discovery, stakeholders, implementation deadline]",
+      "allowedTools": "Read, Write",
+      "lines": 217
+    },
+    {
+      "id": "09-product-management/feedback-analyzer",
+      "name": "feedback-analyzer",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Systematically analyze product feedback from multiple sources \u2014 support tickets, NPS responses, app reviews, user interviews, sales calls \u2014 into prioritized themes with evidence, signal strength ratings, and product action recommendations.",
+      "argumentHint": "[feedback source, raw feedback data or file, product area focus]",
+      "allowedTools": "Read, Write",
+      "lines": 237
+    },
+    {
+      "id": "09-product-management/go-to-market",
+      "name": "go-to-market",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Plan and execute a product go-to-market strategy covering ICP definition, channel selection, messaging, launch sequencing, and success metrics. Covers PLG, sales-led, and hybrid motions.",
+      "argumentHint": "[product stage, target segment, current distribution, launch timeline, budget]",
+      "allowedTools": "Read, Write",
+      "lines": 222
+    },
+    {
+      "id": "09-product-management/growth-framework",
+      "name": "growth-framework",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Build a systematic growth framework covering acquisition, activation, retention, referral, and revenue. Outputs growth model, lever identification, experiment roadmap, and tracking dashboard.",
+      "argumentHint": "[business model, growth stage, current bottleneck, team size, key channels]",
+      "allowedTools": "Read, Write",
+      "lines": 236
+    },
+    {
+      "id": "09-product-management/jobs-to-be-done",
+      "name": "jobs-to-be-done",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Apply Jobs-to-be-Done framework to understand customer motivations and design solutions that address real underlying needs. Outputs job statements, context interviews, opportunity mapping, and solution criteria.",
+      "argumentHint": "[product area, customer segment, discovery stage, research resources available]",
+      "allowedTools": "Read, Write",
+      "lines": 250
+    },
+    {
+      "id": "09-product-management/launch-checklist",
+      "name": "launch-checklist",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Generate a comprehensive product launch checklist covering engineering, design, marketing, legal, support, and analytics readiness. Outputs a trackable launch plan with owners, dependencies, and go/no-go criteria.",
+      "argumentHint": "[product or feature name, launch type, team size, target date, target audience]",
+      "allowedTools": "Read, Write",
+      "lines": 235
+    },
+    {
+      "id": "09-product-management/market-sizing",
+      "name": "market-sizing",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Estimate the size of a market using top-down and bottom-up methods. Produces a TAM/SAM/SOM analysis with assumptions documented, sensitivity analysis, and business implications for go-to-market strategy.",
+      "argumentHint": "[market or product category, geographic scope, target customer, pricing model]",
+      "allowedTools": "Read, Write, Bash",
+      "lines": 240
+    },
+    {
+      "id": "09-product-management/meeting-prep",
+      "name": "meeting-prep",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Prepare for a product management meeting, including stakeholder alignment meetings, roadmap reviews, planning sessions, or executive updates. Produces an agenda, pre-read materials, and a facilitation guide.",
+      "argumentHint": "[meeting type, attendees, goal, context or background]",
+      "allowedTools": "Read, Write",
+      "lines": 222
+    },
+    {
+      "id": "09-product-management/metrics-analyzer",
+      "name": "metrics-analyzer",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Analyze a product or business metric, diagnose root causes, and produce a structured investigation report with hypotheses, supporting data, and recommended actions.",
+      "argumentHint": "[metric name, current vs. target value, time period, available data sources]",
+      "allowedTools": "Read, Write",
+      "lines": 223
+    },
+    {
+      "id": "09-product-management/monetization-strategy",
+      "name": "monetization-strategy",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Design and optimise product monetization models including pricing, packaging, and expansion revenue. Outputs pricing strategy, tier design, pricing experiments, and revenue forecasting.",
+      "argumentHint": "[product type, customer segments, competitive landscape, current ARR, pricing maturity]",
+      "allowedTools": "Read, Write",
+      "lines": 201
+    },
+    {
+      "id": "09-product-management/north-star-metric",
+      "name": "north-star-metric",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Define and validate a North Star Metric that aligns the company on what success looks like. Outputs metric definition, decomposition tree, instrumentation spec, and governance process.",
+      "argumentHint": "[business model, product stage, current metrics chaos, team size]",
+      "allowedTools": "Read, Write",
+      "lines": 229
+    },
+    {
+      "id": "09-product-management/okr-writer",
+      "name": "okr-writer",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Write clear, measurable OKRs for product teams \u2014 objectives that inspire, key results that measure outcomes, and initiative mapping that connects work to results. Outputs draft OKRs with grading rubrics, check-in templates, and failure pattern analysis.",
+      "argumentHint": "[team mission, strategic priorities, current metrics, time period]",
+      "allowedTools": "Read, Write",
+      "lines": 253
+    },
+    {
+      "id": "09-product-management/opportunity-solution-tree",
+      "name": "opportunity-solution-tree",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Build and use Opportunity Solution Trees to connect product outcomes to customer opportunities and solutions. Outputs tree structure, prioritisation process, assumption mapping, and experiment design.",
+      "argumentHint": "[product outcome, discovery data available, team size, decision-making context]",
+      "allowedTools": "Read, Write",
+      "lines": 198
+    },
+    {
+      "id": "09-product-management/persona",
+      "name": "persona",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Create evidence-based user personas grounded in research \u2014 not fictional archetypes. Outputs persona profiles with jobs-to-be-done, behavioral patterns, pain points, workflow context, and product decision implications.",
+      "argumentHint": "[user research data, target segment, product context]",
+      "allowedTools": "Read, Write",
+      "lines": 242
+    },
+    {
+      "id": "09-product-management/platform-strategy",
+      "name": "platform-strategy",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Develop a platform strategy that creates an ecosystem around your product. Outputs platform definition, ecosystem design, API strategy, marketplace model, and network effect cultivation.",
+      "argumentHint": "[product type, existing integrations, developer audience, competitive moat, revenue model]",
+      "allowedTools": "Read, Write",
+      "lines": 142
+    },
+    {
+      "id": "09-product-management/prd",
+      "name": "prd",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Write a complete Product Requirements Document from a feature idea or problem statement. Produces a structured PRD with goals, user stories, acceptance criteria, edge cases, and success metrics.",
+      "argumentHint": "[feature name, problem statement, target users, business goal]",
+      "allowedTools": "Read, Write",
+      "lines": 218
+    },
+    {
+      "id": "09-product-management/pricing-strategy",
+      "name": "pricing-strategy",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Design a product pricing strategy covering model selection, tier structure, value metric identification, packaging, and pricing research. Covers freemium, usage-based, per-seat, and enterprise packaging with worked examples.",
+      "argumentHint": "[product type, customer segments, current stage, competitive context, revenue goal]",
+      "allowedTools": "Read, Write",
+      "lines": 239
+    },
+    {
+      "id": "09-product-management/prioritize",
+      "name": "prioritize",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Prioritize a product backlog using structured frameworks (RICE, ICE, MoSCoW, Kano, Weighted Scoring). Produces a ranked list with scores, rationale, and a defensible recommendation for what to build next.",
+      "argumentHint": "[list of features/initiatives, business goal, constraints]",
+      "allowedTools": "Read, Write",
+      "lines": 228
+    },
+    {
+      "id": "09-product-management/product-analytics-plan",
+      "name": "product-analytics-plan",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Define an instrumentation and analytics plan for a product feature or launch. Outputs event taxonomy, tracking spec, dashboard design, and analysis playbook.",
+      "argumentHint": "[feature type, key questions to answer, analytics stack, launch timeline]",
+      "allowedTools": "Read, Write",
+      "lines": 225
+    },
+    {
+      "id": "09-product-management/product-discovery",
+      "name": "product-discovery",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Run structured product discovery to validate problems and solutions before building. Outputs discovery sprint plan, research synthesis, assumption mapping, and go/no-go criteria.",
+      "argumentHint": "[problem hypothesis, customer segment, team size, timeline, constraints]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "09-product-management/product-health-metrics",
+      "name": "product-health-metrics",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Define a comprehensive product health dashboard tracking acquisition, engagement, retention, and quality. Outputs metric definitions, threshold setting, anomaly detection, and weekly review process.",
+      "argumentHint": "[product type, team size, current metric gaps, decision-making context]",
+      "allowedTools": "Read, Write",
+      "lines": 179
+    },
+    {
+      "id": "09-product-management/product-led-growth",
+      "name": "product-led-growth",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Design and implement a product-led growth strategy where the product drives user acquisition, expansion, and retention. Outputs PLG model, activation metrics, viral loops, and freemium conversion strategy.",
+      "argumentHint": "[product type, target segment, current growth motion, pricing model]",
+      "allowedTools": "Read, Write",
+      "lines": 176
+    },
+    {
+      "id": "09-product-management/product-strategy",
+      "name": "product-strategy",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Define product strategy connecting company vision to product decisions. Outputs strategy document with positioning, strategic bets, explicit trade-offs, and success metrics.",
+      "argumentHint": "[company stage, market position, time horizon, key constraints, stakeholder audience]",
+      "allowedTools": "Read, Write",
+      "lines": 74
+    },
+    {
+      "id": "09-product-management/product-teardown",
+      "name": "product-teardown",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Conduct a structured product teardown analyzing UX, positioning, business model, growth strategy, and technical decisions. Outputs a framework-grounded analysis with strategic observations and lessons applicable to your own product.",
+      "argumentHint": "[product to analyze, analysis focus, your product context]",
+      "allowedTools": "Read, Write",
+      "lines": 216
+    },
+    {
+      "id": "09-product-management/release-notes",
+      "name": "release-notes",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Write clear, user-focused release notes that explain what changed, why it matters, and how to use it. Outputs release notes for in-app changelogs, emails, blog posts, and developer documentation.",
+      "argumentHint": "[features shipped, audience (users or developers), tone (casual or formal)]",
+      "allowedTools": "Read, Write",
+      "lines": 207
+    },
+    {
+      "id": "09-product-management/retro-facilitator",
+      "name": "retro-facilitator",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Facilitate a structured sprint or project retrospective. Outputs a meeting agenda, facilitation guide, synthesis framework, and action item tracker that drives real improvement.",
+      "argumentHint": "[team size, sprint/project context, recurring issues, time available]",
+      "allowedTools": "Read, Write",
+      "lines": 266
+    },
+    {
+      "id": "09-product-management/roadmap",
+      "name": "roadmap",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Build a strategic product roadmap from business goals and team capacity. Outputs a prioritized, time-horizoned plan with themes, milestones, dependencies, and stakeholder communication format.",
+      "argumentHint": "[product strategy, team capacity, timeframe, key stakeholders]",
+      "allowedTools": "Read, Write",
+      "lines": 235
+    },
+    {
+      "id": "09-product-management/stakeholder-update",
+      "name": "stakeholder-update",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Write a stakeholder update, status report, or executive summary for a product, feature, or initiative. Produces a concise, decision-oriented update that surfaces the right information for the audience.",
+      "argumentHint": "[product or initiative name, update period, key metrics, decisions needed, audience]",
+      "allowedTools": "Read, Write",
+      "lines": 268
+    },
+    {
+      "id": "09-product-management/technical-translator",
+      "name": "technical-translator",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Translate complex technical concepts, architecture decisions, and engineering trade-offs into clear language for non-technical stakeholders. Also translates business requirements back into precise technical specifications for engineers.",
+      "argumentHint": "[technical concept or business requirement, target audience, context]",
+      "allowedTools": "Read, Write",
+      "lines": 190
+    },
+    {
+      "id": "09-product-management/user-interview-prep",
+      "name": "user-interview-prep",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Prepare a complete user interview guide including screener, discussion guide, objectives, warm-up questions, and synthesis framework. Outputs interview materials ready to run.",
+      "argumentHint": "[research question, user type to interview, product stage, what decisions the research will inform]",
+      "allowedTools": "Read, Write",
+      "lines": 230
+    },
+    {
+      "id": "09-product-management/user-stories",
+      "name": "user-stories",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Write well-formed user stories with acceptance criteria, edge cases, and definition of done for a feature or epic. Produces sprint-ready stories that engineering can estimate and design can use.",
+      "argumentHint": "[feature or epic, user type, business goal, known constraints]",
+      "allowedTools": "Read, Write",
+      "lines": 270
+    }
+  ]
+}
