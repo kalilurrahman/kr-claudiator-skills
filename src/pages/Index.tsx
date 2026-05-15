@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SeoHead } from "@/components/SeoHead";
 import { SkillCard } from "@/components/SkillCard";
 import { SkillModal } from "@/components/SkillModal";
 import { getCategoryMeta } from "@/data/categoryMeta";
