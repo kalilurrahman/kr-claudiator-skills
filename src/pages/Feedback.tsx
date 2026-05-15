@@ -80,8 +80,9 @@ export function FeedbackPage() {
           <form onSubmit={handleSubmit} className="glass-card p-6 space-y-5">
             {/* Name */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Name (optional)</label>
+              <label htmlFor="fb-name" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Name (optional)</label>
               <input
+                id="fb-name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -92,8 +93,9 @@ export function FeedbackPage() {
 
             {/* Email */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Email (optional)</label>
+              <label htmlFor="fb-email" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Email (optional)</label>
               <input
+                id="fb-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -103,13 +105,14 @@ export function FeedbackPage() {
             </div>
 
             {/* Feedback type */}
-            <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Feedback type</label>
+            <div role="group" aria-labelledby="fb-type-label">
+              <span id="fb-type-label" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Feedback type</span>
               <div className="flex flex-wrap gap-2">
                 {FEEDBACK_TYPES.map((type) => (
                   <button
                     key={type}
                     type="button"
+                    aria-pressed={feedbackType === type}
                     onClick={() => setFeedbackType(type)}
                     className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
                       feedbackType === type
@@ -125,8 +128,9 @@ export function FeedbackPage() {
 
             {/* Skill name */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Related skill (optional)</label>
+              <label htmlFor="fb-skill" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Related skill (optional)</label>
               <input
+                id="fb-skill"
                 type="text"
                 value={skillName}
                 onChange={(e) => setSkillName(e.target.value)}
@@ -136,13 +140,15 @@ export function FeedbackPage() {
             </div>
 
             {/* Rating */}
-            <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Rating</label>
+            <div role="group" aria-labelledby="fb-rating-label">
+              <span id="fb-rating-label" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Rating</span>
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
                     key={star}
                     type="button"
+                    aria-label={`Rate ${star} ${star === 1 ? "star" : "stars"} out of 5`}
+                    aria-pressed={rating === star}
                     onClick={() => setRating(star)}
                     onMouseEnter={() => setHoverRating(star)}
                     onMouseLeave={() => setHoverRating(0)}
@@ -152,7 +158,7 @@ export function FeedbackPage() {
                       className={`w-6 h-6 transition-colors ${
                         star <= (hoverRating || rating)
                           ? "fill-warning text-warning"
-                          : "text-muted-foreground/30"
+                          : "text-muted-foreground/60"
                       }`}
                     />
                   </button>
@@ -162,10 +168,11 @@ export function FeedbackPage() {
 
             {/* Message */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">
+              <label htmlFor="fb-message" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">
                 Message <span className="text-destructive">*</span>
               </label>
               <textarea
+                id="fb-message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value.slice(0, 1000))}
                 rows={5}

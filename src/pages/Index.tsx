@@ -62,8 +62,8 @@ export function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       <SeoHead
-        title="Claudiator — 345+ Claude Skills for Engineering Teams | Kalilur Rahman"
-        description="Open-source library of 345+ production-ready Claude Skills (SKILL.md prompts) across 9 engineering domains. Browse, copy, and ship with Claude Code or Claude CoWork."
+        title="Claudiator — The Claude Skills Generator"
+        description="Open-source library of 345+ production-ready SKILL.md prompts for Claude Code & CoWork, by Kalilur Rahman."
         canonical="https://kr-claudiator-skills.lovable.app/"
       />
       <Header />
@@ -79,10 +79,10 @@ export function HomePage() {
               <span className="font-display text-2xl text-primary font-bold">KR</span>
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-3 tracking-tight">
-              Claudiator
+              Claudiator — The Claude Skills Generator
             </h1>
             <p className="text-primary text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-3">
-              The Claude Skills Generator
+              345+ SKILL.md prompts · open source
             </p>
             <p className="text-muted-foreground text-sm mb-6 max-w-2xl mx-auto">
               Open-source library of production-ready SKILL.md prompts for Claude Code &amp; Claude CoWork — built by Kalilur Rahman.
@@ -124,7 +124,7 @@ export function HomePage() {
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   <div className="flex-1">
-                    <h3 className="text-base font-semibold text-foreground mb-1">{skillOfDay.name}</h3>
+                    <h2 className="text-base font-semibold text-foreground mb-1">{skillOfDay.name}</h2>
                     <p className="text-xs text-muted-foreground mb-3">{skillOfDay.description}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {skillOfDay.tags?.slice(0, 4).map((tag) => (
