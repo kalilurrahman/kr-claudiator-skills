@@ -62,8 +62,8 @@ export function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       <SeoHead
-        title="Claudiator — 345+ Claude Skills for Engineering Teams | Kalilur Rahman"
-        description="Open-source library of 345+ production-ready Claude Skills (SKILL.md prompts) across 9 engineering domains. Browse, copy, and ship with Claude Code or Claude CoWork."
+        title="Claudiator — The Claude Skills Generator"
+        description="Open-source library of 345+ production-ready SKILL.md prompts for Claude Code & CoWork, by Kalilur Rahman."
         canonical="https://kr-claudiator-skills.lovable.app/"
       />
       <Header />
