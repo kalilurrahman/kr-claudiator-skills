@@ -61,6 +61,11 @@ export function FeedbackPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SeoHead
+        title="Send Feedback or Suggest a Skill | Claudiator"
+        description="Report bugs, request features, or suggest a new Claude Skill for the Claudiator library. We read every message."
+        canonical="https://kr-claudiator-skills.lovable.app/feedback"
+      />
       <Header />
       <main className="flex-1 pt-16 md:pt-20">
         <div className="container max-w-xl mx-auto px-6 py-12 animate-fade-in">
