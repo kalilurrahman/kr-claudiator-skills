@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Search as SearchIcon, X, SlidersHorizontal } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SeoHead } from "@/components/SeoHead";
 import { CategoryNav } from "@/components/CategoryNav";
 import { SkillCard } from "@/components/SkillCard";
 import { SkillModal } from "@/components/SkillModal";
