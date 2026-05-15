@@ -124,7 +124,7 @@ export function HomePage() {
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   <div className="flex-1">
-                    <h3 className="text-base font-semibold text-foreground mb-1">{skillOfDay.name}</h3>
+                    <h2 className="text-base font-semibold text-foreground mb-1">{skillOfDay.name}</h2>
                     <p className="text-xs text-muted-foreground mb-3">{skillOfDay.description}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {skillOfDay.tags?.slice(0, 4).map((tag) => (
