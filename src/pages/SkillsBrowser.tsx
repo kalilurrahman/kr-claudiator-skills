@@ -193,14 +193,23 @@ export function SkillsBrowser() {
   return (
     <div className="flex min-h-screen flex-col">
       <SeoHead
-        title="Browse 345+ Claude Skills by Domain | Claudiator"
-        description="Search and filter 345+ Claude Skills across software, DevOps, data, AI/ML, security, system design, testing, APIs and product. Copy SKILL.md prompts in one click."
+        title="Browse Claude Skills Library | Claudiator"
+        description="Search and filter 345+ Claude Skills across 9 engineering domains. Copy SKILL.md prompts in one click."
         canonical="https://kr-claudiator-skills.lovable.app/skills"
       />
       <Header />
 
       <main className="flex-1 pt-12 pb-16 md:pb-0">
         <div className="container max-w-6xl mx-auto px-4 py-6 animate-fade-in">
+          <header className="mb-5">
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+              Browse Claude Skills Library
+            </h1>
+            <p className="text-sm text-muted-foreground mt-1">
+              Search, filter, and copy SKILL.md prompts across {index?.categories.length ?? 9} engineering domains.
+            </p>
+          </header>
+
           {/* Progress bar */}
           {index && (
             <div className="mb-5">
