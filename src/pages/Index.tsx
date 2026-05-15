@@ -79,10 +79,10 @@ export function HomePage() {
               <span className="font-display text-2xl text-primary font-bold">KR</span>
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-3 tracking-tight">
-              Claudiator
+              Claudiator — The Claude Skills Generator
             </h1>
             <p className="text-primary text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-3">
-              The Claude Skills Generator
+              345+ SKILL.md prompts · open source
             </p>
             <p className="text-muted-foreground text-sm mb-6 max-w-2xl mx-auto">
               Open-source library of production-ready SKILL.md prompts for Claude Code &amp; Claude CoWork — built by Kalilur Rahman.
