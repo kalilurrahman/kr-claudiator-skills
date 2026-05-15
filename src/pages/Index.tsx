@@ -61,27 +61,35 @@ export function HomePage() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SeoHead
+        title="Claudiator — 345+ Claude Skills for Engineering Teams | Kalilur Rahman"
+        description="Open-source library of 345+ production-ready Claude Skills (SKILL.md prompts) across 9 engineering domains. Browse, copy, and ship with Claude Code or Claude CoWork."
+        canonical="https://kr-claudiator-skills.lovable.app/"
+      />
       <Header />
 
       <main className="flex-1 pt-12">
         {/* Hero */}
         <section className="relative gradient-hero py-20 md:py-28 overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_50%)]" />
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(43_70%_66%/0.18),transparent_50%)]" />
           </div>
           <div className="relative container max-w-6xl mx-auto px-6 text-center animate-fade-in">
-            <div className="inline-flex items-center justify-center w-14 h-14 border border-primary-foreground/30 rounded-xl mb-5">
-              <span className="text-2xl">⚡</span>
+            <div className="inline-flex items-center justify-center w-14 h-14 border border-primary/40 rounded-full mb-5 bg-card/40 backdrop-blur-sm">
+              <span className="font-display text-2xl text-primary font-bold">KR</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-4">
-              KR Claudiator Skills
+            <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-3 tracking-tight">
+              Claudiator
             </h1>
-            <p className="text-primary-foreground/70 text-sm mb-3">
-              Claude Skills Generator by Kalilur Rahman
+            <p className="text-primary text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-3">
+              The Claude Skills Generator
+            </p>
+            <p className="text-muted-foreground text-sm mb-6 max-w-2xl mx-auto">
+              Open-source library of production-ready SKILL.md prompts for Claude Code &amp; Claude CoWork — built by Kalilur Rahman.
             </p>
             {data && (
-              <p className="text-primary-foreground/80 tracking-[0.15em] uppercase text-xs md:text-sm mb-8">
-                {data.totalSkills} Skills · {data.categories.length} Domains · Built for Claude
+              <p className="text-foreground/70 tracking-[0.2em] uppercase text-xs md:text-sm mb-8">
+                {data.totalSkills} Skills · {data.categories.length} Domains · 100% Open Source
               </p>
             )}
             <div className="flex items-center justify-center gap-3 flex-wrap">
