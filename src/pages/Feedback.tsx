@@ -80,8 +80,9 @@ export function FeedbackPage() {
           <form onSubmit={handleSubmit} className="glass-card p-6 space-y-5">
             {/* Name */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Name (optional)</label>
+              <label htmlFor="fb-name" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Name (optional)</label>
               <input
+                id="fb-name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -92,8 +93,9 @@ export function FeedbackPage() {
 
             {/* Email */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Email (optional)</label>
+              <label htmlFor="fb-email" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Email (optional)</label>
               <input
+                id="fb-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -103,13 +105,14 @@ export function FeedbackPage() {
             </div>
 
             {/* Feedback type */}
-            <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Feedback type</label>
+            <div role="group" aria-labelledby="fb-type-label">
+              <span id="fb-type-label" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Feedback type</span>
               <div className="flex flex-wrap gap-2">
                 {FEEDBACK_TYPES.map((type) => (
                   <button
                     key={type}
                     type="button"
+                    aria-pressed={feedbackType === type}
                     onClick={() => setFeedbackType(type)}
                     className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
                       feedbackType === type
@@ -125,8 +128,9 @@ export function FeedbackPage() {
 
             {/* Skill name */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Related skill (optional)</label>
+              <label htmlFor="fb-skill" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">Related skill (optional)</label>
               <input
+                id="fb-skill"
                 type="text"
                 value={skillName}
                 onChange={(e) => setSkillName(e.target.value)}
