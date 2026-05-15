@@ -95,7 +95,7 @@ export function HomePage() {
             <div className="flex items-center justify-center gap-3 flex-wrap">
               <Link
                 to="/skills"
-                className="inline-flex items-center gap-2 rounded-full bg-primary-foreground px-8 py-3.5 text-base font-semibold tracking-wide text-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:translate-y-0"
+                className="btn-gold inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base shadow-md hover:-translate-y-0.5 active:translate-y-0"
               >
                 Browse All Skills
                 <ArrowRight className="w-4 h-4" />
@@ -104,7 +104,7 @@ export function HomePage() {
                 href="https://github.com/kalilurrahman/kr-claudiator-skills"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-6 py-3.5 text-sm font-medium text-primary hover:bg-primary/10 transition-all duration-300"
               >
                 <Github className="w-4 h-4" />
                 Star on GitHub
