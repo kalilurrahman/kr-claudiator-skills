@@ -48,6 +48,11 @@ export function FavouritesPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SeoHead
+        title="Your Favourite Claude Skills | Claudiator"
+        description="Quickly access the Claude Skills you've starred for later. Saved locally in your browser — no account needed."
+        canonical="https://kr-claudiator-skills.lovable.app/favourites"
+      />
       <Header />
       <main className="flex-1 pt-16 md:pt-20">
         <div className="container max-w-6xl mx-auto px-4 py-8 animate-fade-in">
