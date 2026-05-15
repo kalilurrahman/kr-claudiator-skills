@@ -34,13 +34,13 @@ export function Header() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between h-12">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 no-underline">
-          <div className="w-7 h-7 gradient-hero flex items-center justify-center rounded">
-            <span className="font-sans text-xs text-primary-foreground font-bold tracking-tight">KR</span>
+        <Link to="/" className="flex items-center gap-2.5 no-underline">
+          <div className="w-8 h-8 rounded-full bg-card border border-primary/40 flex items-center justify-center hover:border-primary transition-colors">
+            <span className="font-display text-sm text-primary font-bold tracking-tight">KR</span>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-bold text-gradient-brand hidden sm:block">KR Claudiator Skills</span>
-            <span className="text-[9px] text-muted-foreground tracking-wide hidden md:block">AI Prompt Engineering for Enterprise Teams</span>
+          <div className="flex flex-col leading-tight">
+            <span className="font-display text-base font-bold text-foreground hidden sm:block">Claudiator</span>
+            <span className="text-[9px] text-muted-foreground tracking-[0.18em] uppercase hidden md:block">Claude Skills · by Kalilur Rahman</span>
           </div>
         </Link>
 
