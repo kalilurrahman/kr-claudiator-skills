@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SeoHead } from "@/components/SeoHead";
 import { Star, Send, CheckCircle2, MessageSquare } from "lucide-react";
 
 const FEEDBACK_TYPES = ["Bug Report", "Feature Request", "Skill Suggestion", "General Praise"] as const;
