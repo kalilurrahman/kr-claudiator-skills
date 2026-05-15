@@ -2,29 +2,142 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>Claudiator | Claude Skills Generator by Kalilur Rahman</title>
-    <meta name="description" content="Browse 150+ productivity skills for Claude Code and Claude CoWork, by domain. Open source. Built by Kalilur Rahman.">
-    <meta name="author" content="Kalilur Rahman" />
-    
-    
-    <meta property="og:url" content="https://claudiator.lovable.app" />
-    <meta property="og:type" content="website" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#0F172A" />
-  
-  <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/62dec30a-879e-4ac7-9b85-e7665aeb2d75?Expires=1774256527&amp;GoogleAccessId=go-api-on-aws%40gpt-engineer-390607.iam.gserviceaccount.com&amp;Signature=DrSGfGxAlLiMulj5Wi4VtqG%2FVNfpK7p3f74rgDSs58lt6MJpeuHsZe%2F4Q8pGXRij3K5kaLc%2FeToYc2Sde4GTT30GherRb3mQvOSj51doUVo9nzRZViCUsscsUrejWtpsZqw9eqcwGj0T5ttVrPUdeWQWksBL0JmoAbITyqjg1Hb1ns7JwaunE9apCRqBVNYT4SkyqERatKWep5yBTABHLafzE4jCPcSmT6LcVCCMbWYA4db38CK3NRnFavDzaaDHC4DBchFW8WoWT%2F%2Bv7vjODkmTAFHSUYvMcdz1pdirFvlZaBx5kOf9BiE9b%2BLgrpZvVrEsninURnwhhsvKXLfPeA%3D%3D">
-  <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/62dec30a-879e-4ac7-9b85-e7665aeb2d75?Expires=1774256527&amp;GoogleAccessId=go-api-on-aws%40gpt-engineer-390607.iam.gserviceaccount.com&amp;Signature=DrSGfGxAlLiMulj5Wi4VtqG%2FVNfpK7p3f74rgDSs58lt6MJpeuHsZe%2F4Q8pGXRij3K5kaLc%2FeToYc2Sde4GTT30GherRb3mQvOSj51doUVo9nzRZViCUsscsUrejWtpsZqw9eqcwGj0T5ttVrPUdeWQWksBL0JmoAbITyqjg1Hb1ns7JwaunE9apCRqBVNYT4SkyqERatKWep5yBTABHLafzE4jCPcSmT6LcVCCMbWYA4db38CK3NRnFavDzaaDHC4DBchFW8WoWT%2F%2Bv7vjODkmTAFHSUYvMcdz1pdirFvlZaBx5kOf9BiE9b%2BLgrpZvVrEsninURnwhhsvKXLfPeA%3D%3D">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:title" content="Claudiator | Claude Skills Generator by Kalilur Rahman">
-  <meta name="twitter:title" content="Claudiator | Claude Skills Generator by Kalilur Rahman">
-  <meta property="og:description" content="Browse 150+ productivity skills for Claude Code and Claude CoWork, by domain. Open source. Built by Kalilur Rahman.">
-  <meta name="twitter:description" content="Browse 150+ productivity skills for Claude Code and Claude CoWork, by domain. Open source. Built by Kalilur Rahman.">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-</head>
+    <meta name="color-scheme" content="dark light" />
+
+    <title>Claudiator — 345+ Claude Skills for Engineers, Architects & Data Teams | Kalilur Rahman</title>
+    <meta
+      name="description"
+      content="Claudiator is an open-source library of 345+ production-ready Claude Skills (SKILL.md prompts) across software development, DevOps, data, AI/ML, security, system design, testing, APIs and product. Browse, copy, and ship — built by Kalilur Rahman."
+    />
+    <meta name="author" content="Kalilur Rahman" />
+    <meta
+      name="keywords"
+      content="Claude Skills, SKILL.md, Claude Code, Claude CoWork, Anthropic Claude prompts, AI prompt library, prompt engineering, agent skills, software engineering prompts, DevOps prompts, data engineering prompts, security prompts, system design prompts, Kalilur Rahman"
+    />
+    <link rel="canonical" href="https://kr-claudiator-skills.lovable.app/" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Claudiator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kr-claudiator-skills.lovable.app/" />
+    <meta property="og:title" content="Claudiator — 345+ Claude Skills for Engineering Teams" />
+    <meta
+      property="og:description"
+      content="Open-source library of 345+ Claude Skills covering software, DevOps, data, AI/ML, security, system design, testing, APIs and product. Copy-ready SKILL.md prompts."
+    />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/62dec30a-879e-4ac7-9b85-e7665aeb2d75?Expires=1774256527&amp;GoogleAccessId=go-api-on-aws%40gpt-engineer-390607.iam.gserviceaccount.com&amp;Signature=DrSGfGxAlLiMulj5Wi4VtqG%2FVNfpK7p3f74rgDSs58lt6MJpeuHsZe%2F4Q8pGXRij3K5kaLc%2FeToYc2Sde4GTT30GherRb3mQvOSj51doUVo9nzRZViCUsscsUrejWtpsZqw9eqcwGj0T5ttVrPUdeWQWksBL0JmoAbITyqjg1Hb1ns7JwaunE9apCRqBVNYT4SkyqERatKWep5yBTABHLafzE4jCPcSmT6LcVCCMbWYA4db38CK3NRnFavDzaaDHC4DBchFW8WoWT%2F%2Bv7vjODkmTAFHSUYvMcdz1pdirFvlZaBx5kOf9BiE9b%2BLgrpZvVrEsninURnwhhsvKXLfPeA%3D%3D" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Claudiator — 345+ Claude Skills for Engineering Teams" />
+    <meta name="twitter:description" content="Open-source SKILL.md library for Claude Code & Claude CoWork. Copy production-ready prompts across 9 engineering domains." />
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/62dec30a-879e-4ac7-9b85-e7665aeb2d75?Expires=1774256527&amp;GoogleAccessId=go-api-on-aws%40gpt-engineer-390607.iam.gserviceaccount.com&amp;Signature=DrSGfGxAlLiMulj5Wi4VtqG%2FVNfpK7p3f74rgDSs58lt6MJpeuHsZe%2F4Q8pGXRij3K5kaLc%2FeToYc2Sde4GTT30GherRb3mQvOSj51doUVo9nzRZViCUsscsUrejWtpsZqw9eqcwGj0T5ttVrPUdeWQWksBL0JmoAbITyqjg1Hb1ns7JwaunE9apCRqBVNYT4SkyqERatKWep5yBTABHLafzE4jCPcSmT6LcVCCMbWYA4db38CK3NRnFavDzaaDHC4DBchFW8WoWT%2F%2Bv7vjODkmTAFHSUYvMcdz1pdirFvlZaBx5kOf9BiE9b%2BLgrpZvVrEsninURnwhhsvKXLfPeA%3D%3D" />
+    <meta name="twitter:creator" content="@kalilurrahman" />
+
+    <!-- AEO / SEO: structured data for answer engines (ChatGPT, Perplexity, Google AI Overviews) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://kr-claudiator-skills.lovable.app/#website",
+          "url": "https://kr-claudiator-skills.lovable.app/",
+          "name": "Claudiator",
+          "description": "Open-source library of 345+ Claude Skills for engineering, data, security and product teams.",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://kr-claudiator-skills.lovable.app/#person" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://kr-claudiator-skills.lovable.app/skills?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://kr-claudiator-skills.lovable.app/#person",
+          "name": "Kalilur Rahman",
+          "url": "https://kalilurrahman.lovable.app",
+          "sameAs": [
+            "https://github.com/kalilurrahman",
+            "https://www.linkedin.com/in/kalilurrahman/"
+          ],
+          "jobTitle": "Technology Leader & AI Builder"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Claudiator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web, iOS, Android (PWA)",
+          "url": "https://kr-claudiator-skills.lovable.app/",
+          "description": "Browse, search and copy 345+ production-ready Claude Skills (SKILL.md prompts) across 9 engineering domains.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "author": { "@id": "https://kr-claudiator-skills.lovable.app/#person" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Claudiator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Claudiator is a free, open-source library of 345+ Claude Skills — production-ready SKILL.md prompts you can copy directly into Claude Code or Claude CoWork. It covers software development, DevOps, data & analytics, AI/ML, security, system design, testing, API integration, and product management."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a Claude Skill?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A Claude Skill is a reusable prompt packaged as a SKILL.md file with frontmatter (name, description, allowed tools) plus the procedural instructions Claude follows when the skill is invoked. Skills make Claude behave like a specialized expert for a focused task."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I install a skill from Claudiator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Open any skill in the browser, click Copy SKILL.md, then paste the file into your project's .claude/skills/ directory (Claude Code) or your CoWork workspace. The skill is immediately available to Claude."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Claudiator free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Claudiator is fully open-source under the project's GitHub repository and free to use, fork, and contribute to."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who built Claudiator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Claudiator was built by Kalilur Rahman, a technology leader focused on AI tooling for enterprise engineering teams."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

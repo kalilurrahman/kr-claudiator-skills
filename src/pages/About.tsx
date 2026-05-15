@@ -1,10 +1,16 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SeoHead } from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 
 export function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
+      <SeoHead
+        title="About Claudiator — The Open-Source Claude Skills Library"
+        description="Learn what Claudiator is, why it exists, and how the ACUITAS and CLARITY frameworks shape every Claude Skill in this open-source library by Kalilur Rahman."
+        canonical="https://kr-claudiator-skills.lovable.app/about"
+      />
       <Header />
       <main className="flex-1 pt-16 md:pt-20">
         <div className="container max-w-4xl mx-auto px-6 py-12 animate-fade-in">

@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Search as SearchIcon, X, SlidersHorizontal } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SeoHead } from "@/components/SeoHead";
 import { CategoryNav } from "@/components/CategoryNav";
 import { SkillCard } from "@/components/SkillCard";
 import { SkillModal } from "@/components/SkillModal";
@@ -191,6 +192,11 @@ export function SkillsBrowser() {
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
     <div className="flex min-h-screen flex-col">
+      <SeoHead
+        title="Browse 345+ Claude Skills by Domain | Claudiator"
+        description="Search and filter 345+ Claude Skills across software, DevOps, data, AI/ML, security, system design, testing, APIs and product. Copy SKILL.md prompts in one click."
+        canonical="https://kr-claudiator-skills.lovable.app/skills"
+      />
       <Header />
 
       <main className="flex-1 pt-12 pb-16 md:pb-0">
