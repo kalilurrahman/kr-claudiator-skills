@@ -322,7 +322,7 @@ const FEATURES = [
   {
     emoji: "🔍",
     title: "Full-text search",
-    desc: "Search across skill names, descriptions, categories, and argument hints across all 129+ skills instantly.",
+    desc: "Search across skill names, descriptions, categories, and argument hints across all 345+ skills instantly.",
   },
   {
     emoji: "🎛️",
