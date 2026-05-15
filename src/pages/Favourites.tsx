@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SeoHead } from "@/components/SeoHead";
 import { SkillCard } from "@/components/SkillCard";
 import { SkillModal } from "@/components/SkillModal";
 import { getFavourites } from "@/lib/favourites";
