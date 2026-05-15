@@ -1,0 +1,30 @@
+# Claudiator
+
+> Open-source library of 345+ production-ready Claude Skills (SKILL.md prompts) for Claude Code and Claude CoWork, built by Kalilur Rahman.
+
+Claudiator helps engineers, architects, data, security, and product teams discover, preview, and copy reusable SKILL.md prompts across nine domains. Every skill is a self-contained markdown file with frontmatter (name, description, allowed tools) and procedural instructions Claude follows when invoked.
+
+## Pages
+
+- [Home](/): Overview, daily skill spotlight, category grid, and project stats.
+- [Skills Library](/skills): Search and filter all 345+ Claude Skills by domain, tool, and tag.
+- [Favourites](/favourites): Skills you've starred (saved locally in your browser).
+- [About](/about): What Claudiator is, the ACUITAS and CLARITY frameworks, and how to contribute.
+- [Feedback](/feedback): Report bugs, request features, or suggest a new skill.
+
+## Domains covered
+
+- Software Development
+- DevOps & Infrastructure
+- Data & Analytics
+- AI / ML
+- Security
+- System Design
+- Testing & Quality
+- API & Integration
+- Product Management
+
+## Optional
+
+- [GitHub repository](https://github.com/kalilurrahman/kr-claudiator-skills): Source, raw SKILL.md files, and contribution guide.
+- [Author portfolio](https://kalilurrahman.lovable.app): Kalilur Rahman — technology leader and AI builder.
