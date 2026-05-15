@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,76 +6,26 @@
 
 @layer base {
   :root {
-    --background: 222 47% 97%;
-    --foreground: 222 47% 7%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 7%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 7%;
-
-    --primary: 239 84% 59%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 222 15% 93%;
-    --secondary-foreground: 222 47% 7%;
-
-    --muted: 222 10% 90%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 263 70% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --teal: 168 80% 29%;
-    --teal-foreground: 0 0% 100%;
-
-    --success: 160 84% 39%;
-    --success-foreground: 0 0% 100%;
-
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 239 84% 59%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5% 26%;
-    --sidebar-primary: 239 84% 59%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 5% 96%;
-    --sidebar-accent-foreground: 240 6% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 239 84% 59%;
-  }
-
-  .dark {
     --background: 222 47% 5%;
-    --foreground: 213 31% 91%;
+    --foreground: 210 20% 98%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 213 31% 91%;
+    --card: 220 33% 9%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 213 31% 91%;
+    --popover: 220 33% 9%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 239 84% 59%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 43 52% 54%;
+    --primary-foreground: 222 47% 5%;
 
-    --secondary: 222 30% 13%;
-    --secondary-foreground: 213 31% 85%;
+    --secondary: 220 20% 14%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 222 30% 11%;
-    --muted-foreground: 215 16% 57%;
+    --muted: 220 20% 14%;
+    --muted-foreground: 215 14% 60%;
 
-    --accent: 263 70% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 43 70% 66%;
+    --accent-foreground: 222 47% 5%;
 
     --teal: 168 80% 32%;
     --teal-foreground: 0 0% 100%;
@@ -83,24 +33,83 @@
     --success: 160 84% 39%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 38 92% 50%;
+    --warning: 43 90% 60%;
+    --warning-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 43 52% 54%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 33% 9%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 43 52% 54%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 220 20% 14%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 43 52% 54%;
+
+    /* KR brand */
+    --gold: 43 52% 54%;
+    --gold-light: 43 70% 66%;
+    --gold-dark: 43 40% 42%;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', Menlo, monospace;
+  }
+
+  html.light {
+    --background: 40 30% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 43 70% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 220 9% 40%;
+
+    --accent: 43 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --warning: 38 92% 45%;
     --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 16%;
-    --input: 222 30% 16%;
-    --ring: 239 84% 59%;
+    --border: 40 15% 86%;
+    --input: 40 15% 86%;
+    --ring: 43 70% 38%;
 
-    --sidebar-background: 222 47% 5%;
-    --sidebar-foreground: 213 31% 91%;
-    --sidebar-primary: 239 84% 59%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 43 70% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 30% 13%;
-    --sidebar-accent-foreground: 213 31% 91%;
-    --sidebar-border: 222 30% 16%;
-    --sidebar-ring: 239 84% 59%;
+    --sidebar-accent: 40 20% 92%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 40 15% 86%;
+    --sidebar-ring: 43 70% 38%;
+  }
+
+  /* Keep `.dark` class as a no-op alias for the default tokens so the
+     existing useTheme toggle that flips `dark` ↔ default still works. */
+  .dark {
+    color-scheme: dark;
   }
 }
 
@@ -109,52 +118,68 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans text-[15px];
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: 15px;
+    overflow-wrap: break-word;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, sans-serif;
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
     font-weight: 600;
+    letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
+  }
+  code, pre, .font-code {
+    font-family: var(--font-mono);
   }
 }
 
 @layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-body    { font-family: var(--font-body); }
+
+  /* Gold-on-dark hero gradient (replaces former indigo/violet/teal) */
   .gradient-hero {
-    background: linear-gradient(135deg, hsl(239 84% 59%), hsl(263 70% 50%), hsl(168 80% 29%));
+    background:
+      radial-gradient(circle at 20% 0%, hsl(43 52% 54% / 0.35), transparent 55%),
+      radial-gradient(circle at 80% 100%, hsl(43 70% 66% / 0.25), transparent 60%),
+      linear-gradient(135deg, hsl(220 33% 9%), hsl(222 47% 5%) 60%, hsl(220 33% 9%));
   }
 
   .text-gradient-brand {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(239 84% 59%), hsl(263 70% 50%), hsl(168 80% 29%));
+    background-image: linear-gradient(135deg, hsl(43 70% 66%), hsl(43 52% 54%));
   }
 
   .gradient-border {
     border: 1px solid transparent;
     background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-                linear-gradient(135deg, hsl(239 84% 59%), hsl(263 70% 50%)) border-box;
+                linear-gradient(135deg, hsl(43 70% 66%), hsl(43 52% 54%)) border-box;
   }
 
   .glass-card {
-    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl;
+    @apply bg-card/80 backdrop-blur-sm border border-border/60 rounded-xl;
   }
 
-  .glow-on-hover {
-    @apply transition-shadow duration-300;
-  }
-  .glow-on-hover:hover {
-    box-shadow: 0 0 20px hsl(239 84% 59% / 0.25);
-  }
+  .glow-on-hover { @apply transition-shadow duration-300; }
+  .glow-on-hover:hover { box-shadow: 0 0 24px hsl(43 52% 54% / 0.35); }
 
-  .card-hover {
-    @apply transition-all duration-300;
-  }
+  .card-hover { @apply transition-all duration-300; }
   .card-hover:hover {
     @apply -translate-y-1;
-    box-shadow: 0 8px 30px -10px hsl(239 84% 59% / 0.2);
+    box-shadow: 0 8px 30px -10px hsl(43 52% 54% / 0.35);
+    border-color: hsl(43 52% 54% / 0.4);
   }
 
-  .section-divider {
-    @apply w-16 h-px mx-auto;
-    background: linear-gradient(90deg, transparent, hsl(239 84% 59%), transparent);
+  .btn-gold {
+    background: linear-gradient(135deg, hsl(43 52% 54%), hsl(43 70% 66%));
+    color: hsl(222 47% 5%);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-gold:hover {
+    box-shadow: 0 0 20px hsl(43 52% 54% / 0.4);
+    transform: translateY(-1px);
   }
 
   .focus-ring {
@@ -165,53 +190,33 @@
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .animate-fade-in {
-    animation: fadeIn 0.4s ease-out forwards;
-  }
+  .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
 
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(100%); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .animate-slide-up {
-    animation: slideUp 0.3s ease-out forwards;
-  }
+  .animate-slide-up { animation: slideUp 0.3s ease-out forwards; }
 
-  @keyframes progressFill {
-    from { width: 0%; }
-  }
-
-  /* Custom scrollbar for skill modal */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-    border-radius: 3px;
+    background: hsl(var(--muted)); border-radius: 3px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.4);
-    border-radius: 3px;
+    background: hsl(var(--primary) / 0.45); border-radius: 3px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.6);
+    background: hsl(var(--primary) / 0.7);
   }
 
-  /* Print styles */
   @media print {
     header, footer, nav, .mobile-bottom-nav, .download-buttons, .back-to-top {
       display: none !important;
     }
-    body {
-      background: white !important;
-      color: black !important;
-    }
+    body { background: white !important; color: black !important; }
     .print-attribution::after {
       content: "From KR Claudiator Skills by Kalilur Rahman";
-      display: block;
-      margin-top: 2rem;
-      font-size: 10pt;
-      color: #666;
+      display: block; margin-top: 2rem; font-size: 10pt; color: #666;
     }
   }
 }
@@ -221,12 +226,8 @@
   outline-offset: 2px;
 }
 
-/* Dark mode base */
-html.dark {
-  color-scheme: dark;
-}
+html { transition: background-color 0.25s ease, color 0.25s ease; }
 
-/* Category nav colored active state */
 .category-active-glow {
   box-shadow: inset 0 0 0 1px currentColor;
 }
