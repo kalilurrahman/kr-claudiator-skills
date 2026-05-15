@@ -140,13 +140,15 @@ export function FeedbackPage() {
             </div>
 
             {/* Rating */}
-            <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Rating</label>
+            <div role="group" aria-labelledby="fb-rating-label">
+              <span id="fb-rating-label" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-2 block">Rating</span>
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
                     key={star}
                     type="button"
+                    aria-label={`Rate ${star} ${star === 1 ? "star" : "stars"} out of 5`}
+                    aria-pressed={rating === star}
                     onClick={() => setRating(star)}
                     onMouseEnter={() => setHoverRating(star)}
                     onMouseLeave={() => setHoverRating(0)}
@@ -156,7 +158,7 @@ export function FeedbackPage() {
                       className={`w-6 h-6 transition-colors ${
                         star <= (hoverRating || rating)
                           ? "fill-warning text-warning"
-                          : "text-muted-foreground/30"
+                          : "text-muted-foreground/60"
                       }`}
                     />
                   </button>
@@ -166,10 +168,11 @@ export function FeedbackPage() {
 
             {/* Message */}
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">
+              <label htmlFor="fb-message" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold mb-1 block">
                 Message <span className="text-destructive">*</span>
               </label>
               <textarea
+                id="fb-message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value.slice(0, 1000))}
                 rows={5}
