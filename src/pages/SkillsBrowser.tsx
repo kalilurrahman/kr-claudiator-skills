@@ -31,7 +31,7 @@ function buildIndexFromBundled(data: BundledData, cats: Category[]): SkillsIndex
   return {
     version: data.version,
     totalSkills: data.totalSkills,
-    targetSkills: 400,
+    targetSkills: 500,
     lastUpdated: new Date().toISOString().split("T")[0],
     categories: cats,
   };
@@ -194,7 +194,7 @@ export function SkillsBrowser() {
     <div className="flex min-h-screen flex-col">
       <SeoHead
         title="Browse Claude Skills Library | Claudiator"
-        description="Search and filter 345+ Claude Skills across 9 engineering domains. Copy SKILL.md prompts in one click."
+        description="Search and filter 434+ Claude Skills across 12 engineering domains. Copy SKILL.md prompts in one click."
         canonical="https://kr-claudiator-skills.lovable.app/skills"
       />
       <Header />

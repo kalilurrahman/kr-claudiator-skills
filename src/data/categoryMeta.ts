@@ -39,6 +39,15 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
   "Product Management": {
     emoji: "🎯", dot: "#84cc16", bg: "#84cc1618", border: "#84cc1630", lucideIcon: "BarChart2",
   },
+  "Architecture": {
+    emoji: "🏛️", dot: "#60a5fa", bg: "#60a5fa18", border: "#60a5fa30", lucideIcon: "Building2",
+  },
+  "Cross-Functional": {
+    emoji: "🤝", dot: "#22d3ee", bg: "#22d3ee18", border: "#22d3ee30", lucideIcon: "Users",
+  },
+  "Leadership & Strategy": {
+    emoji: "👑", dot: "#fbbf24", bg: "#fbbf2418", border: "#fbbf2430", lucideIcon: "Crown",
+  },
 };
 
 /** Fallback meta for unknown categories */

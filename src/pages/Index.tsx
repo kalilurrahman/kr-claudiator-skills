@@ -26,7 +26,7 @@ async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean; a
     return {
       version: data.version,
       totalSkills: data.totalSkills,
-      targetSkills: 400,
+      targetSkills: 500,
       lastUpdated: new Date().toISOString().split("T")[0],
       categories,
       usedBundled: true,
@@ -63,7 +63,7 @@ export function HomePage() {
     <div className="flex min-h-screen flex-col">
       <SeoHead
         title="Claudiator — The Claude Skills Generator"
-        description="Open-source library of 345+ production-ready SKILL.md prompts for Claude Code & CoWork, by Kalilur Rahman."
+        description="Open-source library of 434+ production-ready SKILL.md prompts for Claude Code & CoWork, by Kalilur Rahman."
         canonical="https://kr-claudiator-skills.lovable.app/"
       />
       <Header />
@@ -82,7 +82,7 @@ export function HomePage() {
               Claudiator — The Claude Skills Generator
             </h1>
             <p className="text-primary text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-3">
-              345+ SKILL.md prompts · open source
+              434+ SKILL.md prompts · open source
             </p>
             <p className="text-muted-foreground text-sm mb-6 max-w-2xl mx-auto">
               Open-source library of production-ready SKILL.md prompts for Claude Code &amp; Claude CoWork — built by Kalilur Rahman.
@@ -322,7 +322,7 @@ const FEATURES = [
   {
     emoji: "🔍",
     title: "Full-text search",
-    desc: "Search across skill names, descriptions, categories, and argument hints across all 345+ skills instantly.",
+    desc: "Search across skill names, descriptions, categories, and argument hints across all 434+ skills instantly.",
   },
   {
     emoji: "🎛️",

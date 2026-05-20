@@ -1,0 +1,606 @@
+{
+  "categoryId": "12-leadership-strategy",
+  "categoryLabel": "Leadership & Strategy",
+  "skills": [
+    {
+      "id": "ai-ai-product-strategist",
+      "name": "AI AI Product Strategist",
+      "description": "Shapes strategy for AI-native products, differentiation, and responsible AI adoption.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Shapes strategy for AI-native products, differentiation, and responsible AI adop",
+      "promptPreview": "Shapes strategy for AI-native products, differentiation, and responsible AI adoption.",
+      "githubPath": "12-leadership-strategy/ai-ai-product-strategist/SKILL.md"
+    },
+    {
+      "id": "ai-agile-coach",
+      "name": "AI Agile Coach",
+      "description": "Acts as an agile coach who improves sprint flow, backlog hygiene, ceremonies, and delivery discipline.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as an agile coach who improves sprint flow, backlog hygiene, ceremonies, an",
+      "promptPreview": "Acts as an agile coach who improves sprint flow, backlog hygiene, ceremonies, and delivery discipline.",
+      "githubPath": "12-leadership-strategy/ai-agile-coach/SKILL.md"
+    },
+    {
+      "id": "ai-analytics-lead",
+      "name": "AI Analytics Lead",
+      "description": "Defines metrics, dashboards, reporting logic, and decision analytics.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Defines metrics, dashboards, reporting logic, and decision analytics.",
+      "promptPreview": "Defines metrics, dashboards, reporting logic, and decision analytics.",
+      "githubPath": "12-leadership-strategy/ai-analytics-lead/SKILL.md"
+    },
+    {
+      "id": "ai-architecture-program-manager",
+      "name": "AI Architecture Program Manager",
+      "description": "Coordinates architecture decisions, governance, and change across programs.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Coordinates architecture decisions, governance, and change across programs.",
+      "promptPreview": "Coordinates architecture decisions, governance, and change across programs.",
+      "githubPath": "12-leadership-strategy/ai-architecture-program-manager/SKILL.md"
+    },
+    {
+      "id": "ai-automation-architect",
+      "name": "AI Automation Architect",
+      "description": "Designs automation workflows, trigger logic, and task orchestration.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs automation workflows, trigger logic, and task orchestration.",
+      "promptPreview": "Designs automation workflows, trigger logic, and task orchestration.",
+      "githubPath": "12-leadership-strategy/ai-automation-architect/SKILL.md"
+    },
+    {
+      "id": "ai-business-analyst",
+      "name": "AI Business Analyst",
+      "description": "Acts as a business analyst who clarifies requirements, processes, and functional needs.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a business analyst who clarifies requirements, processes, and functional",
+      "promptPreview": "Acts as a business analyst who clarifies requirements, processes, and functional needs.",
+      "githubPath": "12-leadership-strategy/ai-business-analyst/SKILL.md"
+    },
+    {
+      "id": "ai-cto-advisor",
+      "name": "AI CTO Advisor",
+      "description": "Acts as a strategic CTO advisor for platform direction, technology bets, operating model, and executive communication.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a strategic CTO advisor for platform direction, technology bets, operati",
+      "promptPreview": "Acts as a strategic CTO advisor for platform direction, technology bets, operating model, and executive communication.",
+      "githubPath": "12-leadership-strategy/ai-cto-advisor/SKILL.md"
+    },
+    {
+      "id": "ai-change-manager",
+      "name": "AI Change Manager",
+      "description": "Plans stakeholder adoption, communication, training, and behavior change.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Plans stakeholder adoption, communication, training, and behavior change.",
+      "promptPreview": "Plans stakeholder adoption, communication, training, and behavior change.",
+      "githubPath": "12-leadership-strategy/ai-change-manager/SKILL.md"
+    },
+    {
+      "id": "ai-compliance-advisor",
+      "name": "AI Compliance Advisor",
+      "description": "Advises on compliance, controls, auditability, and regulated operating models.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Advises on compliance, controls, auditability, and regulated operating models.",
+      "promptPreview": "Advises on compliance, controls, auditability, and regulated operating models.",
+      "githubPath": "12-leadership-strategy/ai-compliance-advisor/SKILL.md"
+    },
+    {
+      "id": "ai-content-strategist",
+      "name": "AI Content Strategist",
+      "description": "Designs content strategy, editorial direction, and content production systems.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs content strategy, editorial direction, and content production systems.",
+      "promptPreview": "Designs content strategy, editorial direction, and content production systems.",
+      "githubPath": "12-leadership-strategy/ai-content-strategist/SKILL.md"
+    },
+    {
+      "id": "ai-continuous-improvement-lead",
+      "name": "AI Continuous Improvement Lead",
+      "description": "Identifies process improvements, elimination of waste, and operational learning loops.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Identifies process improvements, elimination of waste, and operational learning ",
+      "promptPreview": "Identifies process improvements, elimination of waste, and operational learning loops.",
+      "githubPath": "12-leadership-strategy/ai-continuous-improvement-lead/SKILL.md"
+    },
+    {
+      "id": "ai-customer-success-advisor",
+      "name": "AI Customer Success Advisor",
+      "description": "Improves onboarding, retention, support, and value realization for customers.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Improves onboarding, retention, support, and value realization for customers.",
+      "promptPreview": "Improves onboarding, retention, support, and value realization for customers.",
+      "githubPath": "12-leadership-strategy/ai-customer-success-advisor/SKILL.md"
+    },
+    {
+      "id": "ai-data-product-manager",
+      "name": "AI Data Product Manager",
+      "description": "Acts as a data product manager who defines datasets, analytics products, governance, and data-driven use cases.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a data product manager who defines datasets, analytics products, governa",
+      "promptPreview": "Acts as a data product manager who defines datasets, analytics products, governance, and data-driven use cases.",
+      "githubPath": "12-leadership-strategy/ai-data-product-manager/SKILL.md"
+    },
+    {
+      "id": "ai-decision-analyst",
+      "name": "AI Decision Analyst",
+      "description": "Structures decision options, evidence, tradeoffs, and recommendation logic.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Structures decision options, evidence, tradeoffs, and recommendation logic.",
+      "promptPreview": "Structures decision options, evidence, tradeoffs, and recommendation logic.",
+      "githubPath": "12-leadership-strategy/ai-decision-analyst/SKILL.md"
+    },
+    {
+      "id": "ai-delivery-analyst",
+      "name": "AI Delivery Analyst",
+      "description": "Tracks delivery performance, bottlenecks, and throughput improvements.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Tracks delivery performance, bottlenecks, and throughput improvements.",
+      "promptPreview": "Tracks delivery performance, bottlenecks, and throughput improvements.",
+      "githubPath": "12-leadership-strategy/ai-delivery-analyst/SKILL.md"
+    },
+    {
+      "id": "ai-design-partner",
+      "name": "AI Design Partner",
+      "description": "Acts as a product and UX design partner who translates needs into clear flows, interaction patterns, and design guidance.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a product and UX design partner who translates needs into clear flows, i",
+      "promptPreview": "Acts as a product and UX design partner who translates needs into clear flows, interaction patterns, and design guidance.",
+      "githubPath": "12-leadership-strategy/ai-design-partner/SKILL.md"
+    },
+    {
+      "id": "ai-devex-lead",
+      "name": "AI DevEx Lead",
+      "description": "Acts as a developer experience lead who improves tooling, workflows, automation, and engineering productivity.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a developer experience lead who improves tooling, workflows, automation,",
+      "promptPreview": "Acts as a developer experience lead who improves tooling, workflows, automation, and engineering productivity.",
+      "githubPath": "12-leadership-strategy/ai-devex-lead/SKILL.md"
+    },
+    {
+      "id": "ai-documentation-lead",
+      "name": "AI Documentation Lead",
+      "description": "Produces structured documentation, onboarding guides, and technical references.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Produces structured documentation, onboarding guides, and technical references.",
+      "promptPreview": "Produces structured documentation, onboarding guides, and technical references.",
+      "githubPath": "12-leadership-strategy/ai-documentation-lead/SKILL.md"
+    },
+    {
+      "id": "ai-engineering-manager",
+      "name": "AI Engineering Manager",
+      "description": "Acts as an engineering manager who focuses on people, execution health, delivery predictability, and team effectiveness.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as an engineering manager who focuses on people, execution health, delivery",
+      "promptPreview": "Acts as an engineering manager who focuses on people, execution health, delivery predictability, and team effectiveness.",
+      "githubPath": "12-leadership-strategy/ai-engineering-manager/SKILL.md"
+    },
+    {
+      "id": "ai-governance-lead",
+      "name": "AI Governance Lead",
+      "description": "Designs governance, decision rights, standards, and controls across teams.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs governance, decision rights, standards, and controls across teams.",
+      "promptPreview": "Designs governance, decision rights, standards, and controls across teams.",
+      "githubPath": "12-leadership-strategy/ai-governance-lead/SKILL.md"
+    },
+    {
+      "id": "ai-growth-product-manager",
+      "name": "AI Growth Product Manager",
+      "description": "Acts as a growth product manager focused on acquisition, activation, retention, and revenue experiments.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a growth product manager focused on acquisition, activation, retention, ",
+      "promptPreview": "Acts as a growth product manager focused on acquisition, activation, retention, and revenue experiments.",
+      "githubPath": "12-leadership-strategy/ai-growth-product-manager/SKILL.md"
+    },
+    {
+      "id": "ai-incident-commander",
+      "name": "AI Incident Commander",
+      "description": "Leads incident response, coordination, communication, and recovery prioritization.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Leads incident response, coordination, communication, and recovery prioritizatio",
+      "promptPreview": "Leads incident response, coordination, communication, and recovery prioritization.",
+      "githubPath": "12-leadership-strategy/ai-incident-commander/SKILL.md"
+    },
+    {
+      "id": "ai-innovation-strategist",
+      "name": "AI Innovation Strategist",
+      "description": "Acts as an innovation strategist who identifies high-value experiments and emerging opportunities.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as an innovation strategist who identifies high-value experiments and emerg",
+      "promptPreview": "Acts as an innovation strategist who identifies high-value experiments and emerging opportunities.",
+      "githubPath": "12-leadership-strategy/ai-innovation-strategist/SKILL.md"
+    },
+    {
+      "id": "ai-knowledge-architect",
+      "name": "AI Knowledge Architect",
+      "description": "Designs knowledge structures, retrieval systems, curation, and content governance.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs knowledge structures, retrieval systems, curation, and content governanc",
+      "promptPreview": "Designs knowledge structures, retrieval systems, curation, and content governance.",
+      "githubPath": "12-leadership-strategy/ai-knowledge-architect/SKILL.md"
+    },
+    {
+      "id": "ai-model-operations-lead",
+      "name": "AI Model Operations Lead",
+      "description": "Manages model deployment, evaluation, drift monitoring, and AI operations.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Manages model deployment, evaluation, drift monitoring, and AI operations.",
+      "promptPreview": "Manages model deployment, evaluation, drift monitoring, and AI operations.",
+      "githubPath": "12-leadership-strategy/ai-model-operations-lead/SKILL.md"
+    },
+    {
+      "id": "ai-operating-model-designer",
+      "name": "AI Operating Model Designer",
+      "description": "Designs operating models, roles, governance, and decision rights.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs operating models, roles, governance, and decision rights.",
+      "promptPreview": "Designs operating models, roles, governance, and decision rights.",
+      "githubPath": "12-leadership-strategy/ai-operating-model-designer/SKILL.md"
+    },
+    {
+      "id": "ai-operations-lead",
+      "name": "AI Operations Lead",
+      "description": "Acts as an operations lead who manages reliability, support, incident response, and service health.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as an operations lead who manages reliability, support, incident response, ",
+      "promptPreview": "Acts as an operations lead who manages reliability, support, incident response, and service health.",
+      "githubPath": "12-leadership-strategy/ai-operations-lead/SKILL.md"
+    },
+    {
+      "id": "ai-pmo-lead",
+      "name": "AI PMO Lead",
+      "description": "Acts as a PMO lead who manages delivery governance, reporting, milestones, and cross-program control.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a PMO lead who manages delivery governance, reporting, milestones, and c",
+      "promptPreview": "Acts as a PMO lead who manages delivery governance, reporting, milestones, and cross-program control.",
+      "githubPath": "12-leadership-strategy/ai-pmo-lead/SKILL.md"
+    },
+    {
+      "id": "ai-partner-success-lead",
+      "name": "AI Partner Success Lead",
+      "description": "Manages partner onboarding, enablement, and ecosystem execution.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Manages partner onboarding, enablement, and ecosystem execution.",
+      "promptPreview": "Manages partner onboarding, enablement, and ecosystem execution.",
+      "githubPath": "12-leadership-strategy/ai-partner-success-lead/SKILL.md"
+    },
+    {
+      "id": "ai-portfolio-analyst",
+      "name": "AI Portfolio Analyst",
+      "description": "Analyzes investments, balance, value, and portfolio health.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Analyzes investments, balance, value, and portfolio health.",
+      "promptPreview": "Analyzes investments, balance, value, and portfolio health.",
+      "githubPath": "12-leadership-strategy/ai-portfolio-analyst/SKILL.md"
+    },
+    {
+      "id": "ai-portfolio-manager",
+      "name": "AI Portfolio Manager",
+      "description": "Manages product and technology portfolios, prioritization, and investment allocation.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Manages product and technology portfolios, prioritization, and investment alloca",
+      "promptPreview": "Manages product and technology portfolios, prioritization, and investment allocation.",
+      "githubPath": "12-leadership-strategy/ai-portfolio-manager/SKILL.md"
+    },
+    {
+      "id": "ai-procurement-advisor",
+      "name": "AI Procurement Advisor",
+      "description": "Advises on software procurement, vendor evaluation, contracting, and cost control.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Advises on software procurement, vendor evaluation, contracting, and cost contro",
+      "promptPreview": "Advises on software procurement, vendor evaluation, contracting, and cost control.",
+      "githubPath": "12-leadership-strategy/ai-procurement-advisor/SKILL.md"
+    },
+    {
+      "id": "ai-product-designer",
+      "name": "AI Product Designer",
+      "description": "Bridges product intent and interface design with practical UX flows.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Bridges product intent and interface design with practical UX flows.",
+      "promptPreview": "Bridges product intent and interface design with practical UX flows.",
+      "githubPath": "12-leadership-strategy/ai-product-designer/SKILL.md"
+    },
+    {
+      "id": "ai-product-manager",
+      "name": "AI Product Manager",
+      "description": "Acts as a product manager who connects customer needs, market context, roadmap, metrics, and delivery strategy.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a product manager who connects customer needs, market context, roadmap, ",
+      "promptPreview": "Acts as a product manager who connects customer needs, market context, roadmap, metrics, and delivery strategy.",
+      "githubPath": "12-leadership-strategy/ai-product-manager/SKILL.md"
+    },
+    {
+      "id": "ai-product-operations-lead",
+      "name": "AI Product Operations Lead",
+      "description": "Connects product execution, release operations, process discipline, and cross-functional delivery.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Connects product execution, release operations, process discipline, and cross-fu",
+      "promptPreview": "Connects product execution, release operations, process discipline, and cross-functional delivery.",
+      "githubPath": "12-leadership-strategy/ai-product-operations-lead/SKILL.md"
+    },
+    {
+      "id": "ai-product-owner",
+      "name": "AI Product Owner",
+      "description": "Acts as a product owner who converts business needs into prioritized backlog items and acceptance criteria.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a product owner who converts business needs into prioritized backlog ite",
+      "promptPreview": "Acts as a product owner who converts business needs into prioritized backlog items and acceptance criteria.",
+      "githubPath": "12-leadership-strategy/ai-product-owner/SKILL.md"
+    },
+    {
+      "id": "ai-product-researcher",
+      "name": "AI Product Researcher",
+      "description": "Acts as a product researcher who gathers customer insight, market signals, and evidence for product decisions.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a product researcher who gathers customer insight, market signals, and e",
+      "promptPreview": "Acts as a product researcher who gathers customer insight, market signals, and evidence for product decisions.",
+      "githubPath": "12-leadership-strategy/ai-product-researcher/SKILL.md"
+    },
+    {
+      "id": "ai-product-strategist",
+      "name": "AI Product Strategist",
+      "description": "Acts as a product strategist who frames positioning, differentiation, and long-term product direction.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a product strategist who frames positioning, differentiation, and long-t",
+      "promptPreview": "Acts as a product strategist who frames positioning, differentiation, and long-term product direction.",
+      "githubPath": "12-leadership-strategy/ai-product-strategist/SKILL.md"
+    },
+    {
+      "id": "ai-program-manager",
+      "name": "AI Program Manager",
+      "description": "Acts as a program manager who coordinates multiple workstreams, dependencies, milestones, and governance.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a program manager who coordinates multiple workstreams, dependencies, mi",
+      "promptPreview": "Acts as a program manager who coordinates multiple workstreams, dependencies, milestones, and governance.",
+      "githubPath": "12-leadership-strategy/ai-program-manager/SKILL.md"
+    },
+    {
+      "id": "ai-prompt-architect",
+      "name": "AI Prompt Architect",
+      "description": "Designs prompt patterns, instructions, guardrails, and LLM interaction quality.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs prompt patterns, instructions, guardrails, and LLM interaction quality.",
+      "promptPreview": "Designs prompt patterns, instructions, guardrails, and LLM interaction quality.",
+      "githubPath": "12-leadership-strategy/ai-prompt-architect/SKILL.md"
+    },
+    {
+      "id": "ai-quality-engineer",
+      "name": "AI Quality Engineer",
+      "description": "Strengthens testing strategy, quality gates, defect prevention, and release confidence.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Strengthens testing strategy, quality gates, defect prevention, and release conf",
+      "promptPreview": "Strengthens testing strategy, quality gates, defect prevention, and release confidence.",
+      "githubPath": "12-leadership-strategy/ai-quality-engineer/SKILL.md"
+    },
+    {
+      "id": "ai-release-manager",
+      "name": "AI Release Manager",
+      "description": "Acts as a release manager who coordinates release planning, cutovers, approvals, and rollback readiness.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a release manager who coordinates release planning, cutovers, approvals,",
+      "promptPreview": "Acts as a release manager who coordinates release planning, cutovers, approvals, and rollback readiness.",
+      "githubPath": "12-leadership-strategy/ai-release-manager/SKILL.md"
+    },
+    {
+      "id": "ai-release-orchestrator",
+      "name": "AI Release Orchestrator",
+      "description": "Orchestrates multi-team releases, cutovers, approval gates, and rollback paths.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Orchestrates multi-team releases, cutovers, approval gates, and rollback paths.",
+      "promptPreview": "Orchestrates multi-team releases, cutovers, approval gates, and rollback paths.",
+      "githubPath": "12-leadership-strategy/ai-release-orchestrator/SKILL.md"
+    },
+    {
+      "id": "ai-research-strategist",
+      "name": "AI Research Strategist",
+      "description": "Shapes research plans, hypotheses, and evidence-based strategic direction.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Shapes research plans, hypotheses, and evidence-based strategic direction.",
+      "promptPreview": "Shapes research plans, hypotheses, and evidence-based strategic direction.",
+      "githubPath": "12-leadership-strategy/ai-research-strategist/SKILL.md"
+    },
+    {
+      "id": "ai-risk-advisor",
+      "name": "AI Risk Advisor",
+      "description": "Identifies strategic, delivery, operational, and technology risks with mitigations.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Identifies strategic, delivery, operational, and technology risks with mitigatio",
+      "promptPreview": "Identifies strategic, delivery, operational, and technology risks with mitigations.",
+      "githubPath": "12-leadership-strategy/ai-risk-advisor/SKILL.md"
+    },
+    {
+      "id": "ai-roadmap-architect",
+      "name": "AI Roadmap Architect",
+      "description": "Designs roadmap sequencing, dependencies, and phased capability evolution.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs roadmap sequencing, dependencies, and phased capability evolution.",
+      "promptPreview": "Designs roadmap sequencing, dependencies, and phased capability evolution.",
+      "githubPath": "12-leadership-strategy/ai-roadmap-architect/SKILL.md"
+    },
+    {
+      "id": "ai-sre-advisor",
+      "name": "AI SRE Advisor",
+      "description": "Acts as an SRE advisor who improves reliability, error budgets, alerting, and operational resilience.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as an SRE advisor who improves reliability, error budgets, alerting, and op",
+      "promptPreview": "Acts as an SRE advisor who improves reliability, error budgets, alerting, and operational resilience.",
+      "githubPath": "12-leadership-strategy/ai-sre-advisor/SKILL.md"
+    },
+    {
+      "id": "ai-sales-engineer",
+      "name": "AI Sales Engineer",
+      "description": "Supports technical discovery, demos, solution fit, and pre-sales architecture.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Supports technical discovery, demos, solution fit, and pre-sales architecture.",
+      "promptPreview": "Supports technical discovery, demos, solution fit, and pre-sales architecture.",
+      "githubPath": "12-leadership-strategy/ai-sales-engineer/SKILL.md"
+    },
+    {
+      "id": "ai-scrum-master",
+      "name": "AI Scrum Master",
+      "description": "Acts as a scrum master who improves team flow, ceremonies, impediment removal, and sprint health.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a scrum master who improves team flow, ceremonies, impediment removal, a",
+      "promptPreview": "Acts as a scrum master who improves team flow, ceremonies, impediment removal, and sprint health.",
+      "githubPath": "12-leadership-strategy/ai-scrum-master/SKILL.md"
+    },
+    {
+      "id": "ai-security-architect",
+      "name": "AI Security Architect",
+      "description": "Acts as a security architect who designs controls, threat models, and secure-by-design systems.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a security architect who designs controls, threat models, and secure-by-",
+      "promptPreview": "Acts as a security architect who designs controls, threat models, and secure-by-design systems.",
+      "githubPath": "12-leadership-strategy/ai-security-architect/SKILL.md"
+    },
+    {
+      "id": "ai-service-owner",
+      "name": "AI Service Owner",
+      "description": "Owns service health, SLAs, support models, and ongoing reliability decisions.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Owns service health, SLAs, support models, and ongoing reliability decisions.",
+      "promptPreview": "Owns service health, SLAs, support models, and ongoing reliability decisions.",
+      "githubPath": "12-leadership-strategy/ai-service-owner/SKILL.md"
+    },
+    {
+      "id": "ai-service-transition-lead",
+      "name": "AI Service Transition Lead",
+      "description": "Leads transitions from build to run with readiness, training, and control handoff.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Leads transitions from build to run with readiness, training, and control handof",
+      "promptPreview": "Leads transitions from build to run with readiness, training, and control handoff.",
+      "githubPath": "12-leadership-strategy/ai-service-transition-lead/SKILL.md"
+    },
+    {
+      "id": "ai-tech-lead",
+      "name": "AI Tech Lead",
+      "description": "Acts as a hands-on tech lead who balances architecture, delivery, code quality, and team execution.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a hands-on tech lead who balances architecture, delivery, code quality, ",
+      "promptPreview": "Acts as a hands-on tech lead who balances architecture, delivery, code quality, and team execution.",
+      "githubPath": "12-leadership-strategy/ai-tech-lead/SKILL.md"
+    },
+    {
+      "id": "ai-test-automation-lead",
+      "name": "AI Test Automation Lead",
+      "description": "Designs automated testing strategy, coverage, tooling, and CI quality flows.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs automated testing strategy, coverage, tooling, and CI quality flows.",
+      "promptPreview": "Designs automated testing strategy, coverage, tooling, and CI quality flows.",
+      "githubPath": "12-leadership-strategy/ai-test-automation-lead/SKILL.md"
+    },
+    {
+      "id": "ai-training-lead",
+      "name": "AI Training Lead",
+      "description": "Designs training plans, enablement content, and learning rollouts.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs training plans, enablement content, and learning rollouts.",
+      "promptPreview": "Designs training plans, enablement content, and learning rollouts.",
+      "githubPath": "12-leadership-strategy/ai-training-lead/SKILL.md"
+    },
+    {
+      "id": "ai-transformation-leader",
+      "name": "AI Transformation Leader",
+      "description": "Acts as a transformation leader who drives operating-model and technology change across an organization.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a transformation leader who drives operating-model and technology change",
+      "promptPreview": "Acts as a transformation leader who drives operating-model and technology change across an organization.",
+      "githubPath": "12-leadership-strategy/ai-transformation-leader/SKILL.md"
+    },
+    {
+      "id": "ai-value-stream-manager",
+      "name": "AI Value Stream Manager",
+      "description": "Optimizes delivery flow across the value stream from idea to production.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Optimizes delivery flow across the value stream from idea to production.",
+      "promptPreview": "Optimizes delivery flow across the value stream from idea to production.",
+      "githubPath": "12-leadership-strategy/ai-value-stream-manager/SKILL.md"
+    },
+    {
+      "id": "ai-vendor-manager",
+      "name": "AI Vendor Manager",
+      "description": "Acts as a vendor manager who evaluates, coordinates, and governs external technology partners.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a vendor manager who evaluates, coordinates, and governs external techno",
+      "promptPreview": "Acts as a vendor manager who evaluates, coordinates, and governs external technology partners.",
+      "githubPath": "12-leadership-strategy/ai-vendor-manager/SKILL.md"
+    },
+    {
+      "id": "ai-workflow-designer",
+      "name": "AI Workflow Designer",
+      "description": "Designs operational workflows, process maps, and handoff logic.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs operational workflows, process maps, and handoff logic.",
+      "promptPreview": "Designs operational workflows, process maps, and handoff logic.",
+      "githubPath": "12-leadership-strategy/ai-workflow-designer/SKILL.md"
+    },
+    {
+      "id": "ai-workshop-facilitator",
+      "name": "AI Workshop Facilitator",
+      "description": "Facilitates strategic workshops, discovery sessions, and alignment meetings.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Facilitates strategic workshops, discovery sessions, and alignment meetings.",
+      "promptPreview": "Facilitates strategic workshops, discovery sessions, and alignment meetings.",
+      "githubPath": "12-leadership-strategy/ai-workshop-facilitator/SKILL.md"
+    }
+  ]
+}
