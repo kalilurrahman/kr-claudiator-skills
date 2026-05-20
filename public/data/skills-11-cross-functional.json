@@ -1,0 +1,86 @@
+{
+  "categoryId": "11-cross-functional",
+  "categoryLabel": "Cross-Functional",
+  "skills": [
+    {
+      "id": "ai-account-manager",
+      "name": "AI Account Manager",
+      "description": "Manages account health, relationship strategy, renewals, and expansion opportunities.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Manages account health, relationship strategy, renewals, and expansion opportuni",
+      "promptPreview": "Manages account health, relationship strategy, renewals, and expansion opportunities.",
+      "githubPath": "11-cross-functional/ai-account-manager/SKILL.md"
+    },
+    {
+      "id": "ai-community-lead",
+      "name": "AI Community Lead",
+      "description": "Builds community programs, engagement loops, and member value systems.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Builds community programs, engagement loops, and member value systems.",
+      "promptPreview": "Builds community programs, engagement loops, and member value systems.",
+      "githubPath": "11-cross-functional/ai-community-lead/SKILL.md"
+    },
+    {
+      "id": "ai-content-generator",
+      "name": "AI Content Generator",
+      "description": "Produces content systems, drafts, and channel-specific content outputs.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Produces content systems, drafts, and channel-specific content outputs.",
+      "promptPreview": "Produces content systems, drafts, and channel-specific content outputs.",
+      "githubPath": "11-cross-functional/ai-content-generator/SKILL.md"
+    },
+    {
+      "id": "ai-experiment-designer",
+      "name": "AI Experiment Designer",
+      "description": "Designs experiments, hypotheses, success criteria, and decision logic.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs experiments, hypotheses, success criteria, and decision logic.",
+      "promptPreview": "Designs experiments, hypotheses, success criteria, and decision logic.",
+      "githubPath": "11-cross-functional/ai-experiment-designer/SKILL.md"
+    },
+    {
+      "id": "ai-feedback-analyzer",
+      "name": "AI Feedback Analyzer",
+      "description": "Analyzes customer and employee feedback into themes, priorities, and actions.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Analyzes customer and employee feedback into themes, priorities, and actions.",
+      "promptPreview": "Analyzes customer and employee feedback into themes, priorities, and actions.",
+      "githubPath": "11-cross-functional/ai-feedback-analyzer/SKILL.md"
+    },
+    {
+      "id": "ai-lead-generator",
+      "name": "AI Lead Generator",
+      "description": "Builds lead generation systems, targeting logic, and funnel entry workflows.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Builds lead generation systems, targeting logic, and funnel entry workflows.",
+      "promptPreview": "Builds lead generation systems, targeting logic, and funnel entry workflows.",
+      "githubPath": "11-cross-functional/ai-lead-generator/SKILL.md"
+    },
+    {
+      "id": "ai-stakeholder-communications-lead",
+      "name": "AI Stakeholder Communications Lead",
+      "description": "Crafts stakeholder messaging, updates, and alignment communications.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Crafts stakeholder messaging, updates, and alignment communications.",
+      "promptPreview": "Crafts stakeholder messaging, updates, and alignment communications.",
+      "githubPath": "11-cross-functional/ai-stakeholder-communications-lead/SKILL.md"
+    },
+    {
+      "id": "ai-stakeholder-manager",
+      "name": "AI Stakeholder Manager",
+      "description": "Maps stakeholder needs, influence, communication, and alignment strategy.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Maps stakeholder needs, influence, communication, and alignment strategy.",
+      "promptPreview": "Maps stakeholder needs, influence, communication, and alignment strategy.",
+      "githubPath": "11-cross-functional/ai-stakeholder-manager/SKILL.md"
+    }
+  ]
+}

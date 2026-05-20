@@ -1,0 +1,216 @@
+{
+  "categoryId": "10-architecture",
+  "categoryLabel": "Architecture",
+  "skills": [
+    {
+      "id": "ai-api-architect",
+      "name": "AI API Architect",
+      "description": "Designs APIs, versioning strategy, request/response contracts, and integration patterns.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs APIs, versioning strategy, request/response contracts, and integration p",
+      "promptPreview": "Designs APIs, versioning strategy, request/response contracts, and integration patterns.",
+      "githubPath": "10-architecture/ai-api-architect/SKILL.md"
+    },
+    {
+      "id": "ai-architecture-reviewer",
+      "name": "AI Architecture Reviewer",
+      "description": "Reviews architectures for fitness, tradeoffs, anti-patterns, and delivery readiness.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Reviews architectures for fitness, tradeoffs, anti-patterns, and delivery readin",
+      "promptPreview": "Reviews architectures for fitness, tradeoffs, anti-patterns, and delivery readiness.",
+      "githubPath": "10-architecture/ai-architecture-reviewer/SKILL.md"
+    },
+    {
+      "id": "ai-backend-architect",
+      "name": "AI Backend Architect",
+      "description": "Designs backend systems, APIs, services, data access, and scalability patterns.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs backend systems, APIs, services, data access, and scalability patterns.",
+      "promptPreview": "Designs backend systems, APIs, services, data access, and scalability patterns.",
+      "githubPath": "10-architecture/ai-backend-architect/SKILL.md"
+    },
+    {
+      "id": "ai-capability-manager",
+      "name": "AI Capability Manager",
+      "description": "Maps capabilities, maturity levels, gaps, and enablement priorities.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Maps capabilities, maturity levels, gaps, and enablement priorities.",
+      "promptPreview": "Maps capabilities, maturity levels, gaps, and enablement priorities.",
+      "githubPath": "10-architecture/ai-capability-manager/SKILL.md"
+    },
+    {
+      "id": "ai-cloud-architect",
+      "name": "AI Cloud Architect",
+      "description": "Designs cloud architecture, landing zones, resilience, and platform choices.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs cloud architecture, landing zones, resilience, and platform choices.",
+      "promptPreview": "Designs cloud architecture, landing zones, resilience, and platform choices.",
+      "githubPath": "10-architecture/ai-cloud-architect/SKILL.md"
+    },
+    {
+      "id": "ai-data-architect",
+      "name": "AI Data Architect",
+      "description": "Designs enterprise data architecture, warehouses, governance, and analytic foundations.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs enterprise data architecture, warehouses, governance, and analytic found",
+      "promptPreview": "Designs enterprise data architecture, warehouses, governance, and analytic foundations.",
+      "githubPath": "10-architecture/ai-data-architect/SKILL.md"
+    },
+    {
+      "id": "ai-database-architect",
+      "name": "AI Database Architect",
+      "description": "Designs relational data models, indexing, performance, and data governance.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs relational data models, indexing, performance, and data governance.",
+      "promptPreview": "Designs relational data models, indexing, performance, and data governance.",
+      "githubPath": "10-architecture/ai-database-architect/SKILL.md"
+    },
+    {
+      "id": "ai-enterprise-architect",
+      "name": "AI Enterprise Architect",
+      "description": "Acts as an enterprise architect who guides platform, integration, governance, and target-state planning.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as an enterprise architect who guides platform, integration, governance, an",
+      "promptPreview": "Acts as an enterprise architect who guides platform, integration, governance, and target-state planning.",
+      "githubPath": "10-architecture/ai-enterprise-architect/SKILL.md"
+    },
+    {
+      "id": "ai-frontend-architect",
+      "name": "AI Frontend Architect",
+      "description": "Designs frontend architecture, component systems, and client-side performance strategy.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs frontend architecture, component systems, and client-side performance st",
+      "promptPreview": "Designs frontend architecture, component systems, and client-side performance strategy.",
+      "githubPath": "10-architecture/ai-frontend-architect/SKILL.md"
+    },
+    {
+      "id": "ai-identity-architect",
+      "name": "AI Identity Architect",
+      "description": "Designs identity, authentication, authorization, and access control models.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs identity, authentication, authorization, and access control models.",
+      "promptPreview": "Designs identity, authentication, authorization, and access control models.",
+      "githubPath": "10-architecture/ai-identity-architect/SKILL.md"
+    },
+    {
+      "id": "ai-information-architect",
+      "name": "AI Information Architect",
+      "description": "Structures information systems, content models, and knowledge organization.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Structures information systems, content models, and knowledge organization.",
+      "promptPreview": "Structures information systems, content models, and knowledge organization.",
+      "githubPath": "10-architecture/ai-information-architect/SKILL.md"
+    },
+    {
+      "id": "ai-infrastructure-lead",
+      "name": "AI Infrastructure Lead",
+      "description": "Leads infrastructure planning, environments, networking, and platform reliability.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Leads infrastructure planning, environments, networking, and platform reliabilit",
+      "promptPreview": "Leads infrastructure planning, environments, networking, and platform reliability.",
+      "githubPath": "10-architecture/ai-infrastructure-lead/SKILL.md"
+    },
+    {
+      "id": "ai-integration-architect",
+      "name": "AI Integration Architect",
+      "description": "Designs system integrations, event flows, middleware, and interoperability.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs system integrations, event flows, middleware, and interoperability.",
+      "promptPreview": "Designs system integrations, event flows, middleware, and interoperability.",
+      "githubPath": "10-architecture/ai-integration-architect/SKILL.md"
+    },
+    {
+      "id": "ai-migration-lead",
+      "name": "AI Migration Lead",
+      "description": "Plans and governs technology migrations with sequencing, risk control, and cutover strategy.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Plans and governs technology migrations with sequencing, risk control, and cutov",
+      "promptPreview": "Plans and governs technology migrations with sequencing, risk control, and cutover strategy.",
+      "githubPath": "10-architecture/ai-migration-lead/SKILL.md"
+    },
+    {
+      "id": "ai-network-architect",
+      "name": "AI Network Architect",
+      "description": "Designs network topology, connectivity, segmentation, and security boundaries.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs network topology, connectivity, segmentation, and security boundaries.",
+      "promptPreview": "Designs network topology, connectivity, segmentation, and security boundaries.",
+      "githubPath": "10-architecture/ai-network-architect/SKILL.md"
+    },
+    {
+      "id": "ai-observability-architect",
+      "name": "AI Observability Architect",
+      "description": "Designs logs, metrics, traces, alerting, and operational visibility.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs logs, metrics, traces, alerting, and operational visibility.",
+      "promptPreview": "Designs logs, metrics, traces, alerting, and operational visibility.",
+      "githubPath": "10-architecture/ai-observability-architect/SKILL.md"
+    },
+    {
+      "id": "ai-platform-architect",
+      "name": "AI Platform Architect",
+      "description": "Acts as a platform architect who designs shared engineering platforms, internal developer platforms, and enablement layers.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a platform architect who designs shared engineering platforms, internal ",
+      "promptPreview": "Acts as a platform architect who designs shared engineering platforms, internal developer platforms, and enablement layers.",
+      "githubPath": "10-architecture/ai-platform-architect/SKILL.md"
+    },
+    {
+      "id": "ai-reliability-engineer",
+      "name": "AI Reliability Engineer",
+      "description": "Improves resilience, recovery, fault tolerance, and reliability design.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Improves resilience, recovery, fault tolerance, and reliability design.",
+      "promptPreview": "Improves resilience, recovery, fault tolerance, and reliability design.",
+      "githubPath": "10-architecture/ai-reliability-engineer/SKILL.md"
+    },
+    {
+      "id": "ai-service-designer",
+      "name": "AI Service Designer",
+      "description": "Designs service blueprints, customer journeys, and operational service models.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Designs service blueprints, customer journeys, and operational service models.",
+      "promptPreview": "Designs service blueprints, customer journeys, and operational service models.",
+      "githubPath": "10-architecture/ai-service-designer/SKILL.md"
+    },
+    {
+      "id": "ai-solution-architect",
+      "name": "AI Solution Architect",
+      "description": "Acts as a solution architect who designs end-to-end systems from requirements to deployment.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Acts as a solution architect who designs end-to-end systems from requirements to",
+      "promptPreview": "Acts as a solution architect who designs end-to-end systems from requirements to deployment.",
+      "githubPath": "10-architecture/ai-solution-architect/SKILL.md"
+    },
+    {
+      "id": "ai-systems-integrator",
+      "name": "AI Systems Integrator",
+      "description": "Integrates systems end-to-end, aligning data, APIs, and workflows.",
+      "tags": [],
+      "difficulty": "intermediate",
+      "useCase": "Integrates systems end-to-end, aligning data, APIs, and workflows.",
+      "promptPreview": "Integrates systems end-to-end, aligning data, APIs, and workflows.",
+      "githubPath": "10-architecture/ai-systems-integrator/SKILL.md"
+    }
+  ]
+}
