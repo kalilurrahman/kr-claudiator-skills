@@ -6,7 +6,11 @@
       "id": "sk-001",
       "name": "API Design",
       "description": "Design a complete REST or GraphQL API from requirements. Outputs endpoints, request/response schemas, error handling, authentication, and versioning strategy.",
-      "tags": ["rest", "graphql", "openapi"],
+      "tags": [
+        "rest",
+        "graphql",
+        "openapi"
+      ],
       "difficulty": "intermediate",
       "useCase": "Build production-ready API specifications",
       "promptPreview": "Design a production-ready API specification from requirements. Every endpoint, field, and error code defined with enough detail for engineers to implement.",
@@ -16,7 +20,11 @@
       "id": "sk-002",
       "name": "Async Patterns",
       "description": "Design asynchronous processing patterns for background jobs, event-driven systems, and non-blocking I/O. Outputs queues, workers, retry logic, and monitoring.",
-      "tags": ["async", "queues", "event-driven"],
+      "tags": [
+        "async",
+        "queues",
+        "event-driven"
+      ],
       "difficulty": "advanced",
       "useCase": "Build robust async processing systems",
       "promptPreview": "Design asynchronous processing patterns for background jobs, event-driven systems, and non-blocking I/O with retry logic and monitoring.",
@@ -26,7 +34,11 @@
       "id": "sk-003",
       "name": "Caching Strategy",
       "description": "Design a multi-layer caching strategy for performance optimization. Outputs cache types, TTLs, invalidation, and cache-aside patterns.",
-      "tags": ["caching", "redis", "performance"],
+      "tags": [
+        "caching",
+        "redis",
+        "performance"
+      ],
       "difficulty": "intermediate",
       "useCase": "Optimize application performance with caching",
       "promptPreview": "Design a multi-layer caching strategy with cache types, TTLs, invalidation policies, and cache-aside patterns for performance optimization.",
@@ -36,7 +48,11 @@
       "id": "sk-004",
       "name": "Circuit Breaker",
       "description": "Circuit breaker pattern for handling service failures gracefully. Outputs states (closed/open/half-open), thresholds, fallback strategies, and monitoring.",
-      "tags": ["resilience", "fault-tolerance", "patterns"],
+      "tags": [
+        "resilience",
+        "fault-tolerance",
+        "patterns"
+      ],
       "difficulty": "advanced",
       "useCase": "Prevent cascading service failures",
       "promptPreview": "Design circuit breakers with state management, failure thresholds, half-open testing, fallback responses, and monitoring dashboards.",
@@ -46,7 +62,11 @@
       "id": "sk-005",
       "name": "Code Review",
       "description": "Generate a focused code review checklist based on language, framework, and change type. Outputs specific items to check, not generic advice.",
-      "tags": ["code-review", "quality", "checklist"],
+      "tags": [
+        "code-review",
+        "quality",
+        "checklist"
+      ],
       "difficulty": "beginner",
       "useCase": "Conduct thorough code reviews",
       "promptPreview": "Generate a focused code review checklist based on language, framework, and change type with specific items to check.",
@@ -56,7 +76,11 @@
       "id": "sk-006",
       "name": "Database Schema",
       "description": "Design a normalized database schema with tables, relationships, indexes, and constraints. Outputs SQL DDL and ER diagram description.",
-      "tags": ["database", "sql", "schema-design"],
+      "tags": [
+        "database",
+        "sql",
+        "schema-design"
+      ],
       "difficulty": "intermediate",
       "useCase": "Design robust database schemas",
       "promptPreview": "Design a normalized database schema with tables, relationships, indexes, constraints, and migration scripts.",
@@ -66,7 +90,11 @@
       "id": "sk-007",
       "name": "Error Handling",
       "description": "Design a comprehensive error handling strategy for an application. Outputs error types, response formats, logging patterns, and user-facing messages.",
-      "tags": ["error-handling", "logging", "resilience"],
+      "tags": [
+        "error-handling",
+        "logging",
+        "resilience"
+      ],
       "difficulty": "intermediate",
       "useCase": "Build robust error handling systems",
       "promptPreview": "Design a comprehensive error handling strategy with error types, response formats, logging patterns, and user-facing messages.",
@@ -76,7 +104,11 @@
       "id": "sk-008",
       "name": "Feature Flags",
       "description": "Feature flag system for gradual rollouts, A/B testing, and kill switches. Outputs flag types, targeting, evaluation, and lifecycle management.",
-      "tags": ["feature-flags", "rollout", "a-b-testing"],
+      "tags": [
+        "feature-flags",
+        "rollout",
+        "a-b-testing"
+      ],
       "difficulty": "intermediate",
       "useCase": "Control feature rollouts safely",
       "promptPreview": "Design a feature flag system with flag types, targeting rules, evaluation logic, and lifecycle management for gradual rollouts.",
@@ -86,7 +118,11 @@
       "id": "sk-009",
       "name": "Git Workflow",
       "description": "Design a Git branching strategy and workflow for a team. Outputs branch naming, merge strategy, CI/CD integration, and release process.",
-      "tags": ["git", "workflow", "collaboration"],
+      "tags": [
+        "git",
+        "workflow",
+        "collaboration"
+      ],
       "difficulty": "beginner",
       "useCase": "Standardise team Git workflows",
       "promptPreview": "Design a Git branching strategy with branch naming, merge strategy, CI/CD integration, and release process for a development team.",
@@ -96,7 +132,11 @@
       "id": "sk-010",
       "name": "Idempotency Design",
       "description": "Design idempotent APIs and operations. Outputs idempotency keys, deduplication strategies, and retry-safe implementations.",
-      "tags": ["idempotency", "api", "reliability"],
+      "tags": [
+        "idempotency",
+        "api",
+        "reliability"
+      ],
       "difficulty": "advanced",
       "useCase": "Build retry-safe API operations",
       "promptPreview": "Design idempotent APIs with idempotency keys, deduplication strategies, and retry-safe implementations for reliable operations.",
@@ -106,7 +146,11 @@
       "id": "sk-011",
       "name": "Logging Strategy",
       "description": "Design a comprehensive logging strategy for production systems. Outputs log structure, levels, retention, aggregation, and query patterns.",
-      "tags": ["logging", "observability", "monitoring"],
+      "tags": [
+        "logging",
+        "observability",
+        "monitoring"
+      ],
       "difficulty": "beginner",
       "useCase": "Build effective production logging",
       "promptPreview": "Design a comprehensive logging strategy with log structure, levels, retention policies, aggregation, and query patterns.",
@@ -116,7 +160,11 @@
       "id": "sk-012",
       "name": "Microservices Design",
       "description": "Design a microservices architecture from a monolith or new requirements. Outputs service boundaries, communication patterns, data ownership, and deployment strategy.",
-      "tags": ["microservices", "architecture", "distributed"],
+      "tags": [
+        "microservices",
+        "architecture",
+        "distributed"
+      ],
       "difficulty": "advanced",
       "useCase": "Architect microservices systems",
       "promptPreview": "Design a microservices architecture with service boundaries, communication patterns, data ownership, and deployment strategy.",
@@ -126,7 +174,11 @@
       "id": "sk-013",
       "name": "Pagination Design",
       "description": "Design pagination for large datasets with cursor-based, offset-based, and keyset strategies. Outputs performance trade-offs and implementation patterns.",
-      "tags": ["pagination", "api", "performance"],
+      "tags": [
+        "pagination",
+        "api",
+        "performance"
+      ],
       "difficulty": "intermediate",
       "useCase": "Handle large dataset navigation",
       "promptPreview": "Design pagination with cursor-based, offset-based, and keyset strategies including performance trade-offs and implementation patterns.",
@@ -136,7 +188,11 @@
       "id": "sk-014",
       "name": "Rate Limiting",
       "description": "Design rate limiting to prevent abuse and ensure fair usage. Outputs algorithms (token bucket, sliding window), storage strategies, and bypass rules.",
-      "tags": ["rate-limiting", "security", "api"],
+      "tags": [
+        "rate-limiting",
+        "security",
+        "api"
+      ],
       "difficulty": "intermediate",
       "useCase": "Protect APIs from abuse",
       "promptPreview": "Design rate limiting with token bucket, sliding window algorithms, storage strategies, and bypass rules for fair API usage.",
@@ -146,11 +202,70 @@
       "id": "sk-015",
       "name": "Tech Debt Audit",
       "description": "Analyze a codebase or component to identify technical debt, assess impact, and prioritize remediation. Outputs categorized debt items with ROI estimates.",
-      "tags": ["tech-debt", "audit", "refactoring"],
+      "tags": [
+        "tech-debt",
+        "audit",
+        "refactoring"
+      ],
       "difficulty": "intermediate",
       "useCase": "Identify and prioritize tech debt",
       "promptPreview": "Analyze a codebase to identify technical debt, assess impact, and prioritize remediation with categorized debt items and ROI estimates.",
       "githubPath": "01-software-dev/tech-debt-audit/SKILL.md"
+    },
+    {
+      "id": "01-software-dev/monorepo-strategy",
+      "name": "monorepo-strategy",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Design a polyglot monorepo with Turbo/Nx, shared packages, hermetic builds, and selective CI.",
+      "argumentHint": "[languages, scale, ci system, team size]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: monorepo-strategy\ndescription: Design a polyglot monorepo with Turbo/Nx, shared packages, hermetic builds, and selective CI.\nargument-hint: [languages, scale, ci system, team size]\nallowed-tools: Read, Write\n---\n\n# Monorepo Strategy\n\n## When to use\nDesign a polyglot monorepo with Turbo/Nx, shared packages, hermetic builds, and selective CI.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "01-software-dev/feature-toggle-rollout",
+      "name": "feature-toggle-rollout",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Implement progressive feature flag rollout with kill switches, segmentation, and metric guards.",
+      "argumentHint": "[flag system, audience, rollback policy]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: feature-toggle-rollout\ndescription: Implement progressive feature flag rollout with kill switches, segmentation, and metric guards.\nargument-hint: [flag system, audience, rollback policy]\nallowed-tools: Read, Write\n---\n\n# Feature Toggle Rollout\n\n## When to use\nImplement progressive feature flag rollout with kill switches, segmentation, and metric guards.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "01-software-dev/dependency-upgrade-playbook",
+      "name": "dependency-upgrade-playbook",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Triage and upgrade transitive dependencies safely with lockfile diffs and CVE checks.",
+      "argumentHint": "[stack, cadence, blast radius]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: dependency-upgrade-playbook\ndescription: Triage and upgrade transitive dependencies safely with lockfile diffs and CVE checks.\nargument-hint: [stack, cadence, blast radius]\nallowed-tools: Read, Write\n---\n\n# Dependency Upgrade Playbook\n\n## When to use\nTriage and upgrade transitive dependencies safely with lockfile diffs and CVE checks.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "01-software-dev/refactor-strangler",
+      "name": "refactor-strangler",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Apply the strangler pattern to retire a legacy module without freezing delivery.",
+      "argumentHint": "[legacy area, target, migration window]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: refactor-strangler\ndescription: Apply the strangler pattern to retire a legacy module without freezing delivery.\nargument-hint: [legacy area, target, migration window]\nallowed-tools: Read, Write\n---\n\n# Refactor Strangler\n\n## When to use\nApply the strangler pattern to retire a legacy module without freezing delivery.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "01-software-dev/error-handling-standards",
+      "name": "error-handling-standards",
+      "category": "Software Development",
+      "categorySlug": "01-software-dev",
+      "description": "Define error taxonomy, retry policy, and structured logging conventions for a service.",
+      "argumentHint": "[language, transport, observability stack]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: error-handling-standards\ndescription: Define error taxonomy, retry policy, and structured logging conventions for a service.\nargument-hint: [language, transport, observability stack]\nallowed-tools: Read, Write\n---\n\n# Error Handling Standards\n\n## When to use\nDefine error taxonomy, retry policy, and structured logging conventions for a service.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

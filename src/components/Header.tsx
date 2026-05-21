@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart, Download } from "lucide-react";
+import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart, Download, BookOpen } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { useTheme } from "@/hooks/useTheme";
 import { usePwaInstall } from "@/hooks/usePwaInstall";
@@ -24,7 +24,8 @@ export function Header() {
 
   const navLinks = [
     { label: "Home", to: "/", icon: Home },
-    { label: "Skills Library", to: "/skills", icon: Search },
+    { label: "Skills", to: "/skills", icon: Search },
+    { label: "Guide", to: "/guide", icon: BookOpen },
     { label: "Favourites", to: "/favourites", icon: Heart, badge: favouriteCount },
     { label: "About", to: "/about", icon: Info },
     { label: "Feedback", to: "/feedback", icon: MessageSquare },

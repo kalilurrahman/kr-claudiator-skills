@@ -601,6 +601,61 @@
       "useCase": "Facilitates strategic workshops, discovery sessions, and alignment meetings.",
       "promptPreview": "Facilitates strategic workshops, discovery sessions, and alignment meetings.",
       "githubPath": "12-leadership-strategy/ai-workshop-facilitator/SKILL.md"
+    },
+    {
+      "id": "12-leadership-strategy/okr-cascade",
+      "name": "okr-cascade",
+      "category": "Leadership & Strategy",
+      "categorySlug": "12-leadership-strategy",
+      "description": "Translate company objectives into team-level OKRs with measurable key results.",
+      "argumentHint": "[company objectives, teams, horizon]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: okr-cascade\ndescription: Translate company objectives into team-level OKRs with measurable key results.\nargument-hint: [company objectives, teams, horizon]\nallowed-tools: Read, Write\n---\n\n# Okr Cascade\n\n## When to use\nTranslate company objectives into team-level OKRs with measurable key results.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "12-leadership-strategy/operating-rhythm",
+      "name": "operating-rhythm",
+      "category": "Leadership & Strategy",
+      "categorySlug": "12-leadership-strategy",
+      "description": "Design a quarterly operating rhythm: planning, reviews, retros, and metrics.",
+      "argumentHint": "[org size, geography, cadence]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: operating-rhythm\ndescription: Design a quarterly operating rhythm: planning, reviews, retros, and metrics.\nargument-hint: [org size, geography, cadence]\nallowed-tools: Read, Write\n---\n\n# Operating Rhythm\n\n## When to use\nDesign a quarterly operating rhythm: planning, reviews, retros, and metrics.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "12-leadership-strategy/talent-density",
+      "name": "talent-density",
+      "category": "Leadership & Strategy",
+      "categorySlug": "12-leadership-strategy",
+      "description": "Raise talent density: calibration, performance bar, and growth ladders.",
+      "argumentHint": "[org size, function, current bar]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: talent-density\ndescription: Raise talent density: calibration, performance bar, and growth ladders.\nargument-hint: [org size, function, current bar]\nallowed-tools: Read, Write\n---\n\n# Talent Density\n\n## When to use\nRaise talent density: calibration, performance bar, and growth ladders.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "12-leadership-strategy/engineering-strategy",
+      "name": "engineering-strategy",
+      "category": "Leadership & Strategy",
+      "categorySlug": "12-leadership-strategy",
+      "description": "Write a one-page engineering strategy with diagnosis, guiding policy, and actions.",
+      "argumentHint": "[business strategy, org, horizon]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: engineering-strategy\ndescription: Write a one-page engineering strategy with diagnosis, guiding policy, and actions.\nargument-hint: [business strategy, org, horizon]\nallowed-tools: Read, Write\n---\n\n# Engineering Strategy\n\n## When to use\nWrite a one-page engineering strategy with diagnosis, guiding policy, and actions.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "12-leadership-strategy/board-update",
+      "name": "board-update",
+      "category": "Leadership & Strategy",
+      "categorySlug": "12-leadership-strategy",
+      "description": "Compose a focused board update covering metrics, risks, asks, and decisions.",
+      "argumentHint": "[stage, audience, period]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: board-update\ndescription: Compose a focused board update covering metrics, risks, asks, and decisions.\nargument-hint: [stage, audience, period]\nallowed-tools: Read, Write\n---\n\n# Board Update\n\n## When to use\nCompose a focused board update covering metrics, risks, asks, and decisions.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

@@ -211,6 +211,61 @@
       "useCase": "Integrates systems end-to-end, aligning data, APIs, and workflows.",
       "promptPreview": "Integrates systems end-to-end, aligning data, APIs, and workflows.",
       "githubPath": "10-architecture/ai-systems-integrator/SKILL.md"
+    },
+    {
+      "id": "10-architecture/c4-model-docs",
+      "name": "c4-model-docs",
+      "category": "Architecture",
+      "categorySlug": "10-architecture",
+      "description": "Document a system using C4 (context, container, component) with consistent notation.",
+      "argumentHint": "[system, audience, depth]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: c4-model-docs\ndescription: Document a system using C4 (context, container, component) with consistent notation.\nargument-hint: [system, audience, depth]\nallowed-tools: Read, Write\n---\n\n# C4 Model Docs\n\n## When to use\nDocument a system using C4 (context, container, component) with consistent notation.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "10-architecture/fitness-functions",
+      "name": "fitness-functions",
+      "category": "Architecture",
+      "categorySlug": "10-architecture",
+      "description": "Define automated architectural fitness functions and wire them into CI.",
+      "argumentHint": "[characteristics, ci, gates]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: fitness-functions\ndescription: Define automated architectural fitness functions and wire them into CI.\nargument-hint: [characteristics, ci, gates]\nallowed-tools: Read, Write\n---\n\n# Fitness Functions\n\n## When to use\nDefine automated architectural fitness functions and wire them into CI.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "10-architecture/event-storming",
+      "name": "event-storming",
+      "category": "Architecture",
+      "categorySlug": "10-architecture",
+      "description": "Facilitate an event-storming session and harvest bounded contexts.",
+      "argumentHint": "[domain, participants, scope]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: event-storming\ndescription: Facilitate an event-storming session and harvest bounded contexts.\nargument-hint: [domain, participants, scope]\nallowed-tools: Read, Write\n---\n\n# Event Storming\n\n## When to use\nFacilitate an event-storming session and harvest bounded contexts.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "10-architecture/tech-radar",
+      "name": "tech-radar",
+      "category": "Architecture",
+      "categorySlug": "10-architecture",
+      "description": "Maintain a quarterly tech radar with adopt/trial/assess/hold rings and rationale.",
+      "argumentHint": "[org, cadence, owners]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: tech-radar\ndescription: Maintain a quarterly tech radar with adopt/trial/assess/hold rings and rationale.\nargument-hint: [org, cadence, owners]\nallowed-tools: Read, Write\n---\n\n# Tech Radar\n\n## When to use\nMaintain a quarterly tech radar with adopt/trial/assess/hold rings and rationale.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "10-architecture/platform-team-charter",
+      "name": "platform-team-charter",
+      "category": "Architecture",
+      "categorySlug": "10-architecture",
+      "description": "Charter a platform team: product mode, paved roads, and golden paths.",
+      "argumentHint": "[scope, consumers, slo]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: platform-team-charter\ndescription: Charter a platform team: product mode, paved roads, and golden paths.\nargument-hint: [scope, consumers, slo]\nallowed-tools: Read, Write\n---\n\n# Platform Team Charter\n\n## When to use\nCharter a platform team: product mode, paved roads, and golden paths.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

@@ -6,7 +6,11 @@
       "id": "sk-020",
       "name": "Alerting Rules",
       "description": "Design alerting rules for production monitoring with Prometheus, Grafana, PagerDuty. Outputs alert definitions, severity levels, escalation policies, and runbooks.",
-      "tags": ["alerting", "prometheus", "pagerduty"],
+      "tags": [
+        "alerting",
+        "prometheus",
+        "pagerduty"
+      ],
       "difficulty": "intermediate",
       "useCase": "Build effective production alerting",
       "promptPreview": "Design alerting rules with Prometheus, Grafana, PagerDuty including alert definitions, severity levels, escalation policies, and runbooks.",
@@ -16,7 +20,11 @@
       "id": "sk-021",
       "name": "Docker Compose",
       "description": "Create production-ready Docker Compose configurations for multi-container applications. Outputs service definitions, networking, volumes, and environment management.",
-      "tags": ["docker", "containers", "devops"],
+      "tags": [
+        "docker",
+        "containers",
+        "devops"
+      ],
       "difficulty": "intermediate",
       "useCase": "Spin up multi-container environments",
       "promptPreview": "Create a Docker Compose setup with proper networking, volume management, health checks, secrets, and environment-specific overrides.",
@@ -26,7 +34,11 @@
       "id": "sk-022",
       "name": "Kubernetes Manifest",
       "description": "Create production Kubernetes manifests with deployments, services, ingress, configs, and autoscaling. Outputs complete YAML with best practices.",
-      "tags": ["kubernetes", "k8s", "containers"],
+      "tags": [
+        "kubernetes",
+        "k8s",
+        "containers"
+      ],
       "difficulty": "advanced",
       "useCase": "Deploy apps on Kubernetes",
       "promptPreview": "Create production Kubernetes manifests with deployments, services, ingress, configs, autoscaling, and best practices.",
@@ -36,7 +48,11 @@
       "id": "sk-023",
       "name": "Monitoring Setup",
       "description": "Setup monitoring with Prometheus, Grafana, alerting. Outputs metrics collection, dashboards, alert rules, and SLO tracking.",
-      "tags": ["monitoring", "prometheus", "grafana"],
+      "tags": [
+        "monitoring",
+        "prometheus",
+        "grafana"
+      ],
       "difficulty": "intermediate",
       "useCase": "Build production monitoring stacks",
       "promptPreview": "Design production monitoring with Prometheus/Grafana stack including SLOs, RED metrics dashboards, alerting, and on-call runbooks.",
@@ -46,7 +62,11 @@
       "id": "sk-024",
       "name": "Secrets Management",
       "description": "Design secrets management with Vault, AWS Secrets Manager, encrypted storage. Outputs rotation policies, access controls, and audit logging.",
-      "tags": ["secrets", "vault", "security"],
+      "tags": [
+        "secrets",
+        "vault",
+        "security"
+      ],
       "difficulty": "intermediate",
       "useCase": "Manage secrets securely at scale",
       "promptPreview": "Design secrets management with Vault, AWS Secrets Manager including rotation policies, access controls, and audit logging.",
@@ -56,11 +76,81 @@
       "id": "sk-025",
       "name": "Terraform Module",
       "description": "Production Terraform modules for infrastructure as code. Outputs reusable modules with variables, state management, and CI/CD integration.",
-      "tags": ["terraform", "iac", "cloud"],
+      "tags": [
+        "terraform",
+        "iac",
+        "cloud"
+      ],
       "difficulty": "advanced",
       "useCase": "Bootstrap infrastructure-as-code modules",
       "promptPreview": "Scaffold a reusable Terraform module with variables, outputs, state management, and CI/CD integration for cloud infrastructure.",
       "githubPath": "02-devops-infra/terraform-module/SKILL.md"
+    },
+    {
+      "id": "02-devops/terraform-module-design",
+      "name": "terraform-module-design",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops",
+      "description": "Author reusable Terraform modules with versioning, examples, and integration tests.",
+      "argumentHint": "[cloud, scope, consumers]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: terraform-module-design\ndescription: Author reusable Terraform modules with versioning, examples, and integration tests.\nargument-hint: [cloud, scope, consumers]\nallowed-tools: Read, Write, Bash\n---\n\n# Terraform Module Design\n\n## When to use\nAuthor reusable Terraform modules with versioning, examples, and integration tests.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "02-devops/kubernetes-cost-optimization",
+      "name": "kubernetes-cost-optimization",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops",
+      "description": "Right-size workloads, enable HPA/VPA, and apply scheduling policies to cut spend.",
+      "argumentHint": "[cluster size, workload mix, budget target]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: kubernetes-cost-optimization\ndescription: Right-size workloads, enable HPA/VPA, and apply scheduling policies to cut spend.\nargument-hint: [cluster size, workload mix, budget target]\nallowed-tools: Read, Write, Bash\n---\n\n# Kubernetes Cost Optimization\n\n## When to use\nRight-size workloads, enable HPA/VPA, and apply scheduling policies to cut spend.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "02-devops/blue-green-deployment",
+      "name": "blue-green-deployment",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops",
+      "description": "Set up blue-green deploys with traffic shift, smoke tests, and instant rollback.",
+      "argumentHint": "[platform, traffic source, health gates]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: blue-green-deployment\ndescription: Set up blue-green deploys with traffic shift, smoke tests, and instant rollback.\nargument-hint: [platform, traffic source, health gates]\nallowed-tools: Read, Write, Bash\n---\n\n# Blue Green Deployment\n\n## When to use\nSet up blue-green deploys with traffic shift, smoke tests, and instant rollback.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "02-devops/gitops-bootstrap",
+      "name": "gitops-bootstrap",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops",
+      "description": "Bootstrap an ArgoCD/Flux GitOps environment with sync waves and drift detection.",
+      "argumentHint": "[tool, cluster count, app inventory]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: gitops-bootstrap\ndescription: Bootstrap an ArgoCD/Flux GitOps environment with sync waves and drift detection.\nargument-hint: [tool, cluster count, app inventory]\nallowed-tools: Read, Write, Bash\n---\n\n# Gitops Bootstrap\n\n## When to use\nBootstrap an ArgoCD/Flux GitOps environment with sync waves and drift detection.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "02-devops/dr-runbook",
+      "name": "dr-runbook",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops",
+      "description": "Build a tested disaster-recovery runbook covering RPO, RTO, and failover drills.",
+      "argumentHint": "[critical services, region strategy, RPO/RTO]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: dr-runbook\ndescription: Build a tested disaster-recovery runbook covering RPO, RTO, and failover drills.\nargument-hint: [critical services, region strategy, RPO/RTO]\nallowed-tools: Read, Write, Bash\n---\n\n# Dr Runbook\n\n## When to use\nBuild a tested disaster-recovery runbook covering RPO, RTO, and failover drills.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "02-devops/incident-postmortem",
+      "name": "incident-postmortem",
+      "category": "DevOps & Infrastructure",
+      "categorySlug": "02-devops",
+      "description": "Run a blameless postmortem and convert findings into trackable corrective actions.",
+      "argumentHint": "[incident scope, severity, stakeholders]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: incident-postmortem\ndescription: Run a blameless postmortem and convert findings into trackable corrective actions.\nargument-hint: [incident scope, severity, stakeholders]\nallowed-tools: Read, Write, Bash\n---\n\n# Incident Postmortem\n\n## When to use\nRun a blameless postmortem and convert findings into trackable corrective actions.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }
