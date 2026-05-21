@@ -6,7 +6,11 @@
       "id": "sk-040",
       "name": "Feature Engineering",
       "description": "Design ML features with encoding, scaling, selection, and extraction. Outputs feature pipelines, importance analysis, and validation strategies.",
-      "tags": ["features", "ml", "data-science"],
+      "tags": [
+        "features",
+        "ml",
+        "data-science"
+      ],
       "difficulty": "intermediate",
       "useCase": "Build effective ML feature pipelines",
       "promptPreview": "Design ML features with encoding, scaling, selection, extraction, feature pipelines, importance analysis, and validation strategies.",
@@ -16,7 +20,11 @@
       "id": "sk-041",
       "name": "Hyperparameter Tuning",
       "description": "Optimize ML model hyperparameters with grid search, random search, Bayesian optimization. Outputs tuning strategy, search spaces, and best parameters.",
-      "tags": ["hyperparameters", "optimization", "ml"],
+      "tags": [
+        "hyperparameters",
+        "optimization",
+        "ml"
+      ],
       "difficulty": "intermediate",
       "useCase": "Optimize model performance systematically",
       "promptPreview": "Optimize model hyperparameters with grid search, random search, Bayesian optimization to find best parameters within compute budget.",
@@ -26,7 +34,11 @@
       "id": "sk-042",
       "name": "ML Pipeline",
       "description": "Design end-to-end ML pipelines from data ingestion to model serving. Outputs training workflows, experiment tracking, and model registry.",
-      "tags": ["mlops", "pipeline", "training"],
+      "tags": [
+        "mlops",
+        "pipeline",
+        "training"
+      ],
       "difficulty": "advanced",
       "useCase": "Build production ML workflows",
       "promptPreview": "Design end-to-end ML pipelines with data ingestion, preprocessing, training, experiment tracking, model registry, and serving.",
@@ -36,7 +48,11 @@
       "id": "sk-043",
       "name": "Model Deployment",
       "description": "Deploy ML models to production with FastAPI, TorchServe, or SageMaker. Outputs serving infrastructure, scaling, monitoring, and A/B testing.",
-      "tags": ["deployment", "serving", "mlops"],
+      "tags": [
+        "deployment",
+        "serving",
+        "mlops"
+      ],
       "difficulty": "advanced",
       "useCase": "Ship models to production reliably",
       "promptPreview": "Deploy ML models with FastAPI, TorchServe, or SageMaker including serving infrastructure, scaling, monitoring, and A/B testing.",
@@ -46,7 +62,11 @@
       "id": "sk-044",
       "name": "Model Monitoring",
       "description": "Monitor ML models in production for drift, performance degradation, and data quality. Outputs metrics, alerts, and retraining triggers.",
-      "tags": ["monitoring", "drift", "mlops"],
+      "tags": [
+        "monitoring",
+        "drift",
+        "mlops"
+      ],
       "difficulty": "intermediate",
       "useCase": "Detect model degradation early",
       "promptPreview": "Monitor ML models for data drift, concept drift, performance degradation with metrics, alerts, and automated retraining triggers.",
@@ -56,7 +76,11 @@
       "id": "sk-045",
       "name": "Prompt Engineering",
       "description": "Design effective prompts for LLMs (GPT, Claude, Llama). Outputs prompt templates, few-shot examples, chain-of-thought reasoning, and evaluation metrics.",
-      "tags": ["llm", "prompts", "ai"],
+      "tags": [
+        "llm",
+        "prompts",
+        "ai"
+      ],
       "difficulty": "beginner",
       "useCase": "Craft effective LLM prompts",
       "promptPreview": "Design effective prompts with templates, few-shot examples, chain-of-thought reasoning, and systematic evaluation metrics.",
@@ -66,11 +90,70 @@
       "id": "sk-046",
       "name": "RAG Architecture",
       "description": "Design Retrieval-Augmented Generation systems with vector databases, chunking strategies, and hybrid search. Outputs architecture, embedding pipelines, and retrieval optimizations.",
-      "tags": ["rag", "vector-db", "llm"],
+      "tags": [
+        "rag",
+        "vector-db",
+        "llm"
+      ],
       "difficulty": "advanced",
       "useCase": "Build knowledge-grounded AI systems",
       "promptPreview": "Design RAG systems with vector databases, chunking strategies, hybrid search, embedding pipelines, and retrieval optimizations.",
       "githubPath": "04-ai-ml/rag-architecture/SKILL.md"
+    },
+    {
+      "id": "04-ai-ml/llm-eval-harness",
+      "name": "llm-eval-harness",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Build an offline LLM eval harness with golden sets, judges, and regression gates.",
+      "argumentHint": "[task type, judge model, gate threshold]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: llm-eval-harness\ndescription: Build an offline LLM eval harness with golden sets, judges, and regression gates.\nargument-hint: [task type, judge model, gate threshold]\nallowed-tools: Read, Write, Bash\n---\n\n# Llm Eval Harness\n\n## When to use\nBuild an offline LLM eval harness with golden sets, judges, and regression gates.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "04-ai-ml/rag-chunking-strategy",
+      "name": "rag-chunking-strategy",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Design chunking, overlap, and metadata enrichment for production RAG.",
+      "argumentHint": "[doc types, recall target, index]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: rag-chunking-strategy\ndescription: Design chunking, overlap, and metadata enrichment for production RAG.\nargument-hint: [doc types, recall target, index]\nallowed-tools: Read, Write, Bash\n---\n\n# Rag Chunking Strategy\n\n## When to use\nDesign chunking, overlap, and metadata enrichment for production RAG.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "04-ai-ml/agent-tool-design",
+      "name": "agent-tool-design",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Specify tool contracts, schemas, and guardrails for an LLM agent.",
+      "argumentHint": "[agent goal, tool set, risk class]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: agent-tool-design\ndescription: Specify tool contracts, schemas, and guardrails for an LLM agent.\nargument-hint: [agent goal, tool set, risk class]\nallowed-tools: Read, Write, Bash\n---\n\n# Agent Tool Design\n\n## When to use\nSpecify tool contracts, schemas, and guardrails for an LLM agent.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "04-ai-ml/prompt-versioning",
+      "name": "prompt-versioning",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Manage prompt versions with diffs, evals, and traffic shifts across environments.",
+      "argumentHint": "[volume, latency budget, provider]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: prompt-versioning\ndescription: Manage prompt versions with diffs, evals, and traffic shifts across environments.\nargument-hint: [volume, latency budget, provider]\nallowed-tools: Read, Write, Bash\n---\n\n# Prompt Versioning\n\n## When to use\nManage prompt versions with diffs, evals, and traffic shifts across environments.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "04-ai-ml/model-cards",
+      "name": "model-cards",
+      "category": "AI / ML",
+      "categorySlug": "04-ai-ml",
+      "description": "Author a model card covering intended use, evals, risks, and update cadence.",
+      "argumentHint": "[model family, dataset, owners]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: model-cards\ndescription: Author a model card covering intended use, evals, risks, and update cadence.\nargument-hint: [model family, dataset, owners]\nallowed-tools: Read, Write, Bash\n---\n\n# Model Cards\n\n## When to use\nAuthor a model card covering intended use, evals, risks, and update cadence.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

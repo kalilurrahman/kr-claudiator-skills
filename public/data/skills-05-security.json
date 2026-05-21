@@ -6,7 +6,11 @@
       "id": "sk-050",
       "name": "Penetration Test Plan",
       "description": "Design penetration testing plans with scope, methodology, tools, and reporting. Outputs test scenarios, OWASP Top 10 coverage, and remediation priorities.",
-      "tags": ["pentesting", "owasp", "appsec"],
+      "tags": [
+        "pentesting",
+        "owasp",
+        "appsec"
+      ],
       "difficulty": "advanced",
       "useCase": "Plan comprehensive security testing",
       "promptPreview": "Design penetration testing plans with scope, methodology, tools, OWASP Top 10 coverage, and remediation priorities.",
@@ -16,7 +20,11 @@
       "id": "sk-051",
       "name": "Penetration Testing",
       "description": "Design penetration testing plans with OWASP methodology, attack vectors, and remediation tracking. Outputs test scope, findings, and security improvements.",
-      "tags": ["pentesting", "security", "vulnerabilities"],
+      "tags": [
+        "pentesting",
+        "security",
+        "vulnerabilities"
+      ],
       "difficulty": "advanced",
       "useCase": "Execute security penetration tests",
       "promptPreview": "Design penetration testing with OWASP methodology, attack vectors, remediation tracking, and security improvement findings.",
@@ -26,7 +34,11 @@
       "id": "sk-052",
       "name": "Security Audit",
       "description": "Conduct security audits covering authentication, authorization, data protection, and compliance. Outputs findings, risk ratings, and remediation plans.",
-      "tags": ["audit", "compliance", "security"],
+      "tags": [
+        "audit",
+        "compliance",
+        "security"
+      ],
       "difficulty": "intermediate",
       "useCase": "Audit application security posture",
       "promptPreview": "Conduct security audits covering authentication, authorization, data protection, compliance with findings and remediation plans.",
@@ -36,11 +48,81 @@
       "id": "sk-053",
       "name": "Threat Modeling",
       "description": "Design threat models using STRIDE, attack trees, and data flow diagrams. Outputs threat analysis, risk ratings, and mitigation strategies.",
-      "tags": ["threat-modeling", "stride", "risk"],
+      "tags": [
+        "threat-modeling",
+        "stride",
+        "risk"
+      ],
       "difficulty": "intermediate",
       "useCase": "Identify security threats systematically",
       "promptPreview": "Design systematic threat analysis with STRIDE methodology, attack trees, data flow diagrams, and prioritized mitigations.",
       "githubPath": "05-security/threat-modeling/SKILL.md"
+    },
+    {
+      "id": "05-security/siem-detection-rules",
+      "name": "siem-detection-rules",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Author and tune SIEM detections with MITRE mapping and false-positive budgets.",
+      "argumentHint": "[siem tool, mitre coverage, fp budget]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: siem-detection-rules\ndescription: Author and tune SIEM detections with MITRE mapping and false-positive budgets.\nargument-hint: [siem tool, mitre coverage, fp budget]\nallowed-tools: Read, Write\n---\n\n# Siem Detection Rules\n\n## When to use\nAuthor and tune SIEM detections with MITRE mapping and false-positive budgets.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "05-security/ssrf-defense",
+      "name": "ssrf-defense",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Add allowlists, metadata blocks, and egress controls to defeat SSRF.",
+      "argumentHint": "[language, egress topology, cloud]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: ssrf-defense\ndescription: Add allowlists, metadata blocks, and egress controls to defeat SSRF.\nargument-hint: [language, egress topology, cloud]\nallowed-tools: Read, Write\n---\n\n# Ssrf Defense\n\n## When to use\nAdd allowlists, metadata blocks, and egress controls to defeat SSRF.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "05-security/jwt-hardening",
+      "name": "jwt-hardening",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Lock down JWT issuance, rotation, audience checks, and revocation paths.",
+      "argumentHint": "[idp, audience, lifetime]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: jwt-hardening\ndescription: Lock down JWT issuance, rotation, audience checks, and revocation paths.\nargument-hint: [idp, audience, lifetime]\nallowed-tools: Read, Write\n---\n\n# Jwt Hardening\n\n## When to use\nLock down JWT issuance, rotation, audience checks, and revocation paths.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "05-security/backup-encryption",
+      "name": "backup-encryption",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Encrypt backups end-to-end with KMS, restore drills, and key separation.",
+      "argumentHint": "[backup tool, kms, restore sla]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: backup-encryption\ndescription: Encrypt backups end-to-end with KMS, restore drills, and key separation.\nargument-hint: [backup tool, kms, restore sla]\nallowed-tools: Read, Write\n---\n\n# Backup Encryption\n\n## When to use\nEncrypt backups end-to-end with KMS, restore drills, and key separation.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "05-security/phishing-simulation",
+      "name": "phishing-simulation",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Run a phishing simulation program with cohorts, lures, and learning paths.",
+      "argumentHint": "[org size, cadence, baselines]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: phishing-simulation\ndescription: Run a phishing simulation program with cohorts, lures, and learning paths.\nargument-hint: [org size, cadence, baselines]\nallowed-tools: Read, Write\n---\n\n# Phishing Simulation\n\n## When to use\nRun a phishing simulation program with cohorts, lures, and learning paths.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "05-security/api-rate-limit-policy",
+      "name": "api-rate-limit-policy",
+      "category": "Security",
+      "categorySlug": "05-security",
+      "description": "Define per-route, per-tenant rate limits with burst, throttling, and 429 contracts.",
+      "argumentHint": "[traffic mix, tenants, slo]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: api-rate-limit-policy\ndescription: Define per-route, per-tenant rate limits with burst, throttling, and 429 contracts.\nargument-hint: [traffic mix, tenants, slo]\nallowed-tools: Read, Write\n---\n\n# Api Rate Limit Policy\n\n## When to use\nDefine per-route, per-tenant rate limits with burst, throttling, and 429 contracts.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

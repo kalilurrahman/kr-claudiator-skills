@@ -6,7 +6,11 @@
       "id": "sk-030",
       "name": "Dashboard Design",
       "description": "Design analytics dashboards with Tableau, PowerBI, Looker, Metabase. Outputs metric definitions, visualizations, filters, and user flows.",
-      "tags": ["dashboards", "analytics", "visualization"],
+      "tags": [
+        "dashboards",
+        "analytics",
+        "visualization"
+      ],
       "difficulty": "beginner",
       "useCase": "Design effective analytics dashboards",
       "promptPreview": "Design analytics dashboards with metric definitions, visualizations, filters, drill-downs, and user flows for stakeholders.",
@@ -16,7 +20,11 @@
       "id": "sk-031",
       "name": "Data Quality Checks",
       "description": "Design data quality validation with Great Expectations, custom checks, and automated monitoring. Outputs validation rules, anomaly detection, and data lineage.",
-      "tags": ["data-quality", "validation", "monitoring"],
+      "tags": [
+        "data-quality",
+        "validation",
+        "monitoring"
+      ],
       "difficulty": "intermediate",
       "useCase": "Ensure data quality in pipelines",
       "promptPreview": "Design data quality validation with Great Expectations, custom checks, anomaly detection, and automated monitoring for data pipelines.",
@@ -26,7 +34,11 @@
       "id": "sk-032",
       "name": "Data Warehouse Schema",
       "description": "Design data warehouse schemas with star/snowflake patterns, dimensions, facts, and slowly changing dimensions. Outputs DDL and ETL integration.",
-      "tags": ["data-warehouse", "star-schema", "dimensional"],
+      "tags": [
+        "data-warehouse",
+        "star-schema",
+        "dimensional"
+      ],
       "difficulty": "advanced",
       "useCase": "Architect data warehouse schemas",
       "promptPreview": "Design data warehouse schemas with star/snowflake patterns, dimensions, facts, SCDs, and ETL integration strategies.",
@@ -36,7 +48,11 @@
       "id": "sk-033",
       "name": "ETL Pipeline",
       "description": "Design extract-transform-load pipelines for data warehousing. Outputs data sources, transformations, quality checks, scheduling, and monitoring.",
-      "tags": ["etl", "data-engineering", "pipelines"],
+      "tags": [
+        "etl",
+        "data-engineering",
+        "pipelines"
+      ],
       "difficulty": "intermediate",
       "useCase": "Build robust data pipelines",
       "promptPreview": "Design ETL pipelines with data extraction, transformation logic, quality checks, scheduling, error handling, and monitoring.",
@@ -46,7 +62,11 @@
       "id": "sk-034",
       "name": "SQL Optimization",
       "description": "Optimize slow SQL queries with indexing, query rewriting, and execution plan analysis. Outputs before/after metrics and index strategies.",
-      "tags": ["sql", "performance", "database"],
+      "tags": [
+        "sql",
+        "performance",
+        "database"
+      ],
       "difficulty": "intermediate",
       "useCase": "Speed up slow database queries",
       "promptPreview": "Optimize SQL queries with indexing strategies, query rewriting, execution plan analysis, and before/after performance metrics.",
@@ -56,11 +76,81 @@
       "id": "sk-035",
       "name": "Streaming Pipeline",
       "description": "Design real-time streaming pipelines with Kafka, Flink, Spark Streaming. Outputs producer/consumer patterns, windowing, state management, and exactly-once semantics.",
-      "tags": ["kafka", "streaming", "real-time"],
+      "tags": [
+        "kafka",
+        "streaming",
+        "real-time"
+      ],
       "difficulty": "advanced",
       "useCase": "Build real-time data pipelines",
       "promptPreview": "Design real-time streaming pipelines with Kafka, Flink including producer/consumer patterns, windowing, and exactly-once semantics.",
       "githubPath": "03-data-analytics/streaming-pipeline/SKILL.md"
+    },
+    {
+      "id": "03-data-analytics/data-mart-design",
+      "name": "data-mart-design",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Design a dimensional data mart with conformed dims, slowly-changing strategies, and grain notes.",
+      "argumentHint": "[business domain, source systems, refresh cadence]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: data-mart-design\ndescription: Design a dimensional data mart with conformed dims, slowly-changing strategies, and grain notes.\nargument-hint: [business domain, source systems, refresh cadence]\nallowed-tools: Read, Write, Bash\n---\n\n# Data Mart Design\n\n## When to use\nDesign a dimensional data mart with conformed dims, slowly-changing strategies, and grain notes.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "03-data-analytics/metric-tree-builder",
+      "name": "metric-tree-builder",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Decompose a north-star metric into input/output trees with owners and alert thresholds.",
+      "argumentHint": "[north star, business area, owners]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: metric-tree-builder\ndescription: Decompose a north-star metric into input/output trees with owners and alert thresholds.\nargument-hint: [north star, business area, owners]\nallowed-tools: Read, Write, Bash\n---\n\n# Metric Tree Builder\n\n## When to use\nDecompose a north-star metric into input/output trees with owners and alert thresholds.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "03-data-analytics/ml-feature-store",
+      "name": "ml-feature-store",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Stand up a feature store with offline/online parity and point-in-time correctness.",
+      "argumentHint": "[platform, freshness sla, consumers]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: ml-feature-store\ndescription: Stand up a feature store with offline/online parity and point-in-time correctness.\nargument-hint: [platform, freshness sla, consumers]\nallowed-tools: Read, Write, Bash\n---\n\n# Ml Feature Store\n\n## When to use\nStand up a feature store with offline/online parity and point-in-time correctness.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "03-data-analytics/query-cost-governance",
+      "name": "query-cost-governance",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Apply warehouse cost controls: slot caps, scan budgets, query tags, and chargeback.",
+      "argumentHint": "[warehouse, teams, monthly budget]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: query-cost-governance\ndescription: Apply warehouse cost controls: slot caps, scan budgets, query tags, and chargeback.\nargument-hint: [warehouse, teams, monthly budget]\nallowed-tools: Read, Write, Bash\n---\n\n# Query Cost Governance\n\n## When to use\nApply warehouse cost controls: slot caps, scan budgets, query tags, and chargeback.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "03-data-analytics/ab-test-power-calc",
+      "name": "ab-test-power-calc",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Calculate sample size and runtime for an A/B test given variance and MDE.",
+      "argumentHint": "[baseline, MDE, traffic, variance]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: ab-test-power-calc\ndescription: Calculate sample size and runtime for an A/B test given variance and MDE.\nargument-hint: [baseline, MDE, traffic, variance]\nallowed-tools: Read, Write, Bash\n---\n\n# Ab Test Power Calc\n\n## When to use\nCalculate sample size and runtime for an A/B test given variance and MDE.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "03-data-analytics/data-product-spec",
+      "name": "data-product-spec",
+      "category": "Data & Analytics",
+      "categorySlug": "03-data-analytics",
+      "description": "Write a data product spec with SLAs, schema contract, and consumer interface.",
+      "argumentHint": "[domain, consumers, sla tier]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: data-product-spec\ndescription: Write a data product spec with SLAs, schema contract, and consumer interface.\nargument-hint: [domain, consumers, sla tier]\nallowed-tools: Read, Write, Bash\n---\n\n# Data Product Spec\n\n## When to use\nWrite a data product spec with SLAs, schema contract, and consumer interface.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

@@ -6,7 +6,11 @@
       "id": "sk-070",
       "name": "Contract Testing",
       "description": "Design contract tests for APIs and microservices with Pact. Outputs consumer-driven contracts, provider verification, and CI integration.",
-      "tags": ["pact", "contract-testing", "microservices"],
+      "tags": [
+        "pact",
+        "contract-testing",
+        "microservices"
+      ],
       "difficulty": "intermediate",
       "useCase": "Verify API contracts between services",
       "promptPreview": "Design contract tests with Pact for consumer-driven contracts, provider verification, and CI integration across microservices.",
@@ -16,7 +20,11 @@
       "id": "sk-071",
       "name": "E2E Testing",
       "description": "End-to-end testing with Playwright/Cypress for full user flows. Outputs test scenarios, page objects, CI integration, and flake reduction strategies.",
-      "tags": ["e2e", "playwright", "cypress"],
+      "tags": [
+        "e2e",
+        "playwright",
+        "cypress"
+      ],
       "difficulty": "intermediate",
       "useCase": "Automate critical user journeys",
       "promptPreview": "Design E2E tests with modern Playwright/Cypress including auto-waiting, retry logic, stable selectors, and CI integration.",
@@ -26,7 +34,11 @@
       "id": "sk-072",
       "name": "Integration Testing",
       "description": "Design integration tests for APIs, databases, and external services. Outputs test strategies, fixtures, mocking, and CI integration.",
-      "tags": ["integration", "testing", "api"],
+      "tags": [
+        "integration",
+        "testing",
+        "api"
+      ],
       "difficulty": "intermediate",
       "useCase": "Test service integrations reliably",
       "promptPreview": "Design integration tests for APIs, databases, and external services with test strategies, fixtures, mocking, and CI pipelines.",
@@ -36,11 +48,81 @@
       "id": "sk-073",
       "name": "Performance Testing",
       "description": "Design performance and load tests with JMeter, k6, Locust. Outputs test scenarios, metrics, bottleneck analysis, and capacity planning.",
-      "tags": ["performance", "load-testing", "k6"],
+      "tags": [
+        "performance",
+        "load-testing",
+        "k6"
+      ],
       "difficulty": "advanced",
       "useCase": "Find bottlenecks before production",
       "promptPreview": "Design performance tests with k6, JMeter, Locust including test scenarios, metrics collection, bottleneck analysis, and capacity planning.",
       "githubPath": "07-testing-quality/performance-test/SKILL.md"
+    },
+    {
+      "id": "07-testing-quality/test-pyramid-audit",
+      "name": "test-pyramid-audit",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Audit current test pyramid and rebalance unit/integration/e2e investment.",
+      "argumentHint": "[stack, current ratio, target ratio]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: test-pyramid-audit\ndescription: Audit current test pyramid and rebalance unit/integration/e2e investment.\nargument-hint: [stack, current ratio, target ratio]\nallowed-tools: Read, Write, Bash\n---\n\n# Test Pyramid Audit\n\n## When to use\nAudit current test pyramid and rebalance unit/integration/e2e investment.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "07-testing-quality/ci-flake-quarantine",
+      "name": "ci-flake-quarantine",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Quarantine flaky tests automatically and gate fixes with SLAs.",
+      "argumentHint": "[ci, ownership, sla]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: ci-flake-quarantine\ndescription: Quarantine flaky tests automatically and gate fixes with SLAs.\nargument-hint: [ci, ownership, sla]\nallowed-tools: Read, Write, Bash\n---\n\n# Ci Flake Quarantine\n\n## When to use\nQuarantine flaky tests automatically and gate fixes with SLAs.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "07-testing-quality/api-fuzzing",
+      "name": "api-fuzzing",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Set up schema-driven API fuzzing with crash triage and replay.",
+      "argumentHint": "[openapi/proto, runtime, severity gate]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: api-fuzzing\ndescription: Set up schema-driven API fuzzing with crash triage and replay.\nargument-hint: [openapi/proto, runtime, severity gate]\nallowed-tools: Read, Write, Bash\n---\n\n# Api Fuzzing\n\n## When to use\nSet up schema-driven API fuzzing with crash triage and replay.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "07-testing-quality/contract-test-pact",
+      "name": "contract-test-pact",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Adopt consumer-driven contract testing with Pact broker and verification gates.",
+      "argumentHint": "[consumers, providers, broker]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: contract-test-pact\ndescription: Adopt consumer-driven contract testing with Pact broker and verification gates.\nargument-hint: [consumers, providers, broker]\nallowed-tools: Read, Write, Bash\n---\n\n# Contract Test Pact\n\n## When to use\nAdopt consumer-driven contract testing with Pact broker and verification gates.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "07-testing-quality/synthetic-checks",
+      "name": "synthetic-checks",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Define synthetic monitoring journeys with SLO-aligned alerts.",
+      "argumentHint": "[journeys, regions, slo]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: synthetic-checks\ndescription: Define synthetic monitoring journeys with SLO-aligned alerts.\nargument-hint: [journeys, regions, slo]\nallowed-tools: Read, Write, Bash\n---\n\n# Synthetic Checks\n\n## When to use\nDefine synthetic monitoring journeys with SLO-aligned alerts.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "07-testing-quality/test-data-anonymization",
+      "name": "test-data-anonymization",
+      "category": "Testing & Quality",
+      "categorySlug": "07-testing-quality",
+      "description": "Generate realistic, anonymized test data with referential integrity.",
+      "argumentHint": "[source, scale, privacy class]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: test-data-anonymization\ndescription: Generate realistic, anonymized test data with referential integrity.\nargument-hint: [source, scale, privacy class]\nallowed-tools: Read, Write, Bash\n---\n\n# Test Data Anonymization\n\n## When to use\nGenerate realistic, anonymized test data with referential integrity.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

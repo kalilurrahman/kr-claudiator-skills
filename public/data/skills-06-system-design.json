@@ -6,7 +6,11 @@
       "id": "sk-060",
       "name": "Architecture Decision",
       "description": "Create Architecture Decision Records (ADRs) for documenting technical choices, alternatives, and trade-offs with team context.",
-      "tags": ["adr", "architecture", "documentation"],
+      "tags": [
+        "adr",
+        "architecture",
+        "documentation"
+      ],
       "difficulty": "beginner",
       "useCase": "Document architectural decisions",
       "promptPreview": "Create Architecture Decision Records documenting technical choices, alternatives considered, trade-offs, and team context.",
@@ -16,7 +20,11 @@
       "id": "sk-061",
       "name": "High Availability",
       "description": "Design high-availability systems with redundancy, failover, and disaster recovery. Outputs HA architecture, SLA calculations, and failure scenarios.",
-      "tags": ["ha", "redundancy", "failover"],
+      "tags": [
+        "ha",
+        "redundancy",
+        "failover"
+      ],
       "difficulty": "advanced",
       "useCase": "Design systems that never go down",
       "promptPreview": "Design high-availability systems with redundancy, failover, disaster recovery, SLA calculations, and failure scenario analysis.",
@@ -26,7 +34,11 @@
       "id": "sk-062",
       "name": "Scalability Plan",
       "description": "Design scalability strategies with horizontal/vertical scaling, caching, sharding, and capacity planning for growing systems.",
-      "tags": ["scalability", "scaling", "capacity"],
+      "tags": [
+        "scalability",
+        "scaling",
+        "capacity"
+      ],
       "difficulty": "advanced",
       "useCase": "Plan for growth and scale",
       "promptPreview": "Design scalability strategies with horizontal/vertical scaling, caching, sharding, and capacity planning for high-growth systems.",
@@ -36,11 +48,81 @@
       "id": "sk-063",
       "name": "System Design Doc",
       "description": "Create comprehensive system design documents with architecture diagrams, component specs, data flows, and scaling strategies.",
-      "tags": ["system-design", "documentation", "architecture"],
+      "tags": [
+        "system-design",
+        "documentation",
+        "architecture"
+      ],
       "difficulty": "intermediate",
       "useCase": "Document system architecture clearly",
       "promptPreview": "Create production-grade system design docs with concrete components, data flows, API contracts, and scaling strategies.",
       "githubPath": "06-system-design/system-design-doc/SKILL.md"
+    },
+    {
+      "id": "06-system-design/read-heavy-architecture",
+      "name": "read-heavy-architecture",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Design a read-heavy system with caches, replicas, and consistency tiers.",
+      "argumentHint": "[read/write ratio, latency budget, regions]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: read-heavy-architecture\ndescription: Design a read-heavy system with caches, replicas, and consistency tiers.\nargument-hint: [read/write ratio, latency budget, regions]\nallowed-tools: Read, Write, Bash\n---\n\n# Read Heavy Architecture\n\n## When to use\nDesign a read-heavy system with caches, replicas, and consistency tiers.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "06-system-design/idempotency-design",
+      "name": "idempotency-design",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Add idempotency keys, deduplication, and exactly-once semantics across services.",
+      "argumentHint": "[transport, store, retry policy]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: idempotency-design\ndescription: Add idempotency keys, deduplication, and exactly-once semantics across services.\nargument-hint: [transport, store, retry policy]\nallowed-tools: Read, Write, Bash\n---\n\n# Idempotency Design\n\n## When to use\nAdd idempotency keys, deduplication, and exactly-once semantics across services.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "06-system-design/queue-vs-stream-decision",
+      "name": "queue-vs-stream-decision",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Choose between queues and streams given ordering, retention, and replay needs.",
+      "argumentHint": "[ordering, retention, throughput]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: queue-vs-stream-decision\ndescription: Choose between queues and streams given ordering, retention, and replay needs.\nargument-hint: [ordering, retention, throughput]\nallowed-tools: Read, Write, Bash\n---\n\n# Queue Vs Stream Decision\n\n## When to use\nChoose between queues and streams given ordering, retention, and replay needs.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "06-system-design/multi-region-failover",
+      "name": "multi-region-failover",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Architect multi-region active-active or active-passive with traffic steering.",
+      "argumentHint": "[topology, rpo, rto]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: multi-region-failover\ndescription: Architect multi-region active-active or active-passive with traffic steering.\nargument-hint: [topology, rpo, rto]\nallowed-tools: Read, Write, Bash\n---\n\n# Multi Region Failover\n\n## When to use\nArchitect multi-region active-active or active-passive with traffic steering.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "06-system-design/backpressure-strategy",
+      "name": "backpressure-strategy",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Apply backpressure across async pipelines without dropping critical work.",
+      "argumentHint": "[pipeline, sla, drop policy]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: backpressure-strategy\ndescription: Apply backpressure across async pipelines without dropping critical work.\nargument-hint: [pipeline, sla, drop policy]\nallowed-tools: Read, Write, Bash\n---\n\n# Backpressure Strategy\n\n## When to use\nApply backpressure across async pipelines without dropping critical work.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "06-system-design/schema-evolution",
+      "name": "schema-evolution",
+      "category": "System Design",
+      "categorySlug": "06-system-design",
+      "description": "Evolve event/API schemas with compatibility rules and consumer rollouts.",
+      "argumentHint": "[registry, consumers, cadence]",
+      "allowedTools": "Read, Write, Bash",
+      "content": "---\nname: schema-evolution\ndescription: Evolve event/API schemas with compatibility rules and consumer rollouts.\nargument-hint: [registry, consumers, cadence]\nallowed-tools: Read, Write, Bash\n---\n\n# Schema Evolution\n\n## When to use\nEvolve event/API schemas with compatibility rules and consumer rollouts.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

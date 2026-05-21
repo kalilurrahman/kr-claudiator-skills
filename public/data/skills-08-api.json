@@ -6,7 +6,11 @@
       "id": "sk-080",
       "name": "GraphQL Schema",
       "description": "Design GraphQL schemas with types, queries, mutations, subscriptions, and resolvers. Outputs schema definitions and implementation patterns.",
-      "tags": ["graphql", "schema", "api"],
+      "tags": [
+        "graphql",
+        "schema",
+        "api"
+      ],
       "difficulty": "intermediate",
       "useCase": "Design GraphQL APIs from scratch",
       "promptPreview": "Design GraphQL schemas with types, queries, mutations, subscriptions, resolvers, and implementation patterns.",
@@ -16,11 +20,70 @@
       "id": "sk-081",
       "name": "WebSocket Design",
       "description": "Design WebSocket architecture for real-time communication. Outputs connection management, message protocols, scaling, and fallback strategies.",
-      "tags": ["websocket", "real-time", "architecture"],
+      "tags": [
+        "websocket",
+        "real-time",
+        "architecture"
+      ],
       "difficulty": "advanced",
       "useCase": "Build real-time communication systems",
       "promptPreview": "Design production WebSocket systems with connection lifecycle, message protocols, horizontal scaling, reconnection, and HTTP fallback.",
       "githubPath": "08-api-integration/websocket-design/SKILL.md"
+    },
+    {
+      "id": "08-api-integration/webhook-retry-design",
+      "name": "webhook-retry-design",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Design webhook delivery with retries, signed payloads, and DLQs.",
+      "argumentHint": "[volume, consumers, secret rotation]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: webhook-retry-design\ndescription: Design webhook delivery with retries, signed payloads, and DLQs.\nargument-hint: [volume, consumers, secret rotation]\nallowed-tools: Read, Write\n---\n\n# Webhook Retry Design\n\n## When to use\nDesign webhook delivery with retries, signed payloads, and DLQs.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "08-api-integration/graphql-federation",
+      "name": "graphql-federation",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Architect a federated GraphQL graph with subgraphs and entity ownership.",
+      "argumentHint": "[gateway, subgraphs, owners]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: graphql-federation\ndescription: Architect a federated GraphQL graph with subgraphs and entity ownership.\nargument-hint: [gateway, subgraphs, owners]\nallowed-tools: Read, Write\n---\n\n# Graphql Federation\n\n## When to use\nArchitect a federated GraphQL graph with subgraphs and entity ownership.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "08-api-integration/api-style-guide",
+      "name": "api-style-guide",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Publish an API style guide covering naming, errors, pagination, and versioning.",
+      "argumentHint": "[paradigm, audience, owners]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: api-style-guide\ndescription: Publish an API style guide covering naming, errors, pagination, and versioning.\nargument-hint: [paradigm, audience, owners]\nallowed-tools: Read, Write\n---\n\n# Api Style Guide\n\n## When to use\nPublish an API style guide covering naming, errors, pagination, and versioning.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "08-api-integration/etl-connector-spec",
+      "name": "etl-connector-spec",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Spec a third-party connector with rate-limit handling, pagination, and resumes.",
+      "argumentHint": "[source, volume, sla]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: etl-connector-spec\ndescription: Spec a third-party connector with rate-limit handling, pagination, and resumes.\nargument-hint: [source, volume, sla]\nallowed-tools: Read, Write\n---\n\n# Etl Connector Spec\n\n## When to use\nSpec a third-party connector with rate-limit handling, pagination, and resumes.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "08-api-integration/integration-sandbox",
+      "name": "integration-sandbox",
+      "category": "API & Integration",
+      "categorySlug": "08-api-integration",
+      "description": "Provision a vendor integration sandbox with mocks and contract pinning.",
+      "argumentHint": "[vendor, scenarios, refresh]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: integration-sandbox\ndescription: Provision a vendor integration sandbox with mocks and contract pinning.\nargument-hint: [vendor, scenarios, refresh]\nallowed-tools: Read, Write\n---\n\n# Integration Sandbox\n\n## When to use\nProvision a vendor integration sandbox with mocks and contract pinning.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }

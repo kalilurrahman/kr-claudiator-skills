@@ -81,6 +81,72 @@
       "useCase": "Maps stakeholder needs, influence, communication, and alignment strategy.",
       "promptPreview": "Maps stakeholder needs, influence, communication, and alignment strategy.",
       "githubPath": "11-cross-functional/ai-stakeholder-manager/SKILL.md"
+    },
+    {
+      "id": "11-cross-functional/raci-builder",
+      "name": "raci-builder",
+      "category": "Cross-Functional",
+      "categorySlug": "11-cross-functional",
+      "description": "Build a tight RACI matrix for a cross-team initiative.",
+      "argumentHint": "[initiative, teams, decisions]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: raci-builder\ndescription: Build a tight RACI matrix for a cross-team initiative.\nargument-hint: [initiative, teams, decisions]\nallowed-tools: Read, Write\n---\n\n# Raci Builder\n\n## When to use\nBuild a tight RACI matrix for a cross-team initiative.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "11-cross-functional/decision-record",
+      "name": "decision-record",
+      "category": "Cross-Functional",
+      "categorySlug": "11-cross-functional",
+      "description": "Capture a decision with options, trade-offs, and a reversibility tag.",
+      "argumentHint": "[decision, options, reversibility]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: decision-record\ndescription: Capture a decision with options, trade-offs, and a reversibility tag.\nargument-hint: [decision, options, reversibility]\nallowed-tools: Read, Write\n---\n\n# Decision Record\n\n## When to use\nCapture a decision with options, trade-offs, and a reversibility tag.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "11-cross-functional/working-agreement",
+      "name": "working-agreement",
+      "category": "Cross-Functional",
+      "categorySlug": "11-cross-functional",
+      "description": "Draft a working agreement between two collaborating teams.",
+      "argumentHint": "[teams, interfaces, escalation]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: working-agreement\ndescription: Draft a working agreement between two collaborating teams.\nargument-hint: [teams, interfaces, escalation]\nallowed-tools: Read, Write\n---\n\n# Working Agreement\n\n## When to use\nDraft a working agreement between two collaborating teams.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "11-cross-functional/dependency-map",
+      "name": "dependency-map",
+      "category": "Cross-Functional",
+      "categorySlug": "11-cross-functional",
+      "description": "Map cross-team dependencies with risk, lead time, and unblock paths.",
+      "argumentHint": "[initiatives, teams, horizon]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: dependency-map\ndescription: Map cross-team dependencies with risk, lead time, and unblock paths.\nargument-hint: [initiatives, teams, horizon]\nallowed-tools: Read, Write\n---\n\n# Dependency Map\n\n## When to use\nMap cross-team dependencies with risk, lead time, and unblock paths.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "11-cross-functional/readiness-review",
+      "name": "readiness-review",
+      "category": "Cross-Functional",
+      "categorySlug": "11-cross-functional",
+      "description": "Run a launch readiness review across product, eng, security, and support.",
+      "argumentHint": "[launch, scope, gates]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: readiness-review\ndescription: Run a launch readiness review across product, eng, security, and support.\nargument-hint: [launch, scope, gates]\nallowed-tools: Read, Write\n---\n\n# Readiness Review\n\n## When to use\nRun a launch readiness review across product, eng, security, and support.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
+    },
+    {
+      "id": "11-cross-functional/escalation-policy",
+      "name": "escalation-policy",
+      "category": "Cross-Functional",
+      "categorySlug": "11-cross-functional",
+      "description": "Define escalation tiers, response SLAs, and on-call interlocks.",
+      "argumentHint": "[severity matrix, channels, oncall]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: escalation-policy\ndescription: Define escalation tiers, response SLAs, and on-call interlocks.\nargument-hint: [severity matrix, channels, oncall]\nallowed-tools: Read, Write\n---\n\n# Escalation Policy\n\n## When to use\nDefine escalation tiers, response SLAs, and on-call interlocks.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
+      "lines": 45
     }
   ]
 }
