@@ -26,6 +26,7 @@ export function Footer() {
               {[
                 { label: "Home", to: "/" },
                 { label: "Skills Library", to: "/skills" },
+                { label: "Deployment Guide", to: "/guide" },
                 { label: "Favourites", to: "/favourites" },
                 { label: "Feedback", to: "/feedback" },
                 { label: "About", to: "/about" },
