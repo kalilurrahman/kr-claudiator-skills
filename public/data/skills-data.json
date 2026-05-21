@@ -1,6 +1,6 @@
 {
   "version": "8.0",
-  "totalSkills": 499,
+  "totalSkills": 500,
   "categories": [
     "Software Development",
     "DevOps & Infrastructure",
@@ -5504,6 +5504,17 @@
       "allowedTools": "Read, Write",
       "content": "---\nname: board-update\ndescription: Compose a focused board update covering metrics, risks, asks, and decisions.\nargument-hint: [stage, audience, period]\nallowed-tools: Read, Write\n---\n\n# Board Update\n\n## When to use\nCompose a focused board update covering metrics, risks, asks, and decisions.\n\n## Process\n1. Clarify scope, constraints, and decision owners.\n2. Gather current-state inputs and benchmark references.\n3. Draft an initial design and surface trade-offs explicitly.\n4. Pressure-test against failure modes and reversibility.\n5. Define rollout, metrics, and rollback triggers.\n6. Document the decision and update relevant runbooks.\n\n## Output template\n- **Context** \u2014 why this matters now\n- **Decision** \u2014 what we will do\n- **Trade-offs** \u2014 what we are giving up\n- **Rollout plan** \u2014 phased steps and gates\n- **Metrics & alerts** \u2014 what success and failure look like\n- **Rollback** \u2014 explicit reverse path\n\n## Anti-patterns\n- Optimizing without a measurable target.\n- Skipping a written record of the decision.\n- Treating reversible bets like irreversible ones (or vice-versa).\n\n## Rules\n1. Name the customer or system the change serves.\n2. State assumptions before recommendations.\n3. Quantify expected impact and confidence.\n4. Pre-commit kill / rollback criteria.\n5. Identify the single owner.\n6. List dependencies and unblock paths.\n7. Define observability before launch.\n8. Plan the smallest reversible first step.\n9. Schedule a follow-up review date.\n10. Archive the artifact in the team's source of truth.\n",
       "lines": 45
+    },
+    {
+      "id": "09-product-management/developer-experience-audit",
+      "name": "developer-experience-audit",
+      "category": "Product Management",
+      "categorySlug": "09-product-management",
+      "description": "Audit developer experience across build, test, deploy, and feedback loops and ship the top three improvements.",
+      "argumentHint": "[team size, current cycle time, top pain points]",
+      "allowedTools": "Read, Write",
+      "content": "---\nname: developer-experience-audit\ndescription: Audit developer experience across build, test, deploy, and feedback loops and ship the top three improvements.\nargument-hint: [team size, current cycle time, top pain points]\nallowed-tools: Read, Write\n---\n\n# Developer Experience Audit\n\n## When to use\nAudit developer experience across build, test, deploy, and feedback loops and ship the top three improvements.\n\n## Process\n1. Measure cycle time, build time, test time, and time-to-first-PR.\n2. Survey engineers on top three frictions and rank by frequency \u00d7 pain.\n3. Map current toolchain and identify duplicate or low-leverage steps.\n4. Propose three improvements with effort vs. expected reduction.\n5. Pilot on one team, measure delta, then roll out.\n\n## Output template\n- **Baseline metrics** \u2014 measured cycle/build/test times\n- **Top frictions** \u2014 ranked list with quotes\n- **Improvement bets** \u2014 top 3 with owner and ETA\n- **Pilot plan** \u2014 team, duration, success metric\n- **Rollout** \u2014 phased adoption plan\n\n## Anti-patterns\n- Optimising the loudest voice, not the highest leverage.\n- Adding tools without retiring others.\n\n## Rules\n1. Measure before changing.\n2. Pick three, not thirty.\n3. Pilot before rollout.\n4. Retire something for every tool added.\n5. Re-measure after 30 days.\n",
+      "lines": 37
     }
   ]
 }
