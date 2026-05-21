@@ -7,7 +7,7 @@ import { SkillCard } from "@/components/SkillCard";
 import { SkillModal } from "@/components/SkillModal";
 import { getCategoryMeta } from "@/data/categoryMeta";
 import type { SkillsIndex, Skill, BundledData } from "@/types/skills.types";
-import { ArrowRight, Github, Zap, BookOpen, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, Github, Zap, BookOpen, Layers, Sparkles, Terminal, Cpu } from "lucide-react";
 
 // ─── Data loading ─────────────────────────────────────────────────────────────
 
@@ -69,47 +69,146 @@ export function HomePage() {
       <Header />
 
       <main className="flex-1 pt-12">
-        {/* Hero */}
-        <section className="relative gradient-hero py-20 md:py-28 overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(43_70%_66%/0.18),transparent_50%)]" />
+        {/* Hero — FinHub-inspired */}
+        <section className="relative gradient-hero overflow-hidden border-b border-border/30 py-16 md:py-24">
+          {/* Ambient amber blurs */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl animate-pulse" style={{ animationDuration: "4s" }} />
+            <div className="absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-accent/10 blur-3xl animate-pulse" style={{ animationDuration: "5s", animationDelay: "1.5s" }} />
+            <div
+              className="absolute inset-0 opacity-[0.03]"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.4) 28px, rgba(255,255,255,0.4) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.4) 28px, rgba(255,255,255,0.4) 29px)",
+              }}
+            />
           </div>
-          <div className="relative container max-w-6xl mx-auto px-6 text-center animate-fade-in">
-            <div className="inline-flex items-center justify-center w-14 h-14 border border-primary/40 rounded-full mb-5 bg-card/40 backdrop-blur-sm">
-              <span className="font-display text-2xl text-primary font-bold">KR</span>
+
+          <div className="relative container max-w-5xl mx-auto px-6 animate-fade-in">
+            {/* Live chip */}
+            <div className="mb-6 flex justify-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/5 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-primary backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                </span>
+                Claude Skills Compendium · Live
+              </div>
             </div>
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-3 tracking-tight">
-              Claudiator — The Claude Skills Generator
-            </h1>
-            <p className="text-primary text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-3">
-              500+ SKILL.md prompts · open source
-            </p>
-            <p className="text-muted-foreground text-sm mb-6 max-w-2xl mx-auto">
-              Open-source library of production-ready SKILL.md prompts for Claude Code &amp; Claude CoWork — built by Kalilur Rahman.
-            </p>
-            {data && (
-              <p className="text-foreground/70 tracking-[0.2em] uppercase text-xs md:text-sm mb-8">
-                {data.totalSkills} Skills · {data.categories.length} Domains · 100% Open Source
+
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-14 h-14 border border-primary/40 rounded-full mb-5 bg-card/40 backdrop-blur-sm">
+                <span className="font-display text-2xl text-primary font-bold">KR</span>
+              </div>
+              <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-foreground mb-4">
+                Claudiator — The{" "}
+                <span className="text-gradient-brand italic">Claude Skills</span>{" "}
+                Generator
+              </h1>
+              <p className="mx-auto max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
+                Your executive prompt compendium for AI engineering.{" "}
+                <strong className="text-foreground">500+</strong> production-ready
+                SKILL.md prompts across{" "}
+                <strong className="text-foreground">12 domains</strong> — Software,
+                DevOps, AI/ML, Security, Architecture, Leadership and more.
               </p>
+            </div>
+
+            {/* Hero stat cards */}
+            {data && (
+              <div className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-3 md:gap-5">
+                {[
+                  {
+                    value: `${data.totalSkills}+`,
+                    label: "Curated Skills",
+                    icon: "📚",
+                  },
+                  {
+                    value: `${data.categories.length}`,
+                    label: "Engineering Domains",
+                    icon: "🧭",
+                  },
+                  {
+                    value: "100%",
+                    label: "Open Source",
+                    icon: "✨",
+                  },
+                ].map((card) => (
+                  <div
+                    key={card.label}
+                    className="relative overflow-hidden rounded-xl border border-border/50 bg-card/40 backdrop-blur-sm p-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+                  >
+                    <div className="mb-1 text-xl">{card.icon}</div>
+                    <div className="font-display text-2xl font-bold text-foreground">
+                      {card.value}
+                    </div>
+                    <div className="mt-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">
+                      {card.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
-            <div className="flex items-center justify-center gap-3 flex-wrap">
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/skills"
-                className="btn-gold inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base shadow-md hover:-translate-y-0.5 active:translate-y-0"
+                className="btn-gold group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm shadow-md hover:-translate-y-0.5"
               >
-                Browse All Skills
-                <ArrowRight className="w-4 h-4" />
+                <Terminal className="w-4 h-4" />
+                Browse Library
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                to="/guide"
+                className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/60 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-secondary"
+              >
+                <Cpu className="w-4 h-4 text-primary" />
+                Deployment Guide
+                <ArrowRight className="w-4 h-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
               </Link>
               <a
                 href="https://github.com/kalilurrahman/kr-claudiator-skills"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-6 py-3.5 text-sm font-medium text-primary hover:bg-primary/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 px-5 py-3 text-sm font-medium text-primary hover:bg-primary/10 transition-all"
               >
                 <Github className="w-4 h-4" />
                 Star on GitHub
               </a>
             </div>
+
+            {/* Domain shortcut pills */}
+            {data && (
+              <div className="mt-10">
+                <p className="mb-4 flex items-center justify-center gap-2 text-center text-[10px] uppercase tracking-widest text-muted-foreground">
+                  <span className="inline-block h-px w-10 bg-border/60" />
+                  Jump to a Domain
+                  <span className="inline-block h-px w-10 bg-border/60" />
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  {data.categories.slice(0, 8).map((cat) => {
+                    const meta = getCategoryMeta(cat.label);
+                    return (
+                      <Link
+                        key={cat.id}
+                        to={`/skills?category=${cat.id}`}
+                        className="group flex items-center gap-1.5 rounded-full border border-border/50 bg-secondary/50 px-3.5 py-1.5 text-[11px] font-medium text-muted-foreground transition-all hover:-translate-y-px hover:border-primary/40 hover:bg-secondary hover:text-foreground"
+                      >
+                        <span>{meta.emoji}</span>
+                        {cat.label}
+                        {cat.count != null && (
+                          <span className="font-mono text-[9px] opacity-60">
+                            {cat.count}
+                          </span>
+                        )}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
