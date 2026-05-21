@@ -8,6 +8,7 @@ Claudiator helps engineers, architects, data, security, product, and leadership 
 
 - [Home](/): Overview, daily skill spotlight, category grid, and project stats.
 - [Skills Library](/skills): Search and filter all 500+ Claude Skills by domain, tool, and tag.
+- [Deployment Guide](/guide): Step-by-step instructions to install and use SKILL.md files in Claude Code, Claude Desktop, and Claude CoWork.
 - [Favourites](/favourites): Skills you've starred (saved locally in your browser).
 - [About](/about): What Claudiator is, the ACUITAS and CLARITY frameworks, and how to contribute.
 - [Feedback](/feedback): Report bugs, request features, or suggest a new skill.
