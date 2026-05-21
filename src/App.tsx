@@ -13,6 +13,7 @@ import { SkillsBrowser } from "./pages/SkillsBrowser";
 const AboutPage = lazy(() => import("./pages/About").then((m) => ({ default: m.AboutPage })));
 const FeedbackPage = lazy(() => import("./pages/Feedback").then((m) => ({ default: m.FeedbackPage })));
 const FavouritesPage = lazy(() => import("./pages/Favourites").then((m) => ({ default: m.FavouritesPage })));
+const GuidePage = lazy(() => import("./pages/Guide").then((m) => ({ default: m.GuidePage })));
 const NotFoundPage = lazy(() => import("./pages/NotFound").then((m) => ({ default: m.NotFoundPage })));
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/" element={<HomePage />} />
             <Route path="/skills" element={<SkillsBrowser />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/guide" element={<GuidePage />} />
             <Route path="/feedback" element={<FeedbackPage />} />
             <Route path="/favourites" element={<FavouritesPage />} />
             <Route path="*" element={<NotFoundPage />} />
