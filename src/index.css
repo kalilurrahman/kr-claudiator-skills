@@ -1,125 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import './styles/themes.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 222 28% 9%;
-    --foreground: 210 16% 92%;
-
-    --card: 220 22% 13%;
-    --card-foreground: 210 16% 92%;
-
-    --popover: 220 22% 13%;
-    --popover-foreground: 210 16% 92%;
-
-    --primary: 43 65% 62%;
-    --primary-foreground: 222 30% 8%;
-
-    --secondary: 220 18% 18%;
-    --secondary-foreground: 210 16% 92%;
-
-    --muted: 220 18% 17%;
-    --muted-foreground: 215 14% 72%;
-
-    --accent: 43 72% 70%;
-    --accent-foreground: 222 30% 8%;
-
-    --teal: 168 60% 45%;
-    --teal-foreground: 0 0% 100%;
-
-    --success: 160 60% 50%;
-    --success-foreground: 0 0% 100%;
-
-    --warning: 43 85% 65%;
-    --warning-foreground: 222 30% 8%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 98%;
-
-    --border: 220 18% 22%;
-    --input: 220 18% 22%;
-    --ring: 43 65% 62%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 220 22% 13%;
-    --sidebar-foreground: 210 16% 92%;
-    --sidebar-primary: 43 65% 62%;
-    --sidebar-primary-foreground: 222 30% 8%;
-    --sidebar-accent: 220 18% 18%;
-    --sidebar-accent-foreground: 210 16% 92%;
-    --sidebar-border: 220 18% 22%;
-    --sidebar-ring: 43 65% 62%;
-
-    /* KR brand */
-    --gold: 43 52% 54%;
-    --gold-light: 43 70% 66%;
-    --gold-dark: 43 40% 42%;
-
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'DM Sans', system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono', Menlo, monospace;
-  }
-
-  html.light {
-    --background: 40 30% 97%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 43 70% 38%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 40 20% 92%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 40 20% 92%;
-    --muted-foreground: 220 9% 40%;
-
-    --accent: 43 70% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --warning: 38 92% 45%;
-    --warning-foreground: 0 0% 100%;
-
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 40 15% 86%;
-    --input: 40 15% 86%;
-    --ring: 43 70% 38%;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 43 70% 38%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 20% 92%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 40 15% 86%;
-    --sidebar-ring: 43 70% 38%;
-  }
-
-  /* Keep `.dark` class as a no-op alias for the default tokens so the
-     existing useTheme toggle that flips `dark` ↔ default still works. */
-  .dark {
-    color-scheme: dark;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    font-family: var(--font-app, 'DM Sans', system-ui, sans-serif);
     font-size: 16px;
     line-height: 1.65;
     overflow-wrap: break-word;
@@ -127,38 +16,38 @@
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4 {
-    font-family: var(--font-display);
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.01em;
-    line-height: 1.25;
+    line-height: 1.2;
     overflow-wrap: anywhere;
   }
-  code, pre, .font-code {
-    font-family: var(--font-mono);
+  code, pre, .font-code, .font-mono {
+    font-family: 'JetBrains Mono', Menlo, monospace;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
-  .font-body    { font-family: var(--font-body); }
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .font-body    { font-family: var(--font-app, 'DM Sans', system-ui, sans-serif); }
 
-  /* Gold-on-dark hero gradient (replaces former indigo/violet/teal) */
   .gradient-hero {
     background:
-      radial-gradient(circle at 20% 0%, hsl(43 65% 62% / 0.28), transparent 55%),
-      radial-gradient(circle at 80% 100%, hsl(43 72% 70% / 0.18), transparent 60%),
-      linear-gradient(135deg, hsl(220 22% 13%), hsl(222 28% 9%) 60%, hsl(220 22% 13%));
+      radial-gradient(circle at 18% 0%, hsl(var(--primary) / 0.28), transparent 55%),
+      radial-gradient(circle at 82% 100%, hsl(var(--accent-foreground) / 0.18), transparent 60%),
+      linear-gradient(135deg, hsl(var(--card)), hsl(var(--background)) 60%, hsl(var(--card)));
   }
 
   .text-gradient-brand {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(43 70% 66%), hsl(43 52% 54%));
+    background-image: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-dark)));
   }
 
   .gradient-border {
     border: 1px solid transparent;
-    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-                linear-gradient(135deg, hsl(43 70% 66%), hsl(43 52% 54%)) border-box;
+    background:
+      linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+      linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-dark))) border-box;
   }
 
   .glass-card {
@@ -166,23 +55,23 @@
   }
 
   .glow-on-hover { @apply transition-shadow duration-300; }
-  .glow-on-hover:hover { box-shadow: 0 0 24px hsl(43 52% 54% / 0.35); }
+  .glow-on-hover:hover { box-shadow: 0 0 24px hsl(var(--primary) / 0.35); }
 
   .card-hover { @apply transition-all duration-300; }
   .card-hover:hover {
     @apply -translate-y-1;
-    box-shadow: 0 8px 30px -10px hsl(43 52% 54% / 0.35);
-    border-color: hsl(43 52% 54% / 0.4);
+    box-shadow: 0 8px 30px -10px hsl(var(--primary) / 0.35);
+    border-color: hsl(var(--primary) / 0.4);
   }
 
   .btn-gold {
-    background: linear-gradient(135deg, hsl(43 52% 54%), hsl(43 70% 66%));
-    color: hsl(222 47% 5%);
+    background: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold-light)));
+    color: hsl(var(--primary-foreground));
     font-weight: 600;
     transition: all 0.3s ease;
   }
   .btn-gold:hover {
-    box-shadow: 0 0 20px hsl(43 52% 54% / 0.4);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
     transform: translateY(-1px);
   }
 
@@ -202,16 +91,16 @@
   }
   .animate-slide-up { animation: slideUp 0.3s ease-out forwards; }
 
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.06); }
+  }
+  .animate-pulse-slow { animation: pulse-slow 5s ease-in-out infinite; }
+
   .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: hsl(var(--muted)); border-radius: 3px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.45); border-radius: 3px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.7);
-  }
+  .custom-scrollbar::-webkit-scrollbar-track { background: hsl(var(--muted)); border-radius: 3px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: hsl(var(--primary) / 0.45); border-radius: 3px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.7); }
 
   @media print {
     header, footer, nav, .mobile-bottom-nav, .download-buttons, .back-to-top {
@@ -232,6 +121,4 @@
 
 html { transition: background-color 0.25s ease, color 0.25s ease; }
 
-.category-active-glow {
-  box-shadow: inset 0 0 0 1px currentColor;
-}
+.category-active-glow { box-shadow: inset 0 0 0 1px currentColor; }

@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Moon, Sun, Heart, Download, BookOpen } from "lucide-react";
+import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Heart, Download, BookOpen } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { useTheme } from "@/hooks/useTheme";
 import { usePwaInstall } from "@/hooks/usePwaInstall";
+import { AppearanceMenu } from "@/components/AppearanceMenu";
 
 export function Header() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [favouriteCount, setFavouriteCount] = useState(0);
   const location = useLocation();
-  const { isDark, toggle } = useTheme();
   const { canInstall, install } = usePwaInstall();
 
   useEffect(() => {
@@ -98,24 +97,12 @@ export function Header() {
 
           <span className="w-px h-4 bg-border mx-1" />
 
-          <button
-            onClick={toggle}
-            aria-label="Toggle dark mode"
-            className="p-1.5 rounded text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors focus-ring"
-          >
-            {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
-          </button>
+          <AppearanceMenu />
         </div>
 
         {/* Mobile */}
         <div className="flex items-center gap-1 md:hidden">
-          <button
-            onClick={toggle}
-            aria-label="Toggle dark mode"
-            className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded focus-ring"
-          >
-            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
+          <AppearanceMenu />
 
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>

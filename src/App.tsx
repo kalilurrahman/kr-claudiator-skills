@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { BackToTop } from "@/components/BackToTop";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { HomePage } from "./pages/Index";
 import { SkillsBrowser } from "./pages/SkillsBrowser";
 
@@ -28,26 +29,28 @@ function LazyFallback() {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <DisclaimerBanner />
-        <BackToTop />
-        <Suspense fallback={<LazyFallback />}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/skills" element={<SkillsBrowser />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/guide" element={<GuidePage />} />
-            <Route path="/feedback" element={<FeedbackPage />} />
-            <Route path="/favourites" element={<FavouritesPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
+    <ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <DisclaimerBanner />
+          <BackToTop />
+          <Suspense fallback={<LazyFallback />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/skills" element={<SkillsBrowser />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/guide" element={<GuidePage />} />
+              <Route path="/feedback" element={<FeedbackPage />} />
+              <Route path="/favourites" element={<FavouritesPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
