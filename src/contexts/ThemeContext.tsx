@@ -78,9 +78,8 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [themeId, setThemeId] = useState<ThemeId>(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY) as ThemeId | null;
-      if (stored && THEMES.find((t) => t.id === stored)) return stored;
-      // migrate old "claudiator_theme" values like "light"/"dark"
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored && THEMES.find((t) => t.id === stored)) return stored as ThemeId;
       if (stored === "light") return LIGHT_DEFAULT;
     } catch { /* ignore */ }
     return DARK_DEFAULT;
