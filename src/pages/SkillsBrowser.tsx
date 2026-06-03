@@ -181,6 +181,20 @@ export function SkillsBrowser() {
           s.category?.toLowerCase().includes(q) ||
           s.argumentHint?.toLowerCase().includes(q)
       );
+    } else if (persona) {
+      // Persona filter spans all categories
+      base = allSkills.filter((s) => {
+        const hay = [
+          s.category ?? "",
+          s.categorySlug ?? "",
+          s.name ?? "",
+          (s.tags ?? []).join(" "),
+          s.argumentHint ?? "",
+        ]
+          .join(" ")
+          .toLowerCase();
+        return persona.tags.some((t) => hay.includes(t.toLowerCase()));
+      });
     } else if (activeCategory) {
       base = categoryCache[activeCategory] ?? [];
     } else {
@@ -196,7 +210,8 @@ export function SkillsBrowser() {
     }
 
     return base;
-  }, [searchQuery, activeCategory, categoryCache, allSkills, toolFilter]);
+  }, [searchQuery, activeCategory, categoryCache, allSkills, toolFilter, persona]);
+
 
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
