@@ -1,7 +1,7 @@
 {
   "version": "2.0",
-  "totalSkills": 500,
-  "targetSkills": 500,
+  "totalSkills": 513,
+  "targetSkills": 513,
   "lastUpdated": "2026-05-20",
   "categories": [
     {
@@ -75,6 +75,42 @@
       "label": "Leadership & Strategy",
       "icon": "Crown",
       "dataFile": "/data/skills-12-leadership-strategy.json"
+    },
+    {
+      "id": "healthcare-rcm",
+      "label": "Healthcare RCM",
+      "icon": "Stethoscope",
+      "dataFile": "/data/skills-data.json"
+    },
+    {
+      "id": "gcc-strategy",
+      "label": "GCC Strategy",
+      "icon": "Globe",
+      "dataFile": "/data/skills-data.json"
+    },
+    {
+      "id": "enterprise-applications",
+      "label": "Enterprise Applications",
+      "icon": "Building2",
+      "dataFile": "/data/skills-data.json"
+    },
+    {
+      "id": "prompt-engineering",
+      "label": "Prompt Engineering",
+      "icon": "Sparkles",
+      "dataFile": "/data/skills-data.json"
+    },
+    {
+      "id": "documentation",
+      "label": "Documentation",
+      "icon": "FileText",
+      "dataFile": "/data/skills-data.json"
+    },
+    {
+      "id": "consulting",
+      "label": "Consulting",
+      "icon": "Briefcase",
+      "dataFile": "/data/skills-data.json"
     }
   ]
 }
