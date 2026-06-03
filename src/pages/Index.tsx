@@ -152,6 +152,19 @@ export function HomePage() {
           </section>
         )}
 
+        {/* Persona quick-start */}
+        <section className="pb-10">
+          <div className="container max-w-6xl mx-auto px-6">
+            <h2 className="text-lg font-medium text-foreground text-center mb-1">
+              Start by Role
+            </h2>
+            <p className="text-xs text-muted-foreground text-center mb-6">
+              Jump straight to a curated slice of skills for your discipline.
+            </p>
+            <PersonaCards onPersonaSelect={handlePersonaSelect} activeId={activePersona} />
+          </div>
+        </section>
+
         {/* Category grid */}
         {data && (
           <section className="pb-12">
