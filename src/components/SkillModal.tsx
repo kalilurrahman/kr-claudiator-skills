@@ -194,6 +194,11 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
             <CopyBtn label="Copy Full Skill" icon={<Copy className="w-3 h-3" />} variant="primary" onCopy={getFullContent} onDone={showToast} />
             <CopyBtn label="Claude Tool" icon={<Code2 className="w-3 h-3" />} variant="secondary" onCopy={getClaudeToolSnippet} onDone={showToast} />
             {skill.content && <CopyBtn label="Frontmatter" icon={<FileText className="w-3 h-3" />} variant="ghost" onCopy={getFrontmatter} onDone={showToast} />}
+            {skill.packFile && (
+              <a href={skill.packFile} download className="inline-flex items-center gap-1.5 px-3 py-2 rounded text-xs font-semibold border border-primary/40 text-primary hover:bg-primary/10 transition-all">
+                <FileText className="w-3 h-3" /> Download .md
+              </a>
+            )}
             <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-2 rounded text-xs font-semibold border border-border text-muted-foreground hover:text-foreground transition-all">
               <ExternalLink className="w-3 h-3" /> GitHub
             </a>
