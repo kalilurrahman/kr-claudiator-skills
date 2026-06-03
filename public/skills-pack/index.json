@@ -1,0 +1,95 @@
+{
+  "skills": [
+    {
+      "id": "healthcare-rcm-operations",
+      "name": "Healthcare RCM Operations",
+      "category": "healthcare-rcm",
+      "summary": "Designs and improves revenue cycle workflows across front-end, mid-cycle, and back-end operations.",
+      "file": "healthcare-rcm-operations.md"
+    },
+    {
+      "id": "denial-management-playbook",
+      "name": "Denial Management Playbook",
+      "category": "healthcare-rcm",
+      "summary": "Structures denial prevention, classification, appeals, and root-cause remediation programs.",
+      "file": "denial-management-playbook.md"
+    },
+    {
+      "id": "provider-enrollment-ops",
+      "name": "Provider Enrollment Operations",
+      "category": "healthcare-rcm",
+      "summary": "Builds provider enrollment, credentialing, and payer setup workflows with SLA and exception handling.",
+      "file": "provider-enrollment-ops.md"
+    },
+    {
+      "id": "rcm-metrics-kpis",
+      "name": "RCM Metrics and KPI Design",
+      "category": "healthcare-rcm",
+      "summary": "Defines a KPI framework for front-end, coding, billing, denials, AR, and cash operations.",
+      "file": "rcm-metrics-kpis.md"
+    },
+    {
+      "id": "gcc-operating-model",
+      "name": "GCC Operating Model Design",
+      "category": "gcc-strategy",
+      "summary": "Designs GCC structures, service delivery models, governance, and scaling mechanisms.",
+      "file": "gcc-operating-model.md"
+    },
+    {
+      "id": "gcc-transition-playbook",
+      "name": "GCC Transition Playbook",
+      "category": "gcc-strategy",
+      "summary": "Guides work transition into a GCC including KT, shadow-support, stabilization, and governance checkpoints.",
+      "file": "gcc-transition-playbook.md"
+    },
+    {
+      "id": "enterprise-app-implementation",
+      "name": "Enterprise Application Implementation Playbook",
+      "category": "enterprise-applications",
+      "summary": "Defines end-to-end implementation structures, governance, testing, and deployment patterns for enterprise platforms.",
+      "file": "enterprise-app-implementation.md"
+    },
+    {
+      "id": "prompt-engineering-playbook",
+      "name": "Prompt Engineering Playbook",
+      "category": "prompt-engineering",
+      "summary": "Creates structured prompting patterns for analysis, generation, evaluation, and workflow control.",
+      "file": "prompt-engineering-playbook.md"
+    },
+    {
+      "id": "mcp-agent-architecture",
+      "name": "MCP and Agent Architecture",
+      "category": "ai-ml",
+      "summary": "Designs Model Context Protocol server patterns, tool contracts, and agent orchestration models.",
+      "file": "mcp-agent-architecture.md"
+    },
+    {
+      "id": "rag-knowledge-systems",
+      "name": "RAG Knowledge Systems",
+      "category": "ai-ml",
+      "summary": "Builds retrieval-augmented generation systems with attention to corpus design, retrieval quality, and evaluation.",
+      "file": "rag-knowledge-systems.md"
+    },
+    {
+      "id": "documentation-systems",
+      "name": "Documentation Systems Design",
+      "category": "documentation",
+      "summary": "Designs documentation structures for product, operations, testing, and transformation programs.",
+      "file": "documentation-systems.md"
+    },
+    {
+      "id": "proposal-sow-playbooks",
+      "name": "Proposal and SOW Playbooks",
+      "category": "consulting",
+      "summary": "Creates proposal structures, SOW outlines, scope controls, staffing assumptions, and differentiators.",
+      "file": "proposal-sow-playbooks.md"
+    },
+    {
+      "id": "executive-briefs",
+      "name": "Executive Briefs and Decision Memos",
+      "category": "consulting",
+      "summary": "Turns complex analysis into concise decision-ready executive documents.",
+      "file": "executive-briefs.md"
+    }
+  ]
+}
