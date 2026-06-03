@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SeoHead } from "@/components/SeoHead";
 import { SkillModal } from "@/components/SkillModal";
 import { Hero } from "@/components/Hero";
+import { PersonaCards } from "@/components/PersonaCards";
 import { getCategoryMeta } from "@/data/categoryMeta";
 import type { SkillsIndex, Skill, BundledData } from "@/types/skills.types";
 import { Github, BookOpen, Layers, Sparkles } from "lucide-react";
@@ -41,9 +42,16 @@ async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean; a
 // ──────────────────────────────────────────────────────────────────────────────
 
 export function HomePage() {
+  const navigate = useNavigate();
   const [data, setData] = useState<(SkillsIndex & { usedBundled?: boolean; allSkills?: Skill[] }) | null>(null);
   const [skillOfDay, setSkillOfDay] = useState<Skill | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [activePersona, setActivePersona] = useState<string | null>(null);
+
+  const handlePersonaSelect = (id: string) => {
+    setActivePersona(id);
+    navigate(`/skills?persona=${id}`);
+  };
 
   useEffect(() => {
     loadIndexData().then((d) => {
@@ -143,6 +151,19 @@ export function HomePage() {
             </div>
           </section>
         )}
+
+        {/* Persona quick-start */}
+        <section className="pb-10">
+          <div className="container max-w-6xl mx-auto px-6">
+            <h2 className="text-lg font-medium text-foreground text-center mb-1">
+              Start by Role
+            </h2>
+            <p className="text-xs text-muted-foreground text-center mb-6">
+              Jump straight to a curated slice of skills for your discipline.
+            </p>
+            <PersonaCards onPersonaSelect={handlePersonaSelect} activeId={activePersona} />
+          </div>
+        </section>
 
         {/* Category grid */}
         {data && (

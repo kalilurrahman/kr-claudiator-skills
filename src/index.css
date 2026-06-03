@@ -122,3 +122,63 @@
 html { transition: background-color 0.25s ease, color 0.25s ease; }
 
 .category-active-glow { box-shadow: inset 0 0 0 1px currentColor; }
+
+/* ── Persona cards ───────────────────────────────────────────── */
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .persona-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.persona-card {
+  background: hsl(var(--card) / 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.persona-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.4), hsl(var(--secondary) / 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.persona-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px hsl(var(--primary) / 0.15);
+}
+.persona-card:hover::before,
+.persona-card-active::before { opacity: 1; }
+.persona-card-active { border-color: hsl(var(--primary) / 0.5); }
+.persona-card-emoji {
+  font-size: 2.25rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.persona-card-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.25rem;
+}
+.persona-card-subtitle {
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+}

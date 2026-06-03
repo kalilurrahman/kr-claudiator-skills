@@ -11,6 +11,8 @@ import { SkillsProgressBar } from "@/components/SkillsProgressBar";
 import { GitHubBanner } from "@/components/GitHubBanner";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { SkeletonGrid } from "@/components/SkeletonCard";
+import { PersonaFilterBanner } from "@/components/PersonaFilterBanner";
+import { getPersona } from "@/lib/personas";
 import type { Skill, Category, SkillsIndex, BundledData } from "@/types/skills.types";
 
 // ─── Data mode detection ─────────────────────────────────────────────────────
@@ -40,7 +42,14 @@ function buildIndexFromBundled(data: BundledData, cats: Category[]): SkillsIndex
 // ──────────────────────────────────────────────────────────────────────────────
 
 export function SkillsBrowser() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activePersona = searchParams.get("persona");
+  const persona = getPersona(activePersona);
+  const clearPersona = useCallback(() => {
+    const next = new URLSearchParams(searchParams);
+    next.delete("persona");
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams]);
 
   const [index, setIndex] = useState<SkillsIndex | null>(null);
   const [allSkills, setAllSkills] = useState<Skill[]>([]);
@@ -172,6 +181,20 @@ export function SkillsBrowser() {
           s.category?.toLowerCase().includes(q) ||
           s.argumentHint?.toLowerCase().includes(q)
       );
+    } else if (persona) {
+      // Persona filter spans all categories
+      base = allSkills.filter((s) => {
+        const hay = [
+          s.category ?? "",
+          s.categorySlug ?? "",
+          s.name ?? "",
+          (s.tags ?? []).join(" "),
+          s.argumentHint ?? "",
+        ]
+          .join(" ")
+          .toLowerCase();
+        return persona.tags.some((t) => hay.includes(t.toLowerCase()));
+      });
     } else if (activeCategory) {
       base = categoryCache[activeCategory] ?? [];
     } else {
@@ -187,7 +210,8 @@ export function SkillsBrowser() {
     }
 
     return base;
-  }, [searchQuery, activeCategory, categoryCache, allSkills, toolFilter]);
+  }, [searchQuery, activeCategory, categoryCache, allSkills, toolFilter, persona]);
+
 
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
@@ -350,7 +374,10 @@ export function SkillsBrowser() {
             )}
 
             {/* Skill grid */}
-            <div className="flex-1">
+            <div id="skills-browser" className="flex-1 scroll-mt-20">
+              {persona && (
+                <PersonaFilterBanner personaName={persona.title} onDismiss={clearPersona} />
+              )}
               {/* Grid header */}
               {displaySkills.length > 0 && (
                 <div className="flex items-center justify-between mb-3">
