@@ -64,7 +64,7 @@ export function SkillCard({ skill, onClick }: SkillCardProps) {
 
         <div className="flex-1 min-w-0">
           <p className="text-sm font-mono font-medium text-card-foreground leading-tight truncate">
-            {skill.name}
+            {skill.displayName ?? skill.name}
           </p>
           <p className="text-[10px] text-muted-foreground mt-0.5">
             {skill.category ?? "Skill"}
