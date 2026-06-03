@@ -194,6 +194,11 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
             <CopyBtn label="Copy Full Skill" icon={<Copy className="w-3 h-3" />} variant="primary" onCopy={getFullContent} onDone={showToast} />
             <CopyBtn label="Claude Tool" icon={<Code2 className="w-3 h-3" />} variant="secondary" onCopy={getClaudeToolSnippet} onDone={showToast} />
             {skill.content && <CopyBtn label="Frontmatter" icon={<FileText className="w-3 h-3" />} variant="ghost" onCopy={getFrontmatter} onDone={showToast} />}
+            {skill.packFile && (
+              <a href={skill.packFile} download className="inline-flex items-center gap-1.5 px-3 py-2 rounded text-xs font-semibold border border-primary/40 text-primary hover:bg-primary/10 transition-all">
+                <FileText className="w-3 h-3" /> Download .md
+              </a>
+            )}
             <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-2 rounded text-xs font-semibold border border-border text-muted-foreground hover:text-foreground transition-all">
               <ExternalLink className="w-3 h-3" /> GitHub
             </a>
@@ -202,6 +207,14 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
           {/* Scrollable content */}
           <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
             <div className="p-4 sm:p-5 pb-8">
+              {skill.packFile && (
+                <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <DetailBlock title="When to use" items={skill.whenToUse} />
+                  <DetailBlock title="Outputs" items={skill.outputs} />
+                  <DetailBlock title="Starter prompts" items={skill.starterPrompts} ordered />
+                  <DetailBlock title="Companion skills" items={skill.companionSkills} />
+                </div>
+              )}
               {loading && (
                 <div className="flex items-center justify-center py-12 gap-2 text-muted-foreground">
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -259,5 +272,19 @@ function Pill({
         {value}
       </span>
     </span>
+  );
+}
+
+// ─── DetailBlock for pack skills ──────────────────────────────────────────────
+function DetailBlock({ title, items, ordered }: { title: string; items?: string[]; ordered?: boolean }) {
+  if (!items || items.length === 0) return null;
+  const ListTag = ordered ? "ol" : "ul";
+  return (
+    <div className="rounded-lg border border-border/60 bg-muted/40 p-3">
+      <p className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground mb-1.5">{title}</p>
+      <ListTag className={`${ordered ? "list-decimal" : "list-disc"} pl-4 space-y-0.5 text-[11px] text-foreground/85 leading-snug`}>
+        {items.map((it, i) => <li key={i}>{it}</li>)}
+      </ListTag>
+    </div>
   );
 }

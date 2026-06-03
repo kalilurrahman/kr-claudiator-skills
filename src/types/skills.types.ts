@@ -22,6 +22,17 @@ export interface Skill {
   useCase?: string;
   promptPreview?: string;
   githubPath?: string;
+
+  // ── Claudiator skill-pack extensions ──────────────────────────────────────
+  displayName?: string;
+  summary?: string;
+  audience?: string;
+  whenToUse?: string[];
+  inputs?: string[];
+  outputs?: string[];
+  starterPrompts?: string[];
+  companionSkills?: string[];
+  packFile?: string;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

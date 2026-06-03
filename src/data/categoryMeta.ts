@@ -48,6 +48,24 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
   "Leadership & Strategy": {
     emoji: "👑", dot: "#fbbf24", bg: "#fbbf2418", border: "#fbbf2430", lucideIcon: "Crown",
   },
+  "Healthcare RCM": {
+    emoji: "🏥", dot: "#14b8a6", bg: "#14b8a618", border: "#14b8a630", lucideIcon: "Stethoscope",
+  },
+  "GCC Strategy": {
+    emoji: "🌐", dot: "#0ea5e9", bg: "#0ea5e918", border: "#0ea5e930", lucideIcon: "Globe",
+  },
+  "Enterprise Applications": {
+    emoji: "🏢", dot: "#8b5cf6", bg: "#8b5cf618", border: "#8b5cf630", lucideIcon: "Building2",
+  },
+  "Prompt Engineering": {
+    emoji: "✨", dot: "#d946ef", bg: "#d946ef18", border: "#d946ef30", lucideIcon: "Sparkles",
+  },
+  "Documentation": {
+    emoji: "📚", dot: "#f43f5e", bg: "#f43f5e18", border: "#f43f5e30", lucideIcon: "FileText",
+  },
+  "Consulting": {
+    emoji: "💼", dot: "#eab308", bg: "#eab30818", border: "#eab30830", lucideIcon: "Briefcase",
+  },
 };
 
 /** Fallback meta for unknown categories */
