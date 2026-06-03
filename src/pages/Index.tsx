@@ -6,6 +6,8 @@ import { SeoHead } from "@/components/SeoHead";
 import { SkillModal } from "@/components/SkillModal";
 import { Hero } from "@/components/Hero";
 import { PersonaCards } from "@/components/PersonaCards";
+import { SkillStacks } from "@/components/SkillStacks";
+import { HowToUse } from "@/components/HowToUse";
 import { getCategoryMeta } from "@/data/categoryMeta";
 import type { SkillsIndex, Skill, BundledData } from "@/types/skills.types";
 import { Github, BookOpen, Layers, Sparkles } from "lucide-react";
