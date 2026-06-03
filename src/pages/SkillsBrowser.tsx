@@ -374,7 +374,10 @@ export function SkillsBrowser() {
             )}
 
             {/* Skill grid */}
-            <div className="flex-1">
+            <div id="skills-browser" className="flex-1 scroll-mt-20">
+              {persona && (
+                <PersonaFilterBanner personaName={persona.title} onDismiss={clearPersona} />
+              )}
               {/* Grid header */}
               {displaySkills.length > 0 && (
                 <div className="flex items-center justify-between mb-3">
