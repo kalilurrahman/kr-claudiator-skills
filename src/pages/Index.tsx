@@ -167,6 +167,14 @@ export function HomePage() {
           </div>
         </section>
 
+        {/* Recommended skill stacks (from Claudiator pack) */}
+        {data?.allSkills && (
+          <SkillStacks allSkills={data.allSkills} onSelectSkill={setSelectedSkill} />
+        )}
+
+        {/* How to use */}
+        <HowToUse />
+
         {/* Category grid */}
         {data && (
           <section className="pb-12">
