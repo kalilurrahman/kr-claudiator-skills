@@ -176,10 +176,15 @@ export function SkillsBrowser() {
       base = allSkills.filter(
         (s) =>
           s.name.toLowerCase().includes(q) ||
+          s.displayName?.toLowerCase().includes(q) ||
           s.description.toLowerCase().includes(q) ||
+          s.summary?.toLowerCase().includes(q) ||
+          s.audience?.toLowerCase().includes(q) ||
           s.tags?.some((t) => t.toLowerCase().includes(q)) ||
           s.category?.toLowerCase().includes(q) ||
-          s.argumentHint?.toLowerCase().includes(q)
+          s.argumentHint?.toLowerCase().includes(q) ||
+          s.whenToUse?.some((t) => t.toLowerCase().includes(q)) ||
+          s.outputs?.some((t) => t.toLowerCase().includes(q))
       );
     } else if (persona) {
       // Persona filter spans all categories
