@@ -42,9 +42,16 @@ async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean; a
 // ──────────────────────────────────────────────────────────────────────────────
 
 export function HomePage() {
+  const navigate = useNavigate();
   const [data, setData] = useState<(SkillsIndex & { usedBundled?: boolean; allSkills?: Skill[] }) | null>(null);
   const [skillOfDay, setSkillOfDay] = useState<Skill | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [activePersona, setActivePersona] = useState<string | null>(null);
+
+  const handlePersonaSelect = (id: string) => {
+    setActivePersona(id);
+    navigate(`/skills?persona=${id}`);
+  };
 
   useEffect(() => {
     loadIndexData().then((d) => {
