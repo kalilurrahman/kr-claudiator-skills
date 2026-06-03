@@ -42,7 +42,14 @@ function buildIndexFromBundled(data: BundledData, cats: Category[]): SkillsIndex
 // ──────────────────────────────────────────────────────────────────────────────
 
 export function SkillsBrowser() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activePersona = searchParams.get("persona");
+  const persona = getPersona(activePersona);
+  const clearPersona = useCallback(() => {
+    const next = new URLSearchParams(searchParams);
+    next.delete("persona");
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams]);
 
   const [index, setIndex] = useState<SkillsIndex | null>(null);
   const [allSkills, setAllSkills] = useState<Skill[]>([]);
