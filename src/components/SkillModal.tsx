@@ -207,6 +207,14 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
           {/* Scrollable content */}
           <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
             <div className="p-4 sm:p-5 pb-8">
+              {skill.packFile && (
+                <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <DetailBlock title="When to use" items={skill.whenToUse} />
+                  <DetailBlock title="Outputs" items={skill.outputs} />
+                  <DetailBlock title="Starter prompts" items={skill.starterPrompts} ordered />
+                  <DetailBlock title="Companion skills" items={skill.companionSkills} />
+                </div>
+              )}
               {loading && (
                 <div className="flex items-center justify-center py-12 gap-2 text-muted-foreground">
                   <Loader2 className="w-4 h-4 animate-spin" />
