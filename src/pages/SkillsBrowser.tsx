@@ -11,6 +11,8 @@ import { SkillsProgressBar } from "@/components/SkillsProgressBar";
 import { GitHubBanner } from "@/components/GitHubBanner";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { SkeletonGrid } from "@/components/SkeletonCard";
+import { PersonaFilterBanner } from "@/components/PersonaFilterBanner";
+import { getPersona } from "@/lib/personas";
 import type { Skill, Category, SkillsIndex, BundledData } from "@/types/skills.types";
 
 // ─── Data mode detection ─────────────────────────────────────────────────────
