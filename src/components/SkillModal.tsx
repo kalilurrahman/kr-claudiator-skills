@@ -274,3 +274,17 @@ function Pill({
     </span>
   );
 }
+
+// ─── DetailBlock for pack skills ──────────────────────────────────────────────
+function DetailBlock({ title, items, ordered }: { title: string; items?: string[]; ordered?: boolean }) {
+  if (!items || items.length === 0) return null;
+  const ListTag = ordered ? "ol" : "ul";
+  return (
+    <div className="rounded-lg border border-border/60 bg-muted/40 p-3">
+      <p className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground mb-1.5">{title}</p>
+      <ListTag className={`${ordered ? "list-decimal" : "list-disc"} pl-4 space-y-0.5 text-[11px] text-foreground/85 leading-snug`}>
+        {items.map((it, i) => <li key={i}>{it}</li>)}
+      </ListTag>
+    </div>
+  );
+}
