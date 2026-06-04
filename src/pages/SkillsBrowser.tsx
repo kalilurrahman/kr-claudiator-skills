@@ -363,47 +363,100 @@ export function SkillsBrowser() {
             </div>
           )}
 
-          {/* Search + filter row */}
-          <div className="mb-5 flex gap-2">
-            <div className="relative flex-1">
-              <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <input
-                ref={searchRef}
-                type="text"
-                placeholder='Search skills… Press "/" to focus'
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-8 py-2.5 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-              {searchQuery && (
+          {/* Sticky filter bar */}
+          <div className="sticky top-12 z-40 -mx-4 px-4 py-3 mb-5 bg-background/85 backdrop-blur-md border-b border-border/60">
+            {/* Search + filter toggle */}
+            <div className="flex gap-2 mb-2">
+              <div className="relative flex-1">
+                <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input
+                  ref={searchRef}
+                  type="text"
+                  placeholder='Search skills, descriptions, tags… Press "/" to focus'
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-8 py-2.5 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                className="px-3 py-2.5 bg-card border border-border rounded-lg text-xs font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+                aria-label="Sort skills"
+              >
+                <option value="newest">Newest</option>
+                <option value="popular">Most Popular</option>
+                <option value="az">A–Z</option>
+                <option value="category">Category</option>
+              </select>
+
+              {allTools.length > 0 && (
                 <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                  aria-label="Clear search"
+                  onClick={() => setFilterOpen((v) => !v)}
+                  className={`flex items-center gap-1.5 px-3 py-2.5 rounded-lg border text-xs font-medium transition-colors ${
+                    filterOpen || toolFilter.length > 0
+                      ? "bg-primary/10 border-primary text-primary"
+                      : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-border/80"
+                  }`}
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <SlidersHorizontal className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Tools</span>
+                  {toolFilter.length > 0 && (
+                    <span className="bg-primary text-primary-foreground rounded-full w-4 h-4 flex items-center justify-center text-[9px]">
+                      {toolFilter.length}
+                    </span>
+                  )}
                 </button>
               )}
             </div>
 
-            {allTools.length > 0 && (
-              <button
-                onClick={() => setFilterOpen((v) => !v)}
-                className={`flex items-center gap-1.5 px-3 py-2.5 rounded-lg border text-xs font-medium transition-colors ${
-                  filterOpen || toolFilter.length > 0
-                    ? "bg-primary/10 border-primary text-primary"
-                    : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-border/80"
-                }`}
-              >
-                <SlidersHorizontal className="w-3.5 h-3.5" />
-                Filter
-                {toolFilter.length > 0 && (
-                  <span className="bg-primary text-primary-foreground rounded-full w-4 h-4 flex items-center justify-center text-[9px]">
-                    {toolFilter.length}
-                  </span>
-                )}
-              </button>
-            )}
+            {/* Filter chips: Claude Product / Category / Complexity */}
+            <div className="space-y-2">
+              <ChipGroup
+                label="Product"
+                options={["Claude Code", "CoWork", "Both"]}
+                selected={productFilter}
+                onToggle={(v) => toggleIn(productFilter, setProductFilter, v)}
+              />
+              <ChipGroup
+                label="Category"
+                options={["Engineering", "DevOps", "Data", "Security", "Design", "Finance", "Career", "Writing"]}
+                selected={groupFilter}
+                onToggle={(v) => toggleIn(groupFilter, setGroupFilter, v)}
+              />
+              <ChipGroup
+                label="Complexity"
+                options={["beginner", "advanced"]}
+                labels={["Beginner", "Advanced"]}
+                selected={complexityFilter}
+                onToggle={(v) => toggleIn(complexityFilter, setComplexityFilter, v)}
+              />
+            </div>
+
+            {/* Results count + clear all */}
+            <div className="flex items-center justify-between mt-3 flex-wrap gap-2">
+              <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/30 text-[11px] font-mono font-medium text-primary">
+                Showing {displaySkills.length} of {totalLoaded} skills
+              </span>
+              {anyFilterActive && (
+                <button
+                  onClick={clearAllFilters}
+                  className="text-[11px] font-medium text-muted-foreground hover:text-primary underline-offset-2 hover:underline transition-colors"
+                >
+                  Clear all filters
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Tool filter chips */}
@@ -444,13 +497,6 @@ export function SkillsBrowser() {
             </div>
           )}
 
-          <p className="mb-5 text-[10px] text-muted-foreground">
-            {searchQuery
-              ? `Search covers all ${allSkills.length} loaded skills.`
-              : dataMode === "split"
-              ? "Search covers loaded categories only. Click a category to load more."
-              : `${allSkills.length} skills loaded across ${index?.categories.length ?? 0} categories.`}
-          </p>
 
           <div className="flex flex-col md:flex-row gap-5">
             {/* Desktop sidebar */}
