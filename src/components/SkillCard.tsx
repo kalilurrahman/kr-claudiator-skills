@@ -1,9 +1,11 @@
 import type { Skill } from "@/types/skills.types";
 import { getCategoryMeta } from "@/data/categoryMeta";
-import { Heart } from "lucide-react";
+import { Heart, Copy, Terminal } from "lucide-react";
 import { useState } from "react";
 import { isFavourite, toggleFavourite } from "@/lib/favourites";
 import { toast } from "sonner";
+import { copySkillMd, copyInstallCommand } from "@/lib/skillActions";
+
 
 const difficultyStyles: Record<string, string> = {
   beginner:     "bg-success/15 text-success border-success/30",
@@ -117,6 +119,30 @@ export function SkillCard({ skill, onClick }: SkillCardProps) {
       <p className="text-[10px] font-semibold text-primary uppercase tracking-wider mt-0.5">
         View Skill →
       </p>
+
+      {/* Action buttons */}
+      <div className="flex gap-1.5 mt-1">
+        <span
+          role="button"
+          tabIndex={0}
+          onClick={(e) => { e.stopPropagation(); copySkillMd(skill); }}
+          onKeyDown={(e) => { if (e.key === "Enter") { e.stopPropagation(); copySkillMd(skill); } }}
+          className="flex-1 inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-md border border-primary/30 text-[10px] font-semibold text-primary hover:bg-primary/10 transition-colors cursor-pointer"
+        >
+          <Copy className="w-3 h-3" />
+          Copy SKILL.md
+        </span>
+        <span
+          role="button"
+          tabIndex={0}
+          onClick={(e) => { e.stopPropagation(); copyInstallCommand(skill); }}
+          onKeyDown={(e) => { if (e.key === "Enter") { e.stopPropagation(); copyInstallCommand(skill); } }}
+          className="flex-1 inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-md border border-border text-[10px] font-semibold text-muted-foreground hover:text-foreground hover:border-border/80 transition-colors cursor-pointer"
+        >
+          <Terminal className="w-3 h-3" />
+          Install
+        </span>
+      </div>
     </button>
   );
 }
