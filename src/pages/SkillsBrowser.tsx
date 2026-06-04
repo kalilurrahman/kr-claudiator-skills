@@ -56,11 +56,23 @@ export function SkillsBrowser() {
   const [categoryCache, setCategoryCache] = useState<Record<string, Skill[]>>({});
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [dataMode, setDataMode] = useState<"bundled" | "split" | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
   const [toolFilter, setToolFilter] = useState<string[]>([]);
+  const [productFilter, setProductFilter] = useState<string[]>([]);
+  const [groupFilter, setGroupFilter] = useState<string[]>([]);
+  const [complexityFilter, setComplexityFilter] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<"newest" | "popular" | "az" | "category">("newest");
   const [loading, setLoading] = useState(true);
+
+  // Debounce search input (200ms)
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedQuery(searchQuery), 200);
+    return () => clearTimeout(t);
+  }, [searchQuery]);
+
 
   const searchRef = useRef<HTMLInputElement>(null);
 
