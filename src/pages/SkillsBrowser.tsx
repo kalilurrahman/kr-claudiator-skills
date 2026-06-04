@@ -573,26 +573,20 @@ export function SkillsBrowser() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-20">
-                  <p className="text-2xl mb-3">
-                    {searchQuery ? "🔍" : "📂"}
+                <div className="text-center py-16 px-4">
+                  <p className="text-3xl mb-3">🔍</p>
+                  <p className="text-base font-semibold text-foreground mb-1">
+                    No skills match your filters.
                   </p>
-                  <p className="text-sm font-medium text-foreground mb-1">
-                    {searchQuery ? "No skills match" : "Select a category"}
+                  <p className="text-xs text-muted-foreground mb-4">
+                    Try broadening your search.
                   </p>
-                  <p className="text-xs text-muted-foreground">
-                    {searchQuery
-                      ? "Try different keywords or clear the search"
-                      : "Choose a category from the sidebar to browse skills."}
-                  </p>
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery("")}
-                      className="mt-3 text-xs text-primary hover:text-accent transition-colors"
-                    >
-                      Clear filters →
-                    </button>
-                  )}
+                  <button
+                    onClick={clearAllFilters}
+                    className="inline-flex items-center gap-2 rounded-lg gradient-hero px-4 py-2 text-xs font-semibold text-primary-foreground shadow glow-on-hover transition-all"
+                  >
+                    Reset Filters
+                  </button>
                 </div>
               )}
             </div>
@@ -612,3 +606,46 @@ export function SkillsBrowser() {
     </div>
   );
 }
+
+// ─── ChipGroup helper ─────────────────────────────────────────────────────────
+function ChipGroup({
+  label,
+  options,
+  labels,
+  selected,
+  onToggle,
+}: {
+  label: string;
+  options: string[];
+  labels?: string[];
+  selected: string[];
+  onToggle: (v: string) => void;
+}) {
+  return (
+    <div className="flex items-center gap-2 flex-wrap">
+      <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground w-16 shrink-0">
+        {label}
+      </span>
+      <div className="flex flex-wrap gap-1.5">
+        {options.map((opt, i) => {
+          const display = labels?.[i] ?? opt;
+          const active = selected.includes(opt);
+          return (
+            <button
+              key={opt}
+              onClick={() => onToggle(opt)}
+              className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${
+                active
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-card border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+              }`}
+            >
+              {display}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
