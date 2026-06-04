@@ -180,8 +180,35 @@ export function SkillsBrowser() {
     return [...tools].filter(Boolean).sort();
   }, [allSkills]);
 
+  // ── Group / Product detection helpers ─────────────────────────────────────
+  const CATEGORY_GROUPS: Record<string, RegExp> = {
+    Engineering: /software|architect|system design|api|test/i,
+    DevOps: /devops|infra|sre|deploy/i,
+    Data: /data|analytics|database/i,
+    Security: /security/i,
+    Design: /design|ux|ui/i,
+    Finance: /finance|fin/i,
+    Career: /career|leadership|product management/i,
+    Writing: /writing|documentation|content/i,
+  };
+
+  const skillProduct = (s: Skill): string => {
+    const hay = `${s.tags?.join(" ") ?? ""} ${s.allowedTools ?? ""}`.toLowerCase();
+    if (hay.includes("cowork") && hay.includes("claude code")) return "Both";
+    if (hay.includes("cowork")) return "CoWork";
+    if (hay.includes("claude code")) return "Claude Code";
+    return "Both";
+  };
+
+  const skillGroup = (s: Skill): string[] => {
+    const cat = s.category ?? "";
+    return Object.entries(CATEGORY_GROUPS)
+      .filter(([, re]) => re.test(cat))
+      .map(([k]) => k);
+  };
+
   const displaySkills = useMemo(() => {
-    const q = searchQuery.toLowerCase().trim();
+    const q = debouncedQuery.toLowerCase().trim();
 
     let base: Skill[];
     if (q) {
@@ -199,7 +226,6 @@ export function SkillsBrowser() {
           s.outputs?.some((t) => t.toLowerCase().includes(q))
       );
     } else if (persona) {
-      // Persona filter spans all categories
       base = allSkills.filter((s) => {
         const hay = [
           s.category ?? "",
@@ -212,10 +238,17 @@ export function SkillsBrowser() {
           .toLowerCase();
         return persona.tags.some((t) => hay.includes(t.toLowerCase()));
       });
-    } else if (activeCategory) {
+    } else if (
+      activeCategory &&
+      productFilter.length === 0 &&
+      groupFilter.length === 0 &&
+      complexityFilter.length === 0
+    ) {
       base = categoryCache[activeCategory] ?? [];
+    } else if (productFilter.length || groupFilter.length || complexityFilter.length) {
+      base = allSkills;
     } else {
-      base = [];
+      base = categoryCache[activeCategory ?? ""] ?? [];
     }
 
     if (toolFilter.length > 0) {
@@ -225,9 +258,81 @@ export function SkillsBrowser() {
         )
       );
     }
+    if (productFilter.length > 0) {
+      base = base.filter((s) => productFilter.includes(skillProduct(s)));
+    }
+    if (groupFilter.length > 0) {
+      base = base.filter((s) => {
+        const g = skillGroup(s);
+        return groupFilter.some((f) => g.includes(f));
+      });
+    }
+    if (complexityFilter.length > 0) {
+      base = base.filter(
+        (s) => s.difficulty && complexityFilter.includes(s.difficulty)
+      );
+    }
 
-    return base;
-  }, [searchQuery, activeCategory, categoryCache, allSkills, toolFilter, persona]);
+    const sorted = [...base];
+    switch (sortBy) {
+      case "az":
+        sorted.sort((a, b) =>
+          (a.displayName ?? a.name).localeCompare(b.displayName ?? b.name)
+        );
+        break;
+      case "category":
+        sorted.sort((a, b) =>
+          (a.category ?? "").localeCompare(b.category ?? "")
+        );
+        break;
+      case "popular":
+        sorted.sort((a, b) => (b.lines ?? 0) - (a.lines ?? 0));
+        break;
+      case "newest":
+      default:
+        // keep dataset order (newest appended last → reverse)
+        sorted.reverse();
+        break;
+    }
+
+    return sorted;
+  }, [
+    debouncedQuery,
+    activeCategory,
+    categoryCache,
+    allSkills,
+    toolFilter,
+    productFilter,
+    groupFilter,
+    complexityFilter,
+    sortBy,
+    persona,
+  ]);
+
+  const totalLoaded = allSkills.length;
+  const anyFilterActive =
+    !!debouncedQuery ||
+    toolFilter.length > 0 ||
+    productFilter.length > 0 ||
+    groupFilter.length > 0 ||
+    complexityFilter.length > 0;
+
+  const clearAllFilters = () => {
+    setSearchQuery("");
+    setToolFilter([]);
+    setProductFilter([]);
+    setGroupFilter([]);
+    setComplexityFilter([]);
+  };
+
+  const toggleIn = (
+    list: string[],
+    setList: (v: string[]) => void,
+    val: string
+  ) => {
+    setList(list.includes(val) ? list.filter((x) => x !== val) : [...list, val]);
+  };
+
 
 
   // ─── Render ────────────────────────────────────────────────────────────────
