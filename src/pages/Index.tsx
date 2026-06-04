@@ -270,7 +270,10 @@ export function HomePage() {
             </div>
           </div>
         </section>
+
+        <SkillRequestBanner />
       </main>
+
 
       <Footer />
 
