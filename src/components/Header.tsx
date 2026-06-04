@@ -4,6 +4,8 @@ import { Menu, ExternalLink, Home, Search, MessageSquare, Info, Heart, Download,
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { usePwaInstall } from "@/hooks/usePwaInstall";
 import { AppearanceMenu } from "@/components/AppearanceMenu";
+import { ContributeButton } from "@/components/ContributeButton";
+
 
 export function Header() {
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -97,7 +99,9 @@ export function Header() {
 
           <span className="w-px h-4 bg-border mx-1" />
 
+          <ContributeButton compact />
           <AppearanceMenu />
+
         </div>
 
         {/* Mobile */}
