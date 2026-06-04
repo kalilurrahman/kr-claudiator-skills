@@ -8,6 +8,9 @@ import { Hero } from "@/components/Hero";
 import { PersonaCards } from "@/components/PersonaCards";
 import { SkillStacks } from "@/components/SkillStacks";
 import { HowToUse } from "@/components/HowToUse";
+import { HomeStats } from "@/components/HomeStats";
+import { SkillRequestBanner } from "@/components/SkillRequestBanner";
+
 import { getCategoryMeta } from "@/data/categoryMeta";
 import type { SkillsIndex, Skill, BundledData } from "@/types/skills.types";
 import { Github, BookOpen, Layers, Sparkles } from "lucide-react";
@@ -80,6 +83,10 @@ export function HomePage() {
 
       <main className="flex-1 pt-12">
         <Hero data={data} />
+
+        {data && <HomeStats skillCount={data.totalSkills} categoryCount={data.categories.length} />}
+
+
 
 
         {/* Skill of the Day */}
@@ -263,7 +270,10 @@ export function HomePage() {
             </div>
           </div>
         </section>
+
+        <SkillRequestBanner />
       </main>
+
 
       <Footer />
 

@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
-import { X, Copy, Check, ExternalLink, Loader2, Code2, FileText } from "lucide-react";
+import { X, Copy, Check, ExternalLink, Loader2, Code2, FileText, Terminal } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Skill } from "@/types/skills.types";
 import { getCategoryMeta } from "@/data/categoryMeta";
+import { getInstallCommand } from "@/lib/skillActions";
+
 
 const GITHUB_RAW_BASE =
   "https://raw.githubusercontent.com/kalilurrahman/kr-claudiator-skills/main";
@@ -191,8 +193,9 @@ export function SkillModal({ skill, onClose }: SkillModalProps) {
 
           {/* Action buttons */}
           <div className="shrink-0 px-3 sm:px-4 py-2 border-b border-border flex flex-wrap gap-1.5">
-            <CopyBtn label="Copy Full Skill" icon={<Copy className="w-3 h-3" />} variant="primary" onCopy={getFullContent} onDone={showToast} />
-            <CopyBtn label="Claude Tool" icon={<Code2 className="w-3 h-3" />} variant="secondary" onCopy={getClaudeToolSnippet} onDone={showToast} />
+            <CopyBtn label="Copy SKILL.md" icon={<Copy className="w-3 h-3" />} variant="primary" onCopy={getFullContent} onDone={showToast} />
+            <CopyBtn label="Install Command" icon={<Terminal className="w-3 h-3" />} variant="secondary" onCopy={() => getInstallCommand(skill)} onDone={showToast} />
+            <CopyBtn label="Claude Tool" icon={<Code2 className="w-3 h-3" />} variant="ghost" onCopy={getClaudeToolSnippet} onDone={showToast} />
             {skill.content && <CopyBtn label="Frontmatter" icon={<FileText className="w-3 h-3" />} variant="ghost" onCopy={getFrontmatter} onDone={showToast} />}
             {skill.packFile && (
               <a href={skill.packFile} download className="inline-flex items-center gap-1.5 px-3 py-2 rounded text-xs font-semibold border border-primary/40 text-primary hover:bg-primary/10 transition-all">

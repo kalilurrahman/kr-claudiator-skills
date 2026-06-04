@@ -56,11 +56,23 @@ export function SkillsBrowser() {
   const [categoryCache, setCategoryCache] = useState<Record<string, Skill[]>>({});
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [dataMode, setDataMode] = useState<"bundled" | "split" | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
   const [toolFilter, setToolFilter] = useState<string[]>([]);
+  const [productFilter, setProductFilter] = useState<string[]>([]);
+  const [groupFilter, setGroupFilter] = useState<string[]>([]);
+  const [complexityFilter, setComplexityFilter] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<"newest" | "popular" | "az" | "category">("newest");
   const [loading, setLoading] = useState(true);
+
+  // Debounce search input (200ms)
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedQuery(searchQuery), 200);
+    return () => clearTimeout(t);
+  }, [searchQuery]);
+
 
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -168,8 +180,35 @@ export function SkillsBrowser() {
     return [...tools].filter(Boolean).sort();
   }, [allSkills]);
 
+  // ── Group / Product detection helpers ─────────────────────────────────────
+  const CATEGORY_GROUPS: Record<string, RegExp> = {
+    Engineering: /software|architect|system design|api|test/i,
+    DevOps: /devops|infra|sre|deploy/i,
+    Data: /data|analytics|database/i,
+    Security: /security/i,
+    Design: /design|ux|ui/i,
+    Finance: /finance|fin/i,
+    Career: /career|leadership|product management/i,
+    Writing: /writing|documentation|content/i,
+  };
+
+  const skillProduct = (s: Skill): string => {
+    const hay = `${s.tags?.join(" ") ?? ""} ${s.allowedTools ?? ""}`.toLowerCase();
+    if (hay.includes("cowork") && hay.includes("claude code")) return "Both";
+    if (hay.includes("cowork")) return "CoWork";
+    if (hay.includes("claude code")) return "Claude Code";
+    return "Both";
+  };
+
+  const skillGroup = (s: Skill): string[] => {
+    const cat = s.category ?? "";
+    return Object.entries(CATEGORY_GROUPS)
+      .filter(([, re]) => re.test(cat))
+      .map(([k]) => k);
+  };
+
   const displaySkills = useMemo(() => {
-    const q = searchQuery.toLowerCase().trim();
+    const q = debouncedQuery.toLowerCase().trim();
 
     let base: Skill[];
     if (q) {
@@ -187,7 +226,6 @@ export function SkillsBrowser() {
           s.outputs?.some((t) => t.toLowerCase().includes(q))
       );
     } else if (persona) {
-      // Persona filter spans all categories
       base = allSkills.filter((s) => {
         const hay = [
           s.category ?? "",
@@ -200,10 +238,17 @@ export function SkillsBrowser() {
           .toLowerCase();
         return persona.tags.some((t) => hay.includes(t.toLowerCase()));
       });
-    } else if (activeCategory) {
+    } else if (
+      activeCategory &&
+      productFilter.length === 0 &&
+      groupFilter.length === 0 &&
+      complexityFilter.length === 0
+    ) {
       base = categoryCache[activeCategory] ?? [];
+    } else if (productFilter.length || groupFilter.length || complexityFilter.length) {
+      base = allSkills;
     } else {
-      base = [];
+      base = categoryCache[activeCategory ?? ""] ?? [];
     }
 
     if (toolFilter.length > 0) {
@@ -213,9 +258,81 @@ export function SkillsBrowser() {
         )
       );
     }
+    if (productFilter.length > 0) {
+      base = base.filter((s) => productFilter.includes(skillProduct(s)));
+    }
+    if (groupFilter.length > 0) {
+      base = base.filter((s) => {
+        const g = skillGroup(s);
+        return groupFilter.some((f) => g.includes(f));
+      });
+    }
+    if (complexityFilter.length > 0) {
+      base = base.filter(
+        (s) => s.difficulty && complexityFilter.includes(s.difficulty)
+      );
+    }
 
-    return base;
-  }, [searchQuery, activeCategory, categoryCache, allSkills, toolFilter, persona]);
+    const sorted = [...base];
+    switch (sortBy) {
+      case "az":
+        sorted.sort((a, b) =>
+          (a.displayName ?? a.name).localeCompare(b.displayName ?? b.name)
+        );
+        break;
+      case "category":
+        sorted.sort((a, b) =>
+          (a.category ?? "").localeCompare(b.category ?? "")
+        );
+        break;
+      case "popular":
+        sorted.sort((a, b) => (b.lines ?? 0) - (a.lines ?? 0));
+        break;
+      case "newest":
+      default:
+        // keep dataset order (newest appended last → reverse)
+        sorted.reverse();
+        break;
+    }
+
+    return sorted;
+  }, [
+    debouncedQuery,
+    activeCategory,
+    categoryCache,
+    allSkills,
+    toolFilter,
+    productFilter,
+    groupFilter,
+    complexityFilter,
+    sortBy,
+    persona,
+  ]);
+
+  const totalLoaded = allSkills.length;
+  const anyFilterActive =
+    !!debouncedQuery ||
+    toolFilter.length > 0 ||
+    productFilter.length > 0 ||
+    groupFilter.length > 0 ||
+    complexityFilter.length > 0;
+
+  const clearAllFilters = () => {
+    setSearchQuery("");
+    setToolFilter([]);
+    setProductFilter([]);
+    setGroupFilter([]);
+    setComplexityFilter([]);
+  };
+
+  const toggleIn = (
+    list: string[],
+    setList: (v: string[]) => void,
+    val: string
+  ) => {
+    setList(list.includes(val) ? list.filter((x) => x !== val) : [...list, val]);
+  };
+
 
 
   // ─── Render ────────────────────────────────────────────────────────────────
@@ -246,47 +363,100 @@ export function SkillsBrowser() {
             </div>
           )}
 
-          {/* Search + filter row */}
-          <div className="mb-5 flex gap-2">
-            <div className="relative flex-1">
-              <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <input
-                ref={searchRef}
-                type="text"
-                placeholder='Search skills… Press "/" to focus'
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-8 py-2.5 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-              {searchQuery && (
+          {/* Sticky filter bar */}
+          <div className="sticky top-12 z-40 -mx-4 px-4 py-3 mb-5 bg-background/85 backdrop-blur-md border-b border-border/60">
+            {/* Search + filter toggle */}
+            <div className="flex gap-2 mb-2">
+              <div className="relative flex-1">
+                <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input
+                  ref={searchRef}
+                  type="text"
+                  placeholder='Search skills, descriptions, tags… Press "/" to focus'
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-8 py-2.5 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                className="px-3 py-2.5 bg-card border border-border rounded-lg text-xs font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+                aria-label="Sort skills"
+              >
+                <option value="newest">Newest</option>
+                <option value="popular">Most Popular</option>
+                <option value="az">A–Z</option>
+                <option value="category">Category</option>
+              </select>
+
+              {allTools.length > 0 && (
                 <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                  aria-label="Clear search"
+                  onClick={() => setFilterOpen((v) => !v)}
+                  className={`flex items-center gap-1.5 px-3 py-2.5 rounded-lg border text-xs font-medium transition-colors ${
+                    filterOpen || toolFilter.length > 0
+                      ? "bg-primary/10 border-primary text-primary"
+                      : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-border/80"
+                  }`}
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <SlidersHorizontal className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Tools</span>
+                  {toolFilter.length > 0 && (
+                    <span className="bg-primary text-primary-foreground rounded-full w-4 h-4 flex items-center justify-center text-[9px]">
+                      {toolFilter.length}
+                    </span>
+                  )}
                 </button>
               )}
             </div>
 
-            {allTools.length > 0 && (
-              <button
-                onClick={() => setFilterOpen((v) => !v)}
-                className={`flex items-center gap-1.5 px-3 py-2.5 rounded-lg border text-xs font-medium transition-colors ${
-                  filterOpen || toolFilter.length > 0
-                    ? "bg-primary/10 border-primary text-primary"
-                    : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-border/80"
-                }`}
-              >
-                <SlidersHorizontal className="w-3.5 h-3.5" />
-                Filter
-                {toolFilter.length > 0 && (
-                  <span className="bg-primary text-primary-foreground rounded-full w-4 h-4 flex items-center justify-center text-[9px]">
-                    {toolFilter.length}
-                  </span>
-                )}
-              </button>
-            )}
+            {/* Filter chips: Claude Product / Category / Complexity */}
+            <div className="space-y-2">
+              <ChipGroup
+                label="Product"
+                options={["Claude Code", "CoWork", "Both"]}
+                selected={productFilter}
+                onToggle={(v) => toggleIn(productFilter, setProductFilter, v)}
+              />
+              <ChipGroup
+                label="Category"
+                options={["Engineering", "DevOps", "Data", "Security", "Design", "Finance", "Career", "Writing"]}
+                selected={groupFilter}
+                onToggle={(v) => toggleIn(groupFilter, setGroupFilter, v)}
+              />
+              <ChipGroup
+                label="Complexity"
+                options={["beginner", "advanced"]}
+                labels={["Beginner", "Advanced"]}
+                selected={complexityFilter}
+                onToggle={(v) => toggleIn(complexityFilter, setComplexityFilter, v)}
+              />
+            </div>
+
+            {/* Results count + clear all */}
+            <div className="flex items-center justify-between mt-3 flex-wrap gap-2">
+              <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/30 text-[11px] font-mono font-medium text-primary">
+                Showing {displaySkills.length} of {totalLoaded} skills
+              </span>
+              {anyFilterActive && (
+                <button
+                  onClick={clearAllFilters}
+                  className="text-[11px] font-medium text-muted-foreground hover:text-primary underline-offset-2 hover:underline transition-colors"
+                >
+                  Clear all filters
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Tool filter chips */}
@@ -327,13 +497,6 @@ export function SkillsBrowser() {
             </div>
           )}
 
-          <p className="mb-5 text-[10px] text-muted-foreground">
-            {searchQuery
-              ? `Search covers all ${allSkills.length} loaded skills.`
-              : dataMode === "split"
-              ? "Search covers loaded categories only. Click a category to load more."
-              : `${allSkills.length} skills loaded across ${index?.categories.length ?? 0} categories.`}
-          </p>
 
           <div className="flex flex-col md:flex-row gap-5">
             {/* Desktop sidebar */}
@@ -410,26 +573,20 @@ export function SkillsBrowser() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-20">
-                  <p className="text-2xl mb-3">
-                    {searchQuery ? "🔍" : "📂"}
+                <div className="text-center py-16 px-4">
+                  <p className="text-3xl mb-3">🔍</p>
+                  <p className="text-base font-semibold text-foreground mb-1">
+                    No skills match your filters.
                   </p>
-                  <p className="text-sm font-medium text-foreground mb-1">
-                    {searchQuery ? "No skills match" : "Select a category"}
+                  <p className="text-xs text-muted-foreground mb-4">
+                    Try broadening your search.
                   </p>
-                  <p className="text-xs text-muted-foreground">
-                    {searchQuery
-                      ? "Try different keywords or clear the search"
-                      : "Choose a category from the sidebar to browse skills."}
-                  </p>
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery("")}
-                      className="mt-3 text-xs text-primary hover:text-accent transition-colors"
-                    >
-                      Clear filters →
-                    </button>
-                  )}
+                  <button
+                    onClick={clearAllFilters}
+                    className="inline-flex items-center gap-2 rounded-lg gradient-hero px-4 py-2 text-xs font-semibold text-primary-foreground shadow glow-on-hover transition-all"
+                  >
+                    Reset Filters
+                  </button>
                 </div>
               )}
             </div>
@@ -449,3 +606,46 @@ export function SkillsBrowser() {
     </div>
   );
 }
+
+// ─── ChipGroup helper ─────────────────────────────────────────────────────────
+function ChipGroup({
+  label,
+  options,
+  labels,
+  selected,
+  onToggle,
+}: {
+  label: string;
+  options: string[];
+  labels?: string[];
+  selected: string[];
+  onToggle: (v: string) => void;
+}) {
+  return (
+    <div className="flex items-center gap-2 flex-wrap">
+      <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground w-16 shrink-0">
+        {label}
+      </span>
+      <div className="flex flex-wrap gap-1.5">
+        {options.map((opt, i) => {
+          const display = labels?.[i] ?? opt;
+          const active = selected.includes(opt);
+          return (
+            <button
+              key={opt}
+              onClick={() => onToggle(opt)}
+              className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${
+                active
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-card border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+              }`}
+            >
+              {display}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
