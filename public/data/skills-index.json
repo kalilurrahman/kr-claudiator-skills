@@ -1,8 +1,8 @@
 {
   "version": "2.0",
-  "totalSkills": 513,
+  "totalSkills": 526,
   "targetSkills": 513,
-  "lastUpdated": "2026-05-20",
+  "lastUpdated": "2026-07-17",
   "categories": [
     {
       "id": "01-software-dev",
@@ -111,6 +111,14 @@
       "label": "Consulting",
       "icon": "Briefcase",
       "dataFile": "/data/skills-data.json"
+    },
+    {
+      "id": "13-claude-5",
+      "label": "Claude 5 Mythos & Fable",
+      "icon": "Sparkles",
+      "dataFile": "/data/skills-13-claude-5.json",
+      "count": 13,
+      "isNew": true
     }
   ]
 }
