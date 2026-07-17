@@ -9,6 +9,12 @@ import { getCategoryMeta } from "@/data/categoryMeta";
 
 const CAROUSEL_SLIDES = [
   {
+    icon: Sparkles,
+    kicker: "New · Claude 5",
+    title: "Mythos & Fable playbooks",
+    body: "13 fresh skills for 1M-token reasoning, agentic tool use, structured output, and multimodal — tuned for Claude 5 Mythos & Fable.",
+  },
+  {
     icon: Bot,
     kicker: "AI agents",
     title: "Production-ready Claude agents",
@@ -29,7 +35,7 @@ const CAROUSEL_SLIDES = [
   {
     icon: Wand2,
     kicker: "Always fresh",
-    title: "500+ curated, open-source",
+    title: "520+ curated, open-source",
     body: "Hand-tuned by KR Tools. New skills land via GitHub — no signup, no tracking.",
   },
 ];
@@ -67,8 +73,8 @@ export function Hero({ data }: HeroProps) {
       </div>
 
       <div className="relative container max-w-6xl mx-auto px-6 animate-fade-in">
-        {/* Live chip */}
-        <div className="mb-6 flex justify-center">
+        {/* Live chip + Claude 5 announcement */}
+        <div className="mb-6 flex flex-wrap justify-center gap-2">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/5 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-primary backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
@@ -76,6 +82,14 @@ export function Hero({ data }: HeroProps) {
             </span>
             Claude Skills Compendium · Live
           </div>
+          <Link
+            to="/skills?category=13-claude-5"
+            className="group inline-flex items-center gap-2 rounded-full border border-[#f472b6]/50 bg-gradient-to-r from-[#f472b6]/15 to-[#a78bfa]/15 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#f472b6] backdrop-blur-sm transition-transform hover:-translate-y-px"
+          >
+            <Sparkles className="h-3 w-3" />
+            New · Claude 5 Mythos & Fable
+            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
 
         {/* Two-column hero: copy left, agent image right */}
@@ -87,9 +101,9 @@ export function Hero({ data }: HeroProps) {
               agent toolkit
             </h1>
             <p className="mx-auto lg:mx-0 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">{data?.totalSkills ?? 500}+</strong> production-ready
-              SKILL.md prompts across <strong className="text-foreground">{data?.categories.length ?? 12} domains</strong>
-              {" "}— Software, DevOps, AI/ML, Security, Architecture, Leadership. Open-source, by Kalilur Rahman.
+              <strong className="text-foreground">{data?.totalSkills ?? 526}+</strong> production-ready
+              SKILL.md prompts across <strong className="text-foreground">{data?.categories.length ?? 19} domains</strong>
+              {" "}— tuned for <strong className="text-foreground">Claude 5 Mythos &amp; Fable</strong>, Sonnet 4.5, and Opus 4. Open-source, by Kalilur Rahman.
             </p>
 
             {/* CTAs */}

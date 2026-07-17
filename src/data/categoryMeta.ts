@@ -66,6 +66,9 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
   "Consulting": {
     emoji: "💼", dot: "#eab308", bg: "#eab30818", border: "#eab30830", lucideIcon: "Briefcase",
   },
+  "Claude 5 Mythos & Fable": {
+    emoji: "🪄", dot: "#f472b6", bg: "#f472b618", border: "#f472b630", lucideIcon: "Sparkles",
+  },
 };
 
 /** Fallback meta for unknown categories */
