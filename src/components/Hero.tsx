@@ -9,6 +9,12 @@ import { getCategoryMeta } from "@/data/categoryMeta";
 
 const CAROUSEL_SLIDES = [
   {
+    icon: Sparkles,
+    kicker: "New · Claude 5",
+    title: "Mythos & Fable playbooks",
+    body: "13 fresh skills for 1M-token reasoning, agentic tool use, structured output, and multimodal — tuned for Claude 5 Mythos & Fable.",
+  },
+  {
     icon: Bot,
     kicker: "AI agents",
     title: "Production-ready Claude agents",
@@ -29,7 +35,7 @@ const CAROUSEL_SLIDES = [
   {
     icon: Wand2,
     kicker: "Always fresh",
-    title: "500+ curated, open-source",
+    title: "520+ curated, open-source",
     body: "Hand-tuned by KR Tools. New skills land via GitHub — no signup, no tracking.",
   },
 ];
