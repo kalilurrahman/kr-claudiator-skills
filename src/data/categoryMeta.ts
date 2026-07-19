@@ -69,6 +69,10 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
   "Claude 5 Mythos & Fable": {
     emoji: "🪄", dot: "#f472b6", bg: "#f472b618", border: "#f472b630", lucideIcon: "Sparkles",
   },
+  "Executive Playbooks (CXO)": {
+    emoji: "👑", dot: "#f59e0b", bg: "#f59e0b18", border: "#f59e0b30", lucideIcon: "Crown",
+  },
+
 };
 
 /** Fallback meta for unknown categories */
