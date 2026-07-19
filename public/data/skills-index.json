@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "totalSkills": 526,
+  "totalSkills": 541,
   "targetSkills": 513,
   "lastUpdated": "2026-07-17",
   "categories": [
@@ -118,6 +118,14 @@
       "icon": "Sparkles",
       "dataFile": "/data/skills-13-claude-5.json",
       "count": 13,
+      "isNew": true
+    },
+    {
+      "id": "14-executive-playbooks",
+      "label": "Executive Playbooks (CXO)",
+      "icon": "Crown",
+      "dataFile": "/data/skills-data.json",
+      "count": 15,
       "isNew": true
     }
   ]

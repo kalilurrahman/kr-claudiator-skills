@@ -52,7 +52,47 @@ export const SKILL_STACKS: Stack[] = [
       "pack/enterprise-app-implementation",
     ],
   },
+  {
+    id: "cxo-strategy",
+    title: "CXO Strategy Boardroom",
+    emoji: "👑",
+    blurb: "Board-grade playbooks for CEO, CFO, COO — strategy, investment cases, QBR.",
+    skillIds: [
+      "14-executive-playbooks/ceo-quarterly-business-review",
+      "14-executive-playbooks/cfo-technology-investment-case",
+      "14-executive-playbooks/coo-operating-model-redesign",
+      "14-executive-playbooks/cxo-crisis-communication-playbook",
+    ],
+  },
+  {
+    id: "cto-cio",
+    title: "CTO & CIO Command Deck",
+    emoji: "🧭",
+    blurb: "Technology strategy, build-vs-buy, org design, and transformation roadmap.",
+    skillIds: [
+      "14-executive-playbooks/cto-technology-strategy",
+      "14-executive-playbooks/cto-build-vs-buy-decision",
+      "14-executive-playbooks/cto-engineering-org-design",
+      "14-executive-playbooks/cio-digital-transformation-roadmap",
+      "14-executive-playbooks/cio-vendor-portfolio-rationalisation",
+    ],
+  },
+  {
+    id: "ciso-cdo-cpo",
+    title: "CISO · CDO · CPO Trident",
+    emoji: "🛡️",
+    blurb: "Security strategy, enterprise data strategy, and product operating model.",
+    skillIds: [
+      "14-executive-playbooks/ciso-security-strategy-board",
+      "14-executive-playbooks/cdo-data-strategy",
+      "14-executive-playbooks/cpo-product-operating-model",
+      "14-executive-playbooks/cxo-ai-governance-council",
+      "14-executive-playbooks/cio-ai-adoption-strategy",
+      "14-executive-playbooks/cto-tech-debt-portfolio",
+    ],
+  },
 ];
+
 
 interface SkillStacksProps {
   allSkills: Skill[];
