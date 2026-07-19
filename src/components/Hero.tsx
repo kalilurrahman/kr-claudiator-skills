@@ -101,7 +101,7 @@ export function Hero({ data }: HeroProps) {
               agent toolkit
             </h1>
             <p className="mx-auto lg:mx-0 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">{data?.totalSkills ?? 526}+</strong> production-ready
+              <strong className="text-foreground">{data?.totalSkills ?? 541}+</strong> production-ready
               SKILL.md prompts across <strong className="text-foreground">{data?.categories.length ?? 19} domains</strong>
               {" "}— tuned for <strong className="text-foreground">Claude 5 Mythos &amp; Fable</strong>, Sonnet 4.5, and Opus 4. Open-source, by Kalilur Rahman.
             </p>
