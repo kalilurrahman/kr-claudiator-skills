@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "totalSkills": 541,
+  "totalSkills": 546,
   "targetSkills": 513,
   "lastUpdated": "2026-07-17",
   "categories": [
@@ -125,7 +125,7 @@
       "label": "Executive Playbooks (CXO)",
       "icon": "Crown",
       "dataFile": "/data/skills-data.json",
-      "count": 15,
+      "count": 20,
       "isNew": true
     }
   ]
