@@ -50,6 +50,7 @@ gated downloads, per-buyer watermarking (social DRM), and per-seat team licensin
 | [04-GTM-PLAYBOOK.md](./04-GTM-PLAYBOOK.md) | Launch sequencing, funnel design, email ladder, affiliates, pricing hygiene, benchmark tables |
 | [05-RISK-LEGAL-CHECKLIST.md](./05-RISK-LEGAL-CHECKLIST.md) | 20 gaps a top-tier consultant would flag: content licensing, EULA, trademark, tax/entity, GDPR, refunds, capacity |
 | [06-ROADMAP.md](./06-ROADMAP.md) | 90-day phased execution plan with gates and kill criteria |
+| [07-PHASE-0-STATUS.md](./07-PHASE-0-STATUS.md) | What Phase 0 has completed vs. what still needs your decision |
 
 ## Non-negotiables (read these before anything else)
 
