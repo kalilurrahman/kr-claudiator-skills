@@ -74,7 +74,7 @@
 | `02-devops-infra/blue-green-deploy` | Implement blue-green deployment strategy for zero-downtime releases with instant rollback capability. | 289 |
 | `02-devops-infra/canary-release` | Implement canary release strategy for gradual traffic shifting with automated promotion and rollback. | 362 |
 | `02-devops-infra/capacity-planning` | Plan infrastructure capacity for current and future load. | 258 |
-| `02-devops-infra/chaos-testing-infra` | Run chaos engineering experiments on infrastructure to find weaknesses before incidents do. | 87 |
+| `02-devops-infra/chaos-testing-infra` | Design and run chaos engineering experiments against infrastructure — steady-state hypotheses, blast-radius control, and staged promotion from dev to production. | 384 |
 | `02-devops-infra/ci-cd-advanced` | Design advanced CI/CD patterns with deployment strategies, progressive delivery, and rollback automation. | 635 |
 | `02-devops-infra/ci-cd-pipeline` | Design continuous integration and deployment pipelines. | 598 |
 | `02-devops-infra/cloud-cost-allocation` | Implement cloud cost allocation, tagging policies, and showback/chargeback systems. | 135 |
@@ -109,7 +109,7 @@
 | `02-devops-infra/progressive-delivery` | Implement progressive delivery strategies including canary releases, feature flags, and traffic splitting. | 175 |
 | `02-devops-infra/release-management` | Design a release management process for coordinated, low-risk software releases. | 173 |
 | `02-devops-infra/secrets-management` | Design secrets management with Vault, AWS Secrets Manager, encrypted storage. | 638 |
-| `02-devops-infra/service-catalog` | Build and maintain a service catalog documenting all services, their owners, dependencies, and operational properties. | 67 |
+| `02-devops-infra/service-catalog` | Build and keep alive a service catalog / internal developer portal — Backstage or a commercial IDP — with enforced ownership, on-call mapping, and maturity scorecards. | 395 |
 | `02-devops-infra/service-discovery` | Implement service discovery for dynamic microservice environments. | 174 |
 | `02-devops-infra/slos-and-error-budgets` | Define Service Level Objectives and manage error budgets for reliability engineering. | 170 |
 | `02-devops-infra/sre-runbook` | Write SRE runbooks for incident response, on-call procedures, and service recovery. | 292 |
@@ -122,7 +122,7 @@
 | Skill | Description | Lines |
 |---|---|---|
 | `03-data-analytics/ab-test-analysis` | Design and analyze A/B tests with statistical significance, sample size calculation, and metric selection. | 448 |
-| `03-data-analytics/analytics-engineering` | Apply analytics engineering practices to build reliable, tested, and documented data models. | 79 |
+| `03-data-analytics/analytics-engineering` | Run a dbt project like a software project. | 421 |
 | `03-data-analytics/cohort-analysis` | Build cohort analyses to understand user retention, behaviour over time, and revenue patterns. | 196 |
 | `03-data-analytics/customer-segmentation` | Build customer segmentation models for personalisation, targeting, and lifecycle management. | 139 |
 | `03-data-analytics/dashboard-design` | Design analytics dashboards with Tableau, PowerBI, Looker, Metabase. | 536 |
@@ -135,7 +135,7 @@
 | `03-data-analytics/data-mesh-design` | Design a data mesh architecture with domain ownership, data products, and federated governance. | 214 |
 | `03-data-analytics/data-migration` | Design and execute safe database migrations with zero downtime, rollback plans, and data validation. | 361 |
 | `03-data-analytics/data-modeling` | Design data models for relational and NoSQL databases. | 507 |
-| `03-data-analytics/data-observability` | Implement data observability to detect, alert on, and resolve data quality issues in pipelines and warehouses. | 72 |
+| `03-data-analytics/data-observability` | Implement data observability across the five pillars — freshness, volume, schema, distribution, lineage — with anomaly detection on pipelines and lineage-driven incident triage. | 361 |
 | `03-data-analytics/data-partitioning` | Design database and data lake partitioning strategies for scale, performance, and cost optimization. | 307 |
 | `03-data-analytics/data-pipeline-testing` | Test data pipelines for correctness, reliability, and data quality. | 353 |
 | `03-data-analytics/data-quality-checks` | Design data quality validation with Great Expectations, custom checks, and automated monitoring. | 583 |
@@ -151,14 +151,14 @@
 | `03-data-analytics/feature-flags-analytics` | Analyse feature flag experiments to measure impact on key metrics. | 175 |
 | `03-data-analytics/forecasting-models` | Build time-series forecasting models for business metrics. | 205 |
 | `03-data-analytics/funnel-analysis` | Build conversion funnel analyses to identify drop-off points and optimisation opportunities. | 193 |
-| `03-data-analytics/graph-analytics` | Design and implement graph analytics for network analysis, recommendation systems, and fraud detection. | 58 |
+| `03-data-analytics/graph-analytics` | Design and implement graph analytics — property graph vs RDF modeling, engine selection (Neo4j, Memgraph, Neptune, Spark GraphFrames), and algorithm-to-business-question mapping. | 359 |
 | `03-data-analytics/lakehouse-architecture` | Design a lakehouse combining data lake flexibility with warehouse query performance. | 248 |
 | `03-data-analytics/metrics-framework` | Design a company-wide metrics framework with north star, input metrics, guardrails, and reporting hierarchy. | 235 |
 | `03-data-analytics/product-analytics` | Build product analytics infrastructure to understand user behaviour, feature adoption, and business outcomes. | 162 |
 | `03-data-analytics/real-time-analytics` | Build real-time analytics pipelines with sub-second query latency. | 273 |
 | `03-data-analytics/revenue-analytics` | Build revenue analytics systems tracking MRR, ARR, churn, expansion, and cohort revenue. | 222 |
 | `03-data-analytics/reverse-etl` | Design reverse ETL pipelines that sync warehouse data back into operational SaaS tools (CRM, ads, support). | 355 |
-| `03-data-analytics/semantic-layer` | Design a semantic layer that provides a consistent business metric definitions across all analytics tools. | 69 |
+| `03-data-analytics/semantic-layer` | Design a semantic layer that defines every business metric once and serves it consistently to BI tools, spreadsheets, and AI agents. | 379 |
 | `03-data-analytics/sql-optimization` | Optimize slow SQL queries with indexing, query rewriting, and execution plan analysis. | 565 |
 | `03-data-analytics/streaming-pipeline` | Design real-time streaming pipelines with Kafka, Flink, Spark Streaming. | 536 |
 | `03-data-analytics/time-series-analysis` | Analyse and model time series data for forecasting, anomaly detection, and trend analysis. | 141 |
@@ -169,7 +169,7 @@
 |---|---|---|
 | `04-ai-ml/ab-test-ml` | Design and analyze A/B tests for ML models in production, including traffic splitting, metric selection, statistical significance testing, and safe rollout strategies. | 388 |
 | `04-ai-ml/agentic-workflow` | Design and implement LLM-powered agentic workflows with tool use, planning, memory, and multi-agent coordination. | 413 |
-| `04-ai-ml/ai-cost-optimisation` | Optimise LLM and AI infrastructure costs through model selection, caching, batching, and prompt engineering. | 99 |
+| `04-ai-ml/ai-cost-optimisation` | Cut AI/LLM spend without degrading quality — model tiering and cascade routing, Batch API offloading, context and output-token discipline, reasoning-effort tuning, and per-feature cost attribution. | 351 |
 | `04-ai-ml/ai-observability` | Instrument LLM applications for production observability. | 373 |
 | `04-ai-ml/ai-product-design` | Design AI-powered products that are useful, trustworthy, and safe. | 165 |
 | `04-ai-ml/ai-safety-evaluation` | Evaluate AI systems for safety, robustness, and alignment. | 313 |
@@ -206,7 +206,7 @@
 | `04-ai-ml/model-serving-infrastructure` | Design and deploy ML model serving infrastructure for low-latency production inference. | 213 |
 | `04-ai-ml/model-versioning` | Implement ML model versioning with registry management, lineage tracking, artifact storage, and deployment lifecycle. | 451 |
 | `04-ai-ml/multi-agent-systems` | Design and orchestrate multi-agent AI systems with specialist agents, coordination patterns, and shared memory. | 222 |
-| `04-ai-ml/multimodal-ai` | Build applications that combine text, image, audio, and structured data with multimodal AI models. | 81 |
+| `04-ai-ml/multimodal-ai` | Build production vision and document-understanding pipelines on the Claude API — image inputs, PDF processing, structured extraction, and multimodal RAG. | 354 |
 | `04-ai-ml/prompt-engineering` | Design effective prompts for LLMs. | 416 |
 | `04-ai-ml/prompt-injection-defense` | Defend LLM-powered applications against prompt injection attacks. | 159 |
 | `04-ai-ml/rag-architecture` | Design Retrieval-Augmented Generation systems with vector databases, chunking strategies, and hybrid search. | 652 |
@@ -344,7 +344,7 @@
 | `08-api-integration/sdk-design` | Design and build client SDKs for APIs. | 576 |
 | `08-api-integration/streaming-api` | Design and implement streaming APIs — SSE, WebSockets, HTTP chunked transfer, and gRPC streams. | 414 |
 | `08-api-integration/third-party-integration` | Integrate third-party services via OAuth flows, webhook handling, and API clients. | 422 |
-| `08-api-integration/webhook-security` | Secure webhook endpoints against spoofing, replay attacks, and denial of service. | 96 |
+| `08-api-integration/webhook-security` | Secure webhook receiving endpoints against spoofing, replay, duplicate processing, and overload. | 381 |
 | `08-api-integration/websocket-design` | Design WebSocket architecture for real-time communication. | 544 |
 
 ## Product Management (40)
