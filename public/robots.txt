@@ -35,4 +35,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://kr-claudiator-skills.lovable.app/sitemap.xml
+Sitemap: https://claudiator.kalilurrahman.com/sitemap.xml

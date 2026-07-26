@@ -32,7 +32,7 @@ async function loadIndexData(): Promise<SkillsIndex & { usedBundled?: boolean; a
     return {
       version: data.version,
       totalSkills: data.totalSkills,
-      targetSkills: 500,
+      targetSkills: 600,
       lastUpdated: new Date().toISOString().split("T")[0],
       categories,
       usedBundled: true,
@@ -76,8 +76,8 @@ export function HomePage() {
     <div className="flex min-h-screen flex-col">
       <SeoHead
         title="Claudiator — The Claude Skills Generator"
-        description="Open-source library of 500+ production-ready SKILL.md prompts for Claude Code & CoWork, by Kalilur Rahman."
-        canonical="https://kr-claudiator-skills.lovable.app/"
+        description="Open-source library of 540+ production-ready SKILL.md prompts for Claude Code & CoWork, by Kalilur Rahman."
+        canonical="https://claudiator.kalilurrahman.com/"
       />
       <Header />
 
@@ -322,7 +322,7 @@ const FEATURES = [
   {
     emoji: "🔍",
     title: "Full-text search",
-    desc: "Search across skill names, descriptions, categories, and argument hints across all 500+ skills instantly.",
+    desc: "Search across skill names, descriptions, categories, and argument hints across all 540+ skills instantly.",
   },
   {
     emoji: "🎛️",

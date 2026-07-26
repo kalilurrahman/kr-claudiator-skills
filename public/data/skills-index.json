@@ -1,26 +1,29 @@
 {
   "version": "2.0",
-  "totalSkills": 546,
-  "targetSkills": 513,
+  "totalSkills": 544,
+  "targetSkills": 600,
   "lastUpdated": "2026-07-17",
   "categories": [
     {
       "id": "01-software-dev",
       "label": "Software Development",
       "icon": "Code2",
-      "dataFile": "/data/skills-01-software-dev.json"
+      "dataFile": "/data/skills-01-software-dev.json",
+      "count": 59
     },
     {
       "id": "02-devops-infra",
       "label": "DevOps & Infrastructure",
       "icon": "Server",
-      "dataFile": "/data/skills-02-devops.json"
+      "dataFile": "/data/skills-02-devops.json",
+      "count": 55
     },
     {
       "id": "03-data-analytics",
       "label": "Data & Analytics",
       "icon": "BarChart2",
-      "dataFile": "/data/skills-03-data.json"
+      "dataFile": "/data/skills-03-data.json",
+      "count": 47
     },
     {
       "id": "04-ai-ml",
@@ -32,85 +35,99 @@
       "id": "05-security",
       "label": "Security",
       "icon": "Shield",
-      "dataFile": "/data/skills-05-security.json"
+      "dataFile": "/data/skills-05-security.json",
+      "count": 36
     },
     {
       "id": "06-system-design",
       "label": "System Design",
       "icon": "Layers",
-      "dataFile": "/data/skills-06-system-design.json"
+      "dataFile": "/data/skills-06-system-design.json",
+      "count": 40
     },
     {
       "id": "07-testing-quality",
       "label": "Testing & Quality",
       "icon": "CheckCircle2",
-      "dataFile": "/data/skills-07-testing.json"
+      "dataFile": "/data/skills-07-testing.json",
+      "count": 32
     },
     {
       "id": "08-api-integration",
       "label": "API & Integration",
       "icon": "Plug",
-      "dataFile": "/data/skills-08-api.json"
+      "dataFile": "/data/skills-08-api.json",
+      "count": 26
     },
     {
       "id": "09-product-mgmt",
       "label": "Product Management",
       "icon": "BarChart2",
-      "dataFile": "/data/skills-09-product.json"
+      "dataFile": "/data/skills-09-product.json",
+      "count": 45
     },
     {
       "id": "10-architecture",
       "label": "Architecture",
       "icon": "Building2",
-      "dataFile": "/data/skills-10-architecture.json"
+      "dataFile": "/data/skills-10-architecture.json",
+      "count": 26
     },
     {
       "id": "11-cross-functional",
       "label": "Cross-Functional",
       "icon": "Users",
-      "dataFile": "/data/skills-11-cross-functional.json"
+      "dataFile": "/data/skills-11-cross-functional.json",
+      "count": 14
     },
     {
       "id": "12-leadership-strategy",
       "label": "Leadership & Strategy",
       "icon": "Crown",
-      "dataFile": "/data/skills-12-leadership-strategy.json"
+      "dataFile": "/data/skills-12-leadership-strategy.json",
+      "count": 65
     },
     {
       "id": "healthcare-rcm",
       "label": "Healthcare RCM",
       "icon": "Stethoscope",
-      "dataFile": "/data/skills-data.json"
+      "dataFile": "/data/skills-data.json",
+      "count": 4
     },
     {
       "id": "gcc-strategy",
       "label": "GCC Strategy",
       "icon": "Globe",
-      "dataFile": "/data/skills-data.json"
+      "dataFile": "/data/skills-data.json",
+      "count": 2
     },
     {
       "id": "enterprise-applications",
       "label": "Enterprise Applications",
       "icon": "Building2",
-      "dataFile": "/data/skills-data.json"
+      "dataFile": "/data/skills-data.json",
+      "count": 1
     },
     {
       "id": "prompt-engineering",
       "label": "Prompt Engineering",
       "icon": "Sparkles",
-      "dataFile": "/data/skills-data.json"
+      "dataFile": "/data/skills-data.json",
+      "count": 1
     },
     {
       "id": "documentation",
       "label": "Documentation",
       "icon": "FileText",
-      "dataFile": "/data/skills-data.json"
+      "dataFile": "/data/skills-data.json",
+      "count": 1
     },
     {
       "id": "consulting",
       "label": "Consulting",
       "icon": "Briefcase",
-      "dataFile": "/data/skills-data.json"
+      "dataFile": "/data/skills-data.json",
+      "count": 2
     },
     {
       "id": "13-claude-5",

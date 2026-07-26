@@ -1,0 +1,2170 @@
+{
+ "api-design": {
+  "id": "01-software-dev/api-design",
+  "category": "Software Development"
+ },
+ "api-mocking": {
+  "id": "01-software-dev/api-mocking",
+  "category": "Software Development"
+ },
+ "api-security-design": {
+  "id": "01-software-dev/api-security-design",
+  "category": "Software Development"
+ },
+ "async-patterns": {
+  "id": "01-software-dev/async-patterns",
+  "category": "Software Development"
+ },
+ "background-jobs": {
+  "id": "01-software-dev/background-jobs",
+  "category": "Software Development"
+ },
+ "caching-strategy": {
+  "id": "01-software-dev/caching-strategy",
+  "category": "Software Development"
+ },
+ "circuit-breaker": {
+  "id": "01-software-dev/circuit-breaker",
+  "category": "Software Development"
+ },
+ "clean-architecture": {
+  "id": "01-software-dev/clean-architecture",
+  "category": "Software Development"
+ },
+ "code-generation": {
+  "id": "01-software-dev/code-generation",
+  "category": "Software Development"
+ },
+ "code-review": {
+  "id": "01-software-dev/code-review",
+  "category": "Software Development"
+ },
+ "code-splitting": {
+  "id": "01-software-dev/code-splitting",
+  "category": "Software Development"
+ },
+ "concurrency-patterns": {
+  "id": "01-software-dev/concurrency-patterns",
+  "category": "Software Development"
+ },
+ "configuration-management": {
+  "id": "01-software-dev/configuration-management",
+  "category": "Software Development"
+ },
+ "data-serialization": {
+  "id": "01-software-dev/data-serialization",
+  "category": "Software Development"
+ },
+ "database-migration": {
+  "id": "01-software-dev/database-migration",
+  "category": "Software Development"
+ },
+ "database-schema": {
+  "id": "01-software-dev/database-schema",
+  "category": "Software Development"
+ },
+ "dependency-injection": {
+  "id": "01-software-dev/dependency-injection",
+  "category": "Software Development"
+ },
+ "design-patterns": {
+  "id": "01-software-dev/design-patterns",
+  "category": "Software Development"
+ },
+ "documentation-as-code": {
+  "id": "01-software-dev/documentation-as-code",
+  "category": "Software Development"
+ },
+ "domain-driven-design": {
+  "id": "01-software-dev/domain-driven-design",
+  "category": "Software Development"
+ },
+ "error-handling": {
+  "id": "01-software-dev/error-handling",
+  "category": "Software Development"
+ },
+ "event-driven-architecture": {
+  "id": "01-software-dev/event-driven-architecture",
+  "category": "Software Development"
+ },
+ "event-storming": {
+  "id": "01-software-dev/event-storming",
+  "category": "Software Development"
+ },
+ "feature-flags": {
+  "id": "01-software-dev/feature-flags",
+  "category": "Software Development"
+ },
+ "functional-programming": {
+  "id": "01-software-dev/functional-programming",
+  "category": "Software Development"
+ },
+ "git-workflow": {
+  "id": "01-software-dev/git-workflow",
+  "category": "Software Development"
+ },
+ "graceful-degradation": {
+  "id": "01-software-dev/graceful-degradation",
+  "category": "Software Development"
+ },
+ "graphql-design": {
+  "id": "01-software-dev/graphql-design",
+  "category": "Software Development"
+ },
+ "hexagonal-architecture": {
+  "id": "01-software-dev/hexagonal-architecture",
+  "category": "Software Development"
+ },
+ "idempotency-design": {
+  "id": "01-software-dev/idempotency-design",
+  "category": "Software Development"
+ },
+ "logging-strategy": {
+  "id": "01-software-dev/logging-strategy",
+  "category": "Software Development"
+ },
+ "memory-management": {
+  "id": "01-software-dev/memory-management",
+  "category": "Software Development"
+ },
+ "microservices-communication": {
+  "id": "01-software-dev/microservices-communication",
+  "category": "Software Development"
+ },
+ "microservices-design": {
+  "id": "01-software-dev/microservices-design",
+  "category": "Software Development"
+ },
+ "monorepo-management": {
+  "id": "01-software-dev/monorepo-management",
+  "category": "Software Development"
+ },
+ "null-object-pattern": {
+  "id": "01-software-dev/null-object-pattern",
+  "category": "Software Development"
+ },
+ "observer-pattern": {
+  "id": "01-software-dev/observer-pattern",
+  "category": "Software Development"
+ },
+ "outbox-pattern": {
+  "id": "01-software-dev/outbox-pattern",
+  "category": "Software Development"
+ },
+ "pagination-design": {
+  "id": "01-software-dev/pagination-design",
+  "category": "Software Development"
+ },
+ "performance-profiling": {
+  "id": "01-software-dev/performance-profiling",
+  "category": "Software Development"
+ },
+ "plugin-architecture": {
+  "id": "01-software-dev/plugin-architecture",
+  "category": "Software Development"
+ },
+ "rate-limiting": {
+  "id": "01-software-dev/rate-limiting",
+  "category": "Software Development"
+ },
+ "refactoring-guide": {
+  "id": "01-software-dev/refactoring-guide",
+  "category": "Software Development"
+ },
+ "repository-pattern": {
+  "id": "01-software-dev/repository-pattern",
+  "category": "Software Development"
+ },
+ "retry-patterns": {
+  "id": "01-software-dev/retry-patterns",
+  "category": "Software Development"
+ },
+ "serverless-patterns": {
+  "id": "01-software-dev/serverless-patterns",
+  "category": "Software Development"
+ },
+ "service-layer-design": {
+  "id": "01-software-dev/service-layer-design",
+  "category": "Software Development"
+ },
+ "solid-principles": {
+  "id": "01-software-dev/solid-principles",
+  "category": "Software Development"
+ },
+ "state-machine-design": {
+  "id": "01-software-dev/state-machine-design",
+  "category": "Software Development"
+ },
+ "tech-debt-audit": {
+  "id": "01-software-dev/tech-debt-audit",
+  "category": "Software Development"
+ },
+ "trunk-based-development": {
+  "id": "01-software-dev/trunk-based-development",
+  "category": "Software Development"
+ },
+ "twelve-factor-app": {
+  "id": "01-software-dev/twelve-factor-app",
+  "category": "Software Development"
+ },
+ "type-system-design": {
+  "id": "01-software-dev/type-system-design",
+  "category": "Software Development"
+ },
+ "webhook-design": {
+  "id": "01-software-dev/webhook-design",
+  "category": "Software Development"
+ },
+ "ci-cd-pipeline": {
+  "id": "02-devops/ci-cd-pipeline",
+  "category": "DevOps & Infrastructure"
+ },
+ "alerting-rules": {
+  "id": "02-devops-infra/alerting-rules",
+  "category": "DevOps & Infrastructure"
+ },
+ "ansible-playbook": {
+  "id": "02-devops-infra/ansible-playbook",
+  "category": "DevOps & Infrastructure"
+ },
+ "argocd-deployment": {
+  "id": "02-devops-infra/argocd-deployment",
+  "category": "DevOps & Infrastructure"
+ },
+ "backup-strategy": {
+  "id": "02-devops-infra/backup-strategy",
+  "category": "DevOps & Infrastructure"
+ },
+ "blue-green-deploy": {
+  "id": "02-devops-infra/blue-green-deploy",
+  "category": "DevOps & Infrastructure"
+ },
+ "canary-release": {
+  "id": "02-devops-infra/canary-release",
+  "category": "DevOps & Infrastructure"
+ },
+ "capacity-planning": {
+  "id": "02-devops-infra/capacity-planning",
+  "category": "DevOps & Infrastructure"
+ },
+ "chaos-testing-infra": {
+  "id": "02-devops-infra/chaos-testing-infra",
+  "category": "DevOps & Infrastructure"
+ },
+ "ci-cd-advanced": {
+  "id": "02-devops-infra/ci-cd-advanced",
+  "category": "DevOps & Infrastructure"
+ },
+ "cloud-cost-allocation": {
+  "id": "02-devops-infra/cloud-cost-allocation",
+  "category": "DevOps & Infrastructure"
+ },
+ "cloud-migration": {
+  "id": "02-devops-infra/cloud-migration",
+  "category": "DevOps & Infrastructure"
+ },
+ "cloud-networking": {
+  "id": "02-devops-infra/cloud-networking",
+  "category": "DevOps & Infrastructure"
+ },
+ "container-security": {
+  "id": "02-devops-infra/container-security",
+  "category": "DevOps & Infrastructure"
+ },
+ "cost-optimization": {
+  "id": "02-devops-infra/cost-optimization",
+  "category": "DevOps & Infrastructure"
+ },
+ "database-ops": {
+  "id": "02-devops-infra/database-ops",
+  "category": "DevOps & Infrastructure"
+ },
+ "deployment-strategies": {
+  "id": "02-devops-infra/deployment-strategies",
+  "category": "DevOps & Infrastructure"
+ },
+ "developer-experience": {
+  "id": "02-devops-infra/developer-experience",
+  "category": "DevOps & Infrastructure"
+ },
+ "disaster-recovery": {
+  "id": "02-devops-infra/disaster-recovery",
+  "category": "DevOps & Infrastructure"
+ },
+ "docker-compose": {
+  "id": "02-devops-infra/docker-compose",
+  "category": "DevOps & Infrastructure"
+ },
+ "dora-metrics": {
+  "id": "02-devops-infra/dora-metrics",
+  "category": "DevOps & Infrastructure"
+ },
+ "ebpf-observability": {
+  "id": "02-devops-infra/ebpf-observability",
+  "category": "DevOps & Infrastructure"
+ },
+ "edge-computing": {
+  "id": "02-devops-infra/edge-computing",
+  "category": "DevOps & Infrastructure"
+ },
+ "environment-management": {
+  "id": "02-devops-infra/environment-management",
+  "category": "DevOps & Infrastructure"
+ },
+ "finops-strategy": {
+  "id": "02-devops-infra/finops-strategy",
+  "category": "DevOps & Infrastructure"
+ },
+ "gitops-workflow": {
+  "id": "02-devops-infra/gitops-workflow",
+  "category": "DevOps & Infrastructure"
+ },
+ "helm-charts": {
+  "id": "02-devops-infra/helm-charts",
+  "category": "DevOps & Infrastructure"
+ },
+ "infrastructure-as-code-testing": {
+  "id": "02-devops-infra/infrastructure-as-code-testing",
+  "category": "DevOps & Infrastructure"
+ },
+ "infrastructure-testing": {
+  "id": "02-devops-infra/infrastructure-testing",
+  "category": "DevOps & Infrastructure"
+ },
+ "kubernetes-manifest": {
+  "id": "02-devops-infra/kubernetes-manifest",
+  "category": "DevOps & Infrastructure"
+ },
+ "kubernetes-security": {
+  "id": "02-devops-infra/kubernetes-security",
+  "category": "DevOps & Infrastructure"
+ },
+ "log-aggregation": {
+  "id": "02-devops-infra/log-aggregation",
+  "category": "DevOps & Infrastructure"
+ },
+ "monitoring-setup": {
+  "id": "02-devops-infra/monitoring-setup",
+  "category": "DevOps & Infrastructure"
+ },
+ "multi-cloud-strategy": {
+  "id": "02-devops-infra/multi-cloud-strategy",
+  "category": "DevOps & Infrastructure"
+ },
+ "network-policy": {
+  "id": "02-devops-infra/network-policy",
+  "category": "DevOps & Infrastructure"
+ },
+ "observability-platform": {
+  "id": "02-devops-infra/observability-platform",
+  "category": "DevOps & Infrastructure"
+ },
+ "on-call-management": {
+  "id": "02-devops-infra/on-call-management",
+  "category": "DevOps & Infrastructure"
+ },
+ "platform-engineering": {
+  "id": "02-devops-infra/platform-engineering",
+  "category": "DevOps & Infrastructure"
+ },
+ "platform-idp": {
+  "id": "02-devops-infra/platform-idp",
+  "category": "DevOps & Infrastructure"
+ },
+ "progressive-delivery": {
+  "id": "02-devops-infra/progressive-delivery",
+  "category": "DevOps & Infrastructure"
+ },
+ "release-management": {
+  "id": "02-devops-infra/release-management",
+  "category": "DevOps & Infrastructure"
+ },
+ "secrets-management": {
+  "id": "02-devops-infra/secrets-management",
+  "category": "DevOps & Infrastructure"
+ },
+ "service-catalog": {
+  "id": "02-devops-infra/service-catalog",
+  "category": "DevOps & Infrastructure"
+ },
+ "service-discovery": {
+  "id": "02-devops-infra/service-discovery",
+  "category": "DevOps & Infrastructure"
+ },
+ "slos-and-error-budgets": {
+  "id": "02-devops-infra/slos-and-error-budgets",
+  "category": "DevOps & Infrastructure"
+ },
+ "sre-runbook": {
+  "id": "02-devops-infra/sre-runbook",
+  "category": "DevOps & Infrastructure"
+ },
+ "supply-chain-security-pipeline": {
+  "id": "02-devops-infra/supply-chain-security-pipeline",
+  "category": "DevOps & Infrastructure"
+ },
+ "terraform-module": {
+  "id": "02-devops-infra/terraform-module",
+  "category": "DevOps & Infrastructure"
+ },
+ "wasm-deployment": {
+  "id": "02-devops-infra/wasm-deployment",
+  "category": "DevOps & Infrastructure"
+ },
+ "ab-test-analysis": {
+  "id": "03-data-analytics/ab-test-analysis",
+  "category": "Data & Analytics"
+ },
+ "analytics-engineering": {
+  "id": "03-data-analytics/analytics-engineering",
+  "category": "Data & Analytics"
+ },
+ "cohort-analysis": {
+  "id": "03-data-analytics/cohort-analysis",
+  "category": "Data & Analytics"
+ },
+ "customer-segmentation": {
+  "id": "03-data-analytics/customer-segmentation",
+  "category": "Data & Analytics"
+ },
+ "dashboard-design": {
+  "id": "03-data-analytics/dashboard-design",
+  "category": "Data & Analytics"
+ },
+ "data-anonymization": {
+  "id": "03-data-analytics/data-anonymization",
+  "category": "Data & Analytics"
+ },
+ "data-catalog": {
+  "id": "03-data-analytics/data-catalog",
+  "category": "Data & Analytics"
+ },
+ "data-contracts": {
+  "id": "03-data-analytics/data-contracts",
+  "category": "Data & Analytics"
+ },
+ "data-enrichment": {
+  "id": "03-data-analytics/data-enrichment",
+  "category": "Data & Analytics"
+ },
+ "data-governance": {
+  "id": "03-data-analytics/data-governance",
+  "category": "Data & Analytics"
+ },
+ "data-lineage": {
+  "id": "03-data-analytics/data-lineage",
+  "category": "Data & Analytics"
+ },
+ "data-mesh-design": {
+  "id": "03-data-analytics/data-mesh-design",
+  "category": "Data & Analytics"
+ },
+ "data-migration": {
+  "id": "03-data-analytics/data-migration",
+  "category": "Data & Analytics"
+ },
+ "data-modeling": {
+  "id": "03-data-analytics/data-modeling",
+  "category": "Data & Analytics"
+ },
+ "data-observability": {
+  "id": "03-data-analytics/data-observability",
+  "category": "Data & Analytics"
+ },
+ "data-partitioning": {
+  "id": "03-data-analytics/data-partitioning",
+  "category": "Data & Analytics"
+ },
+ "data-pipeline-testing": {
+  "id": "03-data-analytics/data-pipeline-testing",
+  "category": "Data & Analytics"
+ },
+ "data-quality-checks": {
+  "id": "03-data-analytics/data-quality-checks",
+  "category": "Data & Analytics"
+ },
+ "data-retention": {
+  "id": "03-data-analytics/data-retention",
+  "category": "Data & Analytics"
+ },
+ "data-virtualization": {
+  "id": "03-data-analytics/data-virtualization",
+  "category": "Data & Analytics"
+ },
+ "data-warehouse-schema": {
+  "id": "03-data-analytics/data-warehouse-schema",
+  "category": "Data & Analytics"
+ },
+ "dbt-best-practices": {
+  "id": "03-data-analytics/dbt-best-practices",
+  "category": "Data & Analytics"
+ },
+ "dbt-patterns": {
+  "id": "03-data-analytics/dbt-patterns",
+  "category": "Data & Analytics"
+ },
+ "distributed-tracing": {
+  "id": "03-data-analytics/distributed-tracing",
+  "category": "Data & Analytics"
+ },
+ "etl-pipeline": {
+  "id": "03-data-analytics/etl-pipeline",
+  "category": "Data & Analytics"
+ },
+ "event-tracking-plan": {
+  "id": "03-data-analytics/event-tracking-plan",
+  "category": "Data & Analytics"
+ },
+ "experiment-platform": {
+  "id": "03-data-analytics/experiment-platform",
+  "category": "Data & Analytics"
+ },
+ "feature-flags-analytics": {
+  "id": "03-data-analytics/feature-flags-analytics",
+  "category": "Data & Analytics"
+ },
+ "forecasting-models": {
+  "id": "03-data-analytics/forecasting-models",
+  "category": "Data & Analytics"
+ },
+ "funnel-analysis": {
+  "id": "03-data-analytics/funnel-analysis",
+  "category": "Data & Analytics"
+ },
+ "graph-analytics": {
+  "id": "03-data-analytics/graph-analytics",
+  "category": "Data & Analytics"
+ },
+ "lakehouse-architecture": {
+  "id": "03-data-analytics/lakehouse-architecture",
+  "category": "Data & Analytics"
+ },
+ "metrics-framework": {
+  "id": "03-data-analytics/metrics-framework",
+  "category": "Data & Analytics"
+ },
+ "product-analytics": {
+  "id": "03-data-analytics/product-analytics",
+  "category": "Data & Analytics"
+ },
+ "real-time-analytics": {
+  "id": "03-data-analytics/real-time-analytics",
+  "category": "Data & Analytics"
+ },
+ "revenue-analytics": {
+  "id": "03-data-analytics/revenue-analytics",
+  "category": "Data & Analytics"
+ },
+ "reverse-etl": {
+  "id": "03-data-analytics/reverse-etl",
+  "category": "Data & Analytics"
+ },
+ "semantic-layer": {
+  "id": "03-data-analytics/semantic-layer",
+  "category": "Data & Analytics"
+ },
+ "sql-optimization": {
+  "id": "03-data-analytics/sql-optimization",
+  "category": "Data & Analytics"
+ },
+ "streaming-pipeline": {
+  "id": "03-data-analytics/streaming-pipeline",
+  "category": "Data & Analytics"
+ },
+ "time-series-analysis": {
+  "id": "03-data-analytics/time-series-analysis",
+  "category": "Data & Analytics"
+ },
+ "ab-test-ml": {
+  "id": "04-ai-ml/ab-test-ml",
+  "category": "AI / ML"
+ },
+ "agentic-workflow": {
+  "id": "04-ai-ml/agentic-workflow",
+  "category": "AI / ML"
+ },
+ "ai-cost-optimisation": {
+  "id": "04-ai-ml/ai-cost-optimisation",
+  "category": "AI / ML"
+ },
+ "ai-observability": {
+  "id": "04-ai-ml/ai-observability",
+  "category": "AI / ML"
+ },
+ "ai-product-design": {
+  "id": "04-ai-ml/ai-product-design",
+  "category": "AI / ML"
+ },
+ "ai-safety-evaluation": {
+  "id": "04-ai-ml/ai-safety-evaluation",
+  "category": "AI / ML"
+ },
+ "ai-testing-strategy": {
+  "id": "04-ai-ml/ai-testing-strategy",
+  "category": "AI / ML"
+ },
+ "context-window-management": {
+  "id": "04-ai-ml/context-window-management",
+  "category": "AI / ML"
+ },
+ "embedding-strategy": {
+  "id": "04-ai-ml/embedding-strategy",
+  "category": "AI / ML"
+ },
+ "feature-engineering": {
+  "id": "04-ai-ml/feature-engineering",
+  "category": "AI / ML"
+ },
+ "feature-store": {
+  "id": "04-ai-ml/feature-store",
+  "category": "AI / ML"
+ },
+ "fine-tuning": {
+  "id": "04-ai-ml/fine-tuning",
+  "category": "AI / ML"
+ },
+ "guardrails-implementation": {
+  "id": "04-ai-ml/guardrails-implementation",
+  "category": "AI / ML"
+ },
+ "hyperparameter-tuning": {
+  "id": "04-ai-ml/hyperparameter-tuning",
+  "category": "AI / ML"
+ },
+ "knowledge-graph-rag": {
+  "id": "04-ai-ml/knowledge-graph-rag",
+  "category": "AI / ML"
+ },
+ "llm-caching-strategy": {
+  "id": "04-ai-ml/llm-caching-strategy",
+  "category": "AI / ML"
+ },
+ "llm-context-management": {
+  "id": "04-ai-ml/llm-context-management",
+  "category": "AI / ML"
+ },
+ "llm-evaluation": {
+  "id": "04-ai-ml/llm-evaluation",
+  "category": "AI / ML"
+ },
+ "llm-fine-tuning-data": {
+  "id": "04-ai-ml/llm-fine-tuning-data",
+  "category": "AI / ML"
+ },
+ "llm-gateway": {
+  "id": "04-ai-ml/llm-gateway",
+  "category": "AI / ML"
+ },
+ "llm-ops": {
+  "id": "04-ai-ml/llm-ops",
+  "category": "AI / ML"
+ },
+ "llm-prompt-caching": {
+  "id": "04-ai-ml/llm-prompt-caching",
+  "category": "AI / ML"
+ },
+ "llm-routing": {
+  "id": "04-ai-ml/llm-routing",
+  "category": "AI / ML"
+ },
+ "llm-structured-output": {
+  "id": "04-ai-ml/llm-structured-output",
+  "category": "AI / ML"
+ },
+ "ml-data-validation": {
+  "id": "04-ai-ml/ml-data-validation",
+  "category": "AI / ML"
+ },
+ "ml-experiment-tracking": {
+  "id": "04-ai-ml/ml-experiment-tracking",
+  "category": "AI / ML"
+ },
+ "ml-feature-selection": {
+  "id": "04-ai-ml/ml-feature-selection",
+  "category": "AI / ML"
+ },
+ "ml-monitoring": {
+  "id": "04-ai-ml/ml-monitoring",
+  "category": "AI / ML"
+ },
+ "ml-pipeline": {
+  "id": "04-ai-ml/ml-pipeline",
+  "category": "AI / ML"
+ },
+ "model-card": {
+  "id": "04-ai-ml/model-card",
+  "category": "AI / ML"
+ },
+ "model-compression": {
+  "id": "04-ai-ml/model-compression",
+  "category": "AI / ML"
+ },
+ "model-deployment": {
+  "id": "04-ai-ml/model-deployment",
+  "category": "AI / ML"
+ },
+ "model-evaluation": {
+  "id": "04-ai-ml/model-evaluation",
+  "category": "AI / ML"
+ },
+ "model-fine-tuning-strategy": {
+  "id": "04-ai-ml/model-fine-tuning-strategy",
+  "category": "AI / ML"
+ },
+ "model-monitoring": {
+  "id": "04-ai-ml/model-monitoring",
+  "category": "AI / ML"
+ },
+ "model-retraining": {
+  "id": "04-ai-ml/model-retraining",
+  "category": "AI / ML"
+ },
+ "model-serving-infrastructure": {
+  "id": "04-ai-ml/model-serving-infrastructure",
+  "category": "AI / ML"
+ },
+ "model-versioning": {
+  "id": "04-ai-ml/model-versioning",
+  "category": "AI / ML"
+ },
+ "multi-agent-systems": {
+  "id": "04-ai-ml/multi-agent-systems",
+  "category": "AI / ML"
+ },
+ "multimodal-ai": {
+  "id": "04-ai-ml/multimodal-ai",
+  "category": "AI / ML"
+ },
+ "prompt-engineering": {
+  "id": "04-ai-ml/prompt-engineering",
+  "category": "AI / ML"
+ },
+ "prompt-injection-defense": {
+  "id": "04-ai-ml/prompt-injection-defense",
+  "category": "AI / ML"
+ },
+ "rag-architecture": {
+  "id": "04-ai-ml/rag-architecture",
+  "category": "AI / ML"
+ },
+ "rag-evaluation": {
+  "id": "04-ai-ml/rag-evaluation",
+  "category": "AI / ML"
+ },
+ "responsible-ai": {
+  "id": "04-ai-ml/responsible-ai",
+  "category": "AI / ML"
+ },
+ "retrieval-optimization": {
+  "id": "04-ai-ml/retrieval-optimization",
+  "category": "AI / ML"
+ },
+ "synthetic-data": {
+  "id": "04-ai-ml/synthetic-data",
+  "category": "AI / ML"
+ },
+ "vector-database": {
+  "id": "04-ai-ml/vector-database",
+  "category": "AI / ML"
+ },
+ "api-abuse-prevention": {
+  "id": "05-security/api-abuse-prevention",
+  "category": "Security"
+ },
+ "api-security-audit": {
+  "id": "05-security/api-security-audit",
+  "category": "Security"
+ },
+ "auth-architecture": {
+  "id": "05-security/auth-architecture",
+  "category": "Security"
+ },
+ "cloud-security-posture": {
+  "id": "05-security/cloud-security-posture",
+  "category": "Security"
+ },
+ "compliance-framework": {
+  "id": "05-security/compliance-framework",
+  "category": "Security"
+ },
+ "container-image-hardening": {
+  "id": "05-security/container-image-hardening",
+  "category": "Security"
+ },
+ "cryptographic-key-management": {
+  "id": "05-security/cryptographic-key-management",
+  "category": "Security"
+ },
+ "data-loss-prevention": {
+  "id": "05-security/data-loss-prevention",
+  "category": "Security"
+ },
+ "devsecops-pipeline": {
+  "id": "05-security/devsecops-pipeline",
+  "category": "Security"
+ },
+ "encryption-strategy": {
+  "id": "05-security/encryption-strategy",
+  "category": "Security"
+ },
+ "gdpr-implementation": {
+  "id": "05-security/gdpr-implementation",
+  "category": "Security"
+ },
+ "identity-governance": {
+  "id": "05-security/identity-governance",
+  "category": "Security"
+ },
+ "incident-response": {
+  "id": "05-security/incident-response",
+  "category": "Security"
+ },
+ "input-validation": {
+  "id": "05-security/input-validation",
+  "category": "Security"
+ },
+ "mobile-security": {
+  "id": "05-security/mobile-security",
+  "category": "Security"
+ },
+ "oauth-security": {
+  "id": "05-security/oauth-security",
+  "category": "Security"
+ },
+ "penetration-test-plan": {
+  "id": "05-security/penetration-test-plan",
+  "category": "Security"
+ },
+ "penetration-testing": {
+  "id": "05-security/penetration-testing",
+  "category": "Security"
+ },
+ "red-team-planning": {
+  "id": "05-security/red-team-planning",
+  "category": "Security"
+ },
+ "secrets-rotation": {
+  "id": "05-security/secrets-rotation",
+  "category": "Security"
+ },
+ "security-audit": {
+  "id": "05-security/security-audit",
+  "category": "Security"
+ },
+ "security-champions": {
+  "id": "05-security/security-champions",
+  "category": "Security"
+ },
+ "security-headers": {
+  "id": "05-security/security-headers",
+  "category": "Security"
+ },
+ "security-metrics": {
+  "id": "05-security/security-metrics",
+  "category": "Security"
+ },
+ "security-testing": {
+  "id": "05-security/security-testing",
+  "category": "Security"
+ },
+ "software-bill-of-materials": {
+  "id": "05-security/software-bill-of-materials",
+  "category": "Security"
+ },
+ "supply-chain-security": {
+  "id": "05-security/supply-chain-security",
+  "category": "Security"
+ },
+ "threat-modeling": {
+  "id": "05-security/threat-modeling",
+  "category": "Security"
+ },
+ "vulnerability-scan": {
+  "id": "05-security/vulnerability-scan",
+  "category": "Security"
+ },
+ "zero-trust": {
+  "id": "05-security/zero-trust",
+  "category": "Security"
+ },
+ "api-gateway": {
+  "id": "06-system-design/api-gateway",
+  "category": "System Design"
+ },
+ "api-versioning": {
+  "id": "06-system-design/api-versioning",
+  "category": "System Design"
+ },
+ "architecture-decision": {
+  "id": "06-system-design/architecture-decision",
+  "category": "System Design"
+ },
+ "bulkhead-pattern": {
+  "id": "06-system-design/bulkhead-pattern",
+  "category": "System Design"
+ },
+ "cache-invalidation": {
+  "id": "06-system-design/cache-invalidation",
+  "category": "System Design"
+ },
+ "cdc-patterns": {
+  "id": "06-system-design/cdc-patterns",
+  "category": "System Design"
+ },
+ "consensus-algorithms": {
+  "id": "06-system-design/consensus-algorithms",
+  "category": "System Design"
+ },
+ "content-moderation-system": {
+  "id": "06-system-design/content-moderation-system",
+  "category": "System Design"
+ },
+ "cqrs-pattern": {
+  "id": "06-system-design/cqrs-pattern",
+  "category": "System Design"
+ },
+ "data-replication": {
+  "id": "06-system-design/data-replication",
+  "category": "System Design"
+ },
+ "database-sharding": {
+  "id": "06-system-design/database-sharding",
+  "category": "System Design"
+ },
+ "distributed-cache": {
+  "id": "06-system-design/distributed-cache",
+  "category": "System Design"
+ },
+ "distributed-systems": {
+  "id": "06-system-design/distributed-systems",
+  "category": "System Design"
+ },
+ "event-sourcing": {
+  "id": "06-system-design/event-sourcing",
+  "category": "System Design"
+ },
+ "file-storage-design": {
+  "id": "06-system-design/file-storage-design",
+  "category": "System Design"
+ },
+ "geo-distributed-systems": {
+  "id": "06-system-design/geo-distributed-systems",
+  "category": "System Design"
+ },
+ "global-cdn-design": {
+  "id": "06-system-design/global-cdn-design",
+  "category": "System Design"
+ },
+ "high-availability": {
+  "id": "06-system-design/high-availability",
+  "category": "System Design"
+ },
+ "load-balancing": {
+  "id": "06-system-design/load-balancing",
+  "category": "System Design"
+ },
+ "message-queue": {
+  "id": "06-system-design/message-queue",
+  "category": "System Design"
+ },
+ "multi-tenancy": {
+  "id": "06-system-design/multi-tenancy",
+  "category": "System Design"
+ },
+ "notification-system": {
+  "id": "06-system-design/notification-system",
+  "category": "System Design"
+ },
+ "payment-system-design": {
+  "id": "06-system-design/payment-system-design",
+  "category": "System Design"
+ },
+ "rate-limiting-design": {
+  "id": "06-system-design/rate-limiting-design",
+  "category": "System Design"
+ },
+ "real-time-system-design": {
+  "id": "06-system-design/real-time-system-design",
+  "category": "System Design"
+ },
+ "saga-pattern": {
+  "id": "06-system-design/saga-pattern",
+  "category": "System Design"
+ },
+ "scalability-plan": {
+  "id": "06-system-design/scalability-plan",
+  "category": "System Design"
+ },
+ "search-architecture": {
+  "id": "06-system-design/search-architecture",
+  "category": "System Design"
+ },
+ "service-mesh": {
+  "id": "06-system-design/service-mesh",
+  "category": "System Design"
+ },
+ "strangler-fig-pattern": {
+  "id": "06-system-design/strangler-fig-pattern",
+  "category": "System Design"
+ },
+ "system-design-doc": {
+  "id": "06-system-design/system-design-doc",
+  "category": "System Design"
+ },
+ "time-series-database": {
+  "id": "06-system-design/time-series-database",
+  "category": "System Design"
+ },
+ "url-shortener-design": {
+  "id": "06-system-design/url-shortener-design",
+  "category": "System Design"
+ },
+ "workflow-orchestration": {
+  "id": "06-system-design/workflow-orchestration",
+  "category": "System Design"
+ },
+ "accessibility-testing": {
+  "id": "07-testing-quality/accessibility-testing",
+  "category": "Testing & Quality"
+ },
+ "api-testing": {
+  "id": "07-testing-quality/api-testing",
+  "category": "Testing & Quality"
+ },
+ "bdd-testing": {
+  "id": "07-testing-quality/bdd-testing",
+  "category": "Testing & Quality"
+ },
+ "chaos-engineering": {
+  "id": "07-testing-quality/chaos-engineering",
+  "category": "Testing & Quality"
+ },
+ "contract-testing": {
+  "id": "07-testing-quality/contract-testing",
+  "category": "Testing & Quality"
+ },
+ "e2e-test": {
+  "id": "07-testing-quality/e2e-test",
+  "category": "Testing & Quality"
+ },
+ "flaky-test-management": {
+  "id": "07-testing-quality/flaky-test-management",
+  "category": "Testing & Quality"
+ },
+ "golden-path-testing": {
+  "id": "07-testing-quality/golden-path-testing",
+  "category": "Testing & Quality"
+ },
+ "integration-test": {
+  "id": "07-testing-quality/integration-test",
+  "category": "Testing & Quality"
+ },
+ "load-test": {
+  "id": "07-testing-quality/load-test",
+  "category": "Testing & Quality"
+ },
+ "mobile-testing": {
+  "id": "07-testing-quality/mobile-testing",
+  "category": "Testing & Quality"
+ },
+ "mutation-testing": {
+  "id": "07-testing-quality/mutation-testing",
+  "category": "Testing & Quality"
+ },
+ "observability-testing": {
+  "id": "07-testing-quality/observability-testing",
+  "category": "Testing & Quality"
+ },
+ "performance-test": {
+  "id": "07-testing-quality/performance-test",
+  "category": "Testing & Quality"
+ },
+ "property-based-testing": {
+  "id": "07-testing-quality/property-based-testing",
+  "category": "Testing & Quality"
+ },
+ "quality-metrics": {
+  "id": "07-testing-quality/quality-metrics",
+  "category": "Testing & Quality"
+ },
+ "regression-test-strategy": {
+  "id": "07-testing-quality/regression-test-strategy",
+  "category": "Testing & Quality"
+ },
+ "snapshot-testing": {
+  "id": "07-testing-quality/snapshot-testing",
+  "category": "Testing & Quality"
+ },
+ "synthetic-monitoring": {
+  "id": "07-testing-quality/synthetic-monitoring",
+  "category": "Testing & Quality"
+ },
+ "test-automation-framework": {
+  "id": "07-testing-quality/test-automation-framework",
+  "category": "Testing & Quality"
+ },
+ "test-coverage-strategy": {
+  "id": "07-testing-quality/test-coverage-strategy",
+  "category": "Testing & Quality"
+ },
+ "test-data-management": {
+  "id": "07-testing-quality/test-data-management",
+  "category": "Testing & Quality"
+ },
+ "test-driven-development": {
+  "id": "07-testing-quality/test-driven-development",
+  "category": "Testing & Quality"
+ },
+ "test-environment-strategy": {
+  "id": "07-testing-quality/test-environment-strategy",
+  "category": "Testing & Quality"
+ },
+ "test-strategy": {
+  "id": "07-testing-quality/test-strategy",
+  "category": "Testing & Quality"
+ },
+ "visual-regression": {
+  "id": "07-testing-quality/visual-regression",
+  "category": "Testing & Quality"
+ },
+ "api-analytics": {
+  "id": "08-api-integration/api-analytics",
+  "category": "API & Integration"
+ },
+ "api-client-sdk": {
+  "id": "08-api-integration/api-client-sdk",
+  "category": "API & Integration"
+ },
+ "api-deprecation": {
+  "id": "08-api-integration/api-deprecation",
+  "category": "API & Integration"
+ },
+ "api-gateway-design": {
+  "id": "08-api-integration/api-gateway-design",
+  "category": "API & Integration"
+ },
+ "api-mocking-strategy": {
+  "id": "08-api-integration/api-mocking-strategy",
+  "category": "API & Integration"
+ },
+ "api-versioning-strategy": {
+  "id": "08-api-integration/api-versioning-strategy",
+  "category": "API & Integration"
+ },
+ "async-api-design": {
+  "id": "08-api-integration/async-api-design",
+  "category": "API & Integration"
+ },
+ "batch-processing-api": {
+  "id": "08-api-integration/batch-processing-api",
+  "category": "API & Integration"
+ },
+ "event-driven-api": {
+  "id": "08-api-integration/event-driven-api",
+  "category": "API & Integration"
+ },
+ "file-upload-api": {
+  "id": "08-api-integration/file-upload-api",
+  "category": "API & Integration"
+ },
+ "graphql-schema": {
+  "id": "08-api-integration/graphql-schema",
+  "category": "API & Integration"
+ },
+ "grpc-service": {
+  "id": "08-api-integration/grpc-service",
+  "category": "API & Integration"
+ },
+ "hypermedia-api": {
+  "id": "08-api-integration/hypermedia-api",
+  "category": "API & Integration"
+ },
+ "idempotent-api": {
+  "id": "08-api-integration/idempotent-api",
+  "category": "API & Integration"
+ },
+ "oauth-implementation": {
+  "id": "08-api-integration/oauth-implementation",
+  "category": "API & Integration"
+ },
+ "openapi-design": {
+  "id": "08-api-integration/openapi-design",
+  "category": "API & Integration"
+ },
+ "sdk-design": {
+  "id": "08-api-integration/sdk-design",
+  "category": "API & Integration"
+ },
+ "streaming-api": {
+  "id": "08-api-integration/streaming-api",
+  "category": "API & Integration"
+ },
+ "third-party-integration": {
+  "id": "08-api-integration/third-party-integration",
+  "category": "API & Integration"
+ },
+ "webhook-security": {
+  "id": "08-api-integration/webhook-security",
+  "category": "API & Integration"
+ },
+ "websocket-design": {
+  "id": "08-api-integration/websocket-design",
+  "category": "API & Integration"
+ },
+ "ab-test-design": {
+  "id": "09-product-management/ab-test-design",
+  "category": "Product Management"
+ },
+ "api-product-strategy": {
+  "id": "09-product-management/api-product-strategy",
+  "category": "Product Management"
+ },
+ "competitor-scan": {
+  "id": "09-product-management/competitor-scan",
+  "category": "Product Management"
+ },
+ "continuous-discovery": {
+  "id": "09-product-management/continuous-discovery",
+  "category": "Product Management"
+ },
+ "customer-advisory-board": {
+  "id": "09-product-management/customer-advisory-board",
+  "category": "Product Management"
+ },
+ "customer-journey-map": {
+  "id": "09-product-management/customer-journey-map",
+  "category": "Product Management"
+ },
+ "decision-doc": {
+  "id": "09-product-management/decision-doc",
+  "category": "Product Management"
+ },
+ "design-sprint": {
+  "id": "09-product-management/design-sprint",
+  "category": "Product Management"
+ },
+ "enterprise-sales-enablement": {
+  "id": "09-product-management/enterprise-sales-enablement",
+  "category": "Product Management"
+ },
+ "feature-spec": {
+  "id": "09-product-management/feature-spec",
+  "category": "Product Management"
+ },
+ "feedback-analyzer": {
+  "id": "09-product-management/feedback-analyzer",
+  "category": "Product Management"
+ },
+ "go-to-market": {
+  "id": "09-product-management/go-to-market",
+  "category": "Product Management"
+ },
+ "growth-framework": {
+  "id": "09-product-management/growth-framework",
+  "category": "Product Management"
+ },
+ "jobs-to-be-done": {
+  "id": "09-product-management/jobs-to-be-done",
+  "category": "Product Management"
+ },
+ "launch-checklist": {
+  "id": "09-product-management/launch-checklist",
+  "category": "Product Management"
+ },
+ "market-sizing": {
+  "id": "09-product-management/market-sizing",
+  "category": "Product Management"
+ },
+ "meeting-prep": {
+  "id": "09-product-management/meeting-prep",
+  "category": "Product Management"
+ },
+ "metrics-analyzer": {
+  "id": "09-product-management/metrics-analyzer",
+  "category": "Product Management"
+ },
+ "monetization-strategy": {
+  "id": "09-product-management/monetization-strategy",
+  "category": "Product Management"
+ },
+ "north-star-metric": {
+  "id": "09-product-management/north-star-metric",
+  "category": "Product Management"
+ },
+ "okr-writer": {
+  "id": "09-product-management/okr-writer",
+  "category": "Product Management"
+ },
+ "opportunity-solution-tree": {
+  "id": "09-product-management/opportunity-solution-tree",
+  "category": "Product Management"
+ },
+ "persona": {
+  "id": "09-product-management/persona",
+  "category": "Product Management"
+ },
+ "platform-strategy": {
+  "id": "09-product-management/platform-strategy",
+  "category": "Product Management"
+ },
+ "prd": {
+  "id": "09-product-management/prd",
+  "category": "Product Management"
+ },
+ "pricing-strategy": {
+  "id": "09-product-management/pricing-strategy",
+  "category": "Product Management"
+ },
+ "prioritize": {
+  "id": "09-product-management/prioritize",
+  "category": "Product Management"
+ },
+ "product-analytics-plan": {
+  "id": "09-product-management/product-analytics-plan",
+  "category": "Product Management"
+ },
+ "product-discovery": {
+  "id": "09-product-management/product-discovery",
+  "category": "Product Management"
+ },
+ "product-health-metrics": {
+  "id": "09-product-management/product-health-metrics",
+  "category": "Product Management"
+ },
+ "product-led-growth": {
+  "id": "09-product-management/product-led-growth",
+  "category": "Product Management"
+ },
+ "product-strategy": {
+  "id": "09-product-management/product-strategy",
+  "category": "Product Management"
+ },
+ "product-teardown": {
+  "id": "09-product-management/product-teardown",
+  "category": "Product Management"
+ },
+ "release-notes": {
+  "id": "09-product-management/release-notes",
+  "category": "Product Management"
+ },
+ "retro-facilitator": {
+  "id": "09-product-management/retro-facilitator",
+  "category": "Product Management"
+ },
+ "roadmap": {
+  "id": "09-product-management/roadmap",
+  "category": "Product Management"
+ },
+ "stakeholder-update": {
+  "id": "09-product-management/stakeholder-update",
+  "category": "Product Management"
+ },
+ "technical-translator": {
+  "id": "09-product-management/technical-translator",
+  "category": "Product Management"
+ },
+ "user-interview-prep": {
+  "id": "09-product-management/user-interview-prep",
+  "category": "Product Management"
+ },
+ "user-stories": {
+  "id": "09-product-management/user-stories",
+  "category": "Product Management"
+ },
+ "ai-api-architect": {
+  "id": "10-architecture/ai-api-architect",
+  "category": "Architecture"
+ },
+ "ai-architecture-reviewer": {
+  "id": "10-architecture/ai-architecture-reviewer",
+  "category": "Architecture"
+ },
+ "ai-backend-architect": {
+  "id": "10-architecture/ai-backend-architect",
+  "category": "Architecture"
+ },
+ "ai-capability-manager": {
+  "id": "10-architecture/ai-capability-manager",
+  "category": "Architecture"
+ },
+ "ai-cloud-architect": {
+  "id": "10-architecture/ai-cloud-architect",
+  "category": "Architecture"
+ },
+ "ai-data-architect": {
+  "id": "10-architecture/ai-data-architect",
+  "category": "Architecture"
+ },
+ "ai-database-architect": {
+  "id": "10-architecture/ai-database-architect",
+  "category": "Architecture"
+ },
+ "ai-enterprise-architect": {
+  "id": "10-architecture/ai-enterprise-architect",
+  "category": "Architecture"
+ },
+ "ai-frontend-architect": {
+  "id": "10-architecture/ai-frontend-architect",
+  "category": "Architecture"
+ },
+ "ai-identity-architect": {
+  "id": "10-architecture/ai-identity-architect",
+  "category": "Architecture"
+ },
+ "ai-information-architect": {
+  "id": "10-architecture/ai-information-architect",
+  "category": "Architecture"
+ },
+ "ai-infrastructure-lead": {
+  "id": "10-architecture/ai-infrastructure-lead",
+  "category": "Architecture"
+ },
+ "ai-integration-architect": {
+  "id": "10-architecture/ai-integration-architect",
+  "category": "Architecture"
+ },
+ "ai-migration-lead": {
+  "id": "10-architecture/ai-migration-lead",
+  "category": "Architecture"
+ },
+ "ai-network-architect": {
+  "id": "10-architecture/ai-network-architect",
+  "category": "Architecture"
+ },
+ "ai-observability-architect": {
+  "id": "10-architecture/ai-observability-architect",
+  "category": "Architecture"
+ },
+ "ai-platform-architect": {
+  "id": "10-architecture/ai-platform-architect",
+  "category": "Architecture"
+ },
+ "ai-reliability-engineer": {
+  "id": "10-architecture/ai-reliability-engineer",
+  "category": "Architecture"
+ },
+ "ai-service-designer": {
+  "id": "10-architecture/ai-service-designer",
+  "category": "Architecture"
+ },
+ "ai-solution-architect": {
+  "id": "10-architecture/ai-solution-architect",
+  "category": "Architecture"
+ },
+ "ai-systems-integrator": {
+  "id": "10-architecture/ai-systems-integrator",
+  "category": "Architecture"
+ },
+ "ai-account-manager": {
+  "id": "11-cross-functional/ai-account-manager",
+  "category": "Cross-Functional"
+ },
+ "ai-community-lead": {
+  "id": "11-cross-functional/ai-community-lead",
+  "category": "Cross-Functional"
+ },
+ "ai-content-generator": {
+  "id": "11-cross-functional/ai-content-generator",
+  "category": "Cross-Functional"
+ },
+ "ai-experiment-designer": {
+  "id": "11-cross-functional/ai-experiment-designer",
+  "category": "Cross-Functional"
+ },
+ "ai-feedback-analyzer": {
+  "id": "11-cross-functional/ai-feedback-analyzer",
+  "category": "Cross-Functional"
+ },
+ "ai-lead-generator": {
+  "id": "11-cross-functional/ai-lead-generator",
+  "category": "Cross-Functional"
+ },
+ "ai-stakeholder-communications-lead": {
+  "id": "11-cross-functional/ai-stakeholder-communications-lead",
+  "category": "Cross-Functional"
+ },
+ "ai-stakeholder-manager": {
+  "id": "11-cross-functional/ai-stakeholder-manager",
+  "category": "Cross-Functional"
+ },
+ "ai-ai-product-strategist": {
+  "id": "12-leadership-strategy/ai-ai-product-strategist",
+  "category": "Leadership & Strategy"
+ },
+ "ai-agile-coach": {
+  "id": "12-leadership-strategy/ai-agile-coach",
+  "category": "Leadership & Strategy"
+ },
+ "ai-analytics-lead": {
+  "id": "12-leadership-strategy/ai-analytics-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-architecture-program-manager": {
+  "id": "12-leadership-strategy/ai-architecture-program-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-automation-architect": {
+  "id": "12-leadership-strategy/ai-automation-architect",
+  "category": "Leadership & Strategy"
+ },
+ "ai-business-analyst": {
+  "id": "12-leadership-strategy/ai-business-analyst",
+  "category": "Leadership & Strategy"
+ },
+ "ai-cto-advisor": {
+  "id": "12-leadership-strategy/ai-cto-advisor",
+  "category": "Leadership & Strategy"
+ },
+ "ai-change-manager": {
+  "id": "12-leadership-strategy/ai-change-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-compliance-advisor": {
+  "id": "12-leadership-strategy/ai-compliance-advisor",
+  "category": "Leadership & Strategy"
+ },
+ "ai-content-strategist": {
+  "id": "12-leadership-strategy/ai-content-strategist",
+  "category": "Leadership & Strategy"
+ },
+ "ai-continuous-improvement-lead": {
+  "id": "12-leadership-strategy/ai-continuous-improvement-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-customer-success-advisor": {
+  "id": "12-leadership-strategy/ai-customer-success-advisor",
+  "category": "Leadership & Strategy"
+ },
+ "ai-data-product-manager": {
+  "id": "12-leadership-strategy/ai-data-product-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-decision-analyst": {
+  "id": "12-leadership-strategy/ai-decision-analyst",
+  "category": "Leadership & Strategy"
+ },
+ "ai-delivery-analyst": {
+  "id": "12-leadership-strategy/ai-delivery-analyst",
+  "category": "Leadership & Strategy"
+ },
+ "ai-design-partner": {
+  "id": "12-leadership-strategy/ai-design-partner",
+  "category": "Leadership & Strategy"
+ },
+ "ai-devex-lead": {
+  "id": "12-leadership-strategy/ai-devex-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-documentation-lead": {
+  "id": "12-leadership-strategy/ai-documentation-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-engineering-manager": {
+  "id": "12-leadership-strategy/ai-engineering-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-governance-lead": {
+  "id": "12-leadership-strategy/ai-governance-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-growth-product-manager": {
+  "id": "12-leadership-strategy/ai-growth-product-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-incident-commander": {
+  "id": "12-leadership-strategy/ai-incident-commander",
+  "category": "Leadership & Strategy"
+ },
+ "ai-innovation-strategist": {
+  "id": "12-leadership-strategy/ai-innovation-strategist",
+  "category": "Leadership & Strategy"
+ },
+ "ai-knowledge-architect": {
+  "id": "12-leadership-strategy/ai-knowledge-architect",
+  "category": "Leadership & Strategy"
+ },
+ "ai-model-operations-lead": {
+  "id": "12-leadership-strategy/ai-model-operations-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-operating-model-designer": {
+  "id": "12-leadership-strategy/ai-operating-model-designer",
+  "category": "Leadership & Strategy"
+ },
+ "ai-operations-lead": {
+  "id": "12-leadership-strategy/ai-operations-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-pmo-lead": {
+  "id": "12-leadership-strategy/ai-pmo-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-partner-success-lead": {
+  "id": "12-leadership-strategy/ai-partner-success-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-portfolio-analyst": {
+  "id": "12-leadership-strategy/ai-portfolio-analyst",
+  "category": "Leadership & Strategy"
+ },
+ "ai-portfolio-manager": {
+  "id": "12-leadership-strategy/ai-portfolio-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-procurement-advisor": {
+  "id": "12-leadership-strategy/ai-procurement-advisor",
+  "category": "Leadership & Strategy"
+ },
+ "ai-product-designer": {
+  "id": "12-leadership-strategy/ai-product-designer",
+  "category": "Leadership & Strategy"
+ },
+ "ai-product-manager": {
+  "id": "12-leadership-strategy/ai-product-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-product-operations-lead": {
+  "id": "12-leadership-strategy/ai-product-operations-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-product-owner": {
+  "id": "12-leadership-strategy/ai-product-owner",
+  "category": "Leadership & Strategy"
+ },
+ "ai-product-researcher": {
+  "id": "12-leadership-strategy/ai-product-researcher",
+  "category": "Leadership & Strategy"
+ },
+ "ai-product-strategist": {
+  "id": "12-leadership-strategy/ai-product-strategist",
+  "category": "Leadership & Strategy"
+ },
+ "ai-program-manager": {
+  "id": "12-leadership-strategy/ai-program-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-prompt-architect": {
+  "id": "12-leadership-strategy/ai-prompt-architect",
+  "category": "Leadership & Strategy"
+ },
+ "ai-quality-engineer": {
+  "id": "12-leadership-strategy/ai-quality-engineer",
+  "category": "Leadership & Strategy"
+ },
+ "ai-release-manager": {
+  "id": "12-leadership-strategy/ai-release-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-release-orchestrator": {
+  "id": "12-leadership-strategy/ai-release-orchestrator",
+  "category": "Leadership & Strategy"
+ },
+ "ai-research-strategist": {
+  "id": "12-leadership-strategy/ai-research-strategist",
+  "category": "Leadership & Strategy"
+ },
+ "ai-risk-advisor": {
+  "id": "12-leadership-strategy/ai-risk-advisor",
+  "category": "Leadership & Strategy"
+ },
+ "ai-roadmap-architect": {
+  "id": "12-leadership-strategy/ai-roadmap-architect",
+  "category": "Leadership & Strategy"
+ },
+ "ai-sre-advisor": {
+  "id": "12-leadership-strategy/ai-sre-advisor",
+  "category": "Leadership & Strategy"
+ },
+ "ai-sales-engineer": {
+  "id": "12-leadership-strategy/ai-sales-engineer",
+  "category": "Leadership & Strategy"
+ },
+ "ai-scrum-master": {
+  "id": "12-leadership-strategy/ai-scrum-master",
+  "category": "Leadership & Strategy"
+ },
+ "ai-security-architect": {
+  "id": "12-leadership-strategy/ai-security-architect",
+  "category": "Leadership & Strategy"
+ },
+ "ai-service-owner": {
+  "id": "12-leadership-strategy/ai-service-owner",
+  "category": "Leadership & Strategy"
+ },
+ "ai-service-transition-lead": {
+  "id": "12-leadership-strategy/ai-service-transition-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-tech-lead": {
+  "id": "12-leadership-strategy/ai-tech-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-test-automation-lead": {
+  "id": "12-leadership-strategy/ai-test-automation-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-training-lead": {
+  "id": "12-leadership-strategy/ai-training-lead",
+  "category": "Leadership & Strategy"
+ },
+ "ai-transformation-leader": {
+  "id": "12-leadership-strategy/ai-transformation-leader",
+  "category": "Leadership & Strategy"
+ },
+ "ai-value-stream-manager": {
+  "id": "12-leadership-strategy/ai-value-stream-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-vendor-manager": {
+  "id": "12-leadership-strategy/ai-vendor-manager",
+  "category": "Leadership & Strategy"
+ },
+ "ai-workflow-designer": {
+  "id": "12-leadership-strategy/ai-workflow-designer",
+  "category": "Leadership & Strategy"
+ },
+ "ai-workshop-facilitator": {
+  "id": "12-leadership-strategy/ai-workshop-facilitator",
+  "category": "Leadership & Strategy"
+ },
+ "monorepo-strategy": {
+  "id": "01-software-dev/monorepo-strategy",
+  "category": "Software Development"
+ },
+ "feature-toggle-rollout": {
+  "id": "01-software-dev/feature-toggle-rollout",
+  "category": "Software Development"
+ },
+ "dependency-upgrade-playbook": {
+  "id": "01-software-dev/dependency-upgrade-playbook",
+  "category": "Software Development"
+ },
+ "refactor-strangler": {
+  "id": "01-software-dev/refactor-strangler",
+  "category": "Software Development"
+ },
+ "error-handling-standards": {
+  "id": "01-software-dev/error-handling-standards",
+  "category": "Software Development"
+ },
+ "terraform-module-design": {
+  "id": "02-devops/terraform-module-design",
+  "category": "DevOps & Infrastructure"
+ },
+ "kubernetes-cost-optimization": {
+  "id": "02-devops/kubernetes-cost-optimization",
+  "category": "DevOps & Infrastructure"
+ },
+ "blue-green-deployment": {
+  "id": "02-devops/blue-green-deployment",
+  "category": "DevOps & Infrastructure"
+ },
+ "gitops-bootstrap": {
+  "id": "02-devops/gitops-bootstrap",
+  "category": "DevOps & Infrastructure"
+ },
+ "dr-runbook": {
+  "id": "02-devops/dr-runbook",
+  "category": "DevOps & Infrastructure"
+ },
+ "incident-postmortem": {
+  "id": "02-devops/incident-postmortem",
+  "category": "DevOps & Infrastructure"
+ },
+ "data-mart-design": {
+  "id": "03-data-analytics/data-mart-design",
+  "category": "Data & Analytics"
+ },
+ "metric-tree-builder": {
+  "id": "03-data-analytics/metric-tree-builder",
+  "category": "Data & Analytics"
+ },
+ "ml-feature-store": {
+  "id": "03-data-analytics/ml-feature-store",
+  "category": "Data & Analytics"
+ },
+ "query-cost-governance": {
+  "id": "03-data-analytics/query-cost-governance",
+  "category": "Data & Analytics"
+ },
+ "ab-test-power-calc": {
+  "id": "03-data-analytics/ab-test-power-calc",
+  "category": "Data & Analytics"
+ },
+ "data-product-spec": {
+  "id": "03-data-analytics/data-product-spec",
+  "category": "Data & Analytics"
+ },
+ "llm-eval-harness": {
+  "id": "04-ai-ml/llm-eval-harness",
+  "category": "AI / ML"
+ },
+ "rag-chunking-strategy": {
+  "id": "04-ai-ml/rag-chunking-strategy",
+  "category": "AI / ML"
+ },
+ "agent-tool-design": {
+  "id": "04-ai-ml/agent-tool-design",
+  "category": "AI / ML"
+ },
+ "prompt-versioning": {
+  "id": "04-ai-ml/prompt-versioning",
+  "category": "AI / ML"
+ },
+ "model-cards": {
+  "id": "04-ai-ml/model-cards",
+  "category": "AI / ML"
+ },
+ "siem-detection-rules": {
+  "id": "05-security/siem-detection-rules",
+  "category": "Security"
+ },
+ "ssrf-defense": {
+  "id": "05-security/ssrf-defense",
+  "category": "Security"
+ },
+ "jwt-hardening": {
+  "id": "05-security/jwt-hardening",
+  "category": "Security"
+ },
+ "backup-encryption": {
+  "id": "05-security/backup-encryption",
+  "category": "Security"
+ },
+ "phishing-simulation": {
+  "id": "05-security/phishing-simulation",
+  "category": "Security"
+ },
+ "api-rate-limit-policy": {
+  "id": "05-security/api-rate-limit-policy",
+  "category": "Security"
+ },
+ "read-heavy-architecture": {
+  "id": "06-system-design/read-heavy-architecture",
+  "category": "System Design"
+ },
+ "queue-vs-stream-decision": {
+  "id": "06-system-design/queue-vs-stream-decision",
+  "category": "System Design"
+ },
+ "multi-region-failover": {
+  "id": "06-system-design/multi-region-failover",
+  "category": "System Design"
+ },
+ "backpressure-strategy": {
+  "id": "06-system-design/backpressure-strategy",
+  "category": "System Design"
+ },
+ "schema-evolution": {
+  "id": "06-system-design/schema-evolution",
+  "category": "System Design"
+ },
+ "test-pyramid-audit": {
+  "id": "07-testing-quality/test-pyramid-audit",
+  "category": "Testing & Quality"
+ },
+ "ci-flake-quarantine": {
+  "id": "07-testing-quality/ci-flake-quarantine",
+  "category": "Testing & Quality"
+ },
+ "api-fuzzing": {
+  "id": "07-testing-quality/api-fuzzing",
+  "category": "Testing & Quality"
+ },
+ "contract-test-pact": {
+  "id": "07-testing-quality/contract-test-pact",
+  "category": "Testing & Quality"
+ },
+ "synthetic-checks": {
+  "id": "07-testing-quality/synthetic-checks",
+  "category": "Testing & Quality"
+ },
+ "test-data-anonymization": {
+  "id": "07-testing-quality/test-data-anonymization",
+  "category": "Testing & Quality"
+ },
+ "webhook-retry-design": {
+  "id": "08-api-integration/webhook-retry-design",
+  "category": "API & Integration"
+ },
+ "graphql-federation": {
+  "id": "08-api-integration/graphql-federation",
+  "category": "API & Integration"
+ },
+ "api-style-guide": {
+  "id": "08-api-integration/api-style-guide",
+  "category": "API & Integration"
+ },
+ "etl-connector-spec": {
+  "id": "08-api-integration/etl-connector-spec",
+  "category": "API & Integration"
+ },
+ "integration-sandbox": {
+  "id": "08-api-integration/integration-sandbox",
+  "category": "API & Integration"
+ },
+ "opportunity-tree": {
+  "id": "09-product-management/opportunity-tree",
+  "category": "Product Management"
+ },
+ "pricing-experiment": {
+  "id": "09-product-management/pricing-experiment",
+  "category": "Product Management"
+ },
+ "launch-playbook": {
+  "id": "09-product-management/launch-playbook",
+  "category": "Product Management"
+ },
+ "kill-criteria": {
+  "id": "09-product-management/kill-criteria",
+  "category": "Product Management"
+ },
+ "c4-model-docs": {
+  "id": "10-architecture/c4-model-docs",
+  "category": "Architecture"
+ },
+ "fitness-functions": {
+  "id": "10-architecture/fitness-functions",
+  "category": "Architecture"
+ },
+ "tech-radar": {
+  "id": "10-architecture/tech-radar",
+  "category": "Architecture"
+ },
+ "platform-team-charter": {
+  "id": "10-architecture/platform-team-charter",
+  "category": "Architecture"
+ },
+ "raci-builder": {
+  "id": "11-cross-functional/raci-builder",
+  "category": "Cross-Functional"
+ },
+ "decision-record": {
+  "id": "11-cross-functional/decision-record",
+  "category": "Cross-Functional"
+ },
+ "working-agreement": {
+  "id": "11-cross-functional/working-agreement",
+  "category": "Cross-Functional"
+ },
+ "dependency-map": {
+  "id": "11-cross-functional/dependency-map",
+  "category": "Cross-Functional"
+ },
+ "readiness-review": {
+  "id": "11-cross-functional/readiness-review",
+  "category": "Cross-Functional"
+ },
+ "escalation-policy": {
+  "id": "11-cross-functional/escalation-policy",
+  "category": "Cross-Functional"
+ },
+ "okr-cascade": {
+  "id": "12-leadership-strategy/okr-cascade",
+  "category": "Leadership & Strategy"
+ },
+ "operating-rhythm": {
+  "id": "12-leadership-strategy/operating-rhythm",
+  "category": "Leadership & Strategy"
+ },
+ "talent-density": {
+  "id": "12-leadership-strategy/talent-density",
+  "category": "Leadership & Strategy"
+ },
+ "engineering-strategy": {
+  "id": "12-leadership-strategy/engineering-strategy",
+  "category": "Leadership & Strategy"
+ },
+ "board-update": {
+  "id": "12-leadership-strategy/board-update",
+  "category": "Leadership & Strategy"
+ },
+ "developer-experience-audit": {
+  "id": "09-product-management/developer-experience-audit",
+  "category": "Product Management"
+ },
+ "healthcare-rcm-operations": {
+  "id": "pack/healthcare-rcm-operations",
+  "category": "Healthcare RCM"
+ },
+ "denial-management-playbook": {
+  "id": "pack/denial-management-playbook",
+  "category": "Healthcare RCM"
+ },
+ "provider-enrollment-ops": {
+  "id": "pack/provider-enrollment-ops",
+  "category": "Healthcare RCM"
+ },
+ "rcm-metrics-kpis": {
+  "id": "pack/rcm-metrics-kpis",
+  "category": "Healthcare RCM"
+ },
+ "gcc-operating-model": {
+  "id": "pack/gcc-operating-model",
+  "category": "GCC Strategy"
+ },
+ "gcc-transition-playbook": {
+  "id": "pack/gcc-transition-playbook",
+  "category": "GCC Strategy"
+ },
+ "enterprise-app-implementation": {
+  "id": "pack/enterprise-app-implementation",
+  "category": "Enterprise Applications"
+ },
+ "prompt-engineering-playbook": {
+  "id": "pack/prompt-engineering-playbook",
+  "category": "Prompt Engineering"
+ },
+ "mcp-agent-architecture": {
+  "id": "pack/mcp-agent-architecture",
+  "category": "AI / ML"
+ },
+ "rag-knowledge-systems": {
+  "id": "pack/rag-knowledge-systems",
+  "category": "AI / ML"
+ },
+ "documentation-systems": {
+  "id": "pack/documentation-systems",
+  "category": "Documentation"
+ },
+ "proposal-sow-playbooks": {
+  "id": "pack/proposal-sow-playbooks",
+  "category": "Consulting"
+ },
+ "executive-briefs": {
+  "id": "pack/executive-briefs",
+  "category": "Consulting"
+ },
+ "long-context-1m-tokens": {
+  "id": "13-claude-5/long-context-1m-tokens",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "large-codebase-analysis": {
+  "id": "13-claude-5/large-codebase-analysis",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "research-memo-synthesis": {
+  "id": "13-claude-5/research-memo-synthesis",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "agentic-workflow-design": {
+  "id": "13-claude-5/agentic-workflow-design",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "mcp-tool-orchestration": {
+  "id": "13-claude-5/mcp-tool-orchestration",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "autonomous-coding-agent": {
+  "id": "13-claude-5/autonomous-coding-agent",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "computer-use-automation": {
+  "id": "13-claude-5/computer-use-automation",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "structured-json-extraction": {
+  "id": "13-claude-5/structured-json-extraction",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "tool-calling-patterns": {
+  "id": "13-claude-5/tool-calling-patterns",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "schema-driven-generation": {
+  "id": "13-claude-5/schema-driven-generation",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "vision-screenshot-to-code": {
+  "id": "13-claude-5/vision-screenshot-to-code",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "pdf-diagram-reasoning": {
+  "id": "13-claude-5/pdf-diagram-reasoning",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "multimodal-doc-extraction": {
+  "id": "13-claude-5/multimodal-doc-extraction",
+  "category": "Claude 5 Mythos & Fable"
+ },
+ "cto-technology-strategy": {
+  "id": "14-executive-playbooks/cto-technology-strategy",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cto-build-vs-buy-decision": {
+  "id": "14-executive-playbooks/cto-build-vs-buy-decision",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cto-engineering-org-design": {
+  "id": "14-executive-playbooks/cto-engineering-org-design",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cto-tech-debt-portfolio": {
+  "id": "14-executive-playbooks/cto-tech-debt-portfolio",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cio-digital-transformation-roadmap": {
+  "id": "14-executive-playbooks/cio-digital-transformation-roadmap",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cio-ai-adoption-strategy": {
+  "id": "14-executive-playbooks/cio-ai-adoption-strategy",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cio-vendor-portfolio-rationalisation": {
+  "id": "14-executive-playbooks/cio-vendor-portfolio-rationalisation",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "ciso-security-strategy-board": {
+  "id": "14-executive-playbooks/ciso-security-strategy-board",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cdo-data-strategy": {
+  "id": "14-executive-playbooks/cdo-data-strategy",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cpo-product-operating-model": {
+  "id": "14-executive-playbooks/cpo-product-operating-model",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "ceo-quarterly-business-review": {
+  "id": "14-executive-playbooks/ceo-quarterly-business-review",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cfo-technology-investment-case": {
+  "id": "14-executive-playbooks/cfo-technology-investment-case",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "coo-operating-model-redesign": {
+  "id": "14-executive-playbooks/coo-operating-model-redesign",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cxo-ai-governance-council": {
+  "id": "14-executive-playbooks/cxo-ai-governance-council",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cxo-crisis-communication-playbook": {
+  "id": "14-executive-playbooks/cxo-crisis-communication-playbook",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cmo-growth-strategy": {
+  "id": "14-executive-playbooks/cmo-growth-strategy",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "chro-workforce-transformation": {
+  "id": "14-executive-playbooks/chro-workforce-transformation",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cro-revenue-operating-model": {
+  "id": "14-executive-playbooks/cro-revenue-operating-model",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cxo-ma-integration-playbook": {
+  "id": "14-executive-playbooks/cxo-ma-integration-playbook",
+  "category": "Executive Playbooks (CXO)"
+ },
+ "cxo-esg-sustainability-strategy": {
+  "id": "14-executive-playbooks/cxo-esg-sustainability-strategy",
+  "category": "Executive Playbooks (CXO)"
+ }
+}

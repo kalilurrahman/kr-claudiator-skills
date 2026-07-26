@@ -9,7 +9,7 @@ export function AboutPage() {
       <SeoHead
         title="About Claudiator — The Open-Source Claude Skills Library"
         description="Learn what Claudiator is, why it exists, and how the ACUITAS and CLARITY frameworks shape every Claude Skill in this open-source library by Kalilur Rahman."
-        canonical="https://kr-claudiator-skills.lovable.app/about"
+        canonical="https://claudiator.kalilurrahman.com/about"
       />
       <Header />
       <main className="flex-1 pt-16 md:pt-20">

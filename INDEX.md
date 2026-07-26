@@ -1,312 +1,393 @@
-# Tech Skills Collection - INDEX
-
-**Last Updated:** March 21, 2026  
-**Version:** 2.0  
-**Total Skills:** 27 detailed + 73 cataloged = 100 total
-
----
-
-## 📊 Collection Statistics
-
-| Metric | Value |
-|--------|-------|
-| **Detailed Skills** | 27/100 (27%) |
-| **Collection Size** | 508 KB |
-| **Categories** | 8 (all active) |
-| **Code Examples** | 135+ |
-| **Best Practices/Rules** | 270+ |
-| **Average Skill Length** | 380 lines |
-| **Total Documentation** | ~10,000 lines |
-
----
-
-## 🎯 Category Breakdown
-
-### 1. Software Development (14 skills - 70% complete) ⭐
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 1 | api-design | REST/GraphQL API with OpenAPI specs | 420 |
-| 2 | async-patterns | Queues, workers, Celery, SQS, Kafka | 390 |
-| 3 | caching-strategy | Multi-layer caching, TTL, invalidation | 380 |
-| 4 | circuit-breaker | Failure handling, states, fallbacks | 350 |
-| 5 | code-review | Language-specific checklists | 370 |
-| 6 | database-schema | DDL, indexes, migrations, normalization | 410 |
-| 7 | error-handling | Error types, codes, structured logging | 360 |
-| 8 | feature-flags | A/B testing, gradual rollouts, kill switches | 340 |
-| 9 | git-workflow | Branching strategies, CI/CD integration | 400 |
-| 10 | logging-strategy | Structured logging, aggregation, retention | 390 |
-| 11 | microservices-design | Service boundaries, communication, data | 430 |
-| 12 | pagination-design | Offset, cursor, keyset strategies | 350 |
-| 13 | rate-limiting | Token bucket, sliding window, distributed | 360 |
-| 14 | tech-debt-audit | Assessment, ROI, remediation plans | 370 |
-
-**Subtotal:** 14 skills, ~5,320 lines
-
----
-
-### 2. DevOps & Infrastructure (3 skills - 20% complete)
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 15 | ci-cd-pipeline | GitHub Actions, GitLab CI, deployment | 320 |
-| 16 | docker-compose | Multi-container apps, networking, volumes | 450 |
-| 17 | kubernetes-manifest | K8s YAML, HPA, security, networking | 380 |
-
-**Subtotal:** 3 skills, ~1,150 lines
-
----
-
-### 3. Data & Analytics (2 skills - 13% complete)
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 18 | etl-pipeline | Airflow, transformations, incremental loads | 440 |
-| 19 | sql-optimization | Query optimization, indexing, EXPLAIN | 330 |
-
-**Subtotal:** 2 skills, ~770 lines
-
----
-
-### 4. AI/ML Engineering (2 skills - 13% complete)
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 20 | ml-pipeline | MLflow, training, evaluation, deployment | 420 |
-| 21 | model-deployment | FastAPI, Docker, scaling, serving | 340 |
-
-**Subtotal:** 2 skills, ~760 lines
-
----
-
-### 5. Security & Compliance (1 skill - 10% complete)
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 22 | security-audit | OWASP, threat modeling, remediation | 460 |
-
-**Subtotal:** 1 skill, ~460 lines
-
----
-
-### 6. System Design & Architecture (1 skill - 10% complete)
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 23 | system-design-doc | Architecture documentation template | 310 |
-
-**Subtotal:** 1 skill, ~310 lines
-
----
-
-### 7. Testing & Quality (2 skills - 20% complete) ✅ NEW
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 24 | e2e-test | Playwright/Cypress, page objects, CI | 380 |
-| 25 | integration-test | pytest, testcontainers, DB fixtures | 390 |
-
-**Subtotal:** 2 skills, ~770 lines
-
----
-
-### 8. API & Integration (2 skills - 40% complete) ✅ NEW
-
-| # | Skill | Description | Lines |
-|---|-------|-------------|-------|
-| 26 | graphql-schema | Types, queries, DataLoader, subscriptions | 410 |
-| 27 | websocket-design | Real-time, Socket.IO, Redis scaling | 370 |
-
-**Subtotal:** 2 skills, ~780 lines
-
----
-
-## 🎨 Skill Complexity Distribution
-
-| Level | Count | Examples |
-|-------|-------|----------|
-| **Beginner** | 8 | git-workflow, docker-compose, feature-flags, logging-strategy |
-| **Intermediate** | 13 | api-design, database-schema, caching-strategy, etl-pipeline |
-| **Advanced** | 6 | microservices-design, ml-pipeline, security-audit, graphql-schema |
-
----
-
-## 📈 Progress Timeline
-
-| Batch | Skills Added | Total | Size |
-|-------|--------------|-------|------|
-| Initial | 14 | 14 | 235 KB |
-| Batch 3 | 2 | 16 | 303 KB |
-| Batch 4 | 6 | 22 | 413 KB |
-| Batch 5 | 5 | 27 | 508 KB |
-
----
-
-## 🏆 Top 5 Most Comprehensive Skills
-
-1. **security-audit** (460 lines) - OWASP Top 10, threat modeling, remediation
-2. **docker-compose** (450 lines) - Multi-container orchestration, production configs
-3. **etl-pipeline** (440 lines) - Airflow, data quality, incremental loads
-4. **microservices-design** (430 lines) - Service boundaries, scaling, deployment
-5. **api-design** (420 lines) - REST/GraphQL, authentication, versioning
-
----
-
-## 📚 Skills by Technology Stack
-
-### Backend
-- Python: etl-pipeline, ml-pipeline, integration-test
-- Node.js: api-design, websocket-design, graphql-schema
-- Go: microservices-design (examples)
-- Multi-language: error-handling, logging-strategy
-
-### Frontend
-- React: e2e-test (examples), websocket-design (client)
-- GraphQL: graphql-schema
-- WebSocket: websocket-design
-
-### Infrastructure
-- Docker: docker-compose, kubernetes-manifest
-- Kubernetes: kubernetes-manifest
-- CI/CD: ci-cd-pipeline, git-workflow
-
-### Data
-- PostgreSQL: database-schema, sql-optimization
-- Redis: caching-strategy, rate-limiting
-- Airflow: etl-pipeline
-
-### ML/AI
-- MLflow: ml-pipeline
-- FastAPI: model-deployment
-- TensorFlow/PyTorch: ml-pipeline (examples)
-
----
-
-## 🔧 Common Patterns Across Skills
-
-### Error Handling
-- Structured error responses (14 skills)
-- HTTP status codes (12 skills)
-- Logging with context (15 skills)
-
-### Performance
-- Caching strategies (8 skills)
-- Query optimization (6 skills)
-- Horizontal scaling (7 skills)
-
-### Security
-- Authentication/Authorization (11 skills)
-- Input validation (9 skills)
-- Rate limiting (5 skills)
-
-### Observability
-- Metrics/Prometheus (13 skills)
-- Structured logging (15 skills)
-- Distributed tracing (4 skills)
-
----
-
-## 📖 Usage Statistics
-
-### Most Referenced Technologies
-1. **Docker** - 8 skills
-2. **PostgreSQL** - 7 skills
-3. **Redis** - 6 skills
-4. **Kubernetes** - 3 skills
-5. **Python** - 12 skills
-6. **JavaScript/Node.js** - 9 skills
-
-### Most Common Integrations
-1. CI/CD pipelines - 10 skills
-2. Monitoring/alerting - 13 skills
-3. Database operations - 11 skills
-4. API design - 8 skills
-5. Authentication - 11 skills
-
----
-
-## 🎯 Remaining Work (73 cataloged skills)
-
-### High Priority (Need 20%+ coverage)
-- **DevOps** (12 more needed) - terraform, monitoring, secrets
-- **Data** (13 more needed) - warehouse, streaming, quality
-- **AI/ML** (13 more needed) - feature-eng, monitoring, RAG
-- **Security** (9 more needed) - pen testing, compliance, encryption
-- **System Design** (9 more needed) - scalability, HA, distributed
-
-### Medium Priority (Well covered)
-- **Software Dev** (6 more) - Already at 70%
-- **Testing** (8 more) - At 20%, good start
-- **API** (2 more) - At 40%, nearly done
-
----
-
-## 📥 Download & Usage
-
-**Files Ready:**
-- `/tech-skills-collection/` - Main directory
-- `/tech-skills-collection.zip` - Compressed archive
-- `README.md` - Full catalog
-- `PROGRESS.md` - Detailed tracking
-- `QUICK_REFERENCE.md` - Usage guide
-- `INDEX.md` - This file
-
-**Size:** 508 KB uncompressed, ~180 KB compressed
-
----
-
-## 🚀 Quick Start Examples
-
-### Use Case 1: Build a REST API
-```
-Skills needed:
-1. api-design → Define endpoints
-2. database-schema → Design data model
-3. error-handling → Handle errors
-4. rate-limiting → Prevent abuse
-5. logging-strategy → Add observability
-```
-
-### Use Case 2: Deploy Microservices
-```
-Skills needed:
-1. microservices-design → Architecture
-2. docker-compose → Local dev
-3. kubernetes-manifest → Production
-4. circuit-breaker → Resilience
-5. api-design → Service contracts
-```
-
-### Use Case 3: Data Platform
-```
-Skills needed:
-1. etl-pipeline → Data ingestion
-2. database-schema → Storage design
-3. sql-optimization → Performance
-```
-
-### Use Case 4: ML System
-```
-Skills needed:
-1. ml-pipeline → Training
-2. model-deployment → Serving
-3. api-design → Prediction API
-```
-
----
-
-## 📊 Quality Metrics
-
-| Metric | Target | Actual | Status |
-|--------|--------|--------|--------|
-| Avg skill length | 300-400 lines | 380 lines | ✅ |
-| Code examples per skill | 5+ | 5-10 | ✅ |
-| Best practices per skill | 10+ | 10-15 | ✅ |
-| Format consistency | 100% | 100% | ✅ |
-| Actionable rules | All skills | All skills | ✅ |
-
----
-
-**Last Updated:** March 21, 2026  
-**Maintained By:** Claude Tech Skills Project  
-**Version:** 2.0 (Batch 5 complete)
+# Tech Skills Collection — Index
+
+<!-- GENERATED by scripts/generate_index.py — do not edit by hand. -->
+
+**Total skills in this repository: 343** (the live site additionally serves categories whose sources are still being reconciled — see `scripts/audit_skills.py`).
+
+## Software Development (54)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `01-software-dev/api-design` | Design a complete REST or GraphQL API from requirements. | 443 |
+| `01-software-dev/api-mocking` | Mock external APIs for development and testing. | 191 |
+| `01-software-dev/api-security-design` | Design secure APIs with authentication, authorisation, input validation, rate limiting, and audit logging. | 352 |
+| `01-software-dev/async-patterns` | Design asynchronous processing patterns for background jobs, event-driven systems, and non-blocking I/O. | 508 |
+| `01-software-dev/background-jobs` | Design background job systems for async task processing. | 219 |
+| `01-software-dev/caching-strategy` | Design a multi-layer caching strategy for performance optimization. | 498 |
+| `01-software-dev/circuit-breaker` | Circuit breaker pattern for handling service failures gracefully. | 499 |
+| `01-software-dev/clean-architecture` | Structure codebases using Clean Architecture principles with clear layer separation, dependency inversion, and domain-centric design. | 302 |
+| `01-software-dev/code-generation` | Design and implement code generation pipelines from schemas, OpenAPI specs, or domain models. | 218 |
+| `01-software-dev/code-review` | Conduct a thorough, structured code review covering correctness, security, performance, maintainability, and design. | 252 |
+| `01-software-dev/code-splitting` | Implement code splitting to reduce initial bundle size and improve web application load time. | 151 |
+| `01-software-dev/concurrency-patterns` | Design safe concurrent systems using appropriate synchronization primitives, async patterns, and parallelism strategies. | 357 |
+| `01-software-dev/configuration-management` | Design robust configuration management for applications across environments. | 198 |
+| `01-software-dev/data-serialization` | Choose and implement data serialization formats for APIs, storage, and messaging. | 174 |
+| `01-software-dev/database-migration` | Plan and execute database schema migrations safely — zero-downtime strategies, Alembic/Flyway configuration, backward-compatible changes, large table migrations, and rollback procedures. | 325 |
+| `01-software-dev/database-schema` | Design a relational database schema from requirements. | 334 |
+| `01-software-dev/dependency-injection` | Implement dependency injection patterns for testable, decoupled application architecture. | 361 |
+| `01-software-dev/design-patterns` | Apply the right design pattern to a software design problem. | 355 |
+| `01-software-dev/documentation-as-code` | Treat documentation with the same rigour as source code — versioned, reviewed, tested, and automatically published. | 369 |
+| `01-software-dev/domain-driven-design` | Apply Domain-Driven Design to model complex business domains. | 401 |
+| `01-software-dev/error-handling` | Design a comprehensive error handling strategy for an application. | 501 |
+| `01-software-dev/event-driven-architecture` | Design event-driven systems with producers, consumers, event schemas, and delivery guarantees. | 287 |
+| `01-software-dev/event-storming` | Facilitate event storming workshops to discover domain events, commands, aggregates, and bounded contexts. | 158 |
+| `01-software-dev/feature-flags` | Design and implement a feature flag system for safe, gradual feature rollouts. | 346 |
+| `01-software-dev/functional-programming` | Apply functional programming principles to write predictable, testable code. | 306 |
+| `01-software-dev/git-workflow` | Design a Git branching strategy and workflow for a team. | 358 |
+| `01-software-dev/graceful-degradation` | Design systems that continue operating with reduced functionality when components fail. | 459 |
+| `01-software-dev/graphql-design` | Design GraphQL schemas, resolvers, and APIs for flexible data fetching. | 212 |
+| `01-software-dev/hexagonal-architecture` | Design hexagonal (ports and adapters) architecture to isolate business logic from infrastructure. | 234 |
+| `01-software-dev/idempotency-design` | Design idempotent APIs and operations. | 571 |
+| `01-software-dev/logging-strategy` | Design a comprehensive logging strategy for production systems. | 483 |
+| `01-software-dev/memory-management` | Diagnose and resolve memory issues in production systems. | 276 |
+| `01-software-dev/microservices-communication` | Design communication patterns between microservices. | 166 |
+| `01-software-dev/microservices-design` | Design a microservices architecture from a monolith or new requirements. | 428 |
+| `01-software-dev/monorepo-management` | Structure and manage monorepos with multiple packages or services. | 302 |
+| `01-software-dev/null-object-pattern` | Eliminate null checks and NullPointerExceptions using the Null Object pattern. | 168 |
+| `01-software-dev/observer-pattern` | Implement the Observer pattern for event-driven decoupled communication. | 167 |
+| `01-software-dev/outbox-pattern` | Implement the Transactional Outbox pattern to reliably publish events alongside database writes. | 266 |
+| `01-software-dev/pagination-design` | Design pagination for large datasets with cursor-based, offset-based, and keyset strategies. | 522 |
+| `01-software-dev/performance-profiling` | Profile and optimise application performance using systematic measurement. | 246 |
+| `01-software-dev/plugin-architecture` | Design extensible plugin systems that let third parties extend your application without modifying core code. | 282 |
+| `01-software-dev/rate-limiting` | Design rate limiting to prevent abuse and ensure fair usage. | 541 |
+| `01-software-dev/refactoring-guide` | Safely refactor existing code to improve structure, readability, and maintainability without changing behavior. | 309 |
+| `01-software-dev/repository-pattern` | Implement the Repository pattern to abstract data access from business logic. | 205 |
+| `01-software-dev/retry-patterns` | Implement retry patterns for resilient distributed systems. | 176 |
+| `01-software-dev/serverless-patterns` | Design serverless architectures with functions, managed services, and event triggers. | 268 |
+| `01-software-dev/service-layer-design` | Design the service layer that coordinates business logic, transactions, and cross-cutting concerns between controllers and domain models. | 159 |
+| `01-software-dev/solid-principles` | Apply SOLID principles to write maintainable, extensible object-oriented code. | 220 |
+| `01-software-dev/state-machine-design` | Model complex workflows as explicit state machines. | 320 |
+| `01-software-dev/tech-debt-audit` | Audit a codebase for technical debt, categorize findings by impact and effort, and produce a prioritized remediation plan with effort estimates and business justification. | 380 |
+| `01-software-dev/trunk-based-development` | Implement trunk-based development for fast, safe integration. | 136 |
+| `01-software-dev/twelve-factor-app` | Apply the Twelve-Factor App methodology to build scalable, maintainable cloud-native applications. | 182 |
+| `01-software-dev/type-system-design` | Design expressive type systems that catch bugs at compile time. | 153 |
+| `01-software-dev/webhook-design` | Design reliable webhook systems with retries, idempotency, and signature verification. | 621 |
+
+## DevOps & Infrastructure (49)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `02-devops-infra/alerting-rules` | Design alerting rules for production monitoring with Prometheus, Grafana, PagerDuty. | 583 |
+| `02-devops-infra/ansible-playbook` | Write Ansible playbooks for server provisioning, configuration management, and application deployment. | 483 |
+| `02-devops-infra/argocd-deployment` | Deploy and manage applications with Argo CD GitOps. | 216 |
+| `02-devops-infra/backup-strategy` | Design backup and disaster recovery strategies with 3-2-1 rule, automated testing, and recovery procedures. | 545 |
+| `02-devops-infra/blue-green-deploy` | Implement blue-green deployment strategy for zero-downtime releases with instant rollback capability. | 289 |
+| `02-devops-infra/canary-release` | Implement canary release strategy for gradual traffic shifting with automated promotion and rollback. | 362 |
+| `02-devops-infra/capacity-planning` | Plan infrastructure capacity for current and future load. | 258 |
+| `02-devops-infra/chaos-testing-infra` | Design and run chaos engineering experiments against infrastructure — steady-state hypotheses, blast-radius control, and staged promotion from dev to production. | 384 |
+| `02-devops-infra/ci-cd-advanced` | Design advanced CI/CD patterns with deployment strategies, progressive delivery, and rollback automation. | 635 |
+| `02-devops-infra/ci-cd-pipeline` | Design continuous integration and deployment pipelines. | 598 |
+| `02-devops-infra/cloud-cost-allocation` | Implement cloud cost allocation, tagging policies, and showback/chargeback systems. | 135 |
+| `02-devops-infra/cloud-migration` | Plan and execute cloud migrations using the 6R strategies. | 210 |
+| `02-devops-infra/cloud-networking` | Design and implement cloud network architecture with VPCs, subnets, security groups, and private connectivity. | 167 |
+| `02-devops-infra/container-security` | Harden container images and Kubernetes workloads against attacks. | 357 |
+| `02-devops-infra/cost-optimization` | Reduce cloud infrastructure costs through right-sizing, reserved capacity, spot instances, autoscaling, and waste elimination. | 335 |
+| `02-devops-infra/database-ops` | Operate databases in production with zero-downtime migrations, connection pooling, backup verification, and performance monitoring. | 179 |
+| `02-devops-infra/deployment-strategies` | Select and implement the right deployment strategy for your release. | 212 |
+| `02-devops-infra/developer-experience` | Improve developer experience through faster feedback loops, better local dev environments, reduced cognitive load, and tooling that gets out of the way. | 339 |
+| `02-devops-infra/disaster-recovery` | Design and document a disaster recovery plan for a production system. | 290 |
+| `02-devops-infra/docker-compose` | Create production-ready Docker Compose configurations for multi-container applications. | 679 |
+| `02-devops-infra/dora-metrics` | Implement DORA metrics to measure software delivery performance. | 234 |
+| `02-devops-infra/ebpf-observability` | Implement eBPF-based observability for deep kernel-level insights without application instrumentation. | 201 |
+| `02-devops-infra/edge-computing` | Design and deploy edge computing architectures that process data close to the source. | 229 |
+| `02-devops-infra/environment-management` | Design and manage multiple deployment environments for development, staging, and production. | 177 |
+| `02-devops-infra/finops-strategy` | Implement FinOps practices to optimise cloud spend without sacrificing performance. | 270 |
+| `02-devops-infra/gitops-workflow` | Implement GitOps deployment workflows where Git is the single source of truth for infrastructure and application state. | 402 |
+| `02-devops-infra/helm-charts` | Create and manage Helm charts for Kubernetes application deployment. | 483 |
+| `02-devops-infra/infrastructure-as-code-testing` | Test Terraform, Pulumi, and CloudFormation infrastructure code before deployment. | 359 |
+| `02-devops-infra/infrastructure-testing` | Test infrastructure-as-code using automated frameworks. | 329 |
+| `02-devops-infra/kubernetes-manifest` | Create production Kubernetes manifests with deployments, services, ingress, configs, and autoscaling. | 606 |
+| `02-devops-infra/kubernetes-security` | Harden Kubernetes clusters with RBAC, pod security, network policies, and supply chain controls. | 234 |
+| `02-devops-infra/log-aggregation` | Design and implement centralized log aggregation pipelines using ELK Stack, CloudWatch Logs, or Loki. | 523 |
+| `02-devops-infra/monitoring-setup` | Setup monitoring with Prometheus, Grafana, alerting. | 646 |
+| `02-devops-infra/multi-cloud-strategy` | Design multi-cloud architectures for resilience, cost optimisation, or vendor independence. | 294 |
+| `02-devops-infra/network-policy` | Design and implement Kubernetes NetworkPolicies and cloud security groups for zero-trust network segmentation. | 358 |
+| `02-devops-infra/observability-platform` | Build a unified observability platform integrating metrics, logs, and traces (the three pillars). | 327 |
+| `02-devops-infra/on-call-management` | Design and operate an effective on-call rotation. | 206 |
+| `02-devops-infra/platform-engineering` | Build an internal developer platform (IDP) that abstracts infrastructure complexity — self-service environments, golden paths, service catalogs, and paved road toolchains for engineering teams. | 296 |
+| `02-devops-infra/platform-idp` | Design an Internal Developer Platform (IDP) that reduces cognitive load for engineers. | 193 |
+| `02-devops-infra/progressive-delivery` | Implement progressive delivery strategies including canary releases, feature flags, and traffic splitting. | 175 |
+| `02-devops-infra/release-management` | Design a release management process for coordinated, low-risk software releases. | 173 |
+| `02-devops-infra/secrets-management` | Design secrets management with Vault, AWS Secrets Manager, encrypted storage. | 638 |
+| `02-devops-infra/service-catalog` | Build and keep alive a service catalog / internal developer portal — Backstage or a commercial IDP — with enforced ownership, on-call mapping, and maturity scorecards. | 395 |
+| `02-devops-infra/service-discovery` | Implement service discovery for dynamic microservice environments. | 174 |
+| `02-devops-infra/slos-and-error-budgets` | Define Service Level Objectives and manage error budgets for reliability engineering. | 170 |
+| `02-devops-infra/sre-runbook` | Write SRE runbooks for incident response, on-call procedures, and service recovery. | 292 |
+| `02-devops-infra/supply-chain-security-pipeline` | Secure the software supply chain from source code to production deployment. | 212 |
+| `02-devops-infra/terraform-module` | Production Terraform modules for infrastructure as code. | 628 |
+| `02-devops-infra/wasm-deployment` | Deploy WebAssembly workloads for edge computing, plugin systems, and portable compute. | 206 |
+
+## Data & Analytics (41)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `03-data-analytics/ab-test-analysis` | Design and analyze A/B tests with statistical significance, sample size calculation, and metric selection. | 448 |
+| `03-data-analytics/analytics-engineering` | Run a dbt project like a software project. | 421 |
+| `03-data-analytics/cohort-analysis` | Build cohort analyses to understand user retention, behaviour over time, and revenue patterns. | 196 |
+| `03-data-analytics/customer-segmentation` | Build customer segmentation models for personalisation, targeting, and lifecycle management. | 139 |
+| `03-data-analytics/dashboard-design` | Design analytics dashboards with Tableau, PowerBI, Looker, Metabase. | 536 |
+| `03-data-analytics/data-anonymization` | Implement data anonymization and pseudonymization techniques for GDPR compliance, safe analytics, and test data generation. | 345 |
+| `03-data-analytics/data-catalog` | Build or configure a data catalog to make data assets discoverable, documented, and governed. | 217 |
+| `03-data-analytics/data-contracts` | Define and enforce schema and SLA agreements between data producers and consumers. | 402 |
+| `03-data-analytics/data-enrichment` | Design data enrichment pipelines that augment first-party data with external sources. | 157 |
+| `03-data-analytics/data-governance` | Establish data governance frameworks covering ownership, quality standards, access control, and compliance. | 255 |
+| `03-data-analytics/data-lineage` | Design and implement data lineage tracking across a data pipeline. | 233 |
+| `03-data-analytics/data-mesh-design` | Design a data mesh architecture with domain ownership, data products, and federated governance. | 214 |
+| `03-data-analytics/data-migration` | Design and execute safe database migrations with zero downtime, rollback plans, and data validation. | 361 |
+| `03-data-analytics/data-modeling` | Design data models for relational and NoSQL databases. | 507 |
+| `03-data-analytics/data-observability` | Implement data observability across the five pillars — freshness, volume, schema, distribution, lineage — with anomaly detection on pipelines and lineage-driven incident triage. | 361 |
+| `03-data-analytics/data-partitioning` | Design database and data lake partitioning strategies for scale, performance, and cost optimization. | 307 |
+| `03-data-analytics/data-pipeline-testing` | Test data pipelines for correctness, reliability, and data quality. | 353 |
+| `03-data-analytics/data-quality-checks` | Design data quality validation with Great Expectations, custom checks, and automated monitoring. | 583 |
+| `03-data-analytics/data-retention` | Design data retention policies covering deletion schedules, archival tiers, compliance requirements, and right-to-erasure workflows. | 375 |
+| `03-data-analytics/data-virtualization` | Implement data virtualisation to query distributed data sources without moving data. | 182 |
+| `03-data-analytics/data-warehouse-schema` | Design data warehouse schemas with star/snowflake patterns, dimensions, facts, and slowly changing dimensions. | 513 |
+| `03-data-analytics/dbt-best-practices` | Apply dbt best practices for scalable, maintainable analytics engineering. | 263 |
+| `03-data-analytics/dbt-patterns` | Build production dbt projects with best practices for modelling, testing, documentation, and performance. | 262 |
+| `03-data-analytics/distributed-tracing` | Implement distributed tracing across microservices using OpenTelemetry. | 369 |
+| `03-data-analytics/etl-pipeline` | Design and implement production-ready ETL/ELT pipelines for data warehousing and analytics. | 468 |
+| `03-data-analytics/event-tracking-plan` | Design a comprehensive event tracking plan for product analytics. | 198 |
+| `03-data-analytics/experiment-platform` | Build an internal experimentation platform for running A/B tests at scale. | 138 |
+| `03-data-analytics/feature-flags-analytics` | Analyse feature flag experiments to measure impact on key metrics. | 175 |
+| `03-data-analytics/forecasting-models` | Build time-series forecasting models for business metrics. | 205 |
+| `03-data-analytics/funnel-analysis` | Build conversion funnel analyses to identify drop-off points and optimisation opportunities. | 193 |
+| `03-data-analytics/graph-analytics` | Design and implement graph analytics — property graph vs RDF modeling, engine selection (Neo4j, Memgraph, Neptune, Spark GraphFrames), and algorithm-to-business-question mapping. | 359 |
+| `03-data-analytics/lakehouse-architecture` | Design a lakehouse combining data lake flexibility with warehouse query performance. | 248 |
+| `03-data-analytics/metrics-framework` | Design a company-wide metrics framework with north star, input metrics, guardrails, and reporting hierarchy. | 235 |
+| `03-data-analytics/product-analytics` | Build product analytics infrastructure to understand user behaviour, feature adoption, and business outcomes. | 162 |
+| `03-data-analytics/real-time-analytics` | Build real-time analytics pipelines with sub-second query latency. | 273 |
+| `03-data-analytics/revenue-analytics` | Build revenue analytics systems tracking MRR, ARR, churn, expansion, and cohort revenue. | 222 |
+| `03-data-analytics/reverse-etl` | Design reverse ETL pipelines that sync warehouse data back into operational SaaS tools (CRM, ads, support). | 355 |
+| `03-data-analytics/semantic-layer` | Design a semantic layer that defines every business metric once and serves it consistently to BI tools, spreadsheets, and AI agents. | 379 |
+| `03-data-analytics/sql-optimization` | Optimize slow SQL queries with indexing, query rewriting, and execution plan analysis. | 565 |
+| `03-data-analytics/streaming-pipeline` | Design real-time streaming pipelines with Kafka, Flink, Spark Streaming. | 536 |
+| `03-data-analytics/time-series-analysis` | Analyse and model time series data for forecasting, anomaly detection, and trend analysis. | 141 |
+
+## AI / ML (48)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `04-ai-ml/ab-test-ml` | Design and analyze A/B tests for ML models in production, including traffic splitting, metric selection, statistical significance testing, and safe rollout strategies. | 388 |
+| `04-ai-ml/agentic-workflow` | Design and implement LLM-powered agentic workflows with tool use, planning, memory, and multi-agent coordination. | 413 |
+| `04-ai-ml/ai-cost-optimisation` | Cut AI/LLM spend without degrading quality — model tiering and cascade routing, Batch API offloading, context and output-token discipline, reasoning-effort tuning, and per-feature cost attribution. | 351 |
+| `04-ai-ml/ai-observability` | Instrument LLM applications for production observability. | 373 |
+| `04-ai-ml/ai-product-design` | Design AI-powered products that are useful, trustworthy, and safe. | 165 |
+| `04-ai-ml/ai-safety-evaluation` | Evaluate AI systems for safety, robustness, and alignment. | 313 |
+| `04-ai-ml/ai-testing-strategy` | Design comprehensive testing strategies for AI-powered features and LLM applications. | 239 |
+| `04-ai-ml/context-window-management` | Optimise LLM context windows for long-document processing, multi-turn conversations, and token efficiency. | 170 |
+| `04-ai-ml/embedding-strategy` | Design embedding pipelines for semantic search, RAG, and recommendation systems. | 311 |
+| `04-ai-ml/feature-engineering` | Design ML features with encoding, scaling, selection, and extraction. | 421 |
+| `04-ai-ml/feature-store` | Design and implement a feature store for ML — centralized feature computation, storage, serving, and reuse across models. | 391 |
+| `04-ai-ml/fine-tuning` | Fine-tune a pre-trained language model for a specific task. | 320 |
+| `04-ai-ml/guardrails-implementation` | Design and implement defense-in-depth guardrails for LLM applications — input/output validation, prompt-injection defense, PII redaction, topical and safety filters, and human-in-the-loop gates. | 354 |
+| `04-ai-ml/hyperparameter-tuning` | Optimize ML model hyperparameters with grid search, random search, Bayesian optimization. | 544 |
+| `04-ai-ml/knowledge-graph-rag` | Build RAG systems enhanced with knowledge graphs for multi-hop reasoning and relationship queries. | 159 |
+| `04-ai-ml/llm-caching-strategy` | Implement caching strategies for LLM applications to reduce costs and latency. | 208 |
+| `04-ai-ml/llm-context-management` | Manage LLM context windows effectively for long conversations, document processing, and complex tasks. | 202 |
+| `04-ai-ml/llm-evaluation` | Evaluate large language model outputs with automated metrics, human evaluation, and adversarial testing. | 572 |
+| `04-ai-ml/llm-fine-tuning-data` | Prepare high-quality datasets for LLM fine-tuning. | 209 |
+| `04-ai-ml/llm-gateway` | Design and implement an LLM gateway for routing, rate limiting, cost control, caching, and observability across multiple AI providers. | 307 |
+| `04-ai-ml/llm-ops` | Operationalize LLM-powered applications in production — covering prompt versioning, evaluation pipelines, cost tracking, latency monitoring, hallucination detection, and safe rollout of model upgrades. | 495 |
+| `04-ai-ml/llm-prompt-caching` | Design LLM caching across all three layers — provider-side prompt caching (Claude cache_control breakpoints and TTLs), application-level response caching, and semantic caching. | 365 |
+| `04-ai-ml/llm-routing` | Route LLM requests to the optimal model based on complexity, cost, and latency. | 218 |
+| `04-ai-ml/llm-structured-output` | Reliably extract structured data from LLM responses using function calling, JSON mode, and validation. | 169 |
+| `04-ai-ml/ml-data-validation` | Validate training and inference data for ML pipelines. | 355 |
+| `04-ai-ml/ml-experiment-tracking` | Set up ML experiment tracking with MLflow or Weights & Biases. | 384 |
+| `04-ai-ml/ml-feature-selection` | Select the most predictive features for ML models to improve accuracy and reduce overfitting. | 151 |
+| `04-ai-ml/ml-monitoring` | Monitor ML models in production for data drift, concept drift, and performance degradation. | 485 |
+| `04-ai-ml/ml-pipeline` | Design an end-to-end machine learning pipeline from data to deployment. | 539 |
+| `04-ai-ml/model-card` | Write comprehensive model cards documenting ML model capabilities, limitations, biases, and intended use. | 226 |
+| `04-ai-ml/model-compression` | Compress and optimise ML models for production deployment. | 183 |
+| `04-ai-ml/model-deployment` | Deploy ML models to production with FastAPI, TorchServe, or SageMaker. | 562 |
+| `04-ai-ml/model-evaluation` | Evaluate ML model performance with appropriate metrics, validation strategies, and statistical rigor. | 404 |
+| `04-ai-ml/model-fine-tuning-strategy` | Plan and execute model fine-tuning to improve performance on domain-specific tasks. | 105 |
+| `04-ai-ml/model-monitoring` | Monitor ML models in production for drift, performance degradation, and data quality. | 621 |
+| `04-ai-ml/model-retraining` | Design automated ML model retraining pipelines triggered by drift, schedule, or performance degradation. | 409 |
+| `04-ai-ml/model-serving-infrastructure` | Design and deploy ML model serving infrastructure for low-latency production inference. | 213 |
+| `04-ai-ml/model-versioning` | Implement ML model versioning with registry management, lineage tracking, artifact storage, and deployment lifecycle. | 451 |
+| `04-ai-ml/multi-agent-systems` | Design and orchestrate multi-agent AI systems with specialist agents, coordination patterns, and shared memory. | 222 |
+| `04-ai-ml/multimodal-ai` | Build production vision and document-understanding pipelines on the Claude API — image inputs, PDF processing, structured extraction, and multimodal RAG. | 354 |
+| `04-ai-ml/prompt-engineering` | Design effective prompts for LLMs. | 416 |
+| `04-ai-ml/prompt-injection-defense` | Defend LLM-powered applications against prompt injection attacks. | 159 |
+| `04-ai-ml/rag-architecture` | Design Retrieval-Augmented Generation systems with vector databases, chunking strategies, and hybrid search. | 652 |
+| `04-ai-ml/rag-evaluation` | Evaluate and improve RAG (Retrieval Augmented Generation) pipeline quality. | 218 |
+| `04-ai-ml/responsible-ai` | Implement responsible AI practices covering fairness, transparency, accountability, and safety in production AI systems. | 233 |
+| `04-ai-ml/retrieval-optimization` | Optimise RAG retrieval quality through reranking, query expansion, hybrid search, and evaluation. | 165 |
+| `04-ai-ml/synthetic-data` | Generate synthetic datasets for ML training, testing, and privacy-preserving data sharing. | 304 |
+| `04-ai-ml/vector-database` | Design and implement a vector database for semantic search, RAG, and similarity lookups. | 238 |
+
+## Security (30)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `05-security/api-abuse-prevention` | Detect and prevent API abuse including credential stuffing, scraping, account takeover, and business logic abuse. | 266 |
+| `05-security/api-security-audit` | Conduct a structured security audit of APIs. | 311 |
+| `05-security/auth-architecture` | Design authentication and authorization architecture covering JWT, OAuth2, RBAC, session management, and MFA. | 422 |
+| `05-security/cloud-security-posture` | Assess and improve cloud security posture across AWS, GCP, or Azure. | 334 |
+| `05-security/compliance-framework` | Build and maintain compliance programmes for SOC 2, ISO 27001, GDPR, HIPAA, or PCI DSS. | 281 |
+| `05-security/container-image-hardening` | Harden container images to reduce attack surface. | 182 |
+| `05-security/cryptographic-key-management` | Design and implement cryptographic key management for encryption, signing, and secrets. | 299 |
+| `05-security/data-loss-prevention` | Implement data loss prevention controls to detect and prevent sensitive data exfiltration. | 212 |
+| `05-security/devsecops-pipeline` | Build security gates into CI/CD pipelines. | 348 |
+| `05-security/encryption-strategy` | Design encryption strategy with data-at-rest, data-in-transit, and key management. | 585 |
+| `05-security/gdpr-implementation` | Implement GDPR compliance controls in software systems. | 168 |
+| `05-security/identity-governance` | Design an identity governance and administration (IGA) program from an org's app inventory, HR system, and compliance drivers. | 351 |
+| `05-security/incident-response` | Execute a structured security incident response from detection through post-incident review. | 300 |
+| `05-security/input-validation` | Design comprehensive input validation and sanitization to prevent injection attacks, XSS, path traversal, and data corruption. | 393 |
+| `05-security/mobile-security` | Implement mobile application security for iOS and Android. | 158 |
+| `05-security/oauth-security` | Secure OAuth 2.0 implementations against common attacks. | 194 |
+| `05-security/penetration-test-plan` | Plan a penetration test engagement for a web application, API, or infrastructure target. | 316 |
+| `05-security/penetration-testing` | Design penetration testing plans with OWASP methodology, attack vectors, and remediation tracking. | 533 |
+| `05-security/red-team-planning` | Plan and execute red team exercises to find security weaknesses before attackers do. | 178 |
+| `05-security/secrets-rotation` | Design and implement automated secrets rotation for credentials, API keys, and certificates. | 361 |
+| `05-security/security-audit` | Conduct a comprehensive security audit of an application or infrastructure. | 524 |
+| `05-security/security-champions` | Build a security champions programme to scale security across engineering teams. | 147 |
+| `05-security/security-headers` | Configure HTTP security headers to protect against XSS, clickjacking, MIME sniffing, and other browser-based attacks. | 347 |
+| `05-security/security-metrics` | Define and track security programme metrics to measure effectiveness and communicate risk. | 147 |
+| `05-security/security-testing` | Design and execute security testing programs covering OWASP Top 10, SAST, DAST, dependency scanning, and penetration testing. | 383 |
+| `05-security/software-bill-of-materials` | Generate, manage, and use Software Bill of Materials (SBOM) to track component inventory and vulnerability exposure. | 184 |
+| `05-security/supply-chain-security` | Secure the software supply chain against dependency attacks, compromised pipelines, and malicious packages. | 300 |
+| `05-security/threat-modeling` | Design threat models using STRIDE, attack trees, and data flow diagrams. | 422 |
+| `05-security/vulnerability-scan` | Implement automated vulnerability scanning for containers, dependencies, and infrastructure. | 404 |
+| `05-security/zero-trust` | Design and implement zero-trust network architecture — never trust, always verify. | 549 |
+
+## System Design (34)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `06-system-design/api-gateway` | Design and configure API gateway architecture covering routing, authentication, rate limiting, request transformation, and observability. | 641 |
+| `06-system-design/api-versioning` | Design an API versioning strategy for a REST or GraphQL API. | 249 |
+| `06-system-design/architecture-decision` | Document architecture decisions with ADRs (Architecture Decision Records). | 552 |
+| `06-system-design/bulkhead-pattern` | Implement bulkhead patterns to isolate failures and prevent cascade. | 192 |
+| `06-system-design/cache-invalidation` | Design cache invalidation strategies to keep cached data consistent with source of truth. | 171 |
+| `06-system-design/cdc-patterns` | Design a Change Data Capture (CDC) pipeline to stream database changes to downstream consumers. | 285 |
+| `06-system-design/consensus-algorithms` | Understand and apply distributed consensus algorithms for leader election, distributed locks, and consistent state. | 226 |
+| `06-system-design/content-moderation-system` | Design content moderation systems combining automated classification with human review. | 183 |
+| `06-system-design/cqrs-pattern` | Implement Command Query Responsibility Segregation separating read and write models. | 428 |
+| `06-system-design/data-replication` | Design data replication strategies for high availability, read scaling, and disaster recovery. | 234 |
+| `06-system-design/database-sharding` | Design a horizontal database sharding strategy to scale beyond the limits of a single database node. | 302 |
+| `06-system-design/distributed-cache` | Design distributed caching with Redis or Memcached. | 253 |
+| `06-system-design/distributed-systems` | Design distributed systems with consensus algorithms, partitioning, and eventual consistency. | 576 |
+| `06-system-design/event-sourcing` | Implement event sourcing pattern where state is derived from an immutable sequence of events. | 457 |
+| `06-system-design/file-storage-design` | Design file storage systems for user uploads, media, and documents at scale. | 202 |
+| `06-system-design/geo-distributed-systems` | Design systems that serve users globally with low latency. | 147 |
+| `06-system-design/global-cdn-design` | Design global CDN architecture for static assets, API caching, and edge computing. | 334 |
+| `06-system-design/high-availability` | Design high-availability systems with redundancy, failover, and disaster recovery. | 409 |
+| `06-system-design/load-balancing` | Design load balancing architecture — algorithms, health checking, session affinity, layer 4 vs layer 7, geographic distribution, and failover strategies for high-availability services. | 320 |
+| `06-system-design/message-queue` | Design message queue architectures using Kafka, RabbitMQ, or SQS. | 575 |
+| `06-system-design/multi-tenancy` | Design multi-tenant SaaS architecture with tenant isolation, data partitioning, resource quotas, and tenant-aware observability. | 323 |
+| `06-system-design/notification-system` | Design a multi-channel notification system covering push/email/SMS/in-app fan-out, user preferences and quiet hours, batching and digests, idempotency, rate limiting, and delivery tracking. | 401 |
+| `06-system-design/payment-system-design` | Design payment processing systems with strong consistency, idempotency, and fraud prevention. | 203 |
+| `06-system-design/rate-limiting-design` | Design rate limiting systems for APIs, services, and infrastructure. | 203 |
+| `06-system-design/real-time-system-design` | Design systems that deliver updates to clients in real time. | 186 |
+| `06-system-design/saga-pattern` | Design distributed transactions using the Saga pattern to maintain data consistency across microservices without two-phase commit. | 292 |
+| `06-system-design/scalability-plan` | Design scalability strategies for horizontal and vertical scaling. | 592 |
+| `06-system-design/search-architecture` | Design production search systems — inverted-index, vector, and hybrid retrieval, Elasticsearch/OpenSearch cluster design, indexing pipelines, and relevance tuning. | 401 |
+| `06-system-design/service-mesh` | Design and implement service mesh architecture using Istio or Linkerd. | 408 |
+| `06-system-design/strangler-fig-pattern` | Migrate legacy monoliths to modern architecture using the Strangler Fig pattern. | 160 |
+| `06-system-design/system-design-doc` | Create comprehensive system design documents with architecture diagrams, component specs, data flows, and scaling strategies. | 368 |
+| `06-system-design/time-series-database` | Design time-series database systems for metrics, events, and sensor data. | 185 |
+| `06-system-design/url-shortener-design` | Design a URL shortener system at scale. | 173 |
+| `06-system-design/workflow-orchestration` | Design workflow orchestration systems for complex, multi-step business processes. | 199 |
+
+## Testing & Quality (26)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `07-testing-quality/accessibility-testing` | Test web applications for WCAG 2.1 AA accessibility compliance using automated scanning, screen reader testing, and keyboard navigation validation. | 415 |
+| `07-testing-quality/api-testing` | Build comprehensive API test suites covering functional, contract, security, and performance aspects. | 353 |
+| `07-testing-quality/bdd-testing` | Implement Behaviour-Driven Development with Gherkin scenarios, step definitions, and living documentation. | 168 |
+| `07-testing-quality/chaos-engineering` | Design chaos experiments to test system resilience. | 630 |
+| `07-testing-quality/contract-testing` | Design contract tests for APIs and microservices with Pact. | 590 |
+| `07-testing-quality/e2e-test` | End-to-end testing with Playwright/Cypress for full user flows. | 490 |
+| `07-testing-quality/flaky-test-management` | Detect, quarantine, fix, and prevent flaky tests in your test suite. | 158 |
+| `07-testing-quality/golden-path-testing` | Design golden path tests that validate critical user journeys end-to-end. | 198 |
+| `07-testing-quality/integration-test` | Design integration tests for APIs, databases, and external services. | 537 |
+| `07-testing-quality/load-test` | Design and execute load tests to validate system performance under expected and peak traffic. | 403 |
+| `07-testing-quality/mobile-testing` | Build comprehensive mobile testing strategies for iOS and Android apps. | 228 |
+| `07-testing-quality/mutation-testing` | Use mutation testing to measure and improve the quality of a test suite. | 279 |
+| `07-testing-quality/observability-testing` | Test that observability signals — logs, metrics, and traces — are correctly emitted and contain the right data. | 201 |
+| `07-testing-quality/performance-test` | Design performance and load tests with JMeter, k6, Locust. | 558 |
+| `07-testing-quality/property-based-testing` | Test code against thousands of generated inputs instead of hand-picked examples, letting the framework shrink every failure to a minimal counterexample. | 391 |
+| `07-testing-quality/quality-metrics` | Define and track software quality metrics for code health, test effectiveness, and production reliability. | 273 |
+| `07-testing-quality/regression-test-strategy` | Design a regression testing strategy that catches bugs without slowing down delivery. | 314 |
+| `07-testing-quality/snapshot-testing` | Implement snapshot testing for UI components, API responses, and data structures. | 166 |
+| `07-testing-quality/synthetic-monitoring` | Implement synthetic monitoring to proactively detect production issues. | 298 |
+| `07-testing-quality/test-automation-framework` | Build a scalable test automation framework with shared utilities, reporting, and CI integration. | 332 |
+| `07-testing-quality/test-coverage-strategy` | Define a meaningful test coverage strategy beyond line counts. | 179 |
+| `07-testing-quality/test-data-management` | Design and implement a test data strategy that provides consistent, realistic, and isolated data for all test levels. | 325 |
+| `07-testing-quality/test-driven-development` | Apply Test-Driven Development (TDD) to design and build production code. | 387 |
+| `07-testing-quality/test-environment-strategy` | Design a test environment strategy providing reliable, representative, and cost-efficient environments at each SDLC stage. | 163 |
+| `07-testing-quality/test-strategy` | Design a comprehensive testing pyramid strategy covering unit, integration, contract, E2E, and performance tests. | 415 |
+| `07-testing-quality/visual-regression` | Implement visual regression testing with screenshot comparison to catch unintended UI changes. | 382 |
+
+## API & Integration (21)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `08-api-integration/api-analytics` | Implement API analytics to measure usage, performance, errors, and consumer behaviour. | 203 |
+| `08-api-integration/api-client-sdk` | Design and build API client SDKs that are idiomatic, reliable, and easy to use. | 245 |
+| `08-api-integration/api-deprecation` | Plan and execute API deprecation without breaking consumers. | 311 |
+| `08-api-integration/api-gateway-design` | Design and configure an API gateway for routing, authentication, rate limiting, and observability. | 308 |
+| `08-api-integration/api-mocking-strategy` | Design API mocking strategies for development, testing, and service isolation. | 208 |
+| `08-api-integration/api-versioning-strategy` | Design an API versioning strategy that allows evolution without breaking existing clients. | 149 |
+| `08-api-integration/async-api-design` | Design asynchronous API patterns for long-running operations, webhooks, and event-driven integrations. | 239 |
+| `08-api-integration/batch-processing-api` | Design APIs for batch data submission, processing, and result retrieval. | 342 |
+| `08-api-integration/event-driven-api` | Design an event-driven API strategy choosing between webhooks, Server-Sent Events, WebSockets, and polling. | 316 |
+| `08-api-integration/file-upload-api` | Design and implement secure file upload APIs with direct-to-storage uploads, virus scanning, and lifecycle management. | 307 |
+| `08-api-integration/graphql-schema` | Design GraphQL schema with types, queries, mutations, subscriptions. | 627 |
+| `08-api-integration/grpc-service` | Design and implement gRPC services with Protocol Buffer schemas, streaming patterns, error handling, and client generation. | 576 |
+| `08-api-integration/hypermedia-api` | Design hypermedia APIs (HATEOAS) that guide clients through available actions via links. | 203 |
+| `08-api-integration/idempotent-api` | Design idempotent APIs that handle duplicate requests safely. | 231 |
+| `08-api-integration/oauth-implementation` | Implement OAuth 2.0 and OIDC flows for user authentication and API authorisation. | 355 |
+| `08-api-integration/openapi-design` | Design and document REST APIs using the OpenAPI 3.1 specification — schemas, security definitions, response codes, examples, and SDK generation. | 522 |
+| `08-api-integration/sdk-design` | Design and build client SDKs for APIs. | 576 |
+| `08-api-integration/streaming-api` | Design and implement streaming APIs — SSE, WebSockets, HTTP chunked transfer, and gRPC streams. | 414 |
+| `08-api-integration/third-party-integration` | Integrate third-party services via OAuth flows, webhook handling, and API clients. | 422 |
+| `08-api-integration/webhook-security` | Secure webhook receiving endpoints against spoofing, replay, duplicate processing, and overload. | 381 |
+| `08-api-integration/websocket-design` | Design WebSocket architecture for real-time communication. | 544 |
+
+## Product Management (40)
+
+| Skill | Description | Lines |
+|---|---|---|
+| `09-product-management/ab-test-design` | Design a statistically valid A/B test for a product feature or change. | 248 |
+| `09-product-management/api-product-strategy` | Develop an API as a product strategy with business model, developer experience, pricing, and ecosystem goals. | 152 |
+| `09-product-management/competitor-scan` | Conduct a structured competitive analysis of a product or feature set. | 242 |
+| `09-product-management/continuous-discovery` | Build a continuous product discovery practice that generates a steady stream of customer insights. | 190 |
+| `09-product-management/customer-advisory-board` | Build and run a customer advisory board (CAB) that generates strategic product insights. | 142 |
+| `09-product-management/customer-journey-map` | Create customer journey maps documenting touchpoints, emotions, pain points, and opportunities. | 233 |
+| `09-product-management/decision-doc` | Write a structured decision document (RFC, ADR, or decision memo) that captures context, options considered, tradeoffs, and rationale. | 210 |
+| `09-product-management/design-sprint` | Facilitate a 5-day design sprint to solve critical product challenges and validate ideas. | 183 |
+| `09-product-management/enterprise-sales-enablement` | Equip sales teams with the product knowledge, tools, and materials needed to win enterprise deals. | 306 |
+| `09-product-management/feature-spec` | Write comprehensive feature specifications that align engineering, design, and stakeholders before a single line of code is written. | 217 |
+| `09-product-management/feedback-analyzer` | Systematically analyze product feedback from multiple sources — support tickets, NPS responses, app reviews, user interviews, sales calls — into prioritized themes with evidence, signal strength ratings, and product action recommendations. | 237 |
+| `09-product-management/go-to-market` | Plan and execute a product go-to-market strategy covering ICP definition, channel selection, messaging, launch sequencing, and success metrics. | 222 |
+| `09-product-management/growth-framework` | Build a systematic growth framework covering acquisition, activation, retention, referral, and revenue. | 236 |
+| `09-product-management/jobs-to-be-done` | Apply Jobs-to-be-Done framework to understand customer motivations and design solutions that address real underlying needs. | 250 |
+| `09-product-management/launch-checklist` | Generate a comprehensive product launch checklist covering engineering, design, marketing, legal, support, and analytics readiness. | 235 |
+| `09-product-management/market-sizing` | Estimate the size of a market using top-down and bottom-up methods. | 240 |
+| `09-product-management/meeting-prep` | Prepare for a product management meeting, including stakeholder alignment meetings, roadmap reviews, planning sessions, or executive updates. | 222 |
+| `09-product-management/metrics-analyzer` | Analyze a product or business metric, diagnose root causes, and produce a structured investigation report with hypotheses, supporting data, and recommended actions. | 223 |
+| `09-product-management/monetization-strategy` | Design and optimise product monetization models including pricing, packaging, and expansion revenue. | 201 |
+| `09-product-management/north-star-metric` | Define and validate a North Star Metric that aligns the company on what success looks like. | 229 |
+| `09-product-management/okr-writer` | Write clear, measurable OKRs for product teams — objectives that inspire, key results that measure outcomes, and initiative mapping that connects work to results. | 253 |
+| `09-product-management/opportunity-solution-tree` | Build and use Opportunity Solution Trees to connect product outcomes to customer opportunities and solutions. | 198 |
+| `09-product-management/persona` | Create evidence-based user personas grounded in research — not fictional archetypes. | 242 |
+| `09-product-management/platform-strategy` | Develop a platform strategy that creates an ecosystem around your product. | 142 |
+| `09-product-management/prd` | Write a complete Product Requirements Document from a feature idea or problem statement. | 218 |
+| `09-product-management/pricing-strategy` | Design a product pricing strategy covering model selection, tier structure, value metric identification, packaging, and pricing research. | 239 |
+| `09-product-management/prioritize` | Prioritize a product backlog using structured frameworks (RICE, ICE, MoSCoW, Kano, Weighted Scoring). | 228 |
+| `09-product-management/product-analytics-plan` | Define an instrumentation and analytics plan for a product feature or launch. | 225 |
+| `09-product-management/product-discovery` | Run continuous product discovery to de-risk what you build — customer interviews, opportunity-solution trees, assumption mapping, and riskiest-assumption tests. | 352 |
+| `09-product-management/product-health-metrics` | Define a comprehensive product health dashboard tracking acquisition, engagement, retention, and quality. | 179 |
+| `09-product-management/product-led-growth` | Design and implement a product-led growth strategy where the product drives user acquisition, expansion, and retention. | 176 |
+| `09-product-management/product-strategy` | Define a product strategy that connects company vision to where-to-play and how-to-win choices, strategic bets, and quarterly execution. | 379 |
+| `09-product-management/product-teardown` | Conduct a structured product teardown analyzing UX, positioning, business model, growth strategy, and technical decisions. | 216 |
+| `09-product-management/release-notes` | Write clear, user-focused release notes that explain what changed, why it matters, and how to use it. | 207 |
+| `09-product-management/retro-facilitator` | Facilitate a structured sprint or project retrospective. | 266 |
+| `09-product-management/roadmap` | Build a strategic product roadmap from business goals and team capacity. | 235 |
+| `09-product-management/stakeholder-update` | Write a stakeholder update, status report, or executive summary for a product, feature, or initiative. | 268 |
+| `09-product-management/technical-translator` | Translate complex technical concepts, architecture decisions, and engineering trade-offs into clear language for non-technical stakeholders. | 190 |
+| `09-product-management/user-interview-prep` | Prepare a complete user interview guide including screener, discussion guide, objectives, warm-up questions, and synthesis framework. | 230 |
+| `09-product-management/user-stories` | Write well-formed user stories with acceptance criteria, edge cases, and definition of done for a feature or epic. | 270 |

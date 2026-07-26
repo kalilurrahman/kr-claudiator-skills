@@ -84,7 +84,7 @@ export function GuidePage() {
       <SeoHead
         title="Claude Skills Deployment Guide — Claudiator"
         description="Step-by-step guide to install and use SKILL.md prompts in Claude Code, Claude Desktop, and Claude CoWork. Folder structure, frontmatter, invocation, and CI tips."
-        canonical="https://kr-claudiator-skills.lovable.app/guide"
+        canonical="https://claudiator.kalilurrahman.com/guide"
       />
       <Header />
 

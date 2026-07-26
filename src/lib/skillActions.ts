@@ -1,10 +1,13 @@
 import { toast } from "sonner";
 import type { Skill } from "@/types/skills.types";
 
-export const SITE_URL = "https://kr-claudiator-skills.lovable.app";
+export const SITE_URL = "https://claudiator.kalilurrahman.com";
 
 export function getSkillSlug(skill: Skill): string {
-  return skill.name;
+  return skill.name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 export function getInstallCommand(skill: Skill): string {
