@@ -150,7 +150,15 @@ Three synthesis disciplines keep teams honest:
 - 4 of 9: no visibility into approval status.
 - 3 of 9: card-feed setup confusing during onboarding.
 
-**Tree and target.** The tree above is Meridian's actual tree. They target the forgetting/crunch opportunity — highest frequency (monthly, every customer), highest emotional charge, and directly tied to the churn interviews ("we left because month-end was chaos"). The mobile app never appears as an opportunity: no interviewee's story blocked on device type. **Rationale: opportunities come from customer stories, not from stakeholder solutions — the app was a solution searching for a need.**
+**Tree and target.** The tree above is Meridian's actual tree. Scoring the three opportunities (1–5 per factor, trio consensus):
+
+| Opportunity | Reach | Frequency | Pain intensity | Ties to churn stories | Pick |
+|---|---|---|---|---|---|
+| Month-end forgetting/crunch | 5 (every account) | 4 (monthly) | 5 | 7 of 9 | **Target** |
+| Approval-status visibility | 4 | 3 | 3 | 2 of 9 | Later |
+| Card-feed setup confusion | 2 (onboarding only) | 1 (once) | 4 | 1 of 9 | Later |
+
+The mobile app never appears on the tree: no interviewee's story blocked on device type. **Rationale: opportunities come from customer stories, not from stakeholder solutions — the app was a solution searching for a need.**
 
 **Three solutions.** (a) Receipt auto-capture from a forwarding email address, (b) weekly nudge with one-tap logging, (c) card-feed auto-draft: transactions appear as pre-filled draft expenses the employee confirms. They lean toward (c) — it removes the memory burden entirely rather than sharing it — but it is also the most expensive (~2 quarters) and most assumption-laden.
 

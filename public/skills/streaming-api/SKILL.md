@@ -1,222 +1,414 @@
 ---
 name: streaming-api
-description: Design and implement streaming APIs with SSE, WebSocket, and chunked transfer encoding. Outputs protocol selection guide, implementation patterns, backpressure handling, and client examples.
-argument-hint: [data type, update frequency, client type, latency requirements, scale]
+description: Design and implement streaming APIs — SSE, WebSockets, HTTP chunked transfer, and gRPC streams. Outputs a protocol selection decision, event contract, backpressure and reconnection strategy, resume-token design, auth plan for long-lived connections, and proxy/load-balancer configuration with production client and server code.
+argument-hint: [data shape, direction, client type, update rate, scale, infra constraints]
 allowed-tools: Read, Write
 ---
 
-# Streaming Api
+# Streaming APIs
 
-STREAMING API is a critical engineering and product practice that requires systematic execution. This skill provides a proven framework for planning, executing, and validating streaming api work.
+A streaming API delivers data to the client as it becomes available instead of waiting for a complete response. Done well, it turns a 20-second blank wait into sub-second perceived latency and replaces polling storms with a single held connection. Done badly, it is the hardest class of API to operate: connections outlive load-balancer timeouts, auth tokens expire mid-stream, one slow client can exhaust a server's memory, and a single misconfigured proxy silently converts your "stream" into one buffered burst at the end.
+
+The core discipline is that a stream is a **contract over time**, not just a response format. You must decide — explicitly, before v1 — what happens when the connection drops, when the client is slower than the producer, and when credentials expire while bytes are still flowing. Retrofit of any of these is a protocol break for every deployed client.
+
+## When NOT to Use Streaming
+
+Premium skills state their limits. Do not reach for a streaming API when:
+
+- **The response is small and fast.** If the full payload is ready in under ~1 second, a plain request/response is simpler, cacheable, and easier to retry. Streaming a 4 KB JSON object is complexity with no payoff.
+- **Polling every 30–60 s is acceptable.** A cron-style dashboard refresh does not justify 100k held connections. Polling with `ETag`/`If-None-Match` is boring and boring is good.
+- **Clients need random access, not a feed.** "Give me page 7" is pagination (see cursor patterns in `api-design`), not a stream.
+- **Delivery must be durable and audited per-consumer.** That is a message queue (Kafka, SQS) consumed server-side — a browser-facing stream is a delivery surface, not a system of record.
+- **You cannot control the network path.** If most of your clients sit behind buffering middleboxes you cannot influence and you cannot ship a fallback, long-polling will produce fewer support tickets.
+
+## Decision Framework
+
+### Choice 1 — Transport protocol
+
+| Protocol | Direction | Best for | What it costs you | Avoid when |
+|---|---|---|---|---|
+| **SSE** (`text/event-stream`) | Server → client | Browser-facing feeds: LLM tokens, notifications, job progress, live scores | Text-only (UTF-8); native `EventSource` is GET-only and can't set headers; HTTP/1.1 browsers cap ~6 connections per origin | Client must send data mid-stream; binary payloads dominate |
+| **WebSocket** (RFC 6455) | Bidirectional | Chat, collaborative editing, subscription management, telemetry with client control | Upgrade handshake breaks naive proxies; no built-in reconnect/resume — you build all semantics (heartbeat, auth, replay) yourself | The flow is one-way — you pay WebSocket's operational cost for nothing |
+| **HTTP chunked / NDJSON** | Server → client | CLI tools, `curl` pipelines, service-to-service bulk export | No event IDs, no reconnect semantics, no browser auto-retry; HTTP/1.1 framing detail (HTTP/2 streams bodies natively instead) | Browser clients need reconnection or event identity |
+| **gRPC streams** | Server, client, or bidirectional | Internal service-to-service: schema-first, HTTP/2 flow control gives free backpressure | Requires HTTP/2-capable path end to end (Envoy/nginx gRPC); browsers need grpc-web, which supports **server streaming only**; L4 LBs pin long-lived HTTP/2 connections to one backend | Public browser APIs; edge infrastructure you don't control |
+
+The honest default: **SSE for anything browser-facing and one-way, gRPC for anything internal, WebSocket only when the client genuinely talks back mid-stream.** WebSocket is the most requested and least needed of the four.
+
+```mermaid
+flowchart TD
+    A[New streaming requirement] --> B{Does the client send data mid-stream?}
+    B -->|No - server push only| C{Who consumes it?}
+    B -->|Yes - bidirectional| D{Where does it run?}
+    C -->|Browsers or mixed HTTP clients| E[SSE]
+    C -->|Internal services, schema-first| F[gRPC server streaming]
+    C -->|CLI, curl, batch pipelines| G[HTTP chunked NDJSON]
+    D -->|Browser| H[WebSocket]
+    D -->|Internal services| I[gRPC bidirectional stream]
+    E --> J{Must survive reconnects without gaps?}
+    H --> J
+    J -->|Yes| K[Event IDs plus replay window plus snapshot fallback]
+    J -->|No| L[Live-only stream - document the gap risk in the contract]
+```
+
+### Choice 2 — Resume strategy
+
+Decide this before v1. It defines your event envelope and your server-side state.
+
+| Strategy | Server keeps | Client does on reconnect | Trade-off |
+|---|---|---|---|
+| **Monotonic event ID + replay window** (SSE `id:` / `Last-Event-ID`) | Ring buffer of last N seconds/events | Sends last seen ID; server replays the gap | Simple and native to SSE; replay window bounds memory but old clients fall off the edge |
+| **Per-key sequence + snapshot fallback** | Latest state per key + short per-key history | Sends `{key: lastSeq}`; server replays or sends fresh snapshot | Best for state feeds (prices, presence); more bookkeeping, but reconnects never require full refetch |
+| **Opaque resume token** (server-encoded cursor) | Nothing per-connection — cursor encodes position in durable log | Presents token; server seeks the log | Scales horizontally (any node can resume); ties you to a durable log (Kafka/stream store) behind the API |
+| **No resume (live-only)** | Nothing | Reconnects and misses whatever happened | Legitimate for ephemeral data (typing indicators, cursors) — but say so in the contract |
+
+### Choice 3 — Backpressure policy
+
+When the producer outruns the consumer, something must give. Choose per stream class; never leave it implicit.
+
+| Policy | How it works | Fits | Trade-off |
+|---|---|---|---|
+| **Conflate** (latest value wins per key) | Pending map keyed by symbol/entity; flush on a timer | State feeds — dashboards, prices, presence | Loses intermediate values by design; wrong for event logs |
+| **Bounded buffer, then disconnect** | Per-connection queue with a byte/message cap; over cap → close with a "slow consumer" code | Event feeds where every event matters | Punishes slow clients, but protects the fleet — one client can cost at most the cap |
+| **Pull-based credit** (client acks a window) | Server sends only up to N unacked messages | High-value delivery where the client controls pace | Most complex; effectively rebuilding what gRPC/HTTP/2 flow control gives you free |
+| **Rely on TCP alone** | `write()` blocks/buffers until the kernel drains | Single-consumer relays (one human reading one LLM stream) | Fine at n=1; at fan-out scale, unbounded userspace buffers above TCP will OOM you |
+
+### Choice 4 — Auth for long-lived connections
+
+Two separate problems: authenticating the **connect**, and surviving **expiry mid-stream**.
+
+| Connect mechanism | Works with | Notes |
+|---|---|---|
+| Cookie (same-origin session) | `EventSource`, browser WebSocket | Simplest when the stream lives on your app origin; CSRF-protect the endpoints that mutate |
+| **One-time ticket**: `POST /stream-tickets` → opaque, single-use, ~30 s TTL, passed in query | `EventSource`, browser WebSocket | The recommended pattern for cross-origin: nothing long-lived lands in access logs |
+| `Authorization` header | fetch-based SSE, native/mobile clients, gRPC metadata | Native `EventSource` and browser `WebSocket` **cannot set headers** — this is why the ticket pattern exists |
+| First-message auth (WS) | WebSocket | Accept the socket, require an auth frame within ~5 s, else close. Beware: you've already spent the handshake on an anonymous peer |
+
+For mid-stream expiry, prefer **close-and-reconnect**: when the credential expires, the server closes with an application code (e.g. WS `4401`, or an SSE `event: reauth` followed by end-of-stream). The client refreshes its token and reconnects *with its resume token* — you reuse the reconnect path you already built instead of maintaining an in-band re-auth state machine. Smuggling tokens through `Sec-WebSocket-Protocol` is common in the wild; it abuses a negotiation header and confuses intermediaries — use tickets instead.
+
+## SSE Wire Format (30-second reference)
+
+```
+HTTP/1.1 200 OK
+Content-Type: text/event-stream
+Cache-Control: no-cache
+
+id: 42
+event: price
+data: {"symbol":"ACME","bid":101.25}
+
+: keepalive
+
+id: 43
+event: price
+data: {"symbol":"ACME","bid":101.30}
+```
+
+- Events are blocks of `field: value` lines terminated by a **blank line**. Fields: `id:`, `event:`, `data:` (repeatable — joined with `\n`), `retry:` (reconnect delay hint, ms).
+- Lines starting with `:` are comments — the standard heartbeat (`: keepalive\n\n`).
+- `EventSource` auto-reconnects and sends the `Last-Event-ID` request header with the last `id:` it saw. This is the cheapest resume mechanism in the industry — set `id:` on every event even if you do nothing with it yet.
+- Serve over HTTP/2 where possible: HTTP/1.1 browsers cap ~6 connections per origin, so a few open SSE tabs can starve the app.
 
 ## Process
 
-1. **Define scope.** Clearly identify what you are trying to achieve, what success looks like, and what is out of scope.
-2. **Gather context.** Review existing systems, documentation, and constraints before proposing solutions.
-3. **Design approach.** Select the appropriate patterns, tools, and architecture for the specific situation.
-4. **Implement incrementally.** Break work into verifiable stages with checkpoints rather than one big rollout.
-5. **Validate outcomes.** Measure against the success criteria defined in step one.
-6. **Document and share.** Ensure knowledge is captured and accessible for future reference.
+1. **Characterize the flow.** Direction, update rate (steady vs bursty), payload size, ordering requirements, and whether every event matters or only the latest state per key.
+2. **Pick the transport** with the Choice 1 table — and write down why, because the runner-up will be proposed again in six months.
+3. **Define the event contract.** An envelope (`id`, `event` type, `data`), the full set of event types, and — non-negotiable — an explicit **terminal event** so clients can distinguish "done" from "died".
+4. **Design resume** (Choice 2): what the cursor is, how long replay is retained, and the snapshot fallback for clients beyond the window.
+5. **Choose the backpressure policy** (Choice 3) per stream class, with concrete caps: max buffered bytes, conflation interval, disconnect code.
+6. **Design auth** (Choice 4): connect mechanism plus the mid-stream expiry story.
+7. **Configure the path.** Every proxy, LB, and CDN hop: buffering off, idle timeouts above heartbeat interval, upgrade headers forwarded, compression not buffering.
+8. **Add heartbeats both ways.** Server emits keepalives; client runs a dead-man's timer (no bytes in 2× heartbeat interval → reconnect with jitter).
+9. **Instrument.** Concurrent connections, per-connection queue depth, delivery lag (producer timestamp → client write), reconnect rate, and terminal-event ratio (done vs error vs silent drop).
+10. **Load-test the ugly cases.** Slow-reader clients (throttled to 1 KB/s), mass reconnect after a deploy (thundering herd), and a proxy chain identical to production — localhost proves nothing about streaming.
 
-## Key Principles
+## Worked Example 1: LLM Token Streaming — Claude Relay
 
-The most important principles for this area are:
+**Scenario.** "Helply", a support product, adds an AI assistant. Answers average 900 output tokens. Non-streaming, the measured full-response wall time was p50 14 s / p95 31 s — users assumed the app was broken and re-clicked, doubling load. The team streams tokens to the browser instead.
 
-- **Start with the why.** Understand the business problem before proposing technical solutions.
-- **Measure before and after.** Establish baselines; confirm improvements with data.
-- **Automate where possible.** Manual processes accumulate technical and operational debt.
-- **Design for failure.** Assume things will go wrong; build detection and recovery in from the start.
-- **Iterate, don't big-bang.** Incremental delivery reduces risk and enables course correction.
+**Decisions and rationale:**
 
-## Implementation Pattern
+- **SSE-shaped relay, not WebSocket** — because token flow is strictly server→client. The browser's only upstream message is the initial question, which is an ordinary POST. WebSocket would add an upgrade path through every proxy for zero benefit.
+- **Relay through our backend, never browser→Claude direct** — because the Claude API key must not ship to the client, and the relay is where we enforce per-user rate limits and log usage.
+- **POST + fetch-streaming instead of native `EventSource`** — because the request carries a JSON body and an `Authorization` header, and `EventSource` supports neither. The client reads the SSE frames off `response.body` (a `ReadableStream`); the wire format is still standard SSE so server tooling and proxies treat it identically.
+- **No mid-generation resume** — a deliberate "no" on Choice 2. A half-finished generation is cheap to restart relative to building replay buffers for in-flight model output. Completed messages are persisted; on reconnect the client refetches history and re-asks if needed. We chose to document the gap rather than engineer it away.
+- **15 s heartbeat** — because nginx `proxy_read_timeout` and ALB idle timeout both default to 60 s, and Claude Fable 5 thinks before emitting its first visible token, so seconds can pass with zero body bytes. 15 s gives 4× margin against every default timeout in the path.
 
-The canonical implementation pattern for streaming api work follows this structure:
+**The upstream side** — the Claude API streams responses as SSE itself. The event sequence you consume:
 
-1. Assessment of current state with specific metrics
-2. Gap analysis against target state
-3. Prioritised action plan with dependencies mapped
-4. Execution with automated checks at each gate
-5. Retrospective to capture learnings for next iteration
+```
+event: message_start
+data: {"type":"message_start","message":{"id":"msg_...","type":"message",...}}
 
-Each stage produces an artifact (report, spec, implementation, test results) that serves as both output and input to the next stage. This creates an audit trail and prevents knowledge loss when team members change.
+event: content_block_start
+data: {"type":"content_block_start","index":0,"content_block":{"type":"text","text":""}}
 
-## Common Mistakes
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"text_delta","text":"Hello"}}
 
-The most frequent failure modes in streaming api work are:
+event: content_block_stop
+data: {"type":"content_block_stop","index":0}
 
-- Skipping the assessment phase and jumping to solutions
-- Treating this as a one-time project rather than an ongoing practice  
-- Under-investing in monitoring and alerting for the outcomes
-- Failing to align stakeholders before and during execution
-- Not defining what "done" looks like before starting
+event: message_delta
+data: {"type":"message_delta","delta":{"stop_reason":"end_turn"},"usage":{"output_tokens":12}}
 
-## Anti-Patterns to Avoid
+event: message_stop
+data: {"type":"message_stop"}
+```
 
-| Anti-Pattern | Problem | Fix |
+Deltas also carry `thinking_delta` and `input_json_delta` types, and the stream may interleave `ping` events — always switch on the delta type and ignore event types you don't handle, rather than assuming everything is text.
+
+**The relay** (Node + Express, official SDK — the SDK parses upstream SSE; we re-emit our own):
+
+```typescript
+import express from "express";
+import Anthropic from "@anthropic-ai/sdk";
+
+const app = express();
+app.use(express.json());
+const anthropic = new Anthropic(); // credentials from env / profile — never hardcoded
+
+app.post("/v1/chat/stream", async (req, res) => {
+  res.writeHead(200, {
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache",
+    "X-Accel-Buffering": "no", // per-response nginx buffering opt-out
+  });
+
+  const heartbeat = setInterval(() => res.write(": keepalive\n\n"), 15_000);
+  const abort = new AbortController();
+  req.on("close", () => abort.abort()); // user closed the tab — stop paying for tokens
+
+  let seq = 0;
+  const send = (event: string, data: unknown) =>
+    res.write(`id: ${++seq}\nevent: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+
+  try {
+    const stream = anthropic.messages.stream(
+      {
+        model: "claude-fable-5",
+        max_tokens: 64000, // Fable 5 thinks by default; the cap covers thinking + answer
+        messages: req.body.messages,
+      },
+      { signal: abort.signal },
+    );
+
+    for await (const event of stream) {
+      if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
+        send("token", { text: event.delta.text });
+      }
+    }
+
+    const final = await stream.finalMessage();
+    if (final.stop_reason === "refusal") {
+      send("error", { code: "refused" }); // Fable 5 safety classifiers can decline mid-stream
+    } else {
+      send("done", {
+        stop_reason: final.stop_reason, // "max_tokens" here = truncated, and the client must say so
+        output_tokens: final.usage.output_tokens,
+      });
+    }
+  } catch (err) {
+    if (!abort.signal.aborted) send("error", { code: "upstream_failed" });
+  } finally {
+    clearInterval(heartbeat);
+    res.end();
+  }
+});
+```
+
+Three details are load-bearing. The **terminal `done`/`error` event** is the contract: a client that sees the socket close without one treats the answer as failed, not complete — this is how truncation and mid-stream refusals stop being silently shipped as finished answers. The **abort wiring** means an abandoned tab cancels the upstream generation — in Helply's load test this cut token spend 11% (users navigating away mid-answer). And `stop_reason` is forwarded because `"max_tokens"` and `"end_turn"` look identical if all you watch is the token flow.
+
+**Result.** Time-to-first-token p50 1.9 s / p95 4.6 s (dominated by model thinking time); perceived latency dropped from 14 s to under 2 s; re-click rate fell to near zero. One incident during rollout: staging worked, production "streamed" everything in a single burst — nginx buffering, fixed by the `X-Accel-Buffering: no` header above (see the pitfalls table).
+
+## Worked Example 2: Market-Data Dashboard over WebSocket
+
+**Scenario.** "Tickerdeck" serves a live-price dashboard: 12,000 concurrent browser clients, ~300 instruments, upstream feed peaking at 2,000 updates/sec aggregate. Each client watches ~20 symbols and can add/remove subscriptions at any time.
+
+**Decisions and rationale:**
+
+- **WebSocket, not SSE** — because clients genuinely send data mid-stream: subscription changes and per-symbol resume sequences. Doing that over SSE would mean side-channel POSTs racing the stream — real bidirectionality is the one case WebSocket earns its cost.
+- **Conflation, not buffering** (Choice 3) — because a price feed is *state*, not an event log: nobody needs the 40 intermediate quotes their laptop was too slow to render, they need the current price. We conflate to a 500 ms flush (max 2 updates/sec/symbol), which caps any client at ~40 msg/s × ~150 bytes ≈ 6 KB/s regardless of upstream burst rate. Buffering every tick for the slowest client would have required unbounded queues.
+- **Bounded buffer as the backstop** — conflation bounds the *rate*, `bufferedAmount` bounds the *bytes*: if a connection holds > 1 MB unsent for 10 s (mobile client in a tunnel), we close with app code `4008 slow_consumer`. The client's normal reconnect+resume path recovers it. One slow client can now cost the fleet at most 1 MB.
+- **Per-symbol sequence + snapshot fallback** (Choice 2) — resume tokens are `{symbol: lastSeq}`. Each gateway keeps a 60 s per-symbol ring buffer fed from Redis pub/sub, so *any* node can serve a resume — no sticky sessions, and reconnects after a deploy don't stampede the origin. Beyond 60 s the server sends a fresh snapshot instead; the client applies it idempotently. We chose per-symbol sequences over exposing Kafka offsets because the internal log is an implementation detail we reserve the right to change.
+- **Ticket auth + close-on-expiry** (Choice 4) — browser `WebSocket` can't send headers, so the client POSTs for a 30 s single-use ticket and connects with `wss://…/ws?ticket=…`. Sessions are 15 min; at expiry the server closes with `4401`; the client refreshes and reconnects with its resume map. Rationale: one recovery path (reconnect) handles network drops, deploys, slow-consumer kicks, *and* auth expiry.
+
+**Server core** (Node, `ws`):
+
+```typescript
+import { WebSocketServer, WebSocket } from "ws";
+
+const CONFLATE_MS = 500;
+const MAX_BUFFERED_BYTES = 1_000_000;
+const SLOW_GRACE_MS = 10_000;
+
+interface Tick { symbol: string; seq: number; bid: number; ask: number; ts: number; }
+interface Conn { ws: WebSocket; subs: Set<string>; pending: Map<string, Tick>;
+                 slowSince: number | null; alive: boolean; }
+
+const conns = new Set<Conn>();
+
+// Feed handler (Redis pub/sub, ~2,000 msg/s peak): conflate, never send inline
+export function onTick(tick: Tick) {
+  for (const c of conns) {
+    if (c.subs.has(tick.symbol)) c.pending.set(tick.symbol, tick); // latest wins
+  }
+}
+
+setInterval(() => {
+  const now = Date.now();
+  for (const c of conns) {
+    if (c.ws.bufferedAmount > MAX_BUFFERED_BYTES) {
+      c.slowSince ??= now;
+      if (now - c.slowSince > SLOW_GRACE_MS) c.ws.close(4008, "slow_consumer");
+      continue; // skip flush; conflation keeps only the latest values anyway
+    }
+    c.slowSince = null;
+    if (c.pending.size > 0) {
+      c.ws.send(JSON.stringify({ type: "ticks", data: [...c.pending.values()] }));
+      c.pending.clear();
+    }
+  }
+}, CONFLATE_MS);
+
+// Liveness: ping every 30 s, drop peers that miss a pong cycle
+setInterval(() => {
+  for (const c of conns) {
+    if (!c.alive) { c.ws.terminate(); continue; }
+    c.alive = false;
+    c.ws.ping();
+  }
+}, 30_000);
+
+new WebSocketServer({ port: 8080 }).on("connection", (ws, req) => {
+  // validateTicket consumes the single-use ticket minted by POST /stream-tickets
+  const session = validateTicket(new URL(req.url!, "ws://x").searchParams.get("ticket"));
+  if (!session) return ws.close(4401, "auth_required");
+
+  const conn: Conn = { ws, subs: new Set(), pending: new Map(), slowSince: null, alive: true };
+  conns.add(conn);
+  ws.on("pong", () => { conn.alive = true; });
+  ws.on("close", () => conns.delete(conn));
+
+  ws.on("message", (raw) => {
+    const msg = JSON.parse(raw.toString());
+    if (msg.type === "subscribe") {
+      for (const s of msg.symbols) conn.subs.add(s);
+      // Resume: replay from the 60s ring buffer where seq is fresh, else snapshot
+      ws.send(JSON.stringify(resumeOrSnapshot(msg.symbols, msg.since ?? {})));
+    }
+    if (msg.type === "unsubscribe") for (const s of msg.symbols) conn.subs.delete(s);
+  });
+});
+```
+
+**Result.** Per-gateway egress peaks at ~24 MB/s across 4,000 connections (3 gateways), flat regardless of upstream burstiness — conflation absorbs the variance. A rolling deploy reconnects 12k clients over ~90 s with client-side jitter; because any node serves any resume, the reconnect storm hits Redis-backed ring buffers, not the pricing origin. The `4008` kick fires on ~0.3% of connections/day, almost all mobile — those clients resume within seconds instead of degrading a gateway.
+
+## Proxies and Load Balancers: Where Streams Go to Die
+
+| Layer | Pitfall | Fix |
 |---|---|---|
-| No baseline measurement | Cannot prove improvement | Measure current state first |
-| Big-bang implementation | High risk, slow feedback | Incremental rollout with gates |
-| Manual-only processes | Does not scale; inconsistent | Automate repeatable steps |
-| No ownership | Responsibility diffuses | Named owner for each component |
-| No review cadence | Drift and debt accumulate | Scheduled reviews (monthly/quarterly) |
+| nginx (default) | Buffers upstream responses — deltas arrive as one burst at the end | `proxy_buffering off;` for stream routes, or send `X-Accel-Buffering: no` per response |
+| nginx / ALB idle timeout | 60 s of no bytes → connection killed; client may not notice for minutes | Heartbeat at < ½ the timeout; raise the timeout on stream routes; client dead-man's timer |
+| Any L7 proxy | WebSocket upgrade dropped (missing `Upgrade`/`Connection` headers, HTTP/1.0 upstream) → 400/426 | `proxy_http_version 1.1;` + forward `Upgrade` and `Connection: upgrade` |
+| Compression middleware | gzip buffers output to compress it — silently defeats streaming | Disable compression for `text/event-stream`; for WS use permessage-deflate deliberately (it costs memory per connection) |
+| Browser + HTTP/1.1 | ~6 connections per origin — a few SSE tabs starve all other requests | Serve streams over HTTP/2 |
+| L4 LB + gRPC | Long-lived HTTP/2 connections pin to one backend; scale-out does nothing | L7/gRPC-aware LB (Envoy), or server-side `MAX_CONNECTION_AGE` to force periodic re-balance |
+| Multi-node fleets | Reconnect lands on a node without the client's replay state | Externalize replay buffers (Redis/log) so any node can resume — never rely on stickiness for correctness |
+| Corporate middleboxes | Some proxies/AV buffer or strip streaming entirely | Client-side stall detection (no bytes in 2× heartbeat → reconnect); offer a long-poll fallback if this audience matters |
+
+```nginx
+# Stream-safe nginx reverse proxy
+location /v1/chat/stream {
+    proxy_pass http://app;
+    proxy_http_version 1.1;
+    proxy_set_header Connection "";
+    proxy_buffering off;           # deltas flow immediately
+    proxy_cache off;
+    proxy_read_timeout 300s;       # > any expected quiet period
+    gzip off;                      # compression buffers; disable on stream routes
+}
+
+location /ws/ {
+    proxy_pass http://app;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_read_timeout 120s;       # > heartbeat interval (30s) with margin
+}
+```
+
+## Anti-Patterns
+
+| Symptom | Why it fails | Do instead |
+|---|---|---|
+| "Streaming" endpoint delivers everything in one burst at the end | A proxy hop is buffering; you shipped streaming that has streaming's cost and polling's UX | Test through the production proxy chain; `proxy_buffering off` / `X-Accel-Buffering: no`; disable gzip on stream routes |
+| WebSocket for a one-way feed | You pay upgrade handling, custom heartbeats, and custom reconnect for a flow SSE gives you natively | SSE with `id:` + `Last-Event-ID`; reserve WS for genuine bidirectionality |
+| Unbounded per-client send queues | One slow client (mobile, tunnel, hostile) grows a queue until the gateway OOMs — a single peer takes down thousands | Conflate state feeds; cap buffered bytes and disconnect with an app close code; the client's resume path recovers |
+| No heartbeats in either direction | Idle timeout kills the connection; TCP won't tell the client for minutes — a "connected" screen showing stale data | Server keepalive < ½ the smallest timeout in the path; client dead-man's timer at 2× heartbeat |
+| No event IDs / no resume design | Every reconnect is a coin-flip between gaps and full refetch; a deploy triggers a thundering herd of snapshot requests | IDs on every event from day one; replay window + snapshot fallback; idempotent client apply |
+| Long-lived bearer token in the query string | URLs land in access logs, proxy logs, and browser history — you've written credentials to disk fleet-wide | One-time short-TTL tickets in the query, or cookies, or headers on fetch-based clients |
+| Ignoring the terminal event in LLM streams | `max_tokens` truncation and mid-stream refusals render as a normal-looking answer that just… stops | Emit explicit `done`/`error` with `stop_reason`; clients treat close-without-terminal as failure |
+| Auth checked only at connect | A revoked or expired user keeps a live feed for hours because nothing re-evaluates | Bind stream lifetime to credential lifetime: close with an app code at expiry, reconnect re-authenticates |
+| Client reconnects immediately in a tight loop | An outage becomes a self-inflicted DDoS the moment the service returns | Exponential backoff with jitter, honoring SSE `retry:` / server hints |
+
+## Checklist
+
+Copy into the PR description or design doc:
+
+```
+Streaming API review — [service/endpoint]
+
+Contract
+[ ] Protocol chosen via decision table; runner-up and reason recorded
+[ ] Event envelope defined: id, type, payload schema
+[ ] Explicit terminal event ("done" vs "error") — close-without-terminal = failure
+[ ] Every event carries a monotonic id / sequence
+
+Resilience
+[ ] Resume strategy chosen (replay window / snapshot / documented live-only)
+[ ] Replay retention sized and stated (e.g. 60 s)
+[ ] Client reconnect: exponential backoff + jitter, resends cursor
+[ ] Client apply is idempotent (replay overlap is harmless)
+
+Flow control
+[ ] Backpressure policy explicit per stream class (conflate / bounded+kick / credit)
+[ ] Per-connection byte cap and slow-consumer close code defined
+[ ] Server heartbeat interval < ½ smallest timeout in the path
+[ ] Client dead-man's timer at 2× heartbeat
+
+Auth
+[ ] Connect mechanism (cookie / ticket / header) — no long-lived tokens in URLs
+[ ] Mid-stream expiry behavior defined (close code + reconnect)
+[ ] Upstream provider keys never reach the client (relay pattern)
+
+Path
+[ ] Proxy buffering disabled on stream routes; compression off or per-message
+[ ] LB idle timeouts raised; WS upgrade headers forwarded end to end
+[ ] Any-node resume works (replay state externalized) — no stickiness for correctness
+[ ] Load-tested: slow readers, mass reconnect, production-identical proxy chain
+
+Observability
+[ ] Metrics: concurrent connections, queue depth, delivery lag, reconnect rate
+[ ] Terminal-event ratio tracked (done vs error vs silent drop)
+```
 
 ## 10 Rules
 
-1. Define success criteria before starting — not after.
-2. Measure the current state baseline before making any changes.
-3. Automate repeatable checks — manual processes degrade under pressure.
-4. Every action item has a named owner and a deadline.
-5. Incremental delivery is safer than big-bang — ship small, validate often.
-6. Document decisions and their rationale — future you will thank you.
-7. Monitor outcomes after implementation — set-and-forget does not work.
-8. Review and improve the process quarterly — it should get better over time.
-9. Share learnings across the team — knowledge hoarded is knowledge lost.
-10. Treat this as a practice, not a project — excellence requires ongoing investment.
+1. **Default to SSE. Justify WebSocket, not the other way around.** If the client never sends data mid-stream, WebSocket is pure operational overhead wearing a fashionable name.
+2. **A stream without a terminal event is a bug factory.** "Done" and "died" must be distinguishable by contract, not inferred from silence.
+3. **Design resume before v1.** Event IDs cost one line now; retrofitting them is a breaking change for every client you've ever shipped.
+4. **Backpressure is a product decision.** "Drop, conflate, or disconnect" changes what users see — make the call explicitly per stream, never let the default (unbounded buffer) decide for you.
+5. **A slow client may cost you a bounded number of bytes, then nothing.** Any design where one peer's slowness grows server memory without limit is an outage on a timer.
+6. **Heartbeat both ways.** Server keepalives defeat middlebox timeouts; the client's dead-man's timer defeats the connections that die without a FIN.
+7. **Reconnect is the universal recovery path — route everything through it.** Network drops, deploys, slow-consumer kicks, and auth expiry should all resolve as "reconnect with resume token", not four bespoke mechanisms.
+8. **Test through the real proxy chain.** Streaming is the one API class where localhost success is close to meaningless — buffering, timeouts, and upgrade handling only exist in the full path.
+9. **Never let a provider API key reach the client.** LLM and data-feed streams are always relayed; the relay is also where cancellation, rate limiting, and usage logging live.
+10. **Idempotent apply beats exactly-once delivery.** You will not get exactly-once over the public internet; a client that can safely re-apply an overlapping replay makes at-least-once good enough.
 
+## References
 
-## Deep dive: applying this in practice
-
-The sections above describe *what* to produce. This section describes *how* practitioners actually run this in the field, including the conversations, artefacts, and review loops that turn a one-page recommendation into a sustained outcome.
-
-### The 30/60/90 cadence
-
-A recommendation that is never revisited is a recommendation that quietly fails. Bake review checkpoints in from day one:
-
-- **Day 0 — Decision committed.** Owner, scope, success metrics, and the first-checkpoint date are recorded in the decision log. The artefact is linked from the team's working space so it is discoverable without asking.
-- **Day 30 — Early-signal review.** Look at the leading indicators, not the lagging ones. Has the team actually started? Are the assumed dependencies real? Have any of the named risks materialised? Adjust scope, not the goal.
-- **Day 60 — Course-correction window.** This is the last cheap moment to change direction. If the leading indicators are flat or negative, escalate. Silence at day 60 is the most expensive form of optimism.
-- **Day 90 — Outcome review.** Measure against the success criteria captured on day 0, not against the story the team is telling now. Write the post-mortem (or pre-mortem-confirmed) in the same artefact so the rationale, the outcome, and the lessons live together.
-
-### Stakeholder choreography
-
-Decisions stall not because the analysis is wrong but because the choreography is wrong. Use a lightweight RACI on every recommendation:
-
-| Role | Meaning | Anti-pattern |
-|---|---|---|
-| **Responsible** | Does the work | More than two people listed |
-| **Accountable** | Owns the outcome, signs off | Shared accountability (always becomes no accountability) |
-| **Consulted** | Two-way input before the decision | Consulted *after* the decision is made — purely performative |
-| **Informed** | One-way notification after the decision | Informed people are asked to approve — wastes their time and yours |
-
-If you cannot name a single Accountable person in one minute, the recommendation is not ready to ship.
-
-### Writing for senior readers
-
-Senior readers scan first, read second, and only re-read the parts they disagree with. Optimise for that pattern:
-
-1. **Lead with the recommendation**, not the analysis. The reader should know what you want them to do before they finish the first paragraph.
-2. **One screen, one page, one decision.** If the artefact needs scrolling on a laptop, it is too long for the audience it is written for.
-3. **Tables beat paragraphs** for comparing options. Prose hides the trade-off; a table forces it into the open.
-4. **Numbers beat adjectives.** Replace "significant" with the actual number. Replace "soon" with a date. Replace "improved" with a baseline and a target.
-5. **Name the disconfirming evidence.** A recommendation that lists what would change the author's mind is read as honest; one that does not is read as advocacy.
-
-### Common failure modes
-
-| Failure mode | Symptom | Counter-move |
-|---|---|---|
-| **Analysis paralysis** | Weeks of investigation, no decision | Time-box the analysis. State the decision quality you can defend in the time available. |
-| **HiPPO override** | Highest-paid person's opinion wins regardless of evidence | Force the trade-off table into the room before opinions are voiced |
-| **Sunk-cost gravity** | Team defends the current path because of prior investment | Re-frame: what would we choose today with no prior investment? |
-| **Scope creep at the checkpoint** | Review becomes a re-planning session | Separate "did this work?" from "what next?" Run them as two meetings. |
-| **Stealth de-scoping** | Success metrics quietly soften between day 0 and day 90 | Lock the day-0 metrics into the artefact; require an explicit amendment to change them. |
-| **Owner drift** | Accountable person leaves, no one re-assigns | Owner reassignment is a mandatory step in onboarding/offboarding the role |
-
-### A worked example
-
-> A product line is debating whether to invest in a major rewrite of a legacy service that has been failing under peak load.
-
-A weak response: "We should rewrite it because the code is old."
-
-A response that uses this skill:
-
-> **Recommendation.** Do not rewrite. Invest one quarter in targeted performance work on the existing service and a parallel strangler-fig migration of the top two failing endpoints. Confidence: medium. Would change my mind if peak-load incidents continue at the current rate for two consecutive months after the performance work ships.
->
-> **Options considered.** (1) Full rewrite — 9–12 months, ~$1.4M, high risk of partial delivery. (2) Performance fix in place — 6 weeks, ~$120K, addresses 80% of incident volume per last-quarter analysis. (3) Strangler-fig migration — 6 months for the two hottest endpoints, ~$400K, preserves optionality.
->
-> **Plan.** Owner: Platform tech lead. Day 30: performance fix in staging with load test results. Day 60: production rollout and a 30-day incident-rate comparison. Day 90: decision on whether to expand the strangler-fig scope.
->
-> **Risks.** (1) Performance fix masks a deeper architectural issue — mitigated by capturing flame graphs before and after. (2) Strangler-fig endpoints are not in fact the hottest ones — mitigated by re-running the traffic analysis at day 0. (3) Team capacity collides with a separate compliance deadline — escalated to the portfolio review on the next planning cycle.
-
-That is the shape of output this skill should produce: a defensible, time-bound, owner-attached recommendation that respects the reader's time and survives turnover.
-
-## Quick reference card
-
-- One paragraph of context, three options with trade-offs, one recommendation with confidence, one plan with an owner and a date.
-- If you cannot name the owner, the metric, and the checkpoint date in one breath, the artefact is not done.
-- A decision without a written rationale is a rumour. A rationale without a checkpoint is a wish. A checkpoint without a metric is theatre.
-- Reversibility matters more than people admit: one-way doors deserve the slow lane, two-way doors deserve the fast lane.
-- The best artefacts in this category are short, dated, signed, and easy to find six months later.
-
-
-## Deep dive: applying this in practice
-
-The sections above describe *what* to produce. This section describes *how* practitioners actually run this in the field, including the conversations, artefacts, and review loops that turn a one-page recommendation into a sustained outcome.
-
-### The 30/60/90 cadence
-
-A recommendation that is never revisited is a recommendation that quietly fails. Bake review checkpoints in from day one:
-
-- **Day 0 — Decision committed.** Owner, scope, success metrics, and the first-checkpoint date are recorded in the decision log. The artefact is linked from the team's working space so it is discoverable without asking.
-- **Day 30 — Early-signal review.** Look at the leading indicators, not the lagging ones. Has the team actually started? Are the assumed dependencies real? Have any of the named risks materialised? Adjust scope, not the goal.
-- **Day 60 — Course-correction window.** This is the last cheap moment to change direction. If the leading indicators are flat or negative, escalate. Silence at day 60 is the most expensive form of optimism.
-- **Day 90 — Outcome review.** Measure against the success criteria captured on day 0, not against the story the team is telling now. Write the post-mortem (or pre-mortem-confirmed) in the same artefact so the rationale, the outcome, and the lessons live together.
-
-### Stakeholder choreography
-
-Decisions stall not because the analysis is wrong but because the choreography is wrong. Use a lightweight RACI on every recommendation:
-
-| Role | Meaning | Anti-pattern |
-|---|---|---|
-| **Responsible** | Does the work | More than two people listed |
-| **Accountable** | Owns the outcome, signs off | Shared accountability (always becomes no accountability) |
-| **Consulted** | Two-way input before the decision | Consulted *after* the decision is made — purely performative |
-| **Informed** | One-way notification after the decision | Informed people are asked to approve — wastes their time and yours |
-
-If you cannot name a single Accountable person in one minute, the recommendation is not ready to ship.
-
-### Writing for senior readers
-
-Senior readers scan first, read second, and only re-read the parts they disagree with. Optimise for that pattern:
-
-1. **Lead with the recommendation**, not the analysis. The reader should know what you want them to do before they finish the first paragraph.
-2. **One screen, one page, one decision.** If the artefact needs scrolling on a laptop, it is too long for the audience it is written for.
-3. **Tables beat paragraphs** for comparing options. Prose hides the trade-off; a table forces it into the open.
-4. **Numbers beat adjectives.** Replace "significant" with the actual number. Replace "soon" with a date. Replace "improved" with a baseline and a target.
-5. **Name the disconfirming evidence.** A recommendation that lists what would change the author's mind is read as honest; one that does not is read as advocacy.
-
-### Common failure modes
-
-| Failure mode | Symptom | Counter-move |
-|---|---|---|
-| **Analysis paralysis** | Weeks of investigation, no decision | Time-box the analysis. State the decision quality you can defend in the time available. |
-| **HiPPO override** | Highest-paid person's opinion wins regardless of evidence | Force the trade-off table into the room before opinions are voiced |
-| **Sunk-cost gravity** | Team defends the current path because of prior investment | Re-frame: what would we choose today with no prior investment? |
-| **Scope creep at the checkpoint** | Review becomes a re-planning session | Separate "did this work?" from "what next?" Run them as two meetings. |
-| **Stealth de-scoping** | Success metrics quietly soften between day 0 and day 90 | Lock the day-0 metrics into the artefact; require an explicit amendment to change them. |
-| **Owner drift** | Accountable person leaves, no one re-assigns | Owner reassignment is a mandatory step in onboarding/offboarding the role |
-
-### A worked example
-
-> A product line is debating whether to invest in a major rewrite of a legacy service that has been failing under peak load.
-
-A weak response: "We should rewrite it because the code is old."
-
-A response that uses this skill:
-
-> **Recommendation.** Do not rewrite. Invest one quarter in targeted performance work on the existing service and a parallel strangler-fig migration of the top two failing endpoints. Confidence: medium. Would change my mind if peak-load incidents continue at the current rate for two consecutive months after the performance work ships.
->
-> **Options considered.** (1) Full rewrite — 9–12 months, ~$1.4M, high risk of partial delivery. (2) Performance fix in place — 6 weeks, ~$120K, addresses 80% of incident volume per last-quarter analysis. (3) Strangler-fig migration — 6 months for the two hottest endpoints, ~$400K, preserves optionality.
->
-> **Plan.** Owner: Platform tech lead. Day 30: performance fix in staging with load test results. Day 60: production rollout and a 30-day incident-rate comparison. Day 90: decision on whether to expand the strangler-fig scope.
->
-> **Risks.** (1) Performance fix masks a deeper architectural issue — mitigated by capturing flame graphs before and after. (2) Strangler-fig endpoints are not in fact the hottest ones — mitigated by re-running the traffic analysis at day 0. (3) Team capacity collides with a separate compliance deadline — escalated to the portfolio review on the next planning cycle.
-
-That is the shape of output this skill should produce: a defensible, time-bound, owner-attached recommendation that respects the reader's time and survives turnover.
-
-## Quick reference card
-
-- One paragraph of context, three options with trade-offs, one recommendation with confidence, one plan with an owner and a date.
-- If you cannot name the owner, the metric, and the checkpoint date in one breath, the artefact is not done.
-- A decision without a written rationale is a rumour. A rationale without a checkpoint is a wish. A checkpoint without a metric is theatre.
-- Reversibility matters more than people admit: one-way doors deserve the slow lane, two-way doors deserve the fast lane.
-- The best artefacts in this category are short, dated, signed, and easy to find six months later.
+- WHATWG HTML Living Standard — Server-sent events (`EventSource`, wire format, `Last-Event-ID`)
+- RFC 6455 — The WebSocket Protocol (handshake, frames, close codes, ping/pong)
+- gRPC documentation — streaming RPCs, keepalive, and load-balancing guidance (grpc.io)
+- Anthropic Claude API — Messages streaming reference: `https://platform.claude.com/docs/en/build-with-claude/streaming`
+- nginx documentation — `proxy_buffering`, `proxy_read_timeout`, WebSocket proxying

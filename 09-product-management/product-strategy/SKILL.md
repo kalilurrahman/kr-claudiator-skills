@@ -73,6 +73,22 @@ How is investment split between defending the core and finding the next curve? N
 
 Every non-core bet gets explicit kill criteria at funding time (see below). A bet without kill criteria is a permanent department in waiting.
 
+## Segmentation That Serves Strategy
+
+Firmographic segmentation — industry, headcount, region — is where most strategy work starts and stalls: it describes the market without revealing where you win. Strategy-grade segmentation cuts the *existing customer base* by behaviour and economics, hunting for the segment where retention and willingness to pay are outliers. That outlier, plus a structural explanation for it, is a where-to-play candidate; an outlier without an explanation is probably noise.
+
+| Cut | Question it answers | Outlier signal worth investigating |
+|---|---|---|
+| Retention / NRR by segment | Where does the product actually hold? | A segment with churn under half the blended rate, or NRR 15+ points above it |
+| Win rate by competitive alternative | Which fight do we win? | Win rate that spikes when the alternative is manual work or a spreadsheet, and craters against a specific rival |
+| Use-case intensity | Who extracts the deepest value? | Accounts using 2×+ the median number of workflows or seats |
+| CAC payback by channel × segment | Where is growth affordable? | A channel-segment pair with payback months below the blended figure |
+| Expansion requests | What do best-fit customers want next? | The same unmet adjacent need appearing across a segment's expansion calls |
+
+Two cautions from practice. First, demand a causal mechanism before promoting an outlier to a strategy: Ledgerly's e-commerce segment (Worked Example 1) mattered because settlement-data pain *explained* the retention gap — a segment that merely happens to retain well this year is a coincidence you are about to over-invest in. Second, segment on data you can keep measuring; a where-to-play defined by attributes you cannot observe in the funnel cannot be operated by sales or growth.
+
+Positioning is then where-to-play made legible to the market. Use Dunford's components in order — competitive alternatives, unique attributes, value with proof, best-fit characteristics, market category — and start honestly: for most products the true competitive alternative is a spreadsheet, an intern, or doing nothing, and positioning against a named rival your buyers never shortlist is positioning for an audience of your own board.
+
 ## The Strategy Kernel (Rumelt)
 
 Rumelt's kernel is the minimum viable structure for the document itself:
@@ -167,6 +183,38 @@ retention/NRR by segment, win-loss data, market shift. No SWOT dumps.]
 [2–3 observations that would invalidate the diagnosis and trigger a rewrite]
 ```
 
+### Strategic Bet Funding Memo (one per bet)
+
+```markdown
+# Bet: [name]
+**Sponsor:** [exec]  **Kill-decision owner:** [named person, ideally ≠ sponsor]
+**Funded:** [date]  **Scheduled review:** [date]  **Duration of commitment:** [quarters]
+
+## Hypothesis
+If we [action], then [measurable outcome] by [date], because [causal mechanism].
+
+## Link to strategy
+Funds guiding-policy statement #[N]; deepens [named advantage/power].
+
+## Resourcing
+[teams, headcount, budget — and where it comes from]
+
+## Leading indicators (checked monthly)
+- [metric]: [baseline] → [expected trajectory if the hypothesis is true]
+
+## Kill criteria — states and dates, written now, not at review
+- Kill if [metric] [</>] [threshold] by [date]
+- Kill if [qualitative state — e.g., no design partner converts to paid] by [date]
+
+## Pre-committed reallocation
+If killed, people and budget move to [named destination].
+
+## What graduation looks like
+[the measurable state at which this bet stops being a bet and joins the core]
+```
+
+The two fields that do the real work are **kill-decision owner** and **pre-committed reallocation**. Separating the kill call from the sponsor removes the conflict of interest, and naming the reallocation destination in advance turns a kill from a loss into a transfer — which is what makes it politically survivable (see Fieldstone, below).
+
 ## Worked Example 1: Ledgerly — Series A, Choosing a Beachhead
 
 **Situation.** Ledgerly is a fictional 42-person Series A company selling invoicing and AP automation to SMBs. ARR $3.4M, growing 6% month-over-month but decelerating; monthly logo churn 3.1%; sales cycle 68 days; win rate 14% in deals where the buyer compares against the dominant SMB accounting ecosystem's add-ons.
@@ -214,6 +262,25 @@ retention/NRR by segment, win-loss data, market shift. No SWOT dumps.]
 
 **Communicating the strategy.** The canonical artifact was a one-pager, not the 40-slide offsite deck. Every PM spec and quarterly review opened by naming which bet the work funded. A baseline survey found 31% of product staff could state the where-to-play; after two quarters of repetition at all-hands, sprint reviews, and onboarding, 85% could. Fieldstone treated that comprehension number as a leading indicator: a strategy the team cannot recite is a strategy the roadmap will quietly ignore.
 
+## Worked Example 3: Harborline — When the Diagnosis Breaks Mid-Cycle
+
+The first two examples show strategies being set. This one shows the review loop in the cascade diagram doing its job — the arrow from quarterly review back to diagnosis.
+
+**Situation.** Harborline is a fictional customer-support QA platform: $9M ARR, 70 people. Its ratified strategy rested on a how-to-win of superior scoring accuracy — proprietary models that graded support conversations better than the manual sampling its buyers used. Where-to-play: support orgs of 50–500 agents in regulated industries. The strategy's "what would change our mind" section, written a year earlier, included: *"General-purpose foundation models reach parity with our scoring accuracy at materially lower cost."*
+
+**The break.** Within two quarters, foundation-model-based competitors launched auto-QA at roughly one-fifth of Harborline's price, and Harborline's own bake-offs confirmed near-parity on standard scoring. Trial-to-paid conversion fell 24% → 15%; two renewals cited a cheaper AI-native alternative. At the quarterly review the leading indicators tripped the pre-written clause. **Rationale for acting on it:** because the invalidating observation had been written down in advance, the debate was not *whether* the diagnosis had broken — only what to do next. Teams that skip the "what would change our mind" section end up litigating the evidence itself, usually for two or three quarters longer than the market gives them.
+
+**The rewrite.** New diagnosis: *scoring accuracy has commoditised; the durable asset is not the grade but what happens after it.* The choices moved accordingly:
+
+| Element | Old strategy | Rewritten strategy | Rationale |
+|---|---|---|---|
+| How to win | Accuracy advantage (a capability rivals just matched) | Switching costs: QA workflow as system of record — calibration sessions, coaching loops, audit trails regulators accept | Accuracy was a wasting asset; workflow embeddedness deepens with use and survives model parity |
+| Where to play | Support orgs 50–500 agents, regulated industries | Unchanged — narrowed messaging to compliance-audit use cases | The segment still had the outlier retention; only the reason they stayed had changed |
+| Scoring engine | Proprietary models as the moat | Commodity input — swapped to foundation models, cutting model spend ~60% | Counter-position on the *former* moat: sell "bring any model; we make it auditable" against rivals still selling accuracy |
+| Bets | Bet 2 was accuracy benchmarking content | Killed; funding moved to audit-trail and calibration features | Benchmarking marketing amplifies a fight Harborline had stopped trying to win |
+
+**The lesson.** The rewrite took six weeks, not a year, because the machinery existed: a dated diagnosis, pre-written invalidation triggers, bets that could be individually killed, and a one-pager whose changes could be diffed line by line at all-hands. Strategy durability is not the absence of change — it is a low cost of change when the evidence demands it.
+
 ## Connecting Strategy to OKRs and Roadmaps
 
 The cascade only works if traceability is enforced in both directions:
@@ -221,6 +288,22 @@ The cascade only works if traceability is enforced in both directions:
 - **Downward:** every objective names its bet; every KR has a baseline and target; every roadmap item carries a bet tag. Untagged work is either keep-the-lights-on (explicitly capped — 20–30% of capacity is typical) or it is cut.
 - **Upward:** quarterly reviews score the bets, not just the KRs. A green KR on a dying bet (activity without validation) and a red KR that taught you the diagnosis was wrong (a productive miss) must be distinguishable — Grove-lineage OKRs (popularised by John Doerr, *Measure What Matters*, 2018) are a measurement system for the strategy, not a substitute for one.
 - **Kill criteria are the hinge.** Format: *state + date* — "kill if [metric] below [threshold] by [date]," written at funding time, reviewed on the calendar, with a named decision-owner. Criteria invented at review time will be negotiated to fit the result.
+
+## Communicating Strategy
+
+A strategy is only real at decision points — a sales escalation asking for an off-segment feature, a sprint trade-off, a hiring plan. Communication succeeds when the person at that decision point can apply the trade-off without asking leadership. That implies three practices:
+
+- **Lead with the diagnosis, not the conclusions.** Rumelt's kernel ordering is also the persuasive ordering: people accept a trade-off whose cause they have seen. Announcing "we are dropping segment X" without first showing the churn and win-rate evidence produces compliance at best and quiet sabotage at worst.
+- **Say the not-serving list out loud, repeatedly.** The strategy's first real test is usually a large off-segment deal. If sales hears the exclusions for the first time during that escalation, the strategy loses.
+- **Repeat past your own boredom, and measure it.** Comprehension — can a randomly chosen PM state the where-to-play and the top even-over statements? — is a leading indicator of whether the roadmap will actually follow the document.
+
+| Vehicle | Audience | Cadence | Purpose |
+|---|---|---|---|
+| One-pager (canonical, ratified, dated) | Everyone | Reread at every planning cycle | Single source of truth; diffable when it changes |
+| Strategy narrative (2–3 pages of prose) | Product, engineering, design | Once at ratification; in onboarding | The reasoning and rejected options, not just conclusions |
+| All-hands segment with bet scoreboard | Whole company | Monthly or quarterly | Repetition; public bet status including kills |
+| Bet tags on specs, briefs, reviews | Working teams | Every artifact | Traceability where decisions actually happen |
+| Comprehension pulse (3 questions) | Product org | Quarterly | Detects strategy drift before the roadmap shows it |
 
 ## Anti-Patterns
 

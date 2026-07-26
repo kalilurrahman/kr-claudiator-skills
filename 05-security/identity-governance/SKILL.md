@@ -209,6 +209,19 @@ ORDER BY a.last_login_at DESC NULLS LAST;   -- NULLS LAST: PostgreSQL syntax
 
 Rows with recent `last_login_at` are incidents, not cleanup items.
 
+## Privileged Access: Standing vs Just-in-Time
+
+Privileged entitlements (admin consoles, production databases, cloud org-admin) deserve a stricter regime than the general model, because one compromised admin outweighs a hundred compromised users.
+
+| Pattern | How it works | Strength | Cost | Use when |
+|---------|--------------|----------|------|----------|
+| Standing admin + named accounts | Admins hold the entitlement permanently, on a separate `-admin` account | Simple; always available | Standing attack surface 24/7; heaviest certification burden | Small teams; systems with no elevation mechanism |
+| PAM vault / checkout | Privileged credentials brokered per-use, sessions recorded | Attribution + session evidence; shared creds become governable | Platform cost; friction | Legacy systems with unavoidable shared/root credentials |
+| **JIT elevation (target state)** | Zero standing privilege; time-boxed elevation on request with approval, auto-revoked | Attack surface exists only during approved windows; every use is a logged, justified event | Engineering to build the elevation path; on-call needs a fast lane | Cloud IAM and any system with an API for temporary grants |
+| Break-glass | Sealed emergency credentials, alarmed on use, rotated after | Covers the 3 a.m. outage without normalizing standing access | Must be tested and rotated or it silently rots | Complement to JIT, never a substitute for it |
+
+Two rules make JIT honest: the elevation window is short (hours, not weeks — a 30-day "temporary" admin grant is standing access with paperwork), and **use of break-glass is an incident by definition** — it pages someone, and the retro asks why the JIT path didn't suffice. The reporting payoff is real: certifying privileged access under JIT means reviewing an approval log instead of a standing-entitlement list, which is both faster and stronger evidence.
+
 ## Worked Example 1 — Role Mining at a 420-Person Fintech
 
 **Meridian Pay**: 420 employees, Okta + Workday, 61 SaaS apps plus AWS, SOC 2 Type II holder, pre-IPO SOX readiness starting. Symptom set: 1,340 Okta groups (214 empty, 388 single-member), onboarding modeled as "copy whatever Bob has," 380 access-request tickets/month, average 3.2 days for a new hire to become productive.
@@ -254,6 +267,19 @@ Evidence is a by-product of automation, not a document sprint the week before fi
 
 Auditors sample: "show me the five most recent terminations and prove access removal within SLA" is the classic ask. If answering takes a SQL query and five minutes, you have a program. If it takes three weeks of screenshots, you have a liability.
 
+## Operating Metrics
+
+Run the program on numbers, and know what each number smells like when it lies.
+
+| Metric | Healthy signal | The smell to investigate |
+|--------|---------------|--------------------------|
+| Time-to-deprovision (leaver, tier 1) | Hours, measured per event, P95 not just mean | A great mean hiding a P95 of days — usually the ticket-tail apps |
+| Orphaned accounts found per monthly scan | Trends to ~0; any found have stale `last_login_at` | Recent logins on orphans (incident); or a perfect 0 while a SCIM token is expired — verify the scan itself runs |
+| Certification revocation rate | 3–10% — reviews are finding real drift | <1% means rubber-stamping; >15% means the request path is granting badly |
+| Exception count and median age | Flat count, age bounded by max duration | A growing pile of renewed exceptions is your real access model routing around the role model |
+| Birthright coverage | ~75–85% of assignments via roles | >95% signals role explosion; a falling number after re-orgs means roles have drifted from the org |
+| Access requests per month | Falling after each mining pass | Rising volume for the same entitlement = promote it to birthright and re-mine |
+
 ## Anti-Patterns
 
 | Symptom | Why it fails | Do instead |
@@ -288,6 +314,11 @@ Lifecycle
 [ ] Mover: new access day one; old access auto-revoked after a defined grace window
 [ ] Leaver: sessions/tokens revoked in minutes; tier-1 accounts in hours; all in 24h
 [ ] Deprovisioning SLA measured per event, not assumed
+
+Privileged access
+[ ] Zero standing privilege as target: JIT elevation with approval and auto-revoke
+[ ] Break-glass credentials sealed, alarmed on use, tested and rotated on a schedule
+[ ] Admin work on separate named accounts; shared credentials behind PAM checkout
 
 Assurance
 [ ] Certifications risk-tiered; item counts per reviewer sane (<50)
