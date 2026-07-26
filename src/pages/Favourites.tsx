@@ -22,14 +22,20 @@ export function FavouritesPage() {
         return;
       }
 
-      const indexRes = await fetch("/data/skills-index.json");
-      const index: SkillsIndex = await indexRes.json();
-
-      const allSkills: Skill[] = [];
-      for (const cat of index.categories) {
-        const res = await fetch(cat.dataFile);
-        const data: CategoryData = await res.json();
-        allSkills.push(...data.skills);
+      let allSkills: Skill[] = [];
+      try {
+        const bundledRes = await fetch("/data/skills-data.json");
+        if (!bundledRes.ok) throw new Error("No bundled data");
+        const bundled: { skills: Skill[] } = await bundledRes.json();
+        allSkills = bundled.skills;
+      } catch {
+        const indexRes = await fetch("/data/skills-index.json");
+        const index: SkillsIndex = await indexRes.json();
+        for (const cat of index.categories) {
+          const res = await fetch(cat.dataFile);
+          const data: CategoryData = await res.json();
+          allSkills.push(...data.skills);
+        }
       }
 
       setFavouriteSkills(allSkills.filter((s) => favIds.includes(s.id)));
@@ -51,7 +57,7 @@ export function FavouritesPage() {
       <SeoHead
         title="Your Favourite Claude Skills | Claudiator"
         description="Quickly access the Claude Skills you've starred for later. Saved locally in your browser — no account needed."
-        canonical="https://kr-claudiator-skills.lovable.app/favourites"
+        canonical="https://claudiator.kalilurrahman.com/favourites"
       />
       <Header />
       <main className="flex-1 pt-16 md:pt-20">

@@ -35,7 +35,7 @@ const CAROUSEL_SLIDES = [
   {
     icon: Wand2,
     kicker: "Always fresh",
-    title: "520+ curated, open-source",
+    title: "540+ curated, open-source",
     body: "Hand-tuned by KR Tools. New skills land via GitHub — no signup, no tracking.",
   },
 ];
@@ -101,7 +101,7 @@ export function Hero({ data }: HeroProps) {
               agent toolkit
             </h1>
             <p className="mx-auto lg:mx-0 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">{data?.totalSkills ?? 546}+</strong> production-ready
+              <strong className="text-foreground">{data?.totalSkills ?? 544}+</strong> production-ready
               SKILL.md prompts across <strong className="text-foreground">{data?.categories.length ?? 19} domains</strong>
               {" "}— tuned for <strong className="text-foreground">Claude 5 Mythos &amp; Fable</strong>, Sonnet 4.5, and Opus 4. Open-source, by Kalilur Rahman.
             </p>

@@ -64,7 +64,7 @@ export function FeedbackPage() {
       <SeoHead
         title="Send Feedback or Suggest a Skill | Claudiator"
         description="Report bugs, request features, or suggest a new Claude Skill for the Claudiator library. We read every message."
-        canonical="https://kr-claudiator-skills.lovable.app/feedback"
+        canonical="https://claudiator.kalilurrahman.com/feedback"
       />
       <Header />
       <main className="flex-1 pt-16 md:pt-20">
