@@ -1,145 +1,57 @@
 <!doctype html>
+<!-- claudiator.kalilurrahman.com has moved into the KR Library. Every path is sent on by this page:
+     exact path first, then "/x/*" prefixes, otherwise HOME; utm_* parameters are kept.
+     Generated from program/redirect-map.csv (portfolio programme, task P2-A). The old app is
+     still in src/ and in git history; it is no longer built (see vite.config). -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#161B26" />
-    <meta name="color-scheme" content="dark light" />
-
-    <title>Claudiator — The Claude Skills Generator</title>
-    <meta
-      name="description"
-      content="Open-source library of 500+ production-ready SKILL.md prompts for Claude Code & CoWork, by Kalilur Rahman."
-    />
-    <meta name="author" content="Kalilur Rahman" />
-    <meta
-      name="keywords"
-      content="Claude Skills, SKILL.md, Claude Code, Claude CoWork, Anthropic Claude prompts, AI prompt library, prompt engineering, agent skills, software engineering prompts, DevOps prompts, data engineering prompts, security prompts, system design prompts, Kalilur Rahman"
-    />
-    <link rel="canonical" href="https://claudiator.kalilurrahman.com/" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="bingbot" content="index, follow" />
-
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-
-    <!-- Open Graph -->
-    <meta property="og:site_name" content="Claudiator" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://claudiator.kalilurrahman.com/" />
-    <meta property="og:title" content="Claudiator — The Claude Skills Generator" />
-    <meta
-      property="og:description"
-      content="500+ open-source SKILL.md prompts for Claude Code & CoWork."
-    />
-    <meta property="og:image" content="https://claudiator.kalilurrahman.com/og.png" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Claudiator — The Claude Skills Generator" />
-    <meta name="twitter:description" content="500+ open-source SKILL.md prompts for Claude Code & CoWork." />
-    <meta name="twitter:image" content="https://claudiator.kalilurrahman.com/og.png" />
-    <meta name="twitter:creator" content="@kalilurrahman" />
-
-    <!-- AEO / SEO: structured data for answer engines (ChatGPT, Perplexity, Google AI Overviews) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://claudiator.kalilurrahman.com/#website",
-          "url": "https://claudiator.kalilurrahman.com/",
-          "name": "Claudiator",
-          "description": "Open-source library of 500+ Claude Skills across engineering, architecture, leadership, and cross-functional domains.",
-          "inLanguage": "en",
-          "publisher": { "@id": "https://claudiator.kalilurrahman.com/#person" },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://claudiator.kalilurrahman.com/skills?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://claudiator.kalilurrahman.com/#person",
-          "name": "Kalilur Rahman",
-          "url": "https://kalilurrahman.lovable.app",
-          "sameAs": [
-            "https://github.com/kalilurrahman",
-            "https://www.linkedin.com/in/kalilurrahman/"
-          ],
-          "jobTitle": "Technology Leader & AI Builder"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Claudiator",
-          "applicationCategory": "DeveloperApplication",
-          "operatingSystem": "Web, iOS, Android (PWA)",
-          "url": "https://claudiator.kalilurrahman.com/",
-          "description": "Browse, search and copy 500+ production-ready Claude Skills (SKILL.md prompts) across 12 engineering domains.",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "author": { "@id": "https://claudiator.kalilurrahman.com/#person" }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is Claudiator?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Claudiator is a free, open-source library of 500+ Claude Skills — production-ready SKILL.md prompts you can copy directly into Claude Code or Claude CoWork. It covers software development, DevOps, data & analytics, AI/ML, security, system design, testing, API integration, product management, architecture, cross-functional collaboration, and leadership & strategy."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is a Claude Skill?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A Claude Skill is a reusable prompt packaged as a SKILL.md file with frontmatter (name, description, allowed tools) plus the procedural instructions Claude follows when the skill is invoked. Skills make Claude behave like a specialized expert for a focused task."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I install a skill from Claudiator?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Open any skill in the browser, click Copy SKILL.md, then paste the file into your project's .claude/skills/ directory (Claude Code) or your CoWork workspace. The skill is immediately available to Claude."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is Claudiator free?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Claudiator is fully open-source under the project's GitHub repository and free to use, fork, and contribute to."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Who built Claudiator?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Claudiator was built by Kalilur Rahman, a technology leader focused on AI tooling for enterprise engineering teams."
-              }
-            }
-          ]
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>This page has moved</title>
+  <!-- HOME is also the no-JavaScript fallback -->
+  <meta http-equiv="refresh" content="0; url=https://industrybizcapability.kalilurrahman.com/skills/claude">
+  <link rel="canonical" href="https://industrybizcapability.kalilurrahman.com/skills/claude">
+  <script>
+    (function () {
+      var HOME = "https://industrybizcapability.kalilurrahman.com/skills/claude";
+      // exact paths first, then prefixes ending in "/*"
+      var MAP = {
+        "/": HOME,
+        "/skills": HOME,
+        "/guide": HOME,
+        "/about": HOME,
+        "/feedback": HOME,
+        "/favourites": HOME
+      };
+      var p = window.location.pathname.replace(/\/+$/, "") || "/";
+      var to = MAP[p];
+      if (!to) {
+        for (var k in MAP) {
+          if (k.slice(-2) !== "/*") continue;
+          var base = k.slice(0, -2);
+          if (p === base || p.indexOf(base + "/") === 0) { to = MAP[k]; break; }
         }
-      ]
-    }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+      }
+      to = to || HOME;
+      try {
+        new URLSearchParams(window.location.search).forEach(function (v, k) {
+          if (k.indexOf("utm_") === 0 && v) to += (to.indexOf("?") < 0 ? "?" : "&") + k + "=" + encodeURIComponent(v);
+        });
+      } catch (e) {}
+      window.location.replace(to);
+      document.addEventListener("DOMContentLoaded", function () {
+        var a = document.getElementById("to"); a.href = to; a.textContent = to;
+      });
+    })();
+  </script>
+  <style>
+    body { font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: #14213D; background: #F7F5EF;
+           display: grid; place-items: center; min-height: 100vh; margin: 0; padding: 24px; text-align: center; }
+    a { color: #1F7A6B; }
+  </style>
+</head>
+<body>
+  <p>This page has moved to <a id="to" href="https://industrybizcapability.kalilurrahman.com/skills/claude">https://industrybizcapability.kalilurrahman.com/skills/claude</a>.</p>
+</body>
 </html>
