@@ -1,0 +1,2 @@
+# R10: ask the host for real HTTP 301s. If the host ignores this file, index.html still redirects in the browser.
+/*  https://industrybizcapability.kalilurrahman.com/skills/claude  301
